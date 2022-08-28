@@ -7,6 +7,20 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    AnimatedCheckIcon: typeof import('./src/components/animations/AnimatedCheckIcon.vue')['default']
+    AnimatedLoadingBar: typeof import('./src/components/animations/AnimatedLoadingBar.vue')['default']
+    AwsApiGateway: typeof import('./src/components/icons/AwsApiGateway.vue')['default']
+    AwsApiGatewayIcon: typeof import('./src/components/icons/AwsApiGatewayIcon.vue')['default']
+    AwsDynamoDbIcon: typeof import('./src/components/icons/AwsDynamoDbIcon.vue')['default']
+    AwsLambdaIcon: typeof import('./src/components/icons/AwsLambdaIcon.vue')['default']
+    CheckCircleOutlineIcon: typeof import('@heroicons/vue/24/outline')['CheckCircleIcon']
+    ComputerDesktopOutlineIcon: typeof import('@heroicons/vue/24/outline')['ComputerDesktopIcon']
+    ComputerDesktopSolidIcon: typeof import('@heroicons/vue/24/solid')['ComputerDesktopIcon']
+    IconContainer: typeof import('./src/components/containers/IconContainer.vue')['default']
+    PortfolioPage: typeof import('./src/pages/portfolio-page/PortfolioPage.vue')['default']
+    SkillsAws: typeof import('./src/pages/portfolio-page/skills-aws/SkillsAws.vue')['default']
+    SkillsFrontend: typeof import('./src/pages/portfolio-page/skills-frontend/SkillsFrontend.vue')['default']
+    SkillsTests: typeof import('./src/pages/portfolio-page/skills-tests/SkillsTests.vue')['default']
+    TestExample: typeof import('./src/pages/portfolio-page/skills-tests/components/TestExample.vue')['default']
   }
 }
