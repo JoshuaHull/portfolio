@@ -1,7 +1,6 @@
 <template>
 <section
   class="test-example"
-  :style="`${!!animation ? `--animation-duration: ${animation}ms;` : ''}`"
 >
   <span class="description">
     <slot></slot>
@@ -9,21 +8,21 @@
   <IconContainer width="5rem" color="green" class="check">
     <CheckCircleOutlineIcon />
   </IconContainer>
-  <IconContainer height="2rem" color="green" class="bar">
-    <AnimatedLoadingBar :animation="animation" />
+  <IconContainer height="2rem" class="bar">
+    <AnimatedLoadingBar :animationDuration="animationDuration" />
   </IconContainer>
 </section>
 </template>
 
 <script setup lang="ts">
 interface TestExampleProps {
-  animation: number | null;
+  animationDuration: number | null;
 }
 
 const props = defineProps<TestExampleProps>();
-const { animation } = toRefs(props);
+const { animationDuration } = toRefs(props);
 
-watch(animation, (duration => {
+watch(animationDuration, (duration => {
   console.log('saw that', duration);
 }));
 </script>

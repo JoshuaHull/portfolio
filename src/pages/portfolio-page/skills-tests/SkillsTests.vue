@@ -1,14 +1,14 @@
 <template>
 <article class="skills-tests">
   <section class="tests-section">
-    <TestExample :animation="testExample1Animation">
+    <TestExample :animationDuration="testExample1Animation">
       When I press the "Run Tests" button,<br />
       then the tests will animate in sequence
     </TestExample>
-    <TestExample :animation="testExample2Animation">
+    <TestExample :animationDuration="testExample2Animation">
       test 2
     </TestExample>
-    <TestExample :animation="testExample3Animation">
+    <TestExample :animationDuration="testExample3Animation">
       test 3
     </TestExample>
     <button @click="handleClick()">

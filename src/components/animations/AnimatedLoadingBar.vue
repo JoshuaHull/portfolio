@@ -3,7 +3,6 @@
   class="animated-loading-bar"
   viewBox="0 0 1100 140"
   xmlns="http://www.w3.org/2000/svg"
-  :style="`${!!animation ? `--animation-duration: ${animation}ms;` : ''}`"
 >
   <polygon points="35,0 1040,0 1005,140 0,140" fill="none" stroke="white" stroke-width="10" />
 
@@ -23,10 +22,14 @@
 
 <script setup lang="ts">
 interface AnimatedLoadingBarProps {
-  animation: number | null;
+  animationDuration: number | null;
 }
 
-defineProps<AnimatedLoadingBarProps>();
+const props = defineProps<AnimatedLoadingBarProps>();
+const { animationDuration } = toRefs(props);
+
+const animationDurationInMs = computed(() => `${animationDuration.value}ms`);
+
 // https://blog.logrocket.com/how-to-animate-svg-css-tutorial-examples/
 // https://css-tricks.com/svg-path-syntax-illustrated-guide/
 // https://css-tricks.com/svg-properties-and-css/#svg-elements-by-category
@@ -36,8 +39,8 @@ defineProps<AnimatedLoadingBarProps>();
 <style scoped>
 .loading-part {
   opacity: 0;
-  animation: fadeIn var(--animation-duration);
-  animation-delay: calc((var(--animation-duration) / 15) * var(--loading-part));
+  animation: fadeIn v-bind(animationDurationInMs);
+  animation-delay: calc((v-bind(animationDurationInMs) / 15) * var(--loading-part));
   animation-fill-mode: forwards;
   fill: rgb(
     0,
