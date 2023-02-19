@@ -3,8 +3,11 @@
   class="test-example"
 >
   <span class="description">
-    <slot></slot>
+    <slot name="testName"></slot>
   </span>
+  <button class="run-button" @click="handleRunClick">
+    <slot name="button"></slot>
+  </button>
   <IconContainer width="5rem" color="green" class="check">
     <CheckCircleOutlineIcon />
   </IconContainer>
@@ -15,21 +18,22 @@
 </template>
 
 <script setup lang="ts">
-interface TestExampleProps {
-  animationDuration: number | null;
+const animationDuration = ref<number | null>(null);
+const runButtonOpacity = ref("100%");
+const checkIconOpacity = ref("0%");
+
+function handleRunClick() {
+  runButtonOpacity.value = "0%";
+  animationDuration.value = 3000;
+  setTimeout(() => checkIconOpacity.value = "100%", 3000);
 }
-
-const props = defineProps<TestExampleProps>();
-const { animationDuration } = toRefs(props);
-
-watch(animationDuration, (duration => {
-  console.log('saw that', duration);
-}));
 </script>
- 
-<style scoped>
+
+<style>
 .test-example {
   display: grid;
+  position: relative;
+  z-index: 0;
   grid-template-areas:
     "description check"
     "bar         check"
@@ -54,6 +58,22 @@ watch(animationDuration, (duration => {
 
 .bar {
   grid-area: bar;
-  justify-self: center;
+  justify-self: flex-end;
+}
+
+.run-button {
+  grid-area: check;
+  z-index: 1;
 }
 </style>
+
+<style scoped>
+.run-button {
+  opacity: v-bind(runButtonOpacity);
+}
+
+.check {
+  opacity: v-bind(checkIconOpacity);
+}
+</style>
+ 

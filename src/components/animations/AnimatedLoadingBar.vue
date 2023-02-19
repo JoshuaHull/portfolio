@@ -38,15 +38,19 @@ const animationDurationInMs = computed(() => `${animationDuration.value}ms`);
 
 <style scoped>
 .loading-part {
-  opacity: 0;
-  animation: fadeIn v-bind(animationDurationInMs);
+  animation: fadeIn forwards v-bind(animationDurationInMs);
   animation-delay: calc((v-bind(animationDurationInMs) / 15) * var(--loading-part));
-  animation-fill-mode: forwards;
   fill: rgb(
     0,
     calc(55 + var(--loading-part) * 20),
     0
   );
+}
+</style>
+
+<style>
+.loading-part {
+  opacity: 0;
 }
 
 @keyframes fadeIn {
