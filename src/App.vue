@@ -1,5 +1,5 @@
 <template>
-  <PortfolioPage />
+<PortfolioPage />
 </template>
 
 <script setup lang="ts">

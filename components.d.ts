@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AnimatedBlob: typeof import('./src/components/animations/AnimatedBlob.vue')['default']
     AnimatedCheckIcon: typeof import('./src/components/animations/AnimatedCheckIcon.vue')['default']
     AnimatedLoadingBar: typeof import('./src/components/animations/AnimatedLoadingBar.vue')['default']
     AwsApiGateway: typeof import('./src/components/icons/AwsApiGateway.vue')['default']
@@ -20,6 +21,7 @@ declare module '@vue/runtime-core' {
     PortfolioPage: typeof import('./src/pages/portfolio-page/PortfolioPage.vue')['default']
     SkillsAws: typeof import('./src/pages/portfolio-page/skills-aws/SkillsAws.vue')['default']
     SkillsFrontend: typeof import('./src/pages/portfolio-page/skills-frontend/SkillsFrontend.vue')['default']
+    SkillsRest: typeof import('./src/pages/portfolio-page/skills-rest/SkillsRest.vue')['default']
     SkillsTests: typeof import('./src/pages/portfolio-page/skills-tests/SkillsTests.vue')['default']
     TestExample: typeof import('./src/pages/portfolio-page/skills-tests/components/TestExample.vue')['default']
   }
