@@ -5,11 +5,11 @@
   <span class="description">
     <slot name="testName"></slot>
   </span>
-  <button class="run-button" @click="handleRunClick">
+  <button v-if="runState == 'before'"  class="run-button" @click="handleRunClick">
     <slot name="button"></slot>
   </button>
-  <IconContainer width="5rem" color="green" class="check">
-    <CheckCircleOutlineIcon />
+  <IconContainer v-if="runState == 'after'" width="5rem" color="green" class="check">
+    <AnimatedCheckIcon />
   </IconContainer>
   <IconContainer height="2rem" class="bar">
     <AnimatedLoadingBar :animationDuration="animationDuration" />
@@ -18,14 +18,15 @@
 </template>
 
 <script setup lang="ts">
+type RunState = "before" | "during" | "after";
+
 const animationDuration = ref<number | null>(null);
-const runButtonOpacity = ref("100%");
-const checkIconOpacity = ref("0%");
+const runState = ref<RunState>("before");
 
 function handleRunClick() {
-  runButtonOpacity.value = "0%";
   animationDuration.value = 3000;
-  setTimeout(() => checkIconOpacity.value = "100%", 3000);
+  runState.value = "during";
+  setTimeout(() => runState.value = "after", 3000);
 }
 </script>
 
@@ -38,7 +39,7 @@ function handleRunClick() {
     "description check"
     "bar         check"
   ;
-  grid-template-columns: auto min-content;
+  grid-template-columns: auto minmax(10px, 4rem);
   align-items: center;
   row-gap: 1rem;
   column-gap: 2rem;
@@ -66,14 +67,3 @@ function handleRunClick() {
   z-index: 1;
 }
 </style>
-
-<style scoped>
-.run-button {
-  opacity: v-bind(runButtonOpacity);
-}
-
-.check {
-  opacity: v-bind(checkIconOpacity);
-}
-</style>
- 
