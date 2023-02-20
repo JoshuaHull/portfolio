@@ -15,11 +15,14 @@ declare module '@vue/runtime-core' {
     AwsLambdaIcon: typeof import('./src/components/icons/AwsLambdaIcon.vue')['default']
     ComputerDesktopSolidIcon: typeof import('@heroicons/vue/24/solid')['ComputerDesktopIcon']
     IconContainer: typeof import('./src/components/containers/IconContainer.vue')['default']
+    PanelFile: typeof import('./src/pages/portfolio-page/skills-tests/components/PanelFile.vue')['default']
+    PanelTests: typeof import('./src/pages/portfolio-page/skills-tests/components/PanelTests.vue')['default']
     PortfolioPage: typeof import('./src/pages/portfolio-page/PortfolioPage.vue')['default']
     SkillsAws: typeof import('./src/pages/portfolio-page/skills-aws/SkillsAws.vue')['default']
     SkillsFrontend: typeof import('./src/pages/portfolio-page/skills-frontend/SkillsFrontend.vue')['default']
     SkillsRest: typeof import('./src/pages/portfolio-page/skills-rest/SkillsRest.vue')['default']
     SkillsTests: typeof import('./src/pages/portfolio-page/skills-tests/SkillsTests.vue')['default']
     TestExample: typeof import('./src/pages/portfolio-page/skills-tests/components/TestExample.vue')['default']
+    TestsPanel: typeof import('./src/pages/portfolio-page/skills-tests/components/TestsPanel.vue')['default']
   }
 }

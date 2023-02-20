@@ -5,10 +5,19 @@
   <span class="description">
     <slot name="testName"></slot>
   </span>
-  <button v-if="runState == 'before'"  class="run-button" @click="handleRunClick">
+  <button
+    v-if="runState == 'before'"
+    class="run-button"
+    @click="handleRunClick"
+  >
     <slot name="button"></slot>
   </button>
-  <IconContainer v-if="runState == 'after'" width="5rem" color="green" class="check">
+  <IconContainer
+    v-if="runState == 'after'"
+    width="5rem"
+    color="green"
+    class="check"
+  >
     <AnimatedCheckIcon />
   </IconContainer>
   <IconContainer height="2rem" class="bar">
@@ -33,8 +42,6 @@ function handleRunClick() {
 <style>
 .test-example {
   display: grid;
-  position: relative;
-  z-index: 0;
   grid-template-areas:
     "description check"
     "bar         check"
@@ -64,6 +71,5 @@ function handleRunClick() {
 
 .run-button {
   grid-area: check;
-  z-index: 1;
 }
 </style>
