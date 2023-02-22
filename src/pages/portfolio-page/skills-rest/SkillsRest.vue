@@ -101,7 +101,6 @@ const [deleteMessage, pushDeleteMessage] = useVanishingObject<Message>(4000);
 const [recolourMessage, pushRecolourMessage] = useVanishingObject<Message>(4000);
 
 const selectedColourText = computed(() => selectedColour.value ?? ":selected");
-const restEndpointsCursor = computed(() => selectedColour.value ? "pointer" : "default");
 
 function randomColour() {
   return `#${(Math.random() * 0xFFFFFF << 0).toString(16).toUpperCase()}`;
@@ -229,11 +228,5 @@ function handleBlobClick(colour: Colour) {
   grid-area: message;
   font-size: 0.5em;
   color: red;
-}
-</style>
-
-<style scoped>
-.rest-endpoints {
-  cursor: v-bind(restEndpointsCursor);
 }
 </style>
