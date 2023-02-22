@@ -1,8 +1,10 @@
 <template>
 <svg
+  tabindex="0"
   class="animated-blob"
   viewBox="0 0 200 200"
   xmlns="http://www.w3.org/2000/svg"
+  :aria-label="`blob-${colour}`"
   :style="`
     --animated-blob-path-idle: '${blobs[blobIdleIdx]}';
     --animated-blob-path-active: '${blobs[blobActiveIdx]}';
@@ -66,7 +68,7 @@ path {
   d: path(var(--animated-blob-path-idle));
 }
 
-svg:active path,
+svg:focus path,
 svg:hover path {
   d: path(var(--animated-blob-path-active));
 }
@@ -75,5 +77,12 @@ svg:hover path {
 <style>
 path {
   transition: all 0.5s ease;
+}
+
+svg:focus,
+svg:hover {
+  cursor: pointer;
+  outline: 2px solid white;
+  border-radius: 1rem;
 }
 </style>

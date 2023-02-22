@@ -9,9 +9,13 @@
       :top="colour.top"
       class="skills-rest-animated-blob"
       @click="() => handleBlobClick(colour)"
+      @keyup.enter="() => handleBlobClick(colour)"
+      @keyup.space="() => handleBlobClick(colour)"
+      @keyup.tab="() => handleBlobClick(colour)"
+      @keyup.delete="() => handleDelete()"
     />
   </div>
-  <section class="rest-endpoints">
+  <section class="rest-endpoints" @click="handleBackgroundClick">
     <button @click="handleCreate">
       POST
     </button>
@@ -81,6 +85,10 @@ function handleRecolour() {
 
 function handleBlobClick(colour: Colour) {
   selectedColour.value = colour.hex;
+}
+
+function handleBackgroundClick() {
+  selectedColour.value = null;
 }
 </script>
 
