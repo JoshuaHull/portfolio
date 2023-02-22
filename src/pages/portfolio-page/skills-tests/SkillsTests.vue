@@ -2,8 +2,8 @@
 <div class="skills-tests">
   <div class="editor">
     <div class="panels">
-      <PanelTests ref="panelTests" />
-      <PanelFile ref ="panelFile" />
+      <PanelTests class="left-panel" ref="panelTests" />
+      <PanelFile class="right-panel" ref="panelFile" />
     </div>
   </div>
 </div>
@@ -42,20 +42,47 @@ watch (desiredPanelFileHeight, updated => {
   place-items: center;
   align-items: center;
   height: 100%;
-  padding: 2rem;
 }
 
 .editor {
   height: min-content;
-  padding: 2rem;
-  background-color: #05445E;
 }
 
 .panels {
   display: grid;
-  grid-template-columns: repeat(2, minmax(10px, 1fr));
-  column-gap: 1rem;
   align-items: center;
   /* https://www.canva.com/colors/color-palettes/summer-splash/ */
+}
+
+.right-panel {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .editor {
+    width: 740px;
+    background-color: #05445E;
+  }
+
+  .panels {
+    grid-template-columns: repeat(2, minmax(10px, 1fr));
+  }
+
+  .left-panel {
+    border-right: 1px solid black;
+    padding-right: 0.5rem;
+  }
+
+  .right-panel {
+    display: block;
+    border-left: 1px solid black;
+    padding-left: 0.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .editor {
+    width: 1000px;
+  }
 }
 </style>
