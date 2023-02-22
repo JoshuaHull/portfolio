@@ -1,10 +1,11 @@
 <template>
 <svg
   tabindex="0"
-  class="animated-blob"
+  :class="`animated-blob ${isHovering ? 'hovering' : ''}`"
   viewBox="0 0 200 200"
   xmlns="http://www.w3.org/2000/svg"
   :aria-label="`blob-${colour}`"
+  @mouseenter="handleHover"
   :style="`
     --animated-blob-path-idle: '${blobs[blobIdleIdx]}';
     --animated-blob-path-active: '${blobs[blobActiveIdx]}';
@@ -15,6 +16,8 @@
 </template>
 
 <script setup lang="ts">
+import { useVanishingObject } from "@composables";
+
 interface AnimatedBlobProps {
   colour: string;
   left?: string;
@@ -26,6 +29,8 @@ const { left, top, colour } = toRefs(props);
 
 const actualLeft = computed(() => left?.value ?? "auto");
 const actualTop = computed(() => top?.value ?? "auto");
+
+const [isHovering, pushIsHovering] = useVanishingObject<boolean>(500);
 
 const blobs = [
   "M25.8,-31.3C36.2,-27.9,49.3,-24.1,58.9,-14.5C68.5,-4.8,74.6,10.7,65.9,16.5C57.2,22.3,33.8,18.3,20.4,28.5C7,38.7,3.5,63.1,-6.5,72C-16.4,80.8,-32.8,74.3,-37,61.1C-41.1,47.9,-33.1,28,-34.1,13.7C-35.2,-0.6,-45.4,-9.3,-47.8,-19.7C-50.2,-30.1,-44.7,-42.1,-35.5,-45.8C-26.2,-49.5,-13.1,-45,-2.7,-41.2C7.7,-37.5,15.4,-34.6,25.8,-31.3Z",
@@ -56,6 +61,10 @@ const blobActiveIdx = (() => {
       return blob;
   }
 })();
+
+function handleHover() {
+  pushIsHovering(true);
+}
 </script>
 
 <style scoped>
@@ -68,8 +77,9 @@ path {
   d: path(var(--animated-blob-path-idle));
 }
 
-.animated-blob:focus path,
-.animated-blob:hover path {
+.animated-blob.hovering path,
+.animated-blob:hover path,
+.animated-blob:focus path {
   d: path(var(--animated-blob-path-active));
 }
 </style>
