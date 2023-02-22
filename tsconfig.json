@@ -13,6 +13,7 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "paths": {
+      "@composables": ["./src/composables"],
       "@store": ["./src/store"],
     }
   },
