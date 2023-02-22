@@ -7,8 +7,8 @@
   :aria-label="`blob-${colour}`"
   @mouseenter="handleHover"
   :style="`
-    --animated-blob-path-idle: '${blobs[blobIdleIdx]}';
-    --animated-blob-path-active: '${blobs[blobActiveIdx]}';
+    --animated-blob-path-idle: '${blobs[idleBlobIdx]}';
+    --animated-blob-path-active: '${blobs[activeBlobIdx]}';
   `"
 >
   <path :fill="colour" transform="translate(90 90)" />
@@ -17,15 +17,17 @@
 
 <script setup lang="ts">
 import { useVanishingObject } from "@composables";
+import { store } from "@store";
 
 interface AnimatedBlobProps {
   colour: string;
+  blobId: number;
   left?: string;
   top?: string;
 }
 
 const props = defineProps<AnimatedBlobProps>();
-const { left, top, colour } = toRefs(props);
+const { left, top, colour, blobId } = toRefs(props);
 
 const actualLeft = computed(() => left?.value ?? "auto");
 const actualTop = computed(() => top?.value ?? "auto");
@@ -51,16 +53,25 @@ const blobs = [
   "M48.1,-62.4C57.6,-59.4,57,-38.9,50,-24.7C43,-10.5,29.4,-2.7,21.4,2.3C13.4,7.4,11,9.6,8.4,24.3C5.7,38.9,2.9,66.1,-2.5,69.5C-7.8,72.9,-15.6,52.6,-22.4,39.2C-29.1,25.9,-34.8,19.5,-44.6,9.7C-54.4,-0.2,-68.3,-13.4,-63.6,-18.4C-58.8,-23.3,-35.4,-19.9,-21.7,-21.5C-8,-23.1,-4,-29.9,7.7,-40.4C19.4,-51,38.7,-65.5,48.1,-62.4Z",
 ];
 
-const randomBlob = () => Math.floor(Math.random() * blobs.length);
-const blobIdleIdx = randomBlob();
-const blobActiveIdx = (() => {
-  for(;;) {
-    const blob = randomBlob();
+function getBlobIndices(): [number, number] {
+  const randomBlob = () => Math.floor(Math.random() * blobs.length);
+  const blobIdleIdx = randomBlob();
+  const blobActiveIdx = (() => {
+    for(;;) {
+      const blob = randomBlob();
 
-    if (blob !== blobIdleIdx)
-      return blob;
-  }
-})();
+      if (blob !== blobIdleIdx)
+        return blob;
+    }
+  })();
+
+  return [blobIdleIdx, blobActiveIdx];
+}
+
+if (!store.blobIndices[blobId.value])
+  store.blobIndices[blobId.value] = getBlobIndices();
+
+const [idleBlobIdx, activeBlobIdx] = store.blobIndices[blobId.value];
 
 function handleHover() {
   pushIsHovering(true);

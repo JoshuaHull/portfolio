@@ -2,11 +2,12 @@
 <article class="skills-rest">
   <div class="blobs">
     <AnimatedBlob
-      v-for="colour in coloursOnTheScreen"
+      v-for="colour in blobsOnTheScreen"
       :key="colour.hex"
       :colour="colour.hex"
       :left="colour.left"
       :top="colour.top"
+      :blobId="colour.blobId"
       class="skills-rest-animated-blob"
       @click="() => handleBlobClick(colour)"
       @keyup.enter="() => handleBlobClick(colour)"
@@ -83,10 +84,11 @@
 <script setup lang="ts">
 import { useVanishingObject } from "@composables";
 
-type Colour = {
+type Blob = {
   hex: string;
   left: string;
   top: string;
+  blobId: number;
 };
 
 type Message = {
@@ -94,25 +96,26 @@ type Message = {
   content: string;
 };
 
-const selectedColour = ref<string | null>(null);
-const coloursOnTheScreen = ref<Colour[]>([]);
+const selectedBlobHex = ref<string | null>(null);
+const blobsOnTheScreen = ref<Blob[]>([]);
 const [createMessage, pushCreateMessage] = useVanishingObject<Message>(4000);
 const [deleteMessage, pushDeleteMessage] = useVanishingObject<Message>(4000);
 const [recolourMessage, pushRecolourMessage] = useVanishingObject<Message>(4000);
 
-const selectedColourText = computed(() => selectedColour.value ?? ":selected");
+const selectedColourText = computed(() => selectedBlobHex.value ?? ":selected");
 
-function randomColour() {
+function randomHex() {
   return `#${(Math.random() * 0xFFFFFF << 0).toString(16).toUpperCase()}`;
 }
 
 function handleCreate() {
-  const hex = randomColour();
+  const hex = randomHex();
 
-  coloursOnTheScreen.value.push({
+  blobsOnTheScreen.value.push({
     hex,
     left: `${20 + Math.random() * 60}%`,
     top: `${20 + Math.random() * 60}%`,
+    blobId: Math.random(),
   });
 
   pushCreateMessage({
@@ -122,7 +125,7 @@ function handleCreate() {
 }
 
 function handleDelete() {
-  if (!selectedColour.value) {
+  if (!selectedBlobHex.value) {
     pushDeleteMessage({
       colour: "red",
       content: "400 Bad Request: route variable \"selected\" is required",
@@ -130,21 +133,21 @@ function handleDelete() {
     return;
   }
 
-  const idx = coloursOnTheScreen.value.findIndex(c => c.hex === selectedColour.value);
+  const idx = blobsOnTheScreen.value.findIndex(c => c.hex === selectedBlobHex.value);
 
   if (idx < 0)
     return;
 
-  coloursOnTheScreen.value.splice(idx, 1);
+  blobsOnTheScreen.value.splice(idx, 1);
   pushDeleteMessage({
     colour: "green",
-    content: `204 No Content: deleted blob with colour "${selectedColour.value}"`,
+    content: `204 No Content: deleted blob with colour "${selectedBlobHex.value}"`,
   });
-  selectedColour.value = null;
+  selectedBlobHex.value = null;
 }
 
 function handleRecolour() {
-  if (!selectedColour.value) {
+  if (!selectedBlobHex.value) {
     pushRecolourMessage({
       colour: "red",
       content: "400 Bad Request: route variable \"selected\" is required",
@@ -152,22 +155,22 @@ function handleRecolour() {
     return;
   }
 
-  const idx = coloursOnTheScreen.value.findIndex(c => c.hex === selectedColour.value);
+  const idx = blobsOnTheScreen.value.findIndex(c => c.hex === selectedBlobHex.value);
 
   if (idx < 0)
     return;
 
-  const newColour = randomColour();
-  coloursOnTheScreen.value[idx].hex = newColour;
+  const newColour = randomHex();
+  blobsOnTheScreen.value[idx].hex = newColour;
   pushRecolourMessage({
     colour: "green",
-    content: `200 OK: updated blob colour from "${selectedColour.value}" to "${newColour}"`,
+    content: `200 OK: updated blob colour from "${selectedBlobHex.value}" to "${newColour}"`,
   });
-  selectedColour.value = newColour;
+  selectedBlobHex.value = newColour;
 }
 
-function handleBlobClick(colour: Colour) {
-  selectedColour.value = colour.hex;
+function handleBlobClick(blob: Blob) {
+  selectedBlobHex.value = blob.hex;
 }
 </script>
 
