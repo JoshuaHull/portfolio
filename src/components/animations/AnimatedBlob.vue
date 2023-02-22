@@ -68,19 +68,19 @@ path {
   d: path(var(--animated-blob-path-idle));
 }
 
-svg:focus path,
-svg:hover path {
+.animated-blob:focus path,
+.animated-blob:hover path {
   d: path(var(--animated-blob-path-active));
 }
 </style>
 
 <style>
-path {
+.animated-blob path {
   transition: all 0.5s ease;
 }
 
-svg:focus,
-svg:hover {
+.animated-blob:focus,
+.animated-blob:hover {
   cursor: pointer;
   outline: 2px solid white;
   border-radius: 1rem;
