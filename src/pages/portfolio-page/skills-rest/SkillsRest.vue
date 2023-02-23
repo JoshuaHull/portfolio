@@ -7,7 +7,8 @@
       :colour="colour.hex"
       :left="colour.left"
       :top="colour.top"
-      :blobId="colour.blobId"
+      :idleBlobIdx="colour.idleBlobIdx"
+      :activeBlobIdx="colour.activeBlobIdx"
       class="skills-rest-animated-blob"
       @click="() => handleBlobClick(colour)"
       @keyup.enter="() => handleBlobClick(colour)"
@@ -83,12 +84,14 @@
 
 <script setup lang="ts">
 import { useVanishingObject } from "@composables";
+import { store } from "@store";
 
 type Blob = {
   hex: string;
   left: string;
   top: string;
-  blobId: number;
+  idleBlobIdx: number;
+  activeBlobIdx: number;
 };
 
 type Message = {
@@ -111,11 +114,14 @@ function randomHex() {
 function handleCreate() {
   const hex = randomHex();
 
+  const [idleBlobIdx, activeBlobIdx] = getBlobIndices();
+
   blobsOnTheScreen.value.push({
     hex,
+    idleBlobIdx,
+    activeBlobIdx,
     left: `${20 + Math.random() * 60}%`,
     top: `${20 + Math.random() * 60}%`,
-    blobId: Math.random(),
   });
 
   pushCreateMessage({
@@ -172,8 +178,24 @@ function handleRecolour() {
 function handleBlobClick(blob: Blob) {
   selectedBlobHex.value = blob.hex;
 }
-</script>
 
+function getBlobIndices(): [number, number] {
+  const blobCount = store.blobs.length;
+  const randomBlob = () => Math.floor(Math.random() * blobCount);
+  const blobIdleIdx = randomBlob();
+  const blobActiveIdx = (() => {
+    for(;;) {
+      const blob = randomBlob();
+
+      if (blob !== blobIdleIdx)
+        return blob;
+    }
+  })();
+
+  return [blobIdleIdx, blobActiveIdx];
+}
+</script>
+ 
 <style>
 .skills-rest {
   display: grid;
