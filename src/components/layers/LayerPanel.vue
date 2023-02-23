@@ -1,7 +1,7 @@
 <template>
 <section class="layer-panel">
   <header class="layer-panel-header">
-    {{ layerTitle }}
+    <slot name="title"></slot>
   </header>
   <div class="layer-panel-controls">
     <slot name="controls"></slot>
@@ -11,14 +11,6 @@
   </div>
 </section>
 </template>
-
-<script setup lang="ts">
-interface LayerPanelProps {
-  layerTitle: string;
-}
-
-defineProps<LayerPanelProps>();
-</script>
 
 <style>
 .layer-panel {

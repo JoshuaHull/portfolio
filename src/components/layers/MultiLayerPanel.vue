@@ -1,35 +1,103 @@
 <template>
 <div class="multi-layer-panel">
   <template v-for="n in layerCount">
-    <div
-      v-if="n === currentLayer"
-      :class="`layer-panel-container layer-${n}`"
-    >
-      <slot :name="`layer${n}`"></slot>
-    </div>
+    <Transition :name="`layer-slide-${slideDirection}`">
+      <LayerPanel
+        v-if="n === currentLayer"
+        :class="`layer-panel-container layer-${n}`"
+      >
+        <template #title>
+          <slot :name="`layer${n}title`"></slot>
+        </template>
+        <template #content>
+          <slot :name="`layer${n}content`"></slot>
+        </template>
+      </LayerPanel>
+    </Transition>
   </template>
+  <div class="buttons-container">
+    <button @click="handleUp">up</button>
+    <button @click="handleDown">down</button>
+  </div>
 </div>
 </template>
 
 <script setup lang="ts">
 interface MultiLayerPanelProps {
   layerCount: number;
-  currentLayer: number;
+  initialCurrentLayer: number;
 }
 
-defineProps<MultiLayerPanelProps>();
+type SlideDirection = "up" | "down";
+
+const props = defineProps<MultiLayerPanelProps>();
+const { layerCount } = toRefs(props);
+
+const currentLayer = ref(props.initialCurrentLayer);
+const slideDirection = ref<SlideDirection>("up");
+
+function handleUp() {
+  slideDirection.value = "up";
+  changeCurrentLayerBy(-1);
+}
+
+function handleDown() {
+  slideDirection.value = "down";
+  changeCurrentLayerBy(1);
+}
+
+function changeCurrentLayerBy(increment: number) {
+  const intendedLayer = currentLayer.value + increment;
+  currentLayer.value = Math.max(Math.min(intendedLayer, layerCount.value), 1);
+}
 </script>
 
 <style>
 .multi-layer-panel {
   display: grid;
   grid-template-areas:
-    "lp"
+    "  panel"
+    "buttons"
   ;
   width: 100%;
 }
 
 .layer-panel-container {
-  grid-area: lp;
+  grid-area: panel;
+}
+
+.buttons-container {
+  grid-area: buttons;
+  justify-self: flex-end;
+}
+
+.layer-slide-up-enter-active,
+.layer-slide-up-leave-active {
+  transition: transform 0.6s ease, opacity 0.3s ease;
+}
+
+.layer-slide-down-enter-active,
+.layer-slide-down-leave-active {
+  transition: transform 0.6s ease, opacity 0.3s ease;
+}
+
+.layer-slide-up-enter-from {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.layer-slide-up-leave-to {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.layer-slide-down-enter-from {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.layer-slide-down-leave-to {
+  transform: translateY(-100%);
+  opacity: 0;
 }
 </style>

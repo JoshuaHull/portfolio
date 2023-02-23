@@ -1,48 +1,30 @@
 <template>
 <article class="skills-ddd">
   <MultiLayerPanel
-    :layerCount="layerCount"
-    :currentLayer="currentLayer"
+    :layerCount="3"
+    :initialCurrentLayer="3"
   >
-    <template #layer1>
-      <LayerPanelApplicationLogic
-        @up="handleUp"
-        @down="handleDown"
-      />
+    <template #layer1title>
+      Application Logic
     </template>
-    <template #layer2>
-      <LayerPanelDomainLogic
-        @up="handleUp"
-        @down="handleDown"
-      />
+    <template #layer1content>
+      <LPContentForApplicationLogic />
     </template>
-    <template #layer3>
-      <LayerPanelDataAccess
-        @up="handleUp"
-        @down="handleDown"
-      />
+    <template #layer2title>
+      Domain Logic
+    </template>
+    <template #layer2content>
+      <LPContentForDomainLogic />
+    </template>
+    <template #layer3title>
+      Data Access
+    </template>
+    <template #layer3content>
+      <LPContentForDataAccess />
     </template>
   </MultiLayerPanel>
 </article>
 </template>
-
-<script setup lang="ts">
-const currentLayer = ref(3);
-const layerCount = 3;
-
-function handleUp() {
-  changeCurrentLayerBy(-1);
-}
-
-function handleDown() {
-  changeCurrentLayerBy(1);
-}
-
-function changeCurrentLayerBy(increment: number) {
-  const intendedLayer = currentLayer.value + increment;
-  currentLayer.value = Math.max(Math.min(intendedLayer, layerCount), 1);
-}
-</script>
 
 <style scoped>
 .skills-ddd {

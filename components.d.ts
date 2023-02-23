@@ -13,12 +13,14 @@ declare module '@vue/runtime-core' {
     AwsApiGatewayIcon: typeof import('./src/components/icons/AwsApiGatewayIcon.vue')['default']
     AwsDynamoDbIcon: typeof import('./src/components/icons/AwsDynamoDbIcon.vue')['default']
     AwsLambdaIcon: typeof import('./src/components/icons/AwsLambdaIcon.vue')['default']
-    ComputerDesktopSolidIcon: typeof import('@heroicons/vue/24/solid')['ComputerDesktopIcon']
     IconContainer: typeof import('./src/components/containers/IconContainer.vue')['default']
     LayerPanel: typeof import('./src/components/layers/LayerPanel.vue')['default']
     LayerPanelApplicationLogic: typeof import('./src/pages/portfolio-page/skills-ddd/components/LayerPanelApplicationLogic.vue')['default']
     LayerPanelDataAccess: typeof import('./src/pages/portfolio-page/skills-ddd/components/LayerPanelDataAccess.vue')['default']
     LayerPanelDomainLogic: typeof import('./src/pages/portfolio-page/skills-ddd/components/LayerPanelDomainLogic.vue')['default']
+    LPContentForApplicationLogic: typeof import('./src/pages/portfolio-page/skills-ddd/components/layer-panels/LPContentForApplicationLogic.vue')['default']
+    LPContentForDataAccess: typeof import('./src/pages/portfolio-page/skills-ddd/components/layer-panels/LPContentForDataAccess.vue')['default']
+    LPContentForDomainLogic: typeof import('./src/pages/portfolio-page/skills-ddd/components/layer-panels/LPContentForDomainLogic.vue')['default']
     MultiLayerPanel: typeof import('./src/components/layers/MultiLayerPanel.vue')['default']
     PanelFile: typeof import('./src/pages/portfolio-page/skills-tests/components/PanelFile.vue')['default']
     PanelTests: typeof import('./src/pages/portfolio-page/skills-tests/components/PanelTests.vue')['default']
@@ -34,6 +36,5 @@ declare module '@vue/runtime-core' {
     SkillsRest: typeof import('./src/pages/portfolio-page/skills-rest/SkillsRest.vue')['default']
     SkillsTests: typeof import('./src/pages/portfolio-page/skills-tests/SkillsTests.vue')['default']
     TestExample: typeof import('./src/pages/portfolio-page/skills-tests/components/TestExample.vue')['default']
-    TestsPanel: typeof import('./src/pages/portfolio-page/skills-tests/components/TestsPanel.vue')['default']
   }
 }
