@@ -18,6 +18,7 @@ declare module '@vue/runtime-core' {
     PanelFile: typeof import('./src/pages/portfolio-page/skills-tests/components/PanelFile.vue')['default']
     PanelTests: typeof import('./src/pages/portfolio-page/skills-tests/components/PanelTests.vue')['default']
     PortfolioPage: typeof import('./src/pages/portfolio-page/PortfolioPage.vue')['default']
+    RestEndpoint: typeof import('./src/pages/portfolio-page/skills-rest/components/RestEndpoint.vue')['default']
     SkillsAws: typeof import('./src/pages/portfolio-page/skills-aws/SkillsAws.vue')['default']
     SkillsDDD: typeof import('./src/pages/portfolio-page/skills-ddd/SkillsDDD.vue')['default']
     SkillsDotnet: typeof import('./src/pages/portfolio-page/skills-dotnet/SkillsDotnet.vue')['default']

@@ -19,66 +19,27 @@
     />
   </div>
   <section class="rest-endpoints">
-    <div class="rest-endpoint">
-      <button
-        class="rest-method"
-        @click="handleCreate"
-      >
-        POST
-      </button>
-      <span
-        class="rest-url"
-      >
-        /background/blobs
-      </span>
-      <span
-        v-if="createMessage"
-        class="rest-message"
-        :style="`color: ${createMessage.colour}`"
-      >
-        {{ createMessage.content }}
-      </span>
-    </div>
-    <div class="rest-endpoint">
-      <button
-        class="rest-method"
-        @click="handleDelete"
-      >
-        DELETE
-      </button>
-      <span
-        class="rest-url"
-      >
-        /background/blobs/{{ selectedColourText }}
-      </span>
-      <span
-        v-if="deleteMessage"
-        class="rest-message"
-        :style="`color: ${deleteMessage.colour}`"
-      >
-        {{ deleteMessage.content }}
-      </span>
-    </div>
-    <div class="rest-endpoint">
-      <button
-        class="rest-method"
-        @click="handleRecolour"
-      >
-        POST
-      </button>
-      <span
-        class="rest-url"
-      >
-        /background/blobs/{{ selectedColourText }}/re-colour
-      </span>
-      <span
-        v-if="recolourMessage"
-        class="rest-message"
-        :style="`color: ${recolourMessage.colour}`"
-      >
-        {{ recolourMessage.content }}
-      </span>
-    </div>
+    <RestEndpoint
+      method="post"
+      :response="createMessage"
+      @action="handleCreate"
+    >
+      /background/blobs
+    </RestEndpoint>
+    <RestEndpoint
+      method="delete"
+      :response="deleteMessage"
+      @action="handleDelete"
+    >
+      /background/blobs/{{ selectedColourText }}
+    </RestEndpoint>
+    <RestEndpoint
+      method="post"
+      :response="recolourMessage"
+      @action="handleRecolour"
+    >
+      /background/blobs/{{ selectedColourText }}/re-colour
+    </RestEndpoint>
   </section>
 </article>
 </template>
@@ -208,7 +169,7 @@ function getBlobIndices(): [number, number] {
   height: 100%;
   position: relative;
 }
-
+ 
 .blobs {
   position: absolute;
   top: 0;
@@ -232,30 +193,5 @@ function getBlobIndices(): [number, number] {
   padding: 2rem 2rem 0rem 2rem;
   border-radius: 1rem;
   font-family: monospace;
-}
-
-.rest-endpoint {
-  display: grid;
-  grid-template-columns: minmax(10px, 5rem) minmax(10px, 22em);
-  grid-template-rows: auto 2rem;
-  grid-template-areas:
-    "method     url"
-    "     . message"
-  ;
-  column-gap: 1rem;
-}
-
-.rest-method {
-  grid-area: method;
-}
-
-.rest-url {
-  grid-area: url;
-}
-
-.rest-message {
-  grid-area: message;
-  font-size: 0.5em;
-  color: red;
 }
 </style>
