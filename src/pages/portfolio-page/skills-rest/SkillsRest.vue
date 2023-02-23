@@ -2,18 +2,19 @@
 <article class="skills-rest">
   <div class="blobs">
     <AnimatedBlob
-      v-for="colour in blobsOnTheScreen"
-      :key="colour.hex"
-      :colour="colour.hex"
-      :left="colour.left"
-      :top="colour.top"
-      :idleBlobIdx="colour.idleBlobIdx"
-      :activeBlobIdx="colour.activeBlobIdx"
+      v-for="blob in blobsOnTheScreen"
+      :key="blob.hex"
+      :colour="blob.hex"
+      :left="blob.left"
+      :top="blob.top"
+      :idleBlobIdx="blob.idleBlobIdx"
+      :activeBlobIdx="blob.activeBlobIdx"
+      :rotation="blob.rotation"
       class="skills-rest-animated-blob"
-      @click="() => handleBlobClick(colour)"
-      @keyup.enter="() => handleBlobClick(colour)"
-      @keyup.space="() => handleBlobClick(colour)"
-      @keyup.tab="() => handleBlobClick(colour)"
+      @click="() => handleBlobClick(blob)"
+      @keyup.enter="() => handleBlobClick(blob)"
+      @keyup.space="() => handleBlobClick(blob)"
+      @keyup.tab="() => handleBlobClick(blob)"
       @keyup.delete="() => handleDelete()"
     />
   </div>
@@ -92,6 +93,7 @@ type Blob = {
   top: string;
   idleBlobIdx: number;
   activeBlobIdx: number;
+  rotation: string;
 };
 
 type Message = {
@@ -115,6 +117,7 @@ function handleCreate() {
   const hex = randomHex();
 
   const [idleBlobIdx, activeBlobIdx] = getBlobIndices();
+  const rotation = `${Math.floor(Math.random() * 4) * 90}deg`;
 
   blobsOnTheScreen.value.push({
     hex,
@@ -122,6 +125,7 @@ function handleCreate() {
     activeBlobIdx,
     left: `${20 + Math.random() * 60}%`,
     top: `${20 + Math.random() * 60}%`,
+    rotation,
   });
 
   pushCreateMessage({
@@ -195,7 +199,7 @@ function getBlobIndices(): [number, number] {
   return [blobIdleIdx, blobActiveIdx];
 }
 </script>
- 
+
 <style>
 .skills-rest {
   display: grid;

@@ -25,10 +25,18 @@ interface AnimatedBlobProps {
   activeBlobIdx: number;
   left?: string;
   top?: string;
+  rotation?: string;
 }
 
 const props = defineProps<AnimatedBlobProps>();
-const { left, top, colour, idleBlobIdx, activeBlobIdx } = toRefs(props);
+const {
+  left,
+  top,
+  colour,
+  idleBlobIdx,
+  activeBlobIdx,
+  rotation,
+} = toRefs(props);
 
 const actualLeft = computed(() => left?.value ?? "auto");
 const actualTop = computed(() => top?.value ?? "auto");
@@ -46,6 +54,7 @@ function handleHover() {
 .animated-blob {
   left: v-bind(actualLeft);
   top: v-bind(actualTop);
+  transform: rotate(v-bind(rotation));
 }
 
 path {
