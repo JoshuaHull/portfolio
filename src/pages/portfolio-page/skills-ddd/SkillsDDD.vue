@@ -26,7 +26,7 @@
 </article>
 </template>
 
-<style scoped>
+<style>
 .skills-ddd {
   display: grid;
   place-items: center;

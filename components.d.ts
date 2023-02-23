@@ -22,6 +22,7 @@ declare module '@vue/runtime-core' {
     LPContentForDataAccess: typeof import('./src/pages/portfolio-page/skills-ddd/components/layer-panels/LPContentForDataAccess.vue')['default']
     LPContentForDomainLogic: typeof import('./src/pages/portfolio-page/skills-ddd/components/layer-panels/LPContentForDomainLogic.vue')['default']
     MultiLayerPanel: typeof import('./src/components/layers/MultiLayerPanel.vue')['default']
+    MultiTabbedDocument: typeof import('./src/components/tabs/MultiTabbedDocument.vue')['default']
     PanelFile: typeof import('./src/pages/portfolio-page/skills-tests/components/PanelFile.vue')['default']
     PanelTests: typeof import('./src/pages/portfolio-page/skills-tests/components/PanelTests.vue')['default']
     PortfolioPage: typeof import('./src/pages/portfolio-page/PortfolioPage.vue')['default']
@@ -35,6 +36,8 @@ declare module '@vue/runtime-core' {
     SkillsMonoliths: typeof import('./src/pages/portfolio-page/skills-monoliths/SkillsMonoliths.vue')['default']
     SkillsRest: typeof import('./src/pages/portfolio-page/skills-rest/SkillsRest.vue')['default']
     SkillsTests: typeof import('./src/pages/portfolio-page/skills-tests/SkillsTests.vue')['default']
+    TabbedDocument: typeof import('./src/components/tabs/TabbedDocument.vue')['default']
+    TabbedDocumentHeader: typeof import('./src/components/tabs/TabbedDocumentHeader.vue')['default']
     TestExample: typeof import('./src/pages/portfolio-page/skills-tests/components/TestExample.vue')['default']
   }
 }
