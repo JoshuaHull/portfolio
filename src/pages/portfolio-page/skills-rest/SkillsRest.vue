@@ -169,7 +169,7 @@ function getBlobIndices(): [number, number] {
   height: 100%;
   position: relative;
 }
- 
+
 .blobs {
   position: absolute;
   top: 0;

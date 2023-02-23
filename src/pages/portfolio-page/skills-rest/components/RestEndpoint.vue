@@ -11,12 +11,14 @@
   >
     <slot></slot>
   </span>
-  <span
-    v-if="response"
-    class="rest-message"
-  >
-    {{ response.content }}
-  </span>
+  <Transition name="response-fade">
+    <span
+      v-if="response"
+      class="rest-message"
+    >
+      {{ response.content }}
+    </span>
+  </Transition>
 </div>
 </template>
 
@@ -65,6 +67,16 @@ function handleButtonClick() {
 .rest-message {
   grid-area: message;
   font-size: 0.5em;
+}
+
+.response-fade-enter-active,
+.response-fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+.response-fade-enter-from,
+.response-fade-leave-to {
+  opacity: 0;
 }
 </style>
 
