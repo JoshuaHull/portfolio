@@ -1,31 +1,16 @@
 <template>
-<MultiTabbedDocument
-  :tabCount="2"
-  :initialCurrentTab="1"
->
-  <template #tab1title>
-    UML
-  </template>
-  <template #tab1content>
-    <span>TwitchUser</span>
-    <br />
-    <code>
-      Id: number;
-      <br />
-      Name: string;
-    </code>
-  </template>
-  <template #tab2title>
+<TabbedDocument>
+  <template #title>
     C#
   </template>
-  <template #tab2content>
+  <template #content>
     <CodeBlockForCSharp content =
 "public record TwitchUser {
   public long Id { get; }
   public string Name { get; }
 }" />
   </template>
-</MultiTabbedDocument>
+</TabbedDocument>
 </template>
 
 <script setup lang="ts">

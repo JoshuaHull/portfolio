@@ -1,52 +1,22 @@
 <template>
 <div class="lp-content-for-data-access">
-  <MultiTabbedDocument
-    :tabCount="2"
-    :initialCurrentTab="1"
-  >
-    <template #tab1title>
-      UML
-    </template>
-    <template #tab1content>
-      <span>User</span>
-      <br />
-      <code>
-        Id: number;
-        <br />
-        Name: string;
-      </code>
-    </template>
-    <template #tab2title>
+  <TabbedDocument>
+    <template #title>
       C#
     </template>
-    <template #tab2content>
+    <template #content>
       <CodeBlockForCSharp content =
 "public class User {
   public long Id { get; set; }
   public string Name { get; set; }
 }" />
     </template>
-  </MultiTabbedDocument>
-  <MultiTabbedDocument
-    :tabCount="2"
-    :initialCurrentTab="1"
-  >
-    <template #tab1title>
-      UML
-    </template>
-    <template #tab1content>
-      <span>LinkedAccount</span>
-      <br />
-      <code>
-        Id: number;
-        <br />
-        Type: string;
-      </code>
-    </template>
-    <template #tab2title>
+  </TabbedDocument>
+  <TabbedDocument>
+    <template #title>
       C#
     </template>
-    <template #tab2content>
+    <template #content>
       <CodeBlockForCSharp content=
 "public class LinkedAccount {
   public long Id { get; set; }
@@ -54,7 +24,7 @@
   public long UserId { get; set; }
 }" />
     </template>
-  </MultiTabbedDocument>
+  </TabbedDocument>
 </div>
 </template>
 
@@ -66,6 +36,7 @@ import { CodeBlockForCSharp } from "@code-blocks";
 .lp-content-for-data-access {
   display: flex;
   flex-direction: row;
+  column-gap: 2rem;
   justify-content: space-between;
 }
 </style>
