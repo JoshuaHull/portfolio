@@ -53,7 +53,7 @@ describe("literals", () => {
       },
       {
         value: ";",
-        kind: "SEMICOLEN",
+        kind: "SEMICOLON",
       },
     ]);
   });
@@ -196,6 +196,55 @@ describe("entire lines", () => {
       {
         kind: "OPEN_CURLY",
         value: "{",
+      },
+      {
+        kind: "EOF",
+        value: "",
+      },
+    ]);
+  });
+
+  test("should handle strings", () => {
+    // Arrange
+    const content = "var username = \"Jack Daniels\";";
+    const lexer = new Lexer(content);
+
+    // Act
+    const result = allTokensFrom(lexer);
+
+    // Assert
+    expect(result).toStrictEqual([
+      {
+        kind: "KEYWORD",
+        value: "var",
+      },
+      {
+        kind: "OTHER",
+        value: " ",
+      },
+      {
+        kind: "SYMBOL",
+        value: "username",
+      },
+      {
+        kind: "OTHER",
+        value: " ",
+      },
+      {
+        kind: "SYMBOL",
+        value: "=",
+      },
+      {
+        kind: "OTHER",
+        value: " ",
+      },
+      {
+        kind: "STRING",
+        value: "\"Jack Daniels\"",
+      },
+      {
+        kind: "SEMICOLON",
+        value: ";",
       },
       {
         kind: "EOF",

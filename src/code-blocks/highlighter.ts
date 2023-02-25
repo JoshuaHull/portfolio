@@ -19,6 +19,9 @@ export class Highlighter {
         case "KEYWORD":
           rtn += `<span class="keyword">${next.value}</span>`;
           break;
+        case "PROPERTY":
+          rtn += `<span class="property">${next.value}</span>`;
+          break;
         case "SYMBOL":
           rtn += `<span class="symbol">${next.value}</span>`;
           break;
@@ -26,8 +29,14 @@ export class Highlighter {
         case "CLOSE_PAREN":
         case "OPEN_CURLY":
         case "CLOSE_CURLY":
-        case "SEMICOLEN":
+        case "OPEN_ANGLE":
+        case "CLOSE_ANGLE":
+        case "DOT":
+        case "SEMICOLON":
           rtn += `<span class="literal">${next.value}</span>`;
+          break;
+        case "STRING":
+          rtn += `<span class="string">${next.value}</span>`;
           break;
         default:
           rtn += next.value;
@@ -48,6 +57,9 @@ export class Highlighter {
         case "KEYWORD":
           rtn = [...rtn, h("span", { class: "keyword", innerHTML: next.value })];
           break;
+        case "PROPERTY":
+          rtn = [...rtn, h("span", { class: "property", innerHTML: next.value })];
+          break;
         case "SYMBOL":
           rtn = [...rtn, h("span", { class: "symbol", innerHTML: next.value })];
           break;
@@ -55,8 +67,14 @@ export class Highlighter {
         case "CLOSE_PAREN":
         case "OPEN_CURLY":
         case "CLOSE_CURLY":
-        case "SEMICOLEN":
+        case "OPEN_ANGLE":
+        case "CLOSE_ANGLE":
+        case "DOT":
+        case "SEMICOLON":
           rtn = [...rtn, h("span", { class: "literal", innerHTML: next.value })];
+          break;
+        case "STRING":
+          rtn = [...rtn, h("span", { class: "string", innerHTML: next.value })];
           break;
         default:
           rtn = [...rtn, next.value];

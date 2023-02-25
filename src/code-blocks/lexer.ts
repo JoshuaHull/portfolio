@@ -18,8 +18,43 @@ const literalTokens: Token[] = [
     kind: "CLOSE_CURLY",
   },
   {
+    value: "<",
+    kind: "OPEN_ANGLE",
+  },
+  {
+    value: ">",
+    kind: "CLOSE_ANGLE",
+  },
+  {
+    value: ".",
+    kind: "DOT",
+  },
+  {
     value: ";",
-    kind: "SEMICOLEN",
+    kind: "SEMICOLON",
+  },
+];
+
+const stringLiteralTokens: Token[] = [
+  {
+    value: "\"",
+    kind: "STRING_LITERAL",
+  },
+  {
+    value: "$\"",
+    kind: "INTERPOLATED_STRING_LITERAL",
+  },
+  {
+    value: "@\"",
+    kind: "STRING_LITERAL",
+  },
+  {
+    value: "$@\"",
+    kind: "INTERPOLATED_STRING_LITERAL",
+  },
+  {
+    value: "@$\"",
+    kind: "INTERPOLATED_STRING_LITERAL",
   },
 ];
 
@@ -28,10 +63,17 @@ export type TokenKind =
   | "CLOSE_PAREN"
   | "OPEN_CURLY"
   | "CLOSE_CURLY"
-  | "SEMICOLEN"
+  | "OPEN_ANGLE"
+  | "CLOSE_ANGLE"
+  | "SEMICOLON"
+  | "DOT"
   | "EOF"
   | "KEYWORD"
   | "SYMBOL"
+  | "PROPERTY"
+  | "STRING_LITERAL"
+  | "INTERPOLATED_STRING_LITERAL"
+  | "STRING"
   | "OTHER"
 ;
 
@@ -53,10 +95,31 @@ const csharpKeywords: string[] = [
   "unsafe", "ushort", "using", "virtual", "void", "volatile", "while",
 ];
 
+const csharpContextualKeywords: string[] = [
+  "add", "and", "alias", "ascending", "args", "async", "await", "by",
+  "descending", "dynamic", "equals", "file", "from", "get", "global",
+  "group", "init", "into", "join", "let", "managed", "nameof", "nint",
+  "not", "notnull", "nuint", "on", "or", "orderby", "partial", "partial",
+  "record", "remove", "required", "scoped", "select", "set", "unmanaged",
+  "value", "var", "when", "where", "with", "yield",
+];
+
+const csharpContextMap: { [kind in TokenKind]?: { kind?: TokenKind, close?: string, open?: string } } = {
+  "SYMBOL": {
+    kind: "PROPERTY",
+    close: "dot",
+  },
+  "DOT": {
+    open: "dot",
+  },
+};
+
 export class Lexer {
   private cursor: number = 0;
-  private keywords: string[] = csharpKeywords;
+  private keywords: string[] = [...csharpKeywords, ...csharpContextualKeywords];
   private literals: Token[] = literalTokens;
+  private stringLiterals: Token[] = stringLiteralTokens;
+  private contexts: string[] = [];
 
   private get contentFromCursor() {
     return this.content.substring(this.cursor);
@@ -73,20 +136,14 @@ export class Lexer {
         kind: "EOF",
       };
 
-    const literal = this.tryConsumeLiteral();
+    const token =
+      this.tryConsume(this.tryConsumeString) ||
+      this.tryConsume(this.tryConsumeLiteral) ||
+      this.tryConsume(this.tryConsumeKeyword) ||
+      this.tryConsume(this.tryConsumeSymbol);
 
-    if (literal)
-      return literal;
-
-    const keyword = this.tryConsumeKeyword();
-
-    if (keyword)
-      return keyword;
-
-    const symbol = this.tryConsumeSymbol();
-
-    if (symbol)
-      return symbol;
+    if (token)
+      return token;
 
     const value = this.contentFromCursor[0];
     this.cursor += 1;
@@ -97,9 +154,51 @@ export class Lexer {
     };
   }
 
-  private tryConsumeLiteral(): Token | null {
+  private tryConsume(consume: () => Token | null): Token | null {
+    const token = consume();
+
+    if (!token)
+      return null;
+
+    const newKind = this.mutateContext(token.kind);
+
+    return {
+      kind: newKind || token.kind,
+      value: token.value,
+    };
+  }
+
+  private tryConsumeString: () => (Token | null) = () => {
+    const largestStringLiteral = this.getStringLiteralAfter(0);
+
+    if (!largestStringLiteral)
+      return null;
+
+    let value = largestStringLiteral.value;
+    this.cursor += value.length;
+
+    while (this.cursor < this.content.length) {
+      const endOfString = this.getStringLiteralAfter(0);
+
+      if (endOfString) {
+        value += endOfString.value;
+        this.cursor += endOfString.value.length;
+        break;
+      }
+
+      value += this.contentFromCursor[0];
+      this.cursor += 1;
+    }
+
+    return {
+      kind: "STRING",
+      value,
+    };
+  }
+
+  private tryConsumeLiteral: () => (Token | null) = () => {
     const literal = this.getLiteralAfter(0);
-    
+
     if (!literal)
       return null;
 
@@ -107,7 +206,7 @@ export class Lexer {
     return literal;
   }
 
-  private tryConsumeKeyword(): Token | null {
+  private tryConsumeKeyword: () => (Token | null) = () => {
     const largestKeyword = this.keywords
       .filter(w => this.contentFromCursor.startsWith(w))
       .sort((_1, _2) => _1.length > _2.length ? -1 : 1)
@@ -128,7 +227,7 @@ export class Lexer {
   }
 
   // assumes you already called `tryConsumeKeyword`
-  private tryConsumeSymbol(): Token | null {
+  private tryConsumeSymbol: () => (Token | null) = () => {
     let value = "";
 
     while (this.hasCharacterAfter(0)) {
@@ -145,6 +244,25 @@ export class Lexer {
     };
   }
 
+  private mutateContext(kind: TokenKind): TokenKind | null {
+    const context = csharpContextMap[kind];
+
+    if (!context)
+      return null;
+
+    if (context.open)
+      this.contexts.push(context.open);
+
+    const idx = this.contexts.findIndex(c => c === context.close);
+
+    if (idx < 0)
+      return null;
+
+    this.contexts.splice(idx, 1)
+
+    return context.kind || null;
+  }
+
   private getLiteralAfter(count: number): Token | null {
     const content = this.contentFromCursor.substring(count);
 
@@ -153,6 +271,15 @@ export class Lexer {
       [0];
 
     return foundLiteral || null;
+  }
+
+  private getStringLiteralAfter(count: number): Token | null {
+    const largestStringLiteral = this.stringLiterals
+      .filter(l => this.contentFromCursor.substring(count).startsWith(l.value))
+      .sort((_1, _2) => _1.value.length > _2.value.length ? -1 : 1)
+      [0];
+
+    return largestStringLiteral || null;
   }
 
   private hasCharacterAfter(count: number): boolean {

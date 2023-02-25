@@ -22,8 +22,8 @@ describe("toHtml", () => {
     // Assert
     expect(result).toBe(
 `<span class="keyword">public</span> <span class="keyword">class</span> <span class="symbol">User</span> <span class="literal">{</span>
-  <span class="keyword">public</span> <span class="keyword">long</span> <span class="symbol">Id</span> <span class="literal">{</span> <span class="symbol">get</span><span class="literal">;</span> <span class="symbol">set</span><span class="literal">;</span> <span class="literal">}</span>
-  <span class="keyword">public</span> <span class="keyword">string</span> <span class="symbol">Name</span> <span class="literal">{</span> <span class="symbol">get</span><span class="literal">;</span> <span class="symbol">set</span><span class="literal">;</span> <span class="literal">}</span>
+  <span class="keyword">public</span> <span class="keyword">long</span> <span class="symbol">Id</span> <span class="literal">{</span> <span class="keyword">get</span><span class="literal">;</span> <span class="keyword">set</span><span class="literal">;</span> <span class="literal">}</span>
+  <span class="keyword">public</span> <span class="keyword">string</span> <span class="symbol">Name</span> <span class="literal">{</span> <span class="keyword">get</span><span class="literal">;</span> <span class="keyword">set</span><span class="literal">;</span> <span class="literal">}</span>
 
   <span class="keyword">public</span> <span class="keyword">void</span> <span class="symbol">SetName</span><span class="literal">(</span><span class="keyword">string</span> <span class="symbol">newName</span><span class="literal">)</span> <span class="literal">{</span>
     <span class="symbol">Name</span> <span class="symbol">=</span> <span class="symbol">newName</span><span class="literal">;</span>
