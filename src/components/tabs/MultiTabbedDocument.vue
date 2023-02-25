@@ -2,26 +2,26 @@
 <div class="multi-tabbed-document">
   <div class="multi-tabbed-document-tabs">
     <template v-for="n in tabCount">
-      <TabbedDocumentHeader
-        :isSelected="currentTab === n"
+      <header
+        :class="`tabbed-document-header ${currentTab === n ? 'selected' : ''}`"
         @click="() => handleTabClick(n)"
       >
         <slot :name="`tab${n}title`"></slot>
-      </TabbedDocumentHeader>
+      </header>
     </template>
   </div>
   <template v-for="n in tabCount">
-    <TabbedDocument
-      class="tabbed-document-container"
+    <article
+      class="tabbed-document"
       :style="`
         z-index: ${n === currentTab ? 1 : 0};
         opacity: ${n === currentTab ? '100%' : '0%'};
       `"
     >
-      <template #content>
+      <section class="tabbed-document-content">
         <slot :name="`tab${n}content`"></slot>
-      </template>
-    </TabbedDocument>
+      </section>
+    </article>
   </template>
 </div>
 </template>
@@ -54,13 +54,37 @@ function handleTabClick(tabNumber: number) {
   grid-template-rows: min-content auto;
 }
 
+.tabbed-document {
+  grid-area: document;
+}
+
+.tabbed-document-header {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: darkkhaki;
+  color: black;
+  width: min-content;
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+}
+
+.tabbed-document-header.selected {
+  background-color: khaki;
+}
+
+.tabbed-document-content {
+  color: black;
+  background-color: khaki;
+  width: fit-content;
+  padding: 1rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
 .multi-tabbed-document-tabs {
   grid-area: tabs;
   display: flex;
   flex-direction: row;
-}
-
-.tabbed-document-container {
-  grid-area: document;
 }
 </style>

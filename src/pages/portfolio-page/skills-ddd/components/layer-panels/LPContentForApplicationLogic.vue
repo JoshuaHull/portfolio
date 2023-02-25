@@ -1,12 +1,9 @@
 <template>
-<MultiTabbedDocument
-  :tabCount="1"
-  :initialCurrentTab="1"
->
-  <template #tab1title>
+<TabbedDocument>
+  <template #title>
     C#
   </template>
-  <template #tab1content>
+  <template #content>
     <CodeBlockForCSharp content =
 'public async Task<int> Handle(AwardPointsCommand command) {
   var twitchUser = await _repo.GetById(command.TwitchUserId);
@@ -17,7 +14,7 @@
   return twitchUser.Points;
 }' />
   </template>
-</MultiTabbedDocument>
+</TabbedDocument>
 </template>
 
 <script setup lang="ts">
