@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "test": "vitest",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "unplugin-auto-import": "^0.11.2",
     "unplugin-vue-components": "^0.22.4",
     "vite": "^3.0.7",
+    "vitest": "^0.28.5",
     "vue-tsc": "^0.39.5"
   }
 }
