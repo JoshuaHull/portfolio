@@ -3,7 +3,7 @@
   <template v-for="n in layerCount">
     <Transition :name="`layer-slide-${slideDirection}`">
       <LayerPanel
-        v-if="n === currentLayer"
+        v-show="n === currentLayer"
         :class="`layer-panel-container layer-${n}`"
       >
         <template #title>
