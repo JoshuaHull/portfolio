@@ -10,6 +10,8 @@ declare module '@vue/runtime-core' {
     AnimatedBlob: typeof import('./src/components/animations/AnimatedBlob.vue')['default']
     AnimatedCheckIcon: typeof import('./src/components/animations/AnimatedCheckIcon.vue')['default']
     AnimatedLoadingBar: typeof import('./src/components/animations/AnimatedLoadingBar.vue')['default']
+    ArrowLongDownSolidIcon: typeof import('@heroicons/vue/24/solid')['ArrowLongDownIcon']
+    ArrowLongUpSolidIcon: typeof import('@heroicons/vue/24/solid')['ArrowLongUpIcon']
     AwsApiGatewayIcon: typeof import('./src/components/icons/AwsApiGatewayIcon.vue')['default']
     AwsDynamoDbIcon: typeof import('./src/components/icons/AwsDynamoDbIcon.vue')['default']
     AwsLambdaIcon: typeof import('./src/components/icons/AwsLambdaIcon.vue')['default']
