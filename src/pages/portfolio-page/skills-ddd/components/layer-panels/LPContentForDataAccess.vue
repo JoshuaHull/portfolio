@@ -9,6 +9,7 @@
 "public class User {
   public long Id { get; set; }
   public string Name { get; set; }
+  public int Points { get; set; }
 }" />
     </template>
   </TabbedDocument>
@@ -22,6 +23,7 @@
   public long Id { get; set; }
   public string Type { get; set; }
   public long UserId { get; set; }
+  public string ExternalId { get; set; }
 }" />
     </template>
   </TabbedDocument>
