@@ -7,14 +7,6 @@
 </article>
 </template>
 
-<script setup lang="ts">
-interface TabbedDocumentProps {
-  teleportTo?: string;
-}
-
-const props = defineProps<TabbedDocumentProps>();
-</script>
-
 <style>
 .tabbed-document-content {
   color: black;
