@@ -6,6 +6,9 @@
   <div class="layer-panel-controls">
     <slot name="controls"></slot>
   </div>
+  <div class="layer-panel-sidebar">
+    <slot name="sidebar"></slot>
+  </div>
   <div class="layer-panel-content">
     <slot name="content"></slot>
   </div>
@@ -19,24 +22,38 @@
   display: grid;
   grid-template-areas:
     " header controls"
-    "content  content"
+    "sidebar  content"
   ;
-  grid-template-rows: min-content auto;
-  grid-template-columns: auto 10rem;
+  grid-template-rows: min-content 30rem;
+  grid-template-columns: minmax(12rem, 22rem) auto;
+  border-bottom: 2px solid white;
 }
 
 .layer-panel-header {
   grid-area: header;
   text-align: start;
+  border-bottom: 2px solid white;
+  padding-left: 2rem;
 }
 
 .layer-panel-controls {
   grid-area: controls;
+  border-bottom: 2px solid white;
+}
+
+.layer-panel-sidebar {
+  grid-area: sidebar;
+  align-self: center;
+  padding-left: 2rem;
+  padding-right: 1rem;
+  max-height: 30rem;
 }
 
 .layer-panel-content {
   grid-area: content;
-  border-top: 2px solid white;
-  border-bottom: 2px solid white;
+  align-self: center;
+  justify-self: center;
+  padding-left: 1rem;
+  padding-right: 2rem;
 }
 </style>

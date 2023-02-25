@@ -9,6 +9,9 @@
         <template #title>
           <slot :name="`layer${n}title`"></slot>
         </template>
+        <template #sidebar>
+          <slot :name="`layer${n}sidebar`"></slot>
+        </template>
         <template #content>
           <slot :name="`layer${n}content`"></slot>
         </template>
