@@ -19,13 +19,25 @@
     C#
   </template>
   <template #tab2content>
-    <code>
-      public class User {
-      <br />
-      Name: string;
-      <br />
-      }
-    </code>
+    <CodeBlockForCSharp content=
+"public class User {
+  public long Id { get; set; }
+  public string Name { get; set; }
+}" />
   </template>
 </MultiTabbedDocument>
 </template>
+
+<script setup lang="ts">
+import { CodeBlockForCSharp } from "@code-blocks";
+</script>
+
+<style>
+.keyword {
+  color: blue;
+}
+
+.literal {
+  color: gray;
+}
+</style>

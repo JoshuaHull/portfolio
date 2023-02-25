@@ -13,6 +13,7 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "paths": {
+      "@code-blocks": ["./src/code-blocks"],
       "@composables": ["./src/composables"],
       "@store": ["./src/store"],
     }
