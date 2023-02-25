@@ -51,6 +51,7 @@ function handleTabClick(tabNumber: number) {
     "tabs"
     "document"
   ;
+  grid-template-rows: min-content auto;
 }
 
 .multi-tabbed-document-tabs {
