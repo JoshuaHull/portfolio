@@ -12,8 +12,11 @@
   </div>
   <template v-for="n in tabCount">
     <TabbedDocument
-      v-if="n === currentTab"
       class="tabbed-document-container"
+      :style="`
+        z-index: ${n === currentTab ? 1 : 0};
+        opacity: ${n === currentTab ? '100%' : '0%'};
+      `"
     >
       <template #content>
         <slot :name="`tab${n}content`"></slot>
@@ -40,8 +43,23 @@ function handleTabClick(tabNumber: number) {
 </script>
 
 <style>
+.multi-tabbed-document {
+  position: relative;
+  z-index: 0;
+  display: grid;
+  grid-template-areas:
+    "tabs"
+    "document"
+  ;
+}
+
 .multi-tabbed-document-tabs {
+  grid-area: tabs;
   display: flex;
   flex-direction: row;
+}
+
+.tabbed-document-container {
+  grid-area: document;
 }
 </style>
