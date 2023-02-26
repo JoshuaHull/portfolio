@@ -5,7 +5,7 @@
   </template>
   <template #content>
     <CodeBlockForCSharp content =
-"public record TwitchUser {
+"public class TwitchUser {
   public string Name => _user.Name;
   public int Points => _user.Points;
   public string TwitchId => _linkedAccount.ExternalId;

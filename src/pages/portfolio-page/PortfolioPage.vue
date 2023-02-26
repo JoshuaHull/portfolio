@@ -2,6 +2,7 @@
 <main>
   <SkillsTests />
   <SkillsRest />
+  <SkillsDotnet />
   <SkillsDDD />
   <SkillsFrontend />
 </main>
