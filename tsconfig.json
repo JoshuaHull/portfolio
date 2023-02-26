@@ -16,6 +16,7 @@
       "@code-blocks": ["./src/code-blocks"],
       "@composables": ["./src/composables"],
       "@query-building": ["./src/query-building"],
+      "@routers": ["./src/routers"],
       "@store": ["./src/store"],
     }
   },

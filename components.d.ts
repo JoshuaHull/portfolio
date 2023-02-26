@@ -24,6 +24,7 @@ declare module '@vue/runtime-core' {
     MinusSolidIcon: typeof import('@heroicons/vue/24/solid')['MinusIcon']
     MultiLayerPanel: typeof import('./src/components/layers/MultiLayerPanel.vue')['default']
     MultiTabbedDocument: typeof import('./src/components/tabs/MultiTabbedDocument.vue')['default']
+    Navbar: typeof import('./src/pages/components/Navbar.vue')['default']
     Page: typeof import('./src/pages/Page.vue')['default']
     PanelFile: typeof import('./src/pages/skills-tests-page/skills-tests/components/PanelFile.vue')['default']
     PanelTests: typeof import('./src/pages/skills-tests-page/skills-tests/components/PanelTests.vue')['default']

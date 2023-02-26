@@ -18,7 +18,7 @@ export const SkillsFrontendPageName = "SkillsFrontendPage";
 export const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    redirect: "/skills/ddd",
+    redirect: "/skills/tests",
   },
   {
     path: "/skills/ddd",

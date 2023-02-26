@@ -12,6 +12,7 @@ export default defineConfig({
       "@code-blocks": path.resolve(__dirname, "./src/code-blocks"),
       "@composables": path.resolve(__dirname, "./src/composables"),
       "@query-building": path.resolve(__dirname, "./src/query-building"),
+      "@routers": path.resolve(__dirname, "./src/routers"),
       "@store": path.resolve(__dirname, "./src/store"),
     },
   },
