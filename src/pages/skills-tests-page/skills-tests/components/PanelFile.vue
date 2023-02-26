@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import panelTestsContent from "content:src/pages/portfolio-page/skills-tests/components/PanelTests";
+import panelTestsContent from "content:src/pages/skills-tests-page/skills-tests/components/PanelTests";
 
 const contentWithLineNumbers = computed(() => {
   const lines = (<string>panelTestsContent).split("\n");
