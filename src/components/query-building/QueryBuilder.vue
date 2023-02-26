@@ -10,9 +10,13 @@
       :content="query.content"
     />
     <button
+      class="query-toggle-button"
       @click="() => onToggle(n)"
     >
-      toggle
+      <IconContainer width="1.5rem">
+        <PlusSolidIcon v-if="!enabled.includes(n)" />
+        <MinusSolidIcon v-if="enabled.includes(n)" />
+      </IconContainer>
     </button>
   </template>
 </div>
@@ -69,6 +73,7 @@ const emitUpdatedQuery = () => {
   display: grid;
   grid-template-columns: auto min-content;
   column-gap: 1rem;
+  row-gap: 0.5rem;
 }
 
 .query {
@@ -81,5 +86,21 @@ const emitUpdatedQuery = () => {
 
 .query.disabled span {
   color: gray;
+}
+
+.query-toggle-button {
+  color: red;
+  background-color: transparent;
+  border: none;
+  transition: scale 0.3s ease;
+}
+
+.query.disabled + .query-toggle-button {
+  color: green;
+}
+
+.query-toggle-button:hover,
+.query-toggle-button:focus {
+  transform: scale(125%);
 }
 </style>

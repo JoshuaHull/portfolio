@@ -1,6 +1,9 @@
 <template>
 <div class="data-table">
-  <template v-if="data.length > 0">
+  <template v-if="data.length === 0">
+    <em>no results</em>
+  </template>
+  <template v-else>
     <span
       v-for="(_, key) in data[0]"
       class="column-header"
@@ -32,26 +35,37 @@ const columnCount = computed(() =>
     ? 0
     : Object.keys(data.value[0]).length
 );
+
+const borderBottom = computed(() => data.value.length === 0 ? "none" : "1px solid white");
 </script>
 
 <style>
 .data-table {
   display: grid;
   grid-template-columns: repeat(v-bind(columnCount), auto);
+  --data-table-column-max-width: 7rem;
 }
 
 .column-header {
-  justify-self: flex-end;
+  text-align: end;
   padding: 1rem;
   border: 1px solid white;
+  min-width: var(--data-table-column-max-width);
   width: 100%;
 }
 
 .data-cell {
-  justify-self: flex-end;
+  text-align: end;
   padding: 1rem;
   border-left: 1px solid white;
   border-right: 1px solid white;
+  min-width: var(--data-table-column-max-width);
   width: 100%;
+}
+</style>
+
+<style scoped>
+.data-table {
+  border-bottom: v-bind(borderBottom);
 }
 </style>
