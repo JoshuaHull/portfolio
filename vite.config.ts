@@ -11,6 +11,7 @@ export default defineConfig({
     alias: {
       "@code-blocks": path.resolve(__dirname, "./src/code-blocks"),
       "@composables": path.resolve(__dirname, "./src/composables"),
+      "@file-exploring": path.resolve(__dirname, "./src/components/file-exploring"),
       "@query-building": path.resolve(__dirname, "./src/query-building"),
       "@routers": path.resolve(__dirname, "./src/routers"),
       "@store": path.resolve(__dirname, "./src/store"),

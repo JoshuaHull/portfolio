@@ -15,6 +15,7 @@
     "paths": {
       "@code-blocks": ["./src/code-blocks"],
       "@composables": ["./src/composables"],
+      "@file-exploring": ["./src/components/file-exploring"],
       "@query-building": ["./src/query-building"],
       "@routers": ["./src/routers"],
       "@store": ["./src/store"],
