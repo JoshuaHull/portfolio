@@ -42,6 +42,7 @@ declare module '@vue/runtime-core' {
     SkillsFrontend: typeof import('./src/pages/skills-frontend-page/skills-frontend/SkillsFrontend.vue')['default']
     SkillsFrontendPage: typeof import('./src/pages/skills-frontend-page/SkillsFrontendPage.vue')['default']
     SkillsGit: typeof import('./src/pages/skills-git-page/skills-git/SkillsGit.vue')['default']
+    SkillsGitPage: typeof import('./src/pages/skills-git-page/SkillsGitPage.vue')['default']
     SkillsMessaging: typeof import('./src/pages/skills-message-page/skills-messaging/SkillsMessaging.vue')['default']
     SkillsMonoliths: typeof import('./src/pages/skills-monoliths-page/skills-monoliths/SkillsMonoliths.vue')['default']
     SkillsRest: typeof import('./src/pages/skills-rest-page/skills-rest/SkillsRest.vue')['default']

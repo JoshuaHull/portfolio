@@ -3,12 +3,12 @@
   navLeftText="Previous Skill"
   :navLeftRoute="SkillsTestsPageName"
   navRightText="Next Skill"
-  :navRightRoute="SkillsDDDPageName"
+  :navRightRoute="SkillsGitPageName"
 >
   <SkillsRest />
 </Page>
 </template>
 
 <script setup lang="ts">
-import { SkillsTestsPageName, SkillsDDDPageName } from "@routers";
+import { SkillsTestsPageName, SkillsGitPageName } from "@routers";
 </script>

@@ -4,12 +4,14 @@ import {
   RouteRecordRaw,
 } from "vue-router";
 import SkillsDDDPage from "../pages/skills-ddd-page/SkillsDDDPage.vue";
+import SkillsGitPage from "../pages/skills-git-page/SkillsGitPage.vue";
 import SkillsRestPage from "../pages/skills-rest-page/SkillsRestPage.vue";
 import SkillsTestsPage from "../pages/skills-tests-page/SkillsTestsPage.vue";
 import SkillsDotnetPage from "../pages/skills-dotnet-page/SkillsDotnetPage.vue";
 import SkillsFrontendPage from "../pages/skills-frontend-page/SkillsFrontendPage.vue";
 
 export const SkillsDDDPageName = "SkillsDDDPage";
+export const SkillsGitPageName = "SkillsGitPage";
 export const SkillsRestPageName = "SkillsRestPage";
 export const SkillsTestsPageName = "SkillsTestsPage";
 export const SkillsDotnetPageName = "SkillsDotnetPage";
@@ -24,6 +26,11 @@ export const routes: RouteRecordRaw[] = [
     path: "/skills/ddd",
     name: SkillsDDDPageName,
     component: SkillsDDDPage,
+  },
+  {
+    path: "/skills/source-control",
+    name: SkillsGitPageName,
+    component: SkillsGitPage,
   },
   {
     path: "/skills/rest",
