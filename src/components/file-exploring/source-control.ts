@@ -26,7 +26,26 @@ class Commit {
   ) {}
 
   public toString(): string {
-    return "";
+    let rtn = this.message;
+
+    for (let change of this.changes) {
+      let mod = "";
+
+      switch (change.modification) {
+        case "Create":
+          mod = "+++";
+          break;
+        case "Delete":
+          mod = "---";
+          break;
+      }
+
+      rtn += `\n${mod} ${change.filePath}`;
+    }
+
+    const p = this.parent?.toString() ?? "";
+
+    return `${rtn}\n${p}`;
   }
 }
 
@@ -66,6 +85,7 @@ export class SourceControl {
     const commit = new Commit(message ?? "new commit!");
     commit.changes = [...this.stagedChanges];
     commit.parent = this.head;
+    this.root ??= commit;
     this.head = commit;
     this.stagedChanges = [];
   }

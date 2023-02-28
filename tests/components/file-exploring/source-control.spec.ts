@@ -84,12 +84,48 @@ describe("staging and unstaging files", () => {
 describe("committing files", () => {
   test("when committing, we should set the root, head, and clear staged changes", () => {
     // Arrange
-
   });
 });
 
 describe("commit toString", () => {
   test("should display the whole commit tree in a readable structure", () => {
     // Arrange
+    const sourceControl = new SourceControl();
+
+    sourceControl.stageChange({
+      modification: "Create",
+      filePath: "f1/first commit only file",
+    });
+    sourceControl.commit("first commit");
+
+    sourceControl.stageChange({
+      modification: "Create",
+      filePath: "f1/f2/second commit first file",
+    });
+    sourceControl.stageChange({
+      modification: "Create",
+      filePath: "f1/f2/second commit second file",
+    });
+    sourceControl.commit("second commit");
+
+    sourceControl.stageChange({
+      modification: "Delete",
+      filePath: "f1/f2/f3/third commit deleted file",
+    });
+    sourceControl.commit("third commit");
+
+    // Act
+    const result = sourceControl.head.toString();
+
+    // Assert
+    expect(result).toBe(
+`third commit
+--- f1/f2/f3/third commit deleted file
+second commit
++++ f1/f2/second commit first file
++++ f1/f2/second commit second file
+first commit
++++ f1/first commit only file
+`);
   });
 });
