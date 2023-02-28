@@ -1,6 +1,7 @@
 type Folders = { [name: string]: FileSystem };
 
 export class FileSystem {
+  public name: string | null = null;
   public files: string[] = [];
   public folders: Folders = {};
   private parentFolder: FileSystem | null = null;
@@ -29,6 +30,7 @@ export class FileSystem {
     const folderName = name ?? this.getRandomName();
 
     const folder = new FileSystem();
+    folder.name = folderName;
     folder.parentFolder = this;
 
     this.folders[folderName] = folder;
@@ -51,6 +53,21 @@ export class FileSystem {
 
   public up(): FileSystem | null {
     return this.parentFolder;
+  }
+
+  public filePathFor(fileName: string): string | null {
+    if (!this.files.includes(fileName))
+      return null;
+
+    let filePath = fileName;
+    let currentFolder: FileSystem = this;
+
+    while (currentFolder.parentFolder !== null) {
+      filePath = `${currentFolder.name}/${filePath}`;
+      currentFolder = currentFolder.parentFolder;
+    }
+
+    return `/${filePath}`;
   }
 
   private getRandomName() {

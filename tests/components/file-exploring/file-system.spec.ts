@@ -111,6 +111,43 @@ describe("deleting folders", () => {
   });
 });
 
+describe("file paths", () => {
+  test("should return null file path if the file does not exist", () => {
+    // Arrange
+    const fileSystem = new FileSystem();
+
+    const firstFolder = fileSystem.addFolder("first");
+    const secondFolder = firstFolder.addFolder("second");
+    const thirdFolder = secondFolder.addFolder("third");
+    thirdFolder.addFile("file!.txt");
+
+    // Act
+    const filePath = thirdFolder.filePathFor("file.txt");
+
+    // Assert
+    expect(filePath).toBe(null);
+  });
+
+  test("should return the full file path for a given file", () => {
+    // Arrange
+    const fileSystem = new FileSystem();
+
+    const firstFolder = fileSystem.addFolder("first");
+    firstFolder.addFolder();
+    const secondFolder = firstFolder.addFolder("second");
+    secondFolder.addFolder();
+    const thirdFolder = secondFolder.addFolder("third");
+    thirdFolder.addFolder();
+    thirdFolder.addFile("file!.txt");
+
+    // Act
+    const filePath = thirdFolder.filePathFor("file!.txt");
+
+    // Assert
+    expect(filePath).toBe("/first/second/third/file!.txt");
+  });
+});
+
 describe("toString", () => {
   test("should pretty print a complex file system", () => {
     // Arrange
