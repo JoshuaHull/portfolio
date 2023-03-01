@@ -76,9 +76,59 @@ export class SourceControl {
       .filter(c => c.filePath !== change.filePath || c.modification !== change.modification);
   }
 
-  public getUnstagedChanges(): UnstagedChange[] {
+  private getExpectedSetOfFilePaths(commit: Commit | null = this.head): string[] {
+    if (commit === null)
+      return [];
 
-    return [];
+    let rtn = this.getExpectedSetOfFilePaths(commit.parent);
+
+    for (let change of commit.changes) {
+      switch (change.modification) {
+        case "Create":
+          rtn.push(change.filePath);
+          break;
+        case "Delete":
+          const idx = rtn.findIndex(p => p === change.filePath);
+
+          if (idx < 0)
+            break;
+
+          rtn.splice(idx, 1);
+          break;
+      }
+    }
+
+    return rtn;
+  }
+
+  public getUnstagedChanges(): UnstagedChange[] {
+    const expectedFilePaths = this.getExpectedSetOfFilePaths();
+    const allFilePaths = this.fileSystem.listAllFilePaths();
+
+    const unstagedDeletions: UnstagedChange[] = [];
+    const unstagedCreations: UnstagedChange[] = [];
+
+    for (let filePath of expectedFilePaths) {
+      if (allFilePaths.includes(filePath))
+        continue;
+
+      unstagedDeletions.push({
+        filePath,
+        modification: "Delete",
+      });
+    }
+
+    for (let filePath of allFilePaths) {
+      if (expectedFilePaths.includes(filePath))
+        continue;
+
+      unstagedCreations.push({
+        filePath,
+        modification: "Create",
+      });
+    }
+
+    return unstagedCreations.concat(unstagedDeletions);
   }
 
   public commit(message: string | undefined = undefined) {

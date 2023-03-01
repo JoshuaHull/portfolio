@@ -83,6 +83,77 @@ describe("staging and unstaging files", () => {
     // Assert
     expect(sourceControl.stagedChanges).toStrictEqual([]);
   });
+
+  test("should accurately calculate all unstaged changes", () => {
+    // Arrange
+    const fs = new FileSystem();
+    const sourceControl = new SourceControl(fs);
+
+    // first commit - adding stuff
+    fs.addFile("firstCommit_file_1");
+    const f_1 = fs.addFolder("f_1");
+    f_1.addFile("firstCommit_file_2");
+
+    // first commit - stage and commit
+    sourceControl.stageChange({
+      filePath: "/firstCommit_file_1",
+      modification: "Create",
+    });
+    sourceControl.stageChange({
+      filePath: "/f_1/firstCommit_file_2",
+      modification: "Create",
+    });
+    sourceControl.commit();
+
+    // second commit - adding stuff
+    fs.addFile("secondCommit_file_1");
+    f_1.addFile("secondCommit_file_2");
+    const f_2 = fs.addFolder("f_2");
+    f_2.addFile("secondCommit_file_3");
+
+    // second commit - stage and commit
+    sourceControl.stageChange({
+      filePath: "/secondCommit_file_1",
+      modification: "Create",
+    });
+    sourceControl.stageChange({
+      filePath: "/f_1/secondCommit_file_2",
+      modification: "Create",
+    });
+    sourceControl.stageChange({
+      filePath: "/f_2/secondCommit_file_3",
+      modification: "Create",
+    });
+    sourceControl.commit();
+
+    f_2.addFile("unstaged_creation_1");
+    fs.addFile("unstaged_creation_2");
+    f_1.deleteFile("firstCommit_file_2");
+    f_2.deleteFile("secondCommit_file_3");
+
+    // Act
+    const unstagedChanges = sourceControl.getUnstagedChanges();
+
+    // Assert
+    expect(unstagedChanges).toStrictEqual([
+      {
+        filePath: "/unstaged_creation_2",
+        modification: "Create",
+      },
+      {
+        filePath: "/f_2/unstaged_creation_1",
+        modification: "Create",
+      },
+      {
+        filePath: "/f_1/firstCommit_file_2",
+        modification: "Delete",
+      },
+      {
+        filePath: "/f_2/secondCommit_file_3",
+        modification: "Delete",
+      },
+    ]);
+  });
 });
 
 describe("committing files", () => {
