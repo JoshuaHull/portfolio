@@ -5,57 +5,48 @@ describe("staging and unstaging files", () => {
   test("should stage the given file", () => {
     // Arrange
     const fs = new FileSystem();
+    fs.addFile("file.txt");
+
     const sourceControl = new SourceControl(fs);
 
     // Act
-    sourceControl.stageChange({
-      modification: "Create",
-      filePath: "file.txt",
-    });
+    sourceControl.stageChange("/file.txt");
 
     // Assert
     expect(sourceControl.stagedChanges).toStrictEqual([{
       modification: "Create",
-      filePath: "file.txt",
+      filePath: "/file.txt",
     }]);
   });
 
   test("should do nothing if the file has already been staged", () => {
     // Arrange
     const fs = new FileSystem();
+    fs.addFile("file.txt");
+
     const sourceControl = new SourceControl(fs);
-    sourceControl.stageChange({
-      modification: "Create",
-      filePath: "file.txt",
-    });
+    sourceControl.stageChange("/file.txt");
 
     // Act
-    sourceControl.stageChange({
-      modification: "Create",
-      filePath: "file.txt",
-    });
+    sourceControl.stageChange("/file.txt");
 
     // Assert
     expect(sourceControl.stagedChanges).toStrictEqual([{
       modification: "Create",
-      filePath: "file.txt",
+      filePath: "/file.txt",
     }]);
   });
 
   test("should unstage the given file", () => {
     // Arrange
     const fs = new FileSystem();
+    fs.addFile("file.txt");
+
     const sourceControl = new SourceControl(fs);
-    sourceControl.stageChange({
-      modification: "Create",
-      filePath: "file.txt",
-    });
+    sourceControl.stageChange("/file.txt");
 
     // Act
-    sourceControl.unstageChange({
-      modification: "Create",
-      filePath: "file.txt",
-    });
+    sourceControl.unstageChange("/file.txt",);
 
     // Assert
     expect(sourceControl.stagedChanges).toStrictEqual([]);
@@ -64,21 +55,14 @@ describe("staging and unstaging files", () => {
   test("should do nothing if the file has already been unstaged", () => {
     // Arrange
     const fs = new FileSystem();
+    fs.addFile("file.txt");
+
     const sourceControl = new SourceControl(fs);
-    sourceControl.stageChange({
-      modification: "Create",
-      filePath: "file.txt",
-    });
-    sourceControl.unstageChange({
-      modification: "Create",
-      filePath: "file.txt",
-    });
+    sourceControl.stageChange("/file.txt");
+    sourceControl.unstageChange("/file.txt",);
 
     // Act
-    sourceControl.unstageChange({
-      modification: "Create",
-      filePath: "file.txt",
-    });
+    sourceControl.unstageChange("/file.txt");
 
     // Assert
     expect(sourceControl.stagedChanges).toStrictEqual([]);
@@ -95,14 +79,8 @@ describe("staging and unstaging files", () => {
     f_1.addFile("firstCommit_file_2");
 
     // first commit - stage and commit
-    sourceControl.stageChange({
-      filePath: "/firstCommit_file_1",
-      modification: "Create",
-    });
-    sourceControl.stageChange({
-      filePath: "/f_1/firstCommit_file_2",
-      modification: "Create",
-    });
+    sourceControl.stageChange("/firstCommit_file_1");
+    sourceControl.stageChange("/f_1/firstCommit_file_2");
     sourceControl.commit();
 
     // second commit - adding stuff
@@ -112,20 +90,12 @@ describe("staging and unstaging files", () => {
     f_2.addFile("secondCommit_file_3");
 
     // second commit - stage and commit
-    sourceControl.stageChange({
-      filePath: "/secondCommit_file_1",
-      modification: "Create",
-    });
-    sourceControl.stageChange({
-      filePath: "/f_1/secondCommit_file_2",
-      modification: "Create",
-    });
-    sourceControl.stageChange({
-      filePath: "/f_2/secondCommit_file_3",
-      modification: "Create",
-    });
+    sourceControl.stageChange("/secondCommit_file_1");
+    sourceControl.stageChange("/f_1/secondCommit_file_2");
+    sourceControl.stageChange("/f_2/secondCommit_file_3");
     sourceControl.commit();
 
+    // unstaged changes
     f_2.addFile("unstaged_creation_1");
     fs.addFile("unstaged_creation_2");
     f_1.deleteFile("firstCommit_file_2");
@@ -168,26 +138,20 @@ describe("commit toString", () => {
     const fs = new FileSystem();
     const sourceControl = new SourceControl(fs);
 
-    sourceControl.stageChange({
-      modification: "Create",
-      filePath: "f1/first commit only file",
-    });
+    const f1 = fs.addFolder("f1");
+    f1.addFile("first commit only file");
+    sourceControl.stageChange("/f1/first commit only file");
     sourceControl.commit("first commit");
 
-    sourceControl.stageChange({
-      modification: "Create",
-      filePath: "f1/f2/second commit first file",
-    });
-    sourceControl.stageChange({
-      modification: "Create",
-      filePath: "f1/f2/second commit second file",
-    });
+    const f2 = f1.addFolder("f2");
+    f2.addFile("second commit first file");
+    f2.addFile("second commit second file");
+    sourceControl.stageChange("/f1/f2/second commit first file");
+    sourceControl.stageChange("/f1/f2/second commit second file");
     sourceControl.commit("second commit");
 
-    sourceControl.stageChange({
-      modification: "Delete",
-      filePath: "f1/f2/f3/third commit deleted file",
-    });
+    f2.deleteFile("second commit second file");
+    sourceControl.stageChange("/f1/f2/second commit second file");
     sourceControl.commit("third commit");
 
     // Act
@@ -196,12 +160,12 @@ describe("commit toString", () => {
     // Assert
     expect(result).toBe(
 `third commit
---- f1/f2/f3/third commit deleted file
+--- /f1/f2/second commit second file
 second commit
-+++ f1/f2/second commit first file
-+++ f1/f2/second commit second file
++++ /f1/f2/second commit first file
++++ /f1/f2/second commit second file
 first commit
-+++ f1/first commit only file
++++ /f1/first commit only file
 `);
   });
 });

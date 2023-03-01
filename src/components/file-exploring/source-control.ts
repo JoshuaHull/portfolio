@@ -58,29 +58,30 @@ export class SourceControl {
     private fileSystem: FileSystem,
   ) {}
 
-  public stageChange(change: UnstagedChange): void {
-    const { modification, filePath } = change;
-    const existingStagedChanges = this.stagedChanges.filter(c => c.filePath === change.filePath && c.modification === change.modification);
+  public stageChange(filePath: string): void {
+    const unstagedChanges = this.getUnstagedChanges();
 
-    if (existingStagedChanges.length > 0)
+    const changeForFilePath = unstagedChanges.filter(c => c.filePath === filePath);
+
+    if (changeForFilePath.length === 0)
       return;
 
     this.stagedChanges.push({
-      modification,
+      modification: changeForFilePath[0].modification,
       filePath,
     });
   }
 
-  public unstageChange(change: StagedChange): void {
+  public unstageChange(filePath: string): void {
     this.stagedChanges = this.stagedChanges
-      .filter(c => c.filePath !== change.filePath || c.modification !== change.modification);
+      .filter(c => c.filePath !== filePath);
   }
 
   private getExpectedSetOfFilePaths(commit: Commit | null = this.head): string[] {
     if (commit === null)
       return [];
 
-    let rtn = this.getExpectedSetOfFilePaths(commit.parent);
+    const rtn = this.getExpectedSetOfFilePaths(commit.parent);
 
     for (let change of commit.changes) {
       switch (change.modification) {
@@ -128,7 +129,18 @@ export class SourceControl {
       });
     }
 
-    return unstagedCreations.concat(unstagedDeletions);
+    const unstagedChanges = unstagedCreations.concat(unstagedDeletions);
+
+    for (let staged of this.stagedChanges) {
+      const idx = unstagedChanges.findIndex(unstaged => unstaged.filePath === staged.filePath);
+
+      if (idx < 0)
+        continue;
+
+      unstagedChanges.splice(idx, 1);
+    }
+
+    return unstagedChanges;
   }
 
   public commit(message: string | undefined = undefined) {
