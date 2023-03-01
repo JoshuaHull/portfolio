@@ -197,3 +197,57 @@ Harry
     );
   });
 });
+
+describe("listing files", () => {
+  test("listing all files should return an empty array for an empty file system", () => {
+    // Arrange
+    const fileSystem = new FileSystem();
+    const f1 = fileSystem.addFolder("f1");
+    f1.addFolder("f2");
+
+    // Act
+    const allFiles = fileSystem.listAllFilePaths();
+
+    // Assert
+    expect(allFiles).toStrictEqual([]);
+  });
+
+  test("listing all files should return all files as file paths across layers of folders", () => {
+    // Arrange
+    const fileSystem = new FileSystem();
+    const f_1 = fileSystem.addFolder("f_1");
+    const f_2 = fileSystem.addFolder("f_2");
+    const f_1_1 = f_1.addFolder("f_1_1");
+    const f_1_2 = f_1.addFolder("f_1_2");
+    const f_2_1 = f_2.addFolder("f_2_1");
+    const f_2_2 = f_2.addFolder("f_2_2");
+
+    f_1.addFile("first");
+    f_2.addFile("second");
+    f_2.addFile("third");
+    f_1_1.addFile("fourth");
+    f_1_1.addFile("fifth");
+    f_1_2.addFile("sixth");
+    f_2_1.addFile("seventh");
+    f_2_1.addFile("eigth");
+    f_2_2.addFile("ninth");
+    f_2_2.addFile("tenth");
+
+    // Act
+    const allFiles = fileSystem.listAllFilePaths();
+
+    // Assert
+    expect(allFiles).toStrictEqual([
+      "/f_1/first",
+      "/f_1/f_1_1/fourth",
+      "/f_1/f_1_1/fifth",
+      "/f_1/f_1_2/sixth",
+      "/f_2/second",
+      "/f_2/third",
+      "/f_2/f_2_1/seventh",
+      "/f_2/f_2_1/eigth",
+      "/f_2/f_2_2/ninth",
+      "/f_2/f_2_2/tenth",
+    ]);
+  });
+});

@@ -70,6 +70,17 @@ export class FileSystem {
     return `/${filePath}`;
   }
 
+  public listAllFilePaths(): string[] {
+    let rtn = this.files.map(f => this.filePathFor(f)!);
+
+    for (let folderName of this.folderNames) {
+      const folder = this.folders[folderName];
+      rtn = rtn.concat(folder.listAllFilePaths());
+    }
+
+    return rtn;
+  }
+
   private getRandomName() {
     let fileName = "";
 
@@ -100,7 +111,7 @@ export class FileSystem {
     return rtn;
   }
 
-  toString(): string {
+  public toString(): string {
     return this.staggeredToString("");
   }
 }
