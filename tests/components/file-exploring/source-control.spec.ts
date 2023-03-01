@@ -1,10 +1,11 @@
 import { describe, expect, test } from "vitest";
-import { SourceControl } from "@file-exploring";
+import { FileSystem, SourceControl } from "@file-exploring";
 
 describe("staging and unstaging files", () => {
   test("should stage the given file", () => {
     // Arrange
-    const sourceControl = new SourceControl();
+    const fs = new FileSystem();
+    const sourceControl = new SourceControl(fs);
 
     // Act
     sourceControl.stageChange({
@@ -21,7 +22,8 @@ describe("staging and unstaging files", () => {
 
   test("should do nothing if the file has already been staged", () => {
     // Arrange
-    const sourceControl = new SourceControl();
+    const fs = new FileSystem();
+    const sourceControl = new SourceControl(fs);
     sourceControl.stageChange({
       modification: "Create",
       filePath: "file.txt",
@@ -42,7 +44,8 @@ describe("staging and unstaging files", () => {
 
   test("should unstage the given file", () => {
     // Arrange
-    const sourceControl = new SourceControl();
+    const fs = new FileSystem();
+    const sourceControl = new SourceControl(fs);
     sourceControl.stageChange({
       modification: "Create",
       filePath: "file.txt",
@@ -60,7 +63,8 @@ describe("staging and unstaging files", () => {
 
   test("should do nothing if the file has already been unstaged", () => {
     // Arrange
-    const sourceControl = new SourceControl();
+    const fs = new FileSystem();
+    const sourceControl = new SourceControl(fs);
     sourceControl.stageChange({
       modification: "Create",
       filePath: "file.txt",
@@ -90,7 +94,8 @@ describe("committing files", () => {
 describe("commit toString", () => {
   test("should display the whole commit tree in a readable structure", () => {
     // Arrange
-    const sourceControl = new SourceControl();
+    const fs = new FileSystem();
+    const sourceControl = new SourceControl(fs);
 
     sourceControl.stageChange({
       modification: "Create",
@@ -115,7 +120,7 @@ describe("commit toString", () => {
     sourceControl.commit("third commit");
 
     // Act
-    const result = sourceControl.head.toString();
+    const result = sourceControl.head?.toString();
 
     // Assert
     expect(result).toBe(
