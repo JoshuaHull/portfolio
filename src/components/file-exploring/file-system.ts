@@ -82,12 +82,8 @@ export class FileSystem {
   }
 
   private getRandomName() {
-    let fileName = "";
-
-    for (let i = 0; i < 3; i += 1)
-      fileName += words[Math.floor(Math.random() * words.length)];
-
-    return fileName;
+    const idx = () => Math.floor(Math.random() * words.length);
+    return `${words[idx()]}-${words[idx()]}`;
   }
 
   private staggeredToString(stagger: string): string {
@@ -120,15 +116,14 @@ const words = [
   "vacation", "mine", "truthful", "condition", "outrageous", "elegant", "carve",
   "head", "spotty", "wash", "growth", "belong", "back", "naive", "attraction",
   "tangible", "addition", "size", "cagey", "mindless", "wound", "approval",
-  "longing", "vanish", "collar", "well-made", "abusive", "cowardly", "peaceful",
-  "wrap", "angry", "thundering", "art", "bless", "scent", "damp", "oven",
-  "innocent", "faint", "penitent", "thinkable", "wonderful", "ink", "puncture",
-  "unique", "advice", "rest", "view", "plucky", "try", "dinosaurs", "scribble",
-  "gaudy", "rot", "tenuous", "crazy", "demonic", "expect", "wrong", "thumb",
-  "bloody", "crawl", "crate", "disagree", "spicy", "cabbage", "comparison",
-  "wrestle", "appliance", "cactus", "salt", "holiday", "rub", "ugly", "gray",
-  "tiresome", "brawny", "fluttering", "black-and-white", "suspect", "theory",
-  "consist", "cheat", "roll", "enthusiastic", "son", "rice", "ball", "range",
-  "work", "uncovered", "engine", "tricky", "history", "enter", "pencil", "mug",
-  "activity", "malicious", "grin",
+  "longing", "vanish", "collar", "abusive", "cowardly", "peaceful", "wrap",
+  "angry", "thundering", "art", "bless", "scent", "damp", "oven", "innocent",
+  "faint", "penitent", "thinkable", "wonderful", "ink", "puncture", "unique",
+  "advice", "rest", "view", "plucky", "try", "dinosaurs", "scribble", "gaudy",
+  "rot", "tenuous", "crazy", "demonic", "expect", "wrong", "thumb", "crawl",
+  "crate", "disagree", "spicy", "cabbage", "comparison", "wrestle", "appliance",
+  "cactus", "salt", "holiday", "rub", "ugly", "gray", "tiresome", "brawny",
+  "fluttering", "suspect", "theory", "consist", "cheat", "roll", "enthusiastic",
+  "son", "rice", "ball", "range", "work", "uncovered", "engine", "tricky",
+  "history", "enter", "pencil", "mug", "activity", "malicious", "grin",
 ];
