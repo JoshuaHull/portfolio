@@ -125,6 +125,39 @@ describe("staging and unstaging files", () => {
       },
     ]);
   });
+
+  test("should correctly stage all changes", () => {
+    // Arrange
+    const fs = new FileSystem();
+    fs.addFile("file.txt");
+    fs.addFile("file2.txt");
+    fs.addFile("file3.txt");
+
+    const sourceControl = new SourceControl(fs);
+
+    // Act
+    sourceControl.stageAllChanges();
+
+    // Assert
+    expect(sourceControl.stagedChanges).toHaveLength(3);
+  });
+
+  test("should correctly unstage all changes", () => {
+    // Arrange
+    const fs = new FileSystem();
+    fs.addFile("file.txt");
+    fs.addFile("file2.txt");
+    fs.addFile("file3.txt");
+
+    const sourceControl = new SourceControl(fs);
+    sourceControl.stageAllChanges();
+
+    // Act
+    sourceControl.unstageAllChanges();
+
+    // Assert
+    expect(sourceControl.stagedChanges).toHaveLength(0);
+  });
 });
 
 describe("committing files", () => {

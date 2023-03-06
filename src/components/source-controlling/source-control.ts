@@ -77,6 +77,23 @@ export class SourceControl {
       .filter(c => c.filePath !== filePath);
   }
 
+  public stageAllChanges(): void {
+    const unstagedChanges = this.getUnstagedChanges();
+
+    for (let unstagedChange of unstagedChanges) {
+      const { filePath, modification } = unstagedChange;
+
+      this.stagedChanges.push({
+        filePath,
+        modification,
+      });
+    }
+  }
+
+  public unstageAllChanges(): void {
+    this.stagedChanges = [];
+  }
+
   private getExpectedSetOfFilePaths(commit: Commit | null = this.head): string[] {
     if (commit === null)
       return [];
