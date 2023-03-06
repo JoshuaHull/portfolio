@@ -54,7 +54,10 @@ declare module '@vue/runtime-core' {
     SkillsRestPage: typeof import('./src/pages/skills-rest-page/SkillsRestPage.vue')['default']
     SkillsTests: typeof import('./src/pages/skills-tests-page/skills-tests/SkillsTests.vue')['default']
     SkillsTestsPage: typeof import('./src/pages/skills-tests-page/SkillsTestsPage.vue')['default']
+    StagedChange: typeof import('./src/components/source-controlling/StagedChange.vue')['default']
+    StagingArea: typeof import('./src/components/source-controlling/StagingArea.vue')['default']
     TabbedDocument: typeof import('./src/components/tabs/TabbedDocument.vue')['default']
     TestExample: typeof import('./src/pages/skills-tests-page/skills-tests/components/TestExample.vue')['default']
+    UnstagedChange: typeof import('./src/components/source-controlling/UnstagedChange.vue')['default']
   }
 }

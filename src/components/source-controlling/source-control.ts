@@ -1,6 +1,6 @@
 import { FileSystem } from "@file-exploring";
 
-type Modification = "Create" | "Delete";
+export type Modification = "Create" | "Delete";
 
 type UnstagedChange = {
   modification: Modification;
