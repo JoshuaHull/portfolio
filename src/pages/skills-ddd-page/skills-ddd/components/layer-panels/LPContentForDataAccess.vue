@@ -21,7 +21,7 @@
       <CodeBlockForCSharp content=
 "public class LinkedAccount {
   public long Id { get; set; }
-  public string Type { get; set; }
+  public string Platform { get; set; }
   public long UserId { get; set; }
   public string ExternalId { get; set; }
 }" />
