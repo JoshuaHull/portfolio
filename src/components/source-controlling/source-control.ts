@@ -1,4 +1,4 @@
-import { FileSystem } from "./file-system";
+import { FileSystem } from "@file-exploring";
 
 type Modification = "Create" | "Delete";
 

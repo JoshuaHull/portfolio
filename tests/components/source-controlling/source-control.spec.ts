@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { FileSystem, SourceControl } from "@file-exploring";
+import { FileSystem } from "@file-exploring";
+import { SourceControl } from "@source-controlling";
 
 describe("staging and unstaging files", () => {
   test("should stage the given file", () => {

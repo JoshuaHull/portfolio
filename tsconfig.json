@@ -18,6 +18,7 @@
       "@file-exploring": ["./src/components/file-exploring"],
       "@query-building": ["./src/query-building"],
       "@routers": ["./src/routers"],
+      "@source-controlling": ["./src/components/source-controlling"],
       "@store": ["./src/store"],
     }
   },
