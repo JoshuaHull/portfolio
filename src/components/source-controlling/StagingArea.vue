@@ -13,13 +13,19 @@
     >
       unstage all
     </button>
+    <button
+      class="commit-button"
+      @click="handleCommit"
+    >
+      commit
+    </button>
   </div>
   <section class="unstaged-files">
     <header class="staging-area-files-header">
       unstaged files
     </header>
     <UnstagedChange
-      v-for="unstagedChange of sc.getUnstagedChanges()"
+      v-for="unstagedChange of unstagedChanges"
       :filePath="unstagedChange.filePath"
       :modification="unstagedChange.modification"
     />
@@ -29,7 +35,7 @@
       staged files
     </header>
     <StagedChange
-      v-for="stagedChange of sc.stagedChanges"
+      v-for="stagedChange of sourceControl.stagedChanges"
       :filePath="stagedChange.filePath"
       :modification="stagedChange.modification"
     />
@@ -45,16 +51,20 @@ interface StagingAreaProps {
 }
 
 const props = defineProps<StagingAreaProps>();
-const { sourceControl } = props;
+const { sourceControl } = toRefs(props);
 
-const sc = ref(sourceControl);
+const unstagedChanges = computed(() => sourceControl.value.getUnstagedChanges());
 
 const handleStageAll = () => {
-  sc.value.stageAllChanges();
+  sourceControl.value.stageAllChanges();
 };
 
 const handleUnstageAll = () => {
-  sc.value.unstageAllChanges();
+  sourceControl.value.unstageAllChanges();
+};
+
+const handleCommit = () => {
+  sourceControl.value.commit();
 };
 </script>
 

@@ -16,6 +16,7 @@ declare module '@vue/runtime-core' {
     AwsApiGatewayIcon: typeof import('./src/components/icons/AwsApiGatewayIcon.vue')['default']
     AwsDynamoDbIcon: typeof import('./src/components/icons/AwsDynamoDbIcon.vue')['default']
     AwsLambdaIcon: typeof import('./src/components/icons/AwsLambdaIcon.vue')['default']
+    CommitGraph: typeof import('./src/components/source-controlling/CommitGraph.vue')['default']
     DataTable: typeof import('./src/components/tables/DataTable.vue')['default']
     DocumentPlusSolidIcon: typeof import('@heroicons/vue/24/solid')['DocumentPlusIcon']
     FileExplorer: typeof import('./src/components/file-exploring/FileExplorer.vue')['default']
@@ -59,5 +60,6 @@ declare module '@vue/runtime-core' {
     TabbedDocument: typeof import('./src/components/tabs/TabbedDocument.vue')['default']
     TestExample: typeof import('./src/pages/skills-tests-page/skills-tests/components/TestExample.vue')['default']
     UnstagedChange: typeof import('./src/components/source-controlling/UnstagedChange.vue')['default']
+    UserCircleSolidIcon: typeof import('@heroicons/vue/24/solid')['UserCircleIcon']
   }
 }
