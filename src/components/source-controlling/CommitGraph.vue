@@ -1,7 +1,9 @@
 <template>
 <article class="commit-graph">
-  <template
+  <div
     v-for="commit in commits"
+    class="commit-graph-commit"
+    @click="() => handleCommitSelected(commit)"
   >
     <IconContainer
       class="commit-avatar"
@@ -13,12 +15,12 @@
     <div class="commit-message">
       {{ commit.message }}
     </div>
-  </template>
+  </div>
 </article>
 </template>
 
 <script setup lang="ts">
-import { SourceControl } from "./source-control";
+import { Commit, SourceControl } from "./source-control";
 
 interface CommitGraphProps {
   sourceControl: SourceControl;
@@ -27,24 +29,21 @@ interface CommitGraphProps {
 const props = defineProps<CommitGraphProps>();
 const { sourceControl } = toRefs(props);
 
-type DisplayedCommit = {
-  message: string;
+const emit = defineEmits(["commitSelected"]);
+
+const handleCommitSelected = (commit: Commit) => {
+  emit("commitSelected", commit);
 };
 
 const commits = computed(() => {
-  const rtn: DisplayedCommit[] = [];
-  
-  let current = sourceControl.value.head;
+  const rtn: Commit[] = [];
 
-  if (!current)
-    return rtn;
+  let current: Commit | null = sourceControl.value.head;
 
-  do {
-    rtn.push({
-      message: current.message,
-    });
+  while (current) {
+    rtn.push(current);
     current = current.parent;
-  } while (current != null);
+  };
 
   return rtn;
 });
@@ -54,10 +53,15 @@ const commits = computed(() => {
 <style>
 .commit-graph {
   display: grid;
+  row-gap: 0.5rem;
+  grid-template-columns: auto;
+}
+
+.commit-graph-commit {
+  display: grid;
   grid-template-columns: min-content auto;
   align-items: center;
   column-gap: 0.5rem;
-  row-gap: 0.5rem;
 }
 
 .commit-avatar {

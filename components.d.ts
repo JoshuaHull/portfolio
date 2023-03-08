@@ -17,6 +17,7 @@ declare module '@vue/runtime-core' {
     AwsDynamoDbIcon: typeof import('./src/components/icons/AwsDynamoDbIcon.vue')['default']
     AwsLambdaIcon: typeof import('./src/components/icons/AwsLambdaIcon.vue')['default']
     CommitGraph: typeof import('./src/components/source-controlling/CommitGraph.vue')['default']
+    CommitViewer: typeof import('./src/components/source-controlling/CommitViewer.vue')['default']
     DataTable: typeof import('./src/components/tables/DataTable.vue')['default']
     DocumentPlusSolidIcon: typeof import('@heroicons/vue/24/solid')['DocumentPlusIcon']
     DocumentSolidIcon: typeof import('@heroicons/vue/24/solid')['DocumentIcon']

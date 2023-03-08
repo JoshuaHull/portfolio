@@ -17,7 +17,7 @@ type CommittedChange = {
   filePath: string;
 };
 
-class Commit {
+export class Commit {
   public parent: Commit | null = null;
   public changes: CommittedChange[] = [];
 

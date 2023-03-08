@@ -1,19 +1,32 @@
 <template>
 <article class="skills-git">
-  <StagingArea :sourceControl="sourceControl" />
-  <CommitGraph :sourceControl="sourceControl" />
   <FileExplorer :fileSystem="fs" />
+  <CommitGraph
+    :sourceControl="sourceControl"
+    @commitSelected="handleCommitSelected"
+  />
+  <StagingArea :sourceControl="sourceControl" />
+  <CommitViewer
+    v-if="selectedCommit"
+    :commit="selectedCommit"
+  />
 </article>
 </template>
 
 <script setup lang="ts">
 import { FileSystem } from "@file-exploring";
-import { SourceControl } from "@source-controlling";
+import { Commit, SourceControl } from "@source-controlling";
 import { Ref } from "vue";
 
 const fs = new FileSystem();
 const sc = new SourceControl(fs);
 const sourceControl = ref<SourceControl>(sc) as Ref<SourceControl>;
+
+const selectedCommit = ref<Commit | null>(null);
+
+const handleCommitSelected = (commit: Commit) => {
+  selectedCommit.value = commit;
+};
 </script>
 
 <style>
