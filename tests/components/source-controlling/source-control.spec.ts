@@ -196,6 +196,104 @@ describe("committing files", () => {
     expect(sourceControl.head).toBeFalsy();
     expect(sourceControl.root).toBeFalsy();
   });
+
+  test.each([
+    {
+      expectedMessage: "created 1 file",
+      changes: [
+        {
+          fileName: "file.txt",
+          modification: "Create",
+        },
+      ],
+    },
+    {
+      expectedMessage: "created 2 files",
+      changes: [
+        {
+          fileName: "file1.txt",
+          modification: "Create",
+        },
+        {
+          fileName: "file2.txt",
+          modification: "Create",
+        },
+      ],
+    },
+    {
+      expectedMessage: "deleted 1 file",
+      changes: [
+        {
+          fileName: "file.txt",
+          modification: "Delete",
+        },
+      ],
+    },
+    {
+      expectedMessage: "deleted 2 files",
+      changes: [
+        {
+          fileName: "file1.txt",
+          modification: "Delete",
+        },
+        {
+          fileName: "file2.txt",
+          modification: "Delete",
+        },
+      ],
+    },
+    {
+      expectedMessage: "created 2 files, deleted 2 files",
+      changes: [
+        {
+          fileName: "file1.txt",
+          modification: "Delete",
+        },
+        {
+          fileName: "file2.txt",
+          modification: "Create",
+        },
+        {
+          fileName: "file3.txt",
+          modification: "Create",
+        },
+        {
+          fileName: "file4.txt",
+          modification: "Delete",
+        },
+      ],
+    },
+  ])("should create meaningful commit message when no message is provided", ({ changes, expectedMessage }) => {
+    // Arrange
+    const fs = new FileSystem();
+    const sourceControl = new SourceControl(fs);
+
+    const deletes = changes.filter(c => c.modification === "Delete");
+
+    if (deletes.length > 0) {
+      for (let { fileName } of deletes) {
+        fs.addFile(fileName);
+        sourceControl.stageChange(`/${fileName}`);
+      }
+      sourceControl.commit();
+    }
+
+    for (let { fileName } of changes.filter(c => c.modification === "Create")) {
+      fs.addFile(fileName);
+      sourceControl.stageChange(`/${fileName}`);
+    }
+
+    for (let { fileName } of deletes) {
+      fs.deleteFile(fileName);
+      sourceControl.stageChange(`/${fileName}`);
+    }
+
+    // Act
+    sourceControl.commit();
+
+    // Assert
+    expect(sourceControl.head.message).toBe(expectedMessage);
+  });
 });
 
 describe("commit toString", () => {

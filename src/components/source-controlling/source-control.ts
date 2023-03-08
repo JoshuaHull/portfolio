@@ -164,11 +164,32 @@ export class SourceControl {
     if (this.stagedChanges.length === 0)
       return;
 
-    const commit = new Commit(message ?? "new commit!");
+    const commit = new Commit(message ?? this.generateCommitMessageForCurrentlyStagedChanges());
     commit.changes = [...this.stagedChanges];
     commit.parent = this.head;
     this.root ??= commit;
     this.head = commit;
     this.stagedChanges = [];
   }
+
+  private generateCommitMessageForCurrentlyStagedChanges = () => {
+    if (this.stagedChanges.length === 0)
+      return "committed something";
+
+    let rtn = "";
+
+    const created = this.stagedChanges.filter(c => c.modification === "Create");
+    const deleted = this.stagedChanges.filter(c => c.modification === "Delete");
+
+    if (created.length > 0)
+      rtn += `created ${created.length} file${created.length === 1 ? "" : "s"}`;
+
+    if (created.length > 0 && deleted.length > 0)
+      rtn += ", ";
+
+    if (deleted.length > 0)
+      rtn += `deleted ${deleted.length} file${deleted.length === 1 ? "" : "s"}`;
+
+    return rtn;
+  };
 }
