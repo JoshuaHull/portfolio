@@ -7,7 +7,7 @@
   @keypress.enter="handleClick"
 >
   <IconContainer width="1em">
-    <FolderSolidIcon />
+    <FolderSolidIcon class="file-explorer-folder-icon" />
   </IconContainer>
   <slot></slot>
 </div>
@@ -29,6 +29,16 @@ const handleClick = () => {
   align-items: center;
   padding: 0.2rem;
   border-radius: 0.5rem;
+}
+
+.file-explorer-folder-icon {
+  color: #99aa00aa;
+}
+
+.file-explorer-folder:hover .file-explorer-folder-icon,
+.file-explorer-folder:focus .file-explorer-folder-icon,
+.file-explorer-folder:focus-within .file-explorer-folder-icon {
+  color: white;
 }
 
 .file-explorer-folder:hover,

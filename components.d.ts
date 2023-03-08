@@ -19,6 +19,7 @@ declare module '@vue/runtime-core' {
     CommitGraph: typeof import('./src/components/source-controlling/CommitGraph.vue')['default']
     DataTable: typeof import('./src/components/tables/DataTable.vue')['default']
     DocumentPlusSolidIcon: typeof import('@heroicons/vue/24/solid')['DocumentPlusIcon']
+    DocumentSolidIcon: typeof import('@heroicons/vue/24/solid')['DocumentIcon']
     FileExplorer: typeof import('./src/components/file-exploring/FileExplorer.vue')['default']
     FileExplorerFile: typeof import('./src/components/file-exploring/FileExplorerFile.vue')['default']
     FileExplorerFolder: typeof import('./src/components/file-exploring/FileExplorerFolder.vue')['default']
