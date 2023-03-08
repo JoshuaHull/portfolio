@@ -25,9 +25,11 @@
       unstaged files
     </header>
     <UnstagedChange
-      v-for="unstagedChange of unstagedChanges"
-      :filePath="unstagedChange.filePath"
-      :modification="unstagedChange.modification"
+      v-for="{ filePath, modification } of unstagedChanges"
+      :key="filePath"
+      :filePath="filePath"
+      :modification="modification"
+      @stage="() => handleStage(filePath)"
     />
   </section>
   <section class="staged-files">
@@ -35,9 +37,11 @@
       staged files
     </header>
     <StagedChange
-      v-for="stagedChange of sourceControl.stagedChanges"
-      :filePath="stagedChange.filePath"
-      :modification="stagedChange.modification"
+      v-for="{ filePath, modification } of sourceControl.stagedChanges"
+      :key="filePath"
+      :filePath="filePath"
+      :modification="modification"
+      @unstage="() => handleUnstage(filePath)"
     />
   </section>
 </article>
@@ -65,6 +69,14 @@ const handleUnstageAll = () => {
 
 const handleCommit = () => {
   sourceControl.value.commit();
+};
+
+const handleStage = (filePath: string) => {
+  sourceControl.value.stageChange(filePath);
+};
+
+const handleUnstage = (filePath: string) => {
+  sourceControl.value.unstageChange(filePath);
 };
 </script>
 
