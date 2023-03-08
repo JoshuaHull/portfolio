@@ -1,6 +1,24 @@
 <template>
 <article class="commit-viewer">
-  {{ commit.changes }}
+  <template
+    v-for="change of commit.changes"
+  >
+    <IconContainer
+      v-if="change.modification === 'Create'"
+      class="change-indicator-created"
+      width="1rem"
+    >
+      <PlusSolidIcon />
+    </IconContainer>
+    <IconContainer
+      v-if="change.modification === 'Delete'"
+      class="change-indicator-deleted"
+      width="1rem"
+    >
+      <MinusSolidIcon />
+    </IconContainer>
+    {{ change.filePath }}
+  </template>
 </article>
 </template>
 
@@ -14,3 +32,20 @@ interface CommitViewerProps {
 const props = defineProps<CommitViewerProps>();
 const { commit } = toRefs(props);
 </script>
+
+<style>
+.commit-viewer {
+  display: grid;
+  grid-template-columns: min-content auto;
+  column-gap: 0.5rem;
+  align-items: center;
+}
+
+.change-indicator-created {
+  color: green;
+}
+
+.change-indicator-deleted {
+  color: red;
+}
+</style>

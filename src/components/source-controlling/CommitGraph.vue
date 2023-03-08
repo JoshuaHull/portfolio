@@ -47,7 +47,6 @@ const commits = computed(() => {
 
   return rtn;
 });
-
 </script>
 
 <style>
