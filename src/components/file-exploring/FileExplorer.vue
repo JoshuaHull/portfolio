@@ -21,7 +21,10 @@
   >
     {{ folder }}
   </FileExplorerFolder>
-  <FileExplorerFile v-for="file in fs.files">
+  <FileExplorerFile
+    v-for="file in fs.files"
+    @delete="() => deleteFile(file)"
+  >
     {{ file }}
   </FileExplorerFile>
 </div>
@@ -58,5 +61,9 @@ const handleUp = () => {
 
 const selectFolder = (folderName: string) => {
   fs.value = fs.value.folders[folderName];
+};
+
+const deleteFile = (filePath: string) => {
+  fs.value.deleteFile(filePath);
 };
 </script>

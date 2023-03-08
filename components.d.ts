@@ -60,6 +60,7 @@ declare module '@vue/runtime-core' {
     StagingArea: typeof import('./src/components/source-controlling/StagingArea.vue')['default']
     TabbedDocument: typeof import('./src/components/tabs/TabbedDocument.vue')['default']
     TestExample: typeof import('./src/pages/skills-tests-page/skills-tests/components/TestExample.vue')['default']
+    TrashSolidIcon: typeof import('@heroicons/vue/24/solid')['TrashIcon']
     UnstagedChange: typeof import('./src/components/source-controlling/UnstagedChange.vue')['default']
     UserCircleSolidIcon: typeof import('@heroicons/vue/24/solid')['UserCircleIcon']
   }

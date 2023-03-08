@@ -1,16 +1,36 @@
 <template>
-<div class="file-explorer-file">
+<div
+  class="file-explorer-file"
+  tabindex="0"
+>
   <IconContainer width="1em">
     <DocumentSolidIcon class="file-explorer-file-icon" />
   </IconContainer>
   <slot></slot>
+  <IconContainer
+    width="1em"
+    tabindex="0"
+    @click="handleTrash"
+    @keypress.enter="handleTrash"
+    @keypress.space="handleTrash"
+  >
+    <TrashSolidIcon class="file-explorer-trash-icon" />
+  </IconContainer>
 </div>
 </template>
+
+<script setup lang="ts">
+const emit = defineEmits(["delete"]);
+
+const handleTrash = () => {
+  emit("delete");
+};
+</script>
 
 <style>
 .file-explorer-file {
   display: grid;
-  grid-template-columns: min-content auto;
+  grid-template-columns: min-content auto min-content;
   column-gap: 0.5rem;
   align-items: center;
   padding: 0.2rem;
@@ -27,7 +47,27 @@
   color: white;
 }
 
-.file-explorer-file:hover {
+.file-explorer-file:hover,
+.file-explorer-file:focus,
+.file-explorer-file:focus-within {
   background-color: #00aa99aa;
 }
+
+.file-explorer-trash-icon {
+  opacity: 0;
+  color: red;
+  cursor: pointer;
+}
+  
+.file-explorer-trash-icon:hover,
+.file-explorer-trash-icon:focus {
+  transform: scale(125%);
+}
+
+.file-explorer-file:hover .file-explorer-trash-icon,
+.file-explorer-file:focus .file-explorer-trash-icon,
+.file-explorer-file:focus-within .file-explorer-trash-icon {
+  opacity: 1;
+}
+
 </style>
