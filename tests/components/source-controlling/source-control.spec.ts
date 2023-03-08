@@ -163,6 +163,38 @@ describe("staging and unstaging files", () => {
 describe("committing files", () => {
   test("when committing, we should set the root, head, and clear staged changes", () => {
     // Arrange
+    const fs = new FileSystem();
+    const sourceControl = new SourceControl(fs);
+
+    const folder = fs.addFolder("some folder");
+    folder.addFile("some file");
+
+    sourceControl.stageChange("/some folder/some file");
+
+    // Act
+    sourceControl.commit();
+
+    // Assert
+    expect(sourceControl.head).toBeTruthy();
+    expect(sourceControl.root).toBeTruthy();
+    expect(sourceControl.stagedChanges).toHaveLength(0);
+    expect(sourceControl.head.changes).toHaveLength(1);
+  });
+
+  test("should not create a commit if there are no staged changes", () => {
+    // Arrange
+    const fs = new FileSystem();
+    const sourceControl = new SourceControl(fs);
+
+    const folder = fs.addFolder("some folder");
+    folder.addFile("some file");
+
+    // Act
+    sourceControl.commit();
+
+    // Assert
+    expect(sourceControl.head).toBeFalsy();
+    expect(sourceControl.root).toBeFalsy();
   });
 });
 

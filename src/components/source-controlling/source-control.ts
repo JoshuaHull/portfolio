@@ -161,6 +161,9 @@ export class SourceControl {
   }
 
   public commit(message: string | undefined = undefined) {
+    if (this.stagedChanges.length === 0)
+      return;
+
     const commit = new Commit(message ?? "new commit!");
     commit.changes = [...this.stagedChanges];
     commit.parent = this.head;
