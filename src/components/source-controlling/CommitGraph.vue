@@ -3,7 +3,10 @@
   <div
     v-for="commit in commits"
     class="commit-graph-commit"
+    tabindex="0"
     @click="() => handleCommitSelected(commit)"
+    @keypress.enter="() => handleCommitSelected(commit)"
+    @keypress.space="() => handleCommitSelected(commit)"
   >
     <IconContainer
       class="commit-avatar"

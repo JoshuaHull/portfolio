@@ -58,7 +58,8 @@ const handleTrash = () => {
 }
 
 .file-explorer-folder:hover,
-.file-explorer-folder:focus {
+.file-explorer-folder:focus,
+.file-explorer-folder:focus-within {
   background-color: #99aa00aa;
 }
 </style>
