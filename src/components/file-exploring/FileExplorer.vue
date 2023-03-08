@@ -18,6 +18,7 @@
   <FileExplorerFolder
     v-for="folder in fs.folderNames"
     @open="() => selectFolder(folder)"
+    @delete="() => deleteFolder(folder)"
   >
     {{ folder }}
   </FileExplorerFolder>
@@ -63,7 +64,30 @@ const selectFolder = (folderName: string) => {
   fs.value = fs.value.folders[folderName];
 };
 
+const deleteFolder = (folderName: string) => {
+  fs.value.deleteFolder(folderName);
+};
+
 const deleteFile = (filePath: string) => {
   fs.value.deleteFile(filePath);
 };
 </script>
+
+<style>
+.file-explorer-trash-icon {
+  opacity: 0;
+  color: red;
+  cursor: pointer;
+}
+  
+.file-explorer-item-icon:hover,
+.file-explorer-item-icon:focus {
+  transform: scale(125%);
+}
+
+.file-explorer-item:hover .file-explorer-trash-icon,
+.file-explorer-item:focus .file-explorer-trash-icon,
+.file-explorer-item:focus-within .file-explorer-trash-icon {
+  opacity: 1;
+}
+</style>

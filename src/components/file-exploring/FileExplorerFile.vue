@@ -1,6 +1,6 @@
 <template>
 <div
-  class="file-explorer-file"
+  class="file-explorer-file file-explorer-item"
   tabindex="0"
 >
   <IconContainer width="1em">
@@ -52,22 +52,4 @@ const handleTrash = () => {
 .file-explorer-file:focus-within {
   background-color: #00aa99aa;
 }
-
-.file-explorer-trash-icon {
-  opacity: 0;
-  color: red;
-  cursor: pointer;
-}
-  
-.file-explorer-trash-icon:hover,
-.file-explorer-trash-icon:focus {
-  transform: scale(125%);
-}
-
-.file-explorer-file:hover .file-explorer-trash-icon,
-.file-explorer-file:focus .file-explorer-trash-icon,
-.file-explorer-file:focus-within .file-explorer-trash-icon {
-  opacity: 1;
-}
-
 </style>
