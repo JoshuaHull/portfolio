@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { FileSystem } from "@file-exploring";
-import { SourceControl } from "@source-controlling";
+import { FileSystem } from "./../../../src/components/file-exploring";
+import { SourceControl } from "./../../../src/components/source-controlling";
 
 describe("staging and unstaging files", () => {
   test("should stage the given file", () => {
@@ -178,7 +178,7 @@ describe("committing files", () => {
     expect(sourceControl.head).toBeTruthy();
     expect(sourceControl.root).toBeTruthy();
     expect(sourceControl.stagedChanges).toHaveLength(0);
-    expect(sourceControl.head.changes).toHaveLength(1);
+    expect(sourceControl.head?.changes).toHaveLength(1);
   });
 
   test("should not create a commit if there are no staged changes", () => {
@@ -226,7 +226,7 @@ describe("committing files", () => {
     sourceControl.commit(input);
 
     // Assert
-    expect(sourceControl.head.message).toBe(expectedMessage);
+    expect(sourceControl.head?.message).toBe(expectedMessage);
   });
 
   test.each([
@@ -324,7 +324,7 @@ describe("committing files", () => {
     sourceControl.commit();
 
     // Assert
-    expect(sourceControl.head.message).toBe(expectedMessage);
+    expect(sourceControl.head?.message).toBe(expectedMessage);
   });
 });
 

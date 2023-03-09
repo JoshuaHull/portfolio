@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { Highlighter, Lexer } from "@code-blocks";
+import { Highlighter, Lexer } from "./../../../src/components/code-blocks";
 
 describe("toHtml", () => {
   test("should return a html string with classes which allow you to highlight keywords, etc", () => {

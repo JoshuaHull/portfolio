@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { Lexer, Token } from "@code-blocks";
+import { Lexer, Token } from "./../../../src/components/code-blocks";
 
 describe("lexer", () => {
   test("should return EOF token when content runs out", () => {
