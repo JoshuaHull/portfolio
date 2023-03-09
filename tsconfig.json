@@ -13,7 +13,7 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "paths": {
-      "@code-blocks": ["./src/code-blocks"],
+      "@code-blocks": ["./src/components/code-blocks"],
       "@composables": ["./src/composables"],
       "@file-exploring": ["./src/components/file-exploring"],
       "@query-building": ["./src/query-building"],

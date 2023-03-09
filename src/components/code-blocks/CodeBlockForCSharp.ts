@@ -1,5 +1,6 @@
 
-import { Highlighter, Lexer } from "@code-blocks";
+import { Highlighter } from "./highlighter";
+import { Lexer } from "./lexer";
 import { Component } from "vue";
 
 const component = {

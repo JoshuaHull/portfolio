@@ -9,7 +9,7 @@ import { rollupPluginContent } from "./src/rollup/plugins";
 export default defineConfig({
   resolve: {
     alias: {
-      "@code-blocks": path.resolve(__dirname, "./src/code-blocks"),
+      "@code-blocks": path.resolve(__dirname, "./src/components/code-blocks"),
       "@composables": path.resolve(__dirname, "./src/composables"),
       "@file-exploring": path.resolve(__dirname, "./src/components/file-exploring"),
       "@query-building": path.resolve(__dirname, "./src/query-building"),
