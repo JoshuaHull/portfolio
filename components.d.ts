@@ -50,6 +50,7 @@ declare module '@vue/runtime-core' {
     SkillsFrontend: typeof import('./src/pages/skills-frontend-page/skills-frontend/SkillsFrontend.vue')['default']
     SkillsFrontendPage: typeof import('./src/pages/skills-frontend-page/SkillsFrontendPage.vue')['default']
     SkillsGit: typeof import('./src/pages/skills-git-page/skills-git/SkillsGit.vue')['default']
+    SkillsGitCenterPanel: typeof import('./src/pages/skills-git-page/skills-git/components/SkillsGitCenterPanel.vue')['default']
     SkillsGitPage: typeof import('./src/pages/skills-git-page/SkillsGitPage.vue')['default']
     SkillsMessaging: typeof import('./src/pages/skills-message-page/skills-messaging/SkillsMessaging.vue')['default']
     SkillsMonoliths: typeof import('./src/pages/skills-monoliths-page/skills-monoliths/SkillsMonoliths.vue')['default']
@@ -64,5 +65,6 @@ declare module '@vue/runtime-core' {
     TrashSolidIcon: typeof import('@heroicons/vue/24/solid')['TrashIcon']
     UnstagedChange: typeof import('./src/components/source-controlling/UnstagedChange.vue')['default']
     UserCircleSolidIcon: typeof import('@heroicons/vue/24/solid')['UserCircleIcon']
+    XMarkSolidIcon: typeof import('@heroicons/vue/24/solid')['XMarkIcon']
   }
 }

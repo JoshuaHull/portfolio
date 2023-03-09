@@ -64,6 +64,12 @@ const commits = computed(() => {
   grid-template-columns: min-content auto;
   align-items: center;
   column-gap: 0.5rem;
+  border-radius: 1rem;
+}
+
+.commit-graph-commit:hover,
+.commit-graph-commit:focus {
+  background-color: gray;
 }
 
 .commit-avatar {
