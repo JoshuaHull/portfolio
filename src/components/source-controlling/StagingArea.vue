@@ -44,6 +44,11 @@
       @unstage="() => handleUnstage(filePath)"
     />
   </section>
+  <input
+    v-model="commitMessage"
+    maxlength="32"
+    placeholder="optional commit message"
+  />
 </article>
 </template>
 
@@ -57,6 +62,8 @@ interface StagingAreaProps {
 const props = defineProps<StagingAreaProps>();
 const { sourceControl } = toRefs(props);
 
+const commitMessage = ref<string | null>(null);
+
 const unstagedChanges = computed(() => sourceControl.value.getUnstagedChanges());
 
 const handleStageAll = () => {
@@ -68,7 +75,8 @@ const handleUnstageAll = () => {
 };
 
 const handleCommit = () => {
-  sourceControl.value.commit();
+  sourceControl.value.commit(commitMessage.value);
+  commitMessage.value = null;
 };
 
 const handleStage = (filePath: string) => {

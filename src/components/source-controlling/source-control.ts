@@ -160,11 +160,12 @@ export class SourceControl {
     return unstagedChanges;
   }
 
-  public commit(message: string | undefined = undefined) {
+  public commit(message: string | null = null) {
     if (this.stagedChanges.length === 0)
       return;
 
-    const commit = new Commit(message ?? this.generateCommitMessageForCurrentlyStagedChanges());
+    const m = !!message ? message : this.generateCommitMessageForCurrentlyStagedChanges();
+    const commit = new Commit(m);
     commit.changes = [...this.stagedChanges];
     commit.parent = this.head;
     this.root ??= commit;

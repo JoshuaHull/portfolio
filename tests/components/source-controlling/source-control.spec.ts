@@ -199,6 +199,38 @@ describe("committing files", () => {
 
   test.each([
     {
+      input: undefined,
+      expectedMessage: "created 1 file",
+    },
+    {
+      input: null,
+      expectedMessage: "created 1 file",
+    },
+    {
+      input: "",
+      expectedMessage: "created 1 file",
+    },
+    {
+      input: "hello",
+      expectedMessage: "hello",
+    },
+  ])("should use the provided commit message assuming it's not empty", ({ input, expectedMessage }) => {
+    // Arrange
+    const fs = new FileSystem();
+    const sourceControl = new SourceControl(fs);
+
+    fs.addFile("file");
+    sourceControl.stageChange("/file");
+
+    // Act
+    sourceControl.commit(input);
+
+    // Assert
+    expect(sourceControl.head.message).toBe(expectedMessage);
+  });
+
+  test.each([
+    {
       expectedMessage: "created 1 file",
       changes: [
         {
