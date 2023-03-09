@@ -55,6 +55,10 @@ export class FileSystem {
     return this.parentFolder;
   }
 
+  public hasParentFolder(): boolean {
+    return !!this.parentFolder;
+  }
+
   public filePathFor(fileName: string): string | null {
     if (!this.files.includes(fileName))
       return null;

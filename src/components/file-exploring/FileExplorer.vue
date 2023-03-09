@@ -1,20 +1,37 @@
 <template>
 <div class="file-explorer">
-  <button @click="handleAddFile">
-    <IconContainer width="1.5rem">
+  <div class="file-explorer-controls">
+    <IconContainer
+      class="file-explorer-action-button add-file-button"
+      width="1.5rem"
+      tabindex="0"
+      @click="handleAddFile"
+      @keypress.enter="handleAddFile"
+      @keypress.space="handleAddFile"
+    >
       <DocumentPlusSolidIcon />
     </IconContainer>
-  </button>
-  <button @click="handleAddFolder">
-    <IconContainer width="1.5rem">
+    <IconContainer
+      class="file-explorer-action-button add-folder-button"
+      width="1.5rem"
+      tabindex="0"
+      @click="handleAddFolder"
+      @keypress.enter="handleAddFolder"
+      @keypress.space="handleAddFolder"
+    >
       <FolderPlusSolidIcon />
     </IconContainer>
-  </button>
-  <button @click="handleUp">
-    <IconContainer width="1.5rem">
+    <IconContainer
+      :class="`file-explorer-action-button up-folder-button ${hasParentFolder ? '' : 'disabled'}`"
+      width="1.5rem"
+      :tabindex="hasParentFolder ? 0 : -1"
+      @click="handleUp"
+      @keypress.enter="handleUp"
+      @keypress.space="handleUp"
+    >
       <ArrowUpSolidIcon />
     </IconContainer>
-  </button>
+  </div>
   <FileExplorerFolder
     v-for="folder in fs.folderNames"
     @open="() => selectFolder(folder)"
@@ -52,13 +69,13 @@ const handleAddFolder = () => {
 };
 
 const handleUp = () => {
-  const up = fs.value.up();
-
-  if (!up)
+  if (!fs.value.hasParentFolder())
     return;
 
-  fs.value = up;
+  fs.value = fs.value.up()!;
 };
+
+const hasParentFolder = computed(() => fs.value.hasParentFolder());
 
 const selectFolder = (folderName: string) => {
   fs.value = fs.value.folders[folderName];
@@ -74,6 +91,38 @@ const deleteFile = (filePath: string) => {
 </script>
 
 <style>
+.file-explorer-controls {
+  display: grid;
+  grid-template-columns: min-content min-content auto;
+  column-gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid white;
+}
+
+.file-explorer-action-button {
+  cursor: pointer;
+}
+
+.file-explorer-action-button:hover,
+.file-explorer-action-button:focus {
+  transform: scale(125%);
+}
+
+.up-folder-button {
+  justify-self: flex-end;
+}
+
+.up-folder-button.disabled {
+  color: gray;
+  cursor: not-allowed;
+}
+
+.up-folder-button.disabled:hover,
+.up-folder-button.disabled:focus {
+  transform: initial;
+}
+
 .file-explorer-trash-icon {
   opacity: 0;
   color: red;
