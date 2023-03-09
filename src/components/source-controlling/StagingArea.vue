@@ -1,28 +1,14 @@
 <template>
 <article class="staging-area">
-  <div class="staging-area-controls">
-    <button
-      class="stage-all-button"
-      @click="handleStageAll"
-    >
-      stage all
-    </button>
-    <button
-      class="unstage-all-button"
-      @click="handleUnstageAll"
-    >
-      unstage all
-    </button>
-    <button
-      class="commit-button"
-      @click="handleCommit"
-    >
-      commit
-    </button>
-  </div>
   <section class="unstaged-files">
     <header class="staging-area-files-header">
-      unstaged files
+      <span class="staging-area-files-header-text">unstaged files</span>
+      <button
+        class="stage-all-button"
+        @click="handleStageAll"
+      >
+        stage all
+      </button>
     </header>
     <UnstagedChange
       v-for="{ filePath, modification } of unstagedChanges"
@@ -34,7 +20,13 @@
   </section>
   <section class="staged-files">
     <header class="staging-area-files-header">
-      staged files
+      <span class="staging-area-files-header-text">staged files</span>
+      <button
+        class="unstage-all-button"
+        @click="handleUnstageAll"
+      >
+        unstage all
+      </button>
     </header>
     <StagedChange
       v-for="{ filePath, modification } of sourceControl.stagedChanges"
@@ -44,11 +36,19 @@
       @unstage="() => handleUnstage(filePath)"
     />
   </section>
-  <input
-    v-model="commitMessage"
-    maxlength="32"
-    placeholder="optional commit message"
-  />
+  <div class="staging-area-commit-controls">
+    <input
+      v-model="commitMessage"
+      maxlength="32"
+      placeholder="optional commit message"
+    />
+    <button
+      class="commit-button"
+      @click="handleCommit"
+    >
+      commit
+    </button>
+  </div>
 </article>
 </template>
 
@@ -92,16 +92,11 @@ const handleUnstage = (filePath: string) => {
 .staging-area {
   display: grid;
   grid-template-areas:
-    "controls"
     "unstaged"
     "  staged"
+    "controls"
   ;
   row-gap: 2rem;
-}
-
-.staging-area-controls {
-  grid-area: controls;
-  justify-self: flex-end;
 }
 
 .unstaged-files {
@@ -112,7 +107,33 @@ const handleUnstage = (filePath: string) => {
   grid-area: staged;
 }
 
+.staging-area-commit-controls {
+  grid-area: controls;
+  display: grid;
+  grid-template-rows: auto auto;
+  row-gap: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .staging-area-commit-controls {
+    grid-template-columns: auto min-content;
+    column-gap: 0.25rem;
+  }
+}
+
 .staging-area-files-header {
+  display: grid;
+  grid-template-columns: auto min-content;
+  column-gap: 0.25rem;
+}
+
+.staging-area-files-header-text {
   font-size: 1.5em;
+}
+
+.stage-all-button,
+.unstage-all-button {
+  white-space: nowrap;
+  height: min-content;
 }
 </style>
