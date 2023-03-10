@@ -93,6 +93,7 @@ const handleUnstage = (filePath: string) => {
   display: grid;
   grid-template-columns: auto;
   --staging-area-border-gap: 0.75rem;
+  width: 100%;
 }
 
 .staging-area-files {

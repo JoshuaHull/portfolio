@@ -95,12 +95,13 @@ const deleteFile = (filePath: string) => {
 <style>
 .file-explorer {
   height: 100%;
+  width: 100%;
   --file-explorer-header-height: 2.5rem;
 }
 
 .file-explorer-content {
   overflow-y: scroll;
-  overflow-x: none;
+  overflow-x: hidden;
   max-height: calc(100% - var(--file-explorer-header-height));
 }
 

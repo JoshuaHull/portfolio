@@ -41,6 +41,7 @@ const { commit } = toRefs(props);
   align-items: center;
   height: min-content;
   white-space: nowrap;
+  width: 100%;
 }
 
 .change-indicator-created {

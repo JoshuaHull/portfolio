@@ -167,6 +167,7 @@ function getBlobIndices(): [number, number] {
   place-items: center;
   align-items: center;
   height: 100%;
+  width: 100%;
   position: relative;
 }
 

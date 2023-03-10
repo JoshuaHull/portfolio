@@ -25,5 +25,12 @@ const sourceControl = ref<SourceControl>(sc) as Ref<SourceControl>;
   place-items: center;
   align-content: center;
   height: 100%;
+  width: 100%;
+}
+
+@media (min-width: 64rem) {
+  .skills-git {
+    width: 60rem;
+  }
 }
 </style>

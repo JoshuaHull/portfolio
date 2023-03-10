@@ -59,6 +59,11 @@ const hasRightNavButton = computed(() => navRightText && navRightRoute);
 
 .page-content {
   grid-area: content;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
 }
 
 .navbar {

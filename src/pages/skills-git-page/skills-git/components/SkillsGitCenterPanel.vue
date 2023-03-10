@@ -52,9 +52,11 @@ const handleClose = () => {
 <style>
 .skills-git-center-panel {
   height: var(--skills-git-height);
+  width: 100%;
   display: grid;
   grid-template-rows: min-content;
   align-content: flex-end;
+  justify-content: center;
 }
 
 .skills-git-center-panel-commit-graph {

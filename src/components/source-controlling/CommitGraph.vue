@@ -57,6 +57,7 @@ const commits = computed(() => {
   display: grid;
   row-gap: 0.5rem;
   grid-template-columns: auto;
+  width: 100%;
 }
 
 .commit-graph-commit {
