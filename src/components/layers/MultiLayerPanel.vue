@@ -71,6 +71,7 @@ function changeCurrentLayerBy(increment: number) {
     "buttons"
   ;
   width: 100%;
+  overflow-y: hidden;
 }
 
 .layer-panel-container {
