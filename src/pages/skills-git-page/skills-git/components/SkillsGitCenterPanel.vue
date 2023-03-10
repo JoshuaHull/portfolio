@@ -17,11 +17,15 @@
       <XMarkSolidIcon />
     </IconContainer>
   </div>
-  <CommitGraph
+  <div
     v-else
-    :sourceControl="sourceControl"
-    @commitSelected="handleCommitSelected"
-  />
+    class="skills-git-center-panel-commit-graph"
+  >
+    <CommitGraph
+      :sourceControl="sourceControl"
+      @commitSelected="handleCommitSelected"
+    />
+  </div>
 </div>
 </template>
 
@@ -47,13 +51,25 @@ const handleClose = () => {
 
 <style>
 .skills-git-center-panel {
-  width: 100%;
+  height: var(--skills-git-height);
+  display: grid;
+  grid-template-rows: min-content;
+  align-content: flex-end;
+}
+
+.skills-git-center-panel-commit-graph {
+  max-height: var(--skills-git-height);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .closeable-commit-viewer {
   display: grid;
   grid-template-columns: auto min-content;
   column-gap: 1rem;
+  max-height: var(--skills-git-height);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .close-commit-viewer-button {

@@ -32,19 +32,21 @@
       <ArrowUpSolidIcon />
     </IconContainer>
   </div>
-  <FileExplorerFolder
-    v-for="folder in fs.folderNames"
-    @open="() => selectFolder(folder)"
-    @delete="() => deleteFolder(folder)"
-  >
-    {{ folder }}
-  </FileExplorerFolder>
-  <FileExplorerFile
-    v-for="file in fs.files"
-    @delete="() => deleteFile(file)"
-  >
-    {{ file }}
-  </FileExplorerFile>
+  <div class="file-explorer-content">
+    <FileExplorerFolder
+      v-for="folder in fs.folderNames"
+      @open="() => selectFolder(folder)"
+      @delete="() => deleteFolder(folder)"
+    >
+      {{ folder }}
+    </FileExplorerFolder>
+    <FileExplorerFile
+      v-for="file in fs.files"
+      @delete="() => deleteFile(file)"
+    >
+      {{ file }}
+    </FileExplorerFile>
+  </div>
 </div>
 </template>
 
@@ -91,6 +93,17 @@ const deleteFile = (filePath: string) => {
 </script>
 
 <style>
+.file-explorer {
+  height: 100%;
+  --file-explorer-header-height: 2.5rem;
+}
+
+.file-explorer-content {
+  overflow-y: scroll;
+  overflow-x: none;
+  max-height: calc(100% - var(--file-explorer-header-height));
+}
+
 .file-explorer-controls {
   display: grid;
   grid-template-columns: min-content min-content auto;

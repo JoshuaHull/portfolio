@@ -65,6 +65,9 @@ const commits = computed(() => {
   align-items: center;
   column-gap: 0.5rem;
   border-radius: 1rem;
+  padding-right: 0.5rem;
+  width: min-content;
+  white-space: nowrap;
 }
 
 .commit-graph-commit:hover,

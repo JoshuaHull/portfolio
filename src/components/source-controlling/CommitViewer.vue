@@ -39,6 +39,8 @@ const { commit } = toRefs(props);
   grid-template-columns: min-content auto;
   column-gap: 0.5rem;
   align-items: center;
+  height: min-content;
+  white-space: nowrap;
 }
 
 .change-indicator-created {

@@ -1,15 +1,15 @@
 <template>
 <article class="staging-area">
-  <section class="unstaged-files">
-    <header class="staging-area-files-header">
-      <span class="staging-area-files-header-text">unstaged files</span>
-      <button
-        class="stage-all-button"
-        @click="handleStageAll"
-      >
-        stage all
-      </button>
-    </header>
+  <header class="staging-area-files-header">
+    <span class="staging-area-files-header-text">unstaged files</span>
+    <button
+      class="stage-all-button"
+      @click="handleStageAll"
+    >
+      stage all
+    </button>
+  </header>
+  <section class="staging-area-files">
     <UnstagedChange
       v-for="{ filePath, modification } of unstagedChanges"
       :key="filePath"
@@ -18,16 +18,16 @@
       @stage="() => handleStage(filePath)"
     />
   </section>
-  <section class="staged-files">
-    <header class="staging-area-files-header">
-      <span class="staging-area-files-header-text">staged files</span>
-      <button
-        class="unstage-all-button"
-        @click="handleUnstageAll"
-      >
-        unstage all
-      </button>
-    </header>
+  <header class="staging-area-files-header">
+    <span class="staging-area-files-header-text">staged files</span>
+    <button
+      class="unstage-all-button"
+      @click="handleUnstageAll"
+    >
+      unstage all
+    </button>
+  </header>
+  <section class="staging-area-files">
     <StagedChange
       v-for="{ filePath, modification } of sourceControl.stagedChanges"
       :key="filePath"
@@ -91,24 +91,18 @@ const handleUnstage = (filePath: string) => {
 <style>
 .staging-area {
   display: grid;
-  grid-template-areas:
-    "unstaged"
-    "  staged"
-    "controls"
-  ;
-  row-gap: 2rem;
+  grid-template-columns: auto;
+  --staging-area-border-gap: 0.75rem;
 }
 
-.unstaged-files {
-  grid-area: unstaged;
-}
-
-.staged-files {
-  grid-area: staged;
+.staging-area-files {
+  height: 12rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-bottom: var(--staging-area-border-gap);
 }
 
 .staging-area-commit-controls {
-  grid-area: controls;
   display: grid;
   grid-template-rows: auto auto;
   row-gap: 0.25rem;
@@ -124,11 +118,17 @@ const handleUnstage = (filePath: string) => {
 .staging-area-files-header {
   display: grid;
   grid-template-columns: auto min-content;
+  align-items: center;
   column-gap: 0.25rem;
+  padding-bottom: var(--staging-area-border-gap);
+  margin-bottom: var(--staging-area-border-gap);
+  border-bottom: 2px solid white;
 }
 
-.staging-area-files-header-text {
-  font-size: 1.5em;
+@media (min-width: 768px) {
+  .staging-area-files-header-text {
+    font-size: 1.5em;
+  }
 }
 
 .stage-all-button,

@@ -18,10 +18,12 @@ const sourceControl = ref<SourceControl>(sc) as Ref<SourceControl>;
 
 <style>
 .skills-git {
+  --skills-git-height: 35rem;
   display: grid;
   grid-template-columns: 30% 40% 30%;
+  grid-template-rows: var(--skills-git-height);
   place-items: center;
-  align-items: center;
+  align-content: center;
   height: 100%;
 }
 </style>

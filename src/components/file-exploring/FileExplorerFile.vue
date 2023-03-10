@@ -35,6 +35,7 @@ const handleTrash = () => {
   align-items: center;
   padding: 0.2rem;
   border-radius: 0.5rem;
+  white-space: nowrap;
 }
 
 .file-explorer-file-icon {
