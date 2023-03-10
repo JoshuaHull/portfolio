@@ -1,36 +1,30 @@
 <template>
 <div class="file-explorer">
   <div class="file-explorer-controls">
-    <IconContainer
+    <IconButton
       class="file-explorer-action-button add-file-button"
       width="1.5rem"
       tabindex="0"
       @click="handleAddFile"
-      @keypress.enter="handleAddFile"
-      @keypress.space="handleAddFile"
     >
       <DocumentPlusSolidIcon />
-    </IconContainer>
-    <IconContainer
+    </IconButton>
+    <IconButton
       class="file-explorer-action-button add-folder-button"
       width="1.5rem"
       tabindex="0"
       @click="handleAddFolder"
-      @keypress.enter="handleAddFolder"
-      @keypress.space="handleAddFolder"
     >
       <FolderPlusSolidIcon />
-    </IconContainer>
-    <IconContainer
-      :class="`file-explorer-action-button up-folder-button ${hasParentFolder ? '' : 'disabled'}`"
+    </IconButton>
+    <IconButton
+      class="file-explorer-action-button up-folder-button"
       width="1.5rem"
-      :tabindex="hasParentFolder ? 0 : -1"
+      :disabled="!hasParentFolder"
       @click="handleUp"
-      @keypress.enter="handleUp"
-      @keypress.space="handleUp"
     >
       <ArrowUpSolidIcon />
-    </IconContainer>
+    </IconButton>
   </div>
   <div class="file-explorer-content">
     <FileExplorerFolder
@@ -114,38 +108,14 @@ const deleteFile = (filePath: string) => {
   border-bottom: 2px solid white;
 }
 
-.file-explorer-action-button {
-  cursor: pointer;
-}
-
-.file-explorer-action-button:hover,
-.file-explorer-action-button:focus {
-  transform: scale(125%);
-}
-
 .up-folder-button {
   justify-self: flex-end;
-}
-
-.up-folder-button.disabled {
-  color: gray;
-  cursor: not-allowed;
-}
-
-.up-folder-button.disabled:hover,
-.up-folder-button.disabled:focus {
-  transform: initial;
 }
 
 .file-explorer-trash-icon {
   opacity: 0;
   color: red;
   cursor: pointer;
-}
-  
-.file-explorer-item-icon:hover,
-.file-explorer-item-icon:focus {
-  transform: scale(125%);
 }
 
 .file-explorer-item:hover .file-explorer-trash-icon,

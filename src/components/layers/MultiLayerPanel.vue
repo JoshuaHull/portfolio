@@ -19,16 +19,18 @@
     </Transition>
   </template>
   <div class="buttons-container">
-    <button @click="handleUp">
-      <IconContainer height="3rem">
-        <ArrowLongUpSolidIcon/>
-      </IconContainer>
-    </button>
-    <button @click="handleDown">
-      <IconContainer height="3rem">
-        <ArrowLongDownSolidIcon/>
-      </IconContainer>
-    </button>
+    <IconButton
+      height="2rem"
+      @click="handleUp"
+    >
+      <ArrowLongUpSolidIcon/>
+    </IconButton>
+    <IconButton
+      height="2rem"
+      @click="handleDown"
+    >
+      <ArrowLongDownSolidIcon/>
+    </IconButton>
   </div>
 </div>
 </template>
@@ -84,6 +86,7 @@ function changeCurrentLayerBy(increment: number) {
   display: flex;
   flex-direction: row;
   column-gap: 1rem;
+  padding: 1rem;
 }
 
 .layer-slide-up-enter-active,

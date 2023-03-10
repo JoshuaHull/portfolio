@@ -9,15 +9,14 @@
       :class="`query ${enabled.includes(n) ? '' : 'disabled'}`"
       :content="query.content"
     />
-    <button
+    <IconButton
       class="query-toggle-button"
+      width="1.5rem"
       @click="() => onToggle(n)"
     >
-      <IconContainer width="1.5rem">
-        <PlusSolidIcon v-if="!enabled.includes(n)" />
-        <MinusSolidIcon v-if="enabled.includes(n)" />
-      </IconContainer>
-    </button>
+      <PlusSolidIcon v-if="!enabled.includes(n)" />
+      <MinusSolidIcon v-if="enabled.includes(n)" />
+    </IconButton>
   </template>
 </div>
 </template>
@@ -97,10 +96,5 @@ const emitUpdatedQuery = () => {
 
 .query.disabled + .query-toggle-button {
   color: green;
-}
-
-.query-toggle-button:hover,
-.query-toggle-button:focus {
-  transform: scale(125%);
 }
 </style>

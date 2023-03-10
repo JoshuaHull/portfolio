@@ -5,17 +5,15 @@
     class="closeable-commit-viewer"
   >
     <CommitViewer :commit="selectedCommit" />
-    <IconContainer
+    <IconButton
       class="close-commit-viewer-button"
       width="1rem"
       height="1rem"
       tabindex="0"
       @click="handleClose"
-      @keypress.enter="handleClose"
-      @keypress.space="handleClose"
     >
       <XMarkSolidIcon />
-    </IconContainer>
+    </IconButton>
   </div>
   <div
     v-else
@@ -76,10 +74,5 @@ const handleClose = () => {
 
 .close-commit-viewer-button {
   height: min-content;
-}
-
-.close-commit-viewer-button:hover,
-.close-commit-viewer-button:focus {
-  transform: scale(125%);
 }
 </style>

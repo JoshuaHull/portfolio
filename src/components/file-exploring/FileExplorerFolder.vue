@@ -10,15 +10,13 @@
     <FolderSolidIcon class="file-explorer-folder-icon" />
   </IconContainer>
   <slot></slot>
-  <IconContainer
+  <IconButton
     width="1em"
     tabindex="0"
     @click="handleTrash"
-    @keypress.enter="handleTrash"
-    @keypress.space="handleTrash"
   >
     <TrashSolidIcon class="file-explorer-trash-icon" />
-  </IconContainer>
+  </IconButton>
 </div>
 </template>
 

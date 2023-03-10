@@ -26,6 +26,7 @@ declare module '@vue/runtime-core' {
     FileExplorerFolder: typeof import('./src/components/file-exploring/FileExplorerFolder.vue')['default']
     FolderPlusSolidIcon: typeof import('@heroicons/vue/24/solid')['FolderPlusIcon']
     FolderSolidIcon: typeof import('@heroicons/vue/24/solid')['FolderIcon']
+    IconButton: typeof import('./src/components/containers/IconButton.vue')['default']
     IconContainer: typeof import('./src/components/containers/IconContainer.vue')['default']
     LayerPanel: typeof import('./src/components/layers/LayerPanel.vue')['default']
     LPContentForApplicationLogic: typeof import('./src/pages/skills-ddd-page/skills-ddd/components/layer-panels/LPContentForApplicationLogic.vue')['default']
