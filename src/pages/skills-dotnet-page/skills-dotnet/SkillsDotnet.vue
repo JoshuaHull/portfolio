@@ -50,7 +50,7 @@ const data = [
     "Name": "Manny M",
     "Points": "100",
     "DateCreated": "2021-02-09",
-    "DateUpdated": "2023-09-04",
+    "DateUpdated": "2021-03-07",
   },
 ];
 
