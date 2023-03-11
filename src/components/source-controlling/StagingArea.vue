@@ -3,7 +3,7 @@
   <header class="staging-area-files-header">
     <span class="staging-area-files-header-text">unstaged files</span>
     <button
-      class="stage-all-button"
+      :class="`stage-all-button ${enableStageAllButton ? '' : 'disabled'}`"
       @click="handleStageAll"
     >
       stage all
@@ -21,7 +21,7 @@
   <header class="staging-area-files-header">
     <span class="staging-area-files-header-text">staged files</span>
     <button
-      class="unstage-all-button"
+      :class="`unstage-all-button ${enableUnstageAllButton ? '' : 'disabled'}`"
       @click="handleUnstageAll"
     >
       unstage all
@@ -41,9 +41,11 @@
       v-model="commitMessage"
       maxlength="32"
       placeholder="optional commit message"
+      :class="`commit-message-input ${sourceControl.stagedChanges.length === 0 ? 'disabled' : ''}`"
+      :disabled="sourceControl.stagedChanges.length === 0"
     />
     <button
-      class="commit-button"
+      :class="`commit-button ${sourceControl.stagedChanges.length === 0 ? 'disabled' : ''}`"
       @click="handleCommit"
     >
       commit
@@ -86,6 +88,9 @@ const handleStage = (filePath: string) => {
 const handleUnstage = (filePath: string) => {
   sourceControl.value.unstageChange(filePath);
 };
+
+const enableStageAllButton = computed(() => unstagedChanges.value.length > 0);
+const enableUnstageAllButton = computed(() => sourceControl.value.stagedChanges.length > 0);
 </script>
 
 <style>
@@ -136,5 +141,30 @@ const handleUnstage = (filePath: string) => {
 .unstage-all-button {
   white-space: nowrap;
   height: min-content;
+  cursor: pointer;
+}
+
+.stage-all-button.disabled {
+  cursor: not-allowed;
+  color: gray;
+}
+
+.unstage-all-button.disabled {
+  cursor: not-allowed;
+  color: gray;
+}
+
+.commit-button {
+  cursor: pointer;
+}
+
+.commit-button.disabled {
+  cursor: not-allowed;
+  color: gray;
+}
+
+.commit-message-input.disabled {
+  cursor: not-allowed;
+  color: gray;
 }
 </style>

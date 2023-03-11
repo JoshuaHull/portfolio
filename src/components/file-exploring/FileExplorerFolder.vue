@@ -44,6 +44,7 @@ const handleTrash = () => {
   padding: 0.2rem;
   border-radius: 0.5rem;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .file-explorer-folder-icon {

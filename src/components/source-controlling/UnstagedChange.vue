@@ -73,5 +73,6 @@ const emit = defineEmits(["stage"]);
   opacity: 0;
   width: min-content;
   justify-self: flex-end;
+  cursor: pointer;
 }
 </style>
