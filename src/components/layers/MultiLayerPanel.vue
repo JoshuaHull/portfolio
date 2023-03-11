@@ -21,12 +21,14 @@
   <div class="buttons-container">
     <IconButton
       height="2rem"
+      :disabled="disableSlideUp"
       @click="handleUp"
     >
       <ArrowLongUpSolidIcon/>
     </IconButton>
     <IconButton
       height="2rem"
+      :disabled="disableSlideDown"
       @click="handleDown"
     >
       <ArrowLongDownSolidIcon/>
@@ -48,6 +50,8 @@ const { layerCount } = toRefs(props);
 
 const currentLayer = ref(props.initialCurrentLayer);
 const slideDirection = ref<SlideDirection>("up");
+const disableSlideUp = computed(() => currentLayer.value === 1);
+const disableSlideDown = computed(() => currentLayer.value === layerCount.value);
 
 function handleUp() {
   slideDirection.value = "up";
