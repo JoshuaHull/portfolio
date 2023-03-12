@@ -45,6 +45,7 @@ const {
   colour,
   padding,
   borderRadius,
+  height,
 } = computed(() => {
   if (variant?.value === "editor")
     return {
@@ -52,6 +53,7 @@ const {
       colour: "white",
       padding: "0",
       borderRadius: "0",
+      height: "100%",
     };
 
   return {
@@ -59,6 +61,7 @@ const {
     colour: "black",
     padding: "1rem",
     borderRadius: "0.5rem",
+    height: null,
   };
 }).value;
 
@@ -94,7 +97,6 @@ function handleTabClick(tabNumber: number) {
 
 .tabbed-document-content {
   width: fit-content;
-  height: 100%;
 }
 
 .multi-tabbed-document-tabs {
@@ -122,5 +124,6 @@ function handleTabClick(tabNumber: number) {
   border-top-right-radius: v-bind(borderRadius);
   border-bottom-left-radius: v-bind(borderRadius);
   border-bottom-right-radius: v-bind(borderRadius);
+  height: v-bind(height);
 }
 </style>
