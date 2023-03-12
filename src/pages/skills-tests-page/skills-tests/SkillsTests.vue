@@ -1,10 +1,8 @@
 <template>
 <div class="skills-tests">
-  <div class="editor">
-    <div class="panels">
-      <PanelTests class="left-panel" ref="panelTests" />
-      <PanelFile class="right-panel" ref="panelFile" />
-    </div>
+  <div class="panels">
+    <PanelTests class="left-panel" ref="panelTests" />
+    <PanelFile class="right-panel" ref="panelFile" />
   </div>
 </div>
 </template>
@@ -15,53 +13,35 @@ import PanelFile from "./components/PanelFile.vue";
 
 const panelTests = ref<InstanceType<typeof PanelTests> | null>(null);
 const panelFile = ref<InstanceType<typeof PanelFile> | null>(null);
-
-const desiredPanelFileHeight = computed(() => panelTests.value?.el?.clientHeight);
-
-/*
-  bit unfortunate but due to there being very few fixed heights
-  in my work so far, it's difficult to correctly style the
-  height of a container that has `overflow: scroll`
-*/
-watch (desiredPanelFileHeight, updated => {
-  if (!updated)
-    return;
-
-  const el = panelFile.value?.el;
-
-  if (!el)
-    return;
-
-  el.style.height = `${updated}px`;
-});
 </script>
 
 <style>
 .skills-tests {
   display: grid;
-  place-items: center;
   align-items: center;
   height: 100%;
-}
-
-.editor {
-  height: min-content;
+  --skills-tests-panel-height: 40rem;
 }
 
 .panels {
   display: grid;
+  grid-template-rows: min-content;
   align-items: center;
   /* https://www.canva.com/colors/color-palettes/summer-splash/ */
 }
 
+.left-panel {
+  justify-self: flex-end;
+}
+
 .right-panel {
   display: none;
+  height: var(--skills-tests-panel-height);
 }
 
 @media (min-width: 768px) {
-  .editor {
+  .panels {
     width: 740px;
-    background-color: #05445E;
   }
 
   .panels {
@@ -69,19 +49,16 @@ watch (desiredPanelFileHeight, updated => {
   }
 
   .left-panel {
-    border-right: 1px solid black;
-    padding-right: 0.5rem;
+    height: var(--skills-tests-panel-height);
   }
 
   .right-panel {
     display: block;
-    border-left: 1px solid black;
-    padding-left: 0.5rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .editor {
+  .panels {
     width: 1000px;
   }
 }

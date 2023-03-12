@@ -27,15 +27,40 @@
 </template>
 
 <script setup lang="ts">
+import { MultiTabbedDocumentVariant } from ".";
+
 interface MultiTabbedDocumentProps {
   tabCount: number;
   initialCurrentTab: number;
+  variant?: MultiTabbedDocumentVariant;
 }
 
 const props = defineProps<MultiTabbedDocumentProps>();
-const { tabCount } = toRefs(props);
+const { tabCount, variant } = toRefs(props);
 
 const currentTab = ref(props.initialCurrentTab);
+
+const {
+  backgroundColour,
+  colour,
+  padding,
+  borderRadius,
+} = computed(() => {
+  if (variant?.value === "editor")
+    return {
+      backgroundColour: "#05445E",
+      colour: "white",
+      padding: "0",
+      borderRadius: "0",
+    };
+
+  return {
+    backgroundColour: "khaki",
+    colour: "black",
+    padding: "1rem",
+    borderRadius: "0.5rem",
+  };
+}).value;
 
 function handleTabClick(tabNumber: number) {
   currentTab.value = tabNumber;
@@ -61,30 +86,41 @@ function handleTabClick(tabNumber: number) {
 .tabbed-document-header {
   padding-left: 1rem;
   padding-right: 1rem;
+  padding-top: 0.25rem;
   background-color: darkkhaki;
-  color: black;
   width: min-content;
-  border-top-right-radius: 0.5rem;
-  border-top-left-radius: 0.5rem;
-}
-
-.tabbed-document-header.selected {
-  background-color: khaki;
+  white-space: nowrap;
 }
 
 .tabbed-document-content {
-  color: black;
-  background-color: khaki;
   width: fit-content;
-  padding: 1rem;
-  border-top-right-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  height: 100%;
 }
 
 .multi-tabbed-document-tabs {
   grid-area: tabs;
   display: flex;
   flex-direction: row;
+}
+</style>
+
+<style scoped>
+.tabbed-document-header {
+  color: v-bind(colour);
+  border-top-right-radius: v-bind(borderRadius);
+  border-top-left-radius: v-bind(borderRadius);
+}
+
+.tabbed-document-header.selected {
+  background-color: v-bind(backgroundColour);
+}
+
+.tabbed-document-content {
+  background-color: v-bind(backgroundColour);
+  color: v-bind(colour);
+  padding: v-bind(padding);
+  border-top-right-radius: v-bind(borderRadius);
+  border-bottom-left-radius: v-bind(borderRadius);
+  border-bottom-right-radius: v-bind(borderRadius);
 }
 </style>

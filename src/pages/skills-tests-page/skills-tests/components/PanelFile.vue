@@ -1,7 +1,15 @@
 <template>
-<article class="panel-file" ref="el">
-  <pre class="file-content">{{ contentWithLineNumbers }}</pre>
-</article>
+<TabbedDocument
+  class="panel-file"
+  variant="editor"
+>
+  <template #title>
+    PanelTests.vue
+  </template>
+  <template #content>
+    <pre class="file-content">{{ contentWithLineNumbers }}</pre>
+  </template>
+</TabbedDocument>
 </template>
 
 <script setup lang="ts">
@@ -19,18 +27,14 @@ const contentWithLineNumbers = computed(() => {
 
   return rtn;
 });
-
-const el = ref<HTMLElement | null>(null);
-
-defineExpose({
-  el,
-});
 </script>
 
 <style>
-.panel-file {
+.file-content {
+  max-width: 400px;
+  padding-left: 0.5rem;
   overflow-x: hidden;
   overflow-y: scroll;
-  height: 50%;
+  height: calc(var(--skills-tests-panel-height) - 1.75rem);
 }
 </style>
