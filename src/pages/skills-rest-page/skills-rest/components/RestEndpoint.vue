@@ -66,7 +66,7 @@ function handleButtonClick() {
 
 .rest-message {
   grid-area: message;
-  font-size: 0.5em;
+  font-size: 0.7em;
 }
 
 .response-fade-enter-active,
