@@ -4,45 +4,70 @@
     <slot></slot>
   </div>
   <nav
-    v-if="hasLeftNavButton || hasRightNavButton"
+    v-if="nextPage || previousPage"
     class="navbar"
   >
     <router-link
-      v-if="hasLeftNavButton"
+      v-if="previousPage"
       class="nav-left"
-      :to="{ name: navLeftRoute! }"
+      :to="{ name: previousPage }"
     >
-      {{ navLeftText }}
+      Previous Skill
     </router-link>
     <router-link
-      v-if="hasRightNavButton"
+      v-if="nextPage"
       class="nav-right"
-      :to="{ name: navRightRoute! }"
+      :to="{ name: nextPage }"
     >
-      {{ navRightText }}
+      Next Skill
     </router-link>
   </nav>
 </div>
 </template>
 
 <script setup lang="ts">
-interface PageProps {
-  navLeftText?: string;
-  navRightText?: string;
-  navLeftRoute?: string;
-  navRightRoute?: string;
+import {
+  SkillsDDDPageName,
+  SkillsDotnetPageName,
+  SkillsFrontendPageName,
+  SkillsGitPageName,
+  SkillsRestPageName,
+  SkillsTestsPageName,
+} from "@routers";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const pageNav = [
+  SkillsTestsPageName,
+  SkillsRestPageName,
+  SkillsGitPageName,
+  SkillsDDDPageName,
+  SkillsDotnetPageName,
+  SkillsFrontendPageName,
+];
+
+const pageAtDelta = (delta: number) => {
+  const currentPageName = router.currentRoute.value.name as string;
+
+  if (!currentPageName)
+    return null;
+
+  const idx = pageNav.indexOf(currentPageName);
+
+  if (idx < 0)
+    return null;
+
+  const target = idx + delta;
+
+  if (target < 0 || target >= pageNav.length)
+    return null;
+
+  return pageNav[target];
 }
 
-const props = defineProps<PageProps>();
-const {
-  navLeftText,
-  navRightText,
-  navLeftRoute,
-  navRightRoute,
-} = toRefs(props);
-
-const hasLeftNavButton = computed(() => navLeftText && navLeftRoute);
-const hasRightNavButton = computed(() => navRightText && navRightRoute);
+const nextPage = computed(() => pageAtDelta(1));
+const previousPage = computed(() => pageAtDelta(-1));
 </script>
 
 <style>
@@ -68,8 +93,16 @@ const hasRightNavButton = computed(() => navRightText && navRightRoute);
 
 .navbar {
   grid-area: navbar;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-auto-flow: column;
+  width: 100%;
+}
+
+.nav-left {
+  justify-self: flex-start;
+}
+
+.nav-right {
+  justify-self: flex-end;
 }
 </style>
