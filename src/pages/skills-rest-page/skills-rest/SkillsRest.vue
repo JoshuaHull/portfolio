@@ -70,6 +70,19 @@ const [recolourMessage, pushRecolourMessage] = useVanishingObject<Message>(4000)
 
 const selectedColourText = computed(() => selectedBlobHex.value ?? ":selected");
 
+const backgroundColour = computed(() => {
+  const blobCount = blobsOnTheScreen.value.length;
+
+  if (blobCount === 0)
+    return "#333333dd";
+
+  const nums = "3210";
+  const idx = Math.min(blobCount, nums.length - 1);
+  const num = nums.charAt(idx);
+
+  return `#${num}${num}${num}${num}${num}${num}dd`;
+});
+
 function randomHex() {
   return `#${(Math.random() * 0xFFFFFF << 0).toString(16).toUpperCase()}`;
 }
@@ -190,9 +203,15 @@ function getBlobIndices(): [number, number] {
   z-index: 1;
   display: grid;
   grid-template-rows: repeat(3, auto);
-  background-color: black;
+  transition: background-color 0.3s ease;
   padding: 2rem 2rem 0rem 2rem;
   border-radius: 1rem;
   font-family: monospace;
+}
+</style>
+
+<style scoped>
+.rest-endpoints {
+  background-color: v-bind(backgroundColour);
 }
 </style>

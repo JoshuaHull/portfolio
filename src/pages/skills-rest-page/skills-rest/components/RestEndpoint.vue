@@ -6,9 +6,7 @@
   >
     {{ method }}
   </button>
-  <span
-    class="rest-url"
-  >
+  <span class="rest-url">
     <slot></slot>
   </span>
   <Transition name="response-fade">
@@ -58,6 +56,7 @@ function handleButtonClick() {
 .rest-method {
   grid-area: method;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .rest-url {
