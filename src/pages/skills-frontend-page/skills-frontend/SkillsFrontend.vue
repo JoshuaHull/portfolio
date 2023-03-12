@@ -1,18 +1,31 @@
 <template>
 <article class="skills-frontend">
-  <p>
-    And I do frontend
-  </p>
   <section class="frontend-skills">
-    <span class="frontend-skill-html">HTML</span>
-    <span class="frontend-skill-css">CSS</span>
-    <span class="frontend-skill-javascript">Javascript</span>
-    <span class="frontend-skill-vue">Vue</span>
-    <span class="frontend-skill-angular">Angular</span>
-    <span class="frontend-skill-react">React</span>
+    <div class="frontend-skill-html">HTML</div>
+    <div class="frontend-skill-css">CSS</div>
+    <div class="frontend-skill-javascript">Javascript</div>
+    <div class="frontend-skill-vue">
+      Vue
+      <div class="vue-file-count">
+        <IconContainer
+          class="vue-file-count-arrow"
+          height="2rem"
+          width="2rem"
+        >
+          <ArrowLongUpSolidIcon />
+        </IconContainer>
+        This site is made up of {{ vueFileCount }} Vue components :)
+      </div>
+    </div>
+    <div class="frontend-skill-angular">Angular</div>
+    <div class="frontend-skill-react">React</div>
   </section>
 </article>
 </template>
+
+<script setup lang="ts">
+import vueFileCount from "count:vue";
+</script>
 
 <style>
 .skills-frontend {
@@ -39,19 +52,34 @@
 }
 
 .frontend-skill-html {
-  color: #FF5722
+  color: #FF5722;
 }
 
 .frontend-skill-css {
-  color: #004CE8
+  color: #004CE8;
 }
 
 .frontend-skill-javascript {
-  color: #FFDF00
+  color: #FFDF00;
 }
 
 .frontend-skill-vue {
-  color: #41B883
+  position: relative;
+  color: #41B883;
+}
+
+.vue-file-count {
+  display: grid;
+  grid-template-rows: 4rem min-content;
+  row-gap: 1.5rem;
+  justify-items: center;
+  position: absolute;
+  transform: translateX(-45%);
+  white-space: nowrap;
+}
+
+.vue-file-count-arrow {
+  transform: scale(1, 2) translateY(40%);
 }
 
 .frontend-skill-angular {
