@@ -4,9 +4,8 @@
     <div class="frontend-skill-html">HTML</div>
     <div class="frontend-skill-css">CSS</div>
     <div class="frontend-skill-javascript">Javascript</div>
-    <div class="frontend-skill-vue">
-      Vue
-      <div class="vue-file-count">
+    <div class="frontend-skill-vue"
+  >Vue<div class="vue-file-count">
         <IconContainer
           class="vue-file-count-arrow"
           height="2rem"
