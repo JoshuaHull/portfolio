@@ -1,6 +1,6 @@
 
 import { Highlighter } from "./highlighter";
-import { Lexer } from "./lexer";
+import { CsharpLexer } from "./csharp-lexer";
 import { Component } from "vue";
 
 const component = {
@@ -9,7 +9,7 @@ const component = {
   ],
   setup(props: { content: string }) {
     const content = props.content;
-    const lexer = new Lexer(content);
+    const lexer = new CsharpLexer(content);
     const highlighter = new Highlighter(lexer);
 
     return highlighter.toVueRenderFunction();

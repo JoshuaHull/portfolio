@@ -1,11 +1,11 @@
 import { describe, expect, test } from "vitest";
-import { Lexer, Token } from "./../../../src/components/code-blocks";
+import { CsharpLexer, Token } from "./../../../src/components/code-blocks";
 
 describe("lexer", () => {
   test("should return EOF token when content runs out", () => {
     // Arrange
     const content = "";
-    const lexer = new Lexer(content);
+    const lexer = new CsharpLexer(content);
 
     // Act
     const result = lexer.next();
@@ -19,7 +19,7 @@ describe("literals", () => {
   test("should identify and return literal tokens", () => {
     // Arrange
     const content = "(){};";
-    const lexer = new Lexer(content);
+    const lexer = new CsharpLexer(content);
 
     // Act
     const result: Token[] = [];
@@ -63,7 +63,7 @@ describe("keywords", () => {
   test("should return the largest keyword that matches", () => {
     // Arrange
     const content = "double";
-    const lexer = new Lexer(content);
+    const lexer = new CsharpLexer(content);
 
     // Act
     const result = lexer.next();
@@ -82,7 +82,7 @@ describe("keywords", () => {
   test("should not return a keyword if the symbol is actually a superstring of a keyword", () => {
     // Arrange
     const content = "publically";
-    const lexer = new Lexer(content);
+    const lexer = new CsharpLexer(content);
 
     // Act
     const result = lexer.next();
@@ -101,7 +101,7 @@ describe("keywords", () => {
   test("should return the keyword even if it is followed by a space", () => {
     // Arrange
     const content = "void ";
-    const lexer = new Lexer(content);
+    const lexer = new CsharpLexer(content);
 
     // Act
     const result = lexer.next();
@@ -116,7 +116,7 @@ describe("keywords", () => {
   test("should return the keyword even if it is followed by a newline", () => {
     // Arrange
     const content = "bool\n";
-    const lexer = new Lexer(content);
+    const lexer = new CsharpLexer(content);
 
     // Act
     const result = lexer.next();
@@ -131,7 +131,7 @@ describe("keywords", () => {
   test("should return space even if it is followed by a keyword", () => {
     // Arrange
     const content = " class";
-    const lexer = new Lexer(content);
+    const lexer = new CsharpLexer(content);
 
     // Act
     const result = lexer.next();
@@ -145,7 +145,7 @@ describe("keywords", () => {
 });
 
 describe("entire lines", () => {
-  function allTokensFrom(lexer: Lexer): Token[] {
+  function allTokensFrom(lexer: CsharpLexer): Token[] {
     const rtn: Token[] = [];
 
     for (;;) {
@@ -162,7 +162,7 @@ describe("entire lines", () => {
   test("should tokenize a C# class declaration", () => {
     // Arrange
     const content = "public class User {";
-    const lexer = new Lexer(content);
+    const lexer = new CsharpLexer(content);
 
     // Act
     const result = allTokensFrom(lexer);
@@ -207,7 +207,7 @@ describe("entire lines", () => {
   test("should handle strings", () => {
     // Arrange
     const content = "var username = \"Jack Daniels\";";
-    const lexer = new Lexer(content);
+    const lexer = new CsharpLexer(content);
 
     // Act
     const result = allTokensFrom(lexer);
