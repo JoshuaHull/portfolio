@@ -7,13 +7,17 @@
     PanelTests.vue
   </template>
   <template #content>
-    <pre class="file-content">{{ contentWithLineNumbers }}</pre>
+    <CodeBlockForVue
+      class="file-content"
+      :content="contentWithLineNumbers"
+    />
   </template>
 </TabbedDocument>
 </template>
 
 <script setup lang="ts">
 import panelTestsContent from "content:src/pages/skills-tests-page/skills-tests/components/PanelTests";
+import { CodeBlockForVue } from "@code-blocks";
 
 const contentWithLineNumbers = computed(() => {
   const lines = (<string>panelTestsContent).split("\n");
@@ -31,7 +35,7 @@ const contentWithLineNumbers = computed(() => {
 
 <style>
 .file-content {
-  max-width: 400px;
+  max-width: 500px;
   padding-left: 0.5rem;
   overflow-x: hidden;
   overflow-y: scroll;

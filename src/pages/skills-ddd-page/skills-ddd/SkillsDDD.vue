@@ -56,21 +56,9 @@
   align-items: center;
   height: 100%;
   width: 100%;
-}
-
-.keyword {
-  color: blue;
-}
-
-.property {
-  color: mediumvioletred;
-}
-
-.string {
-  color: brown;
-}
-
-.literal {
-  color: gray;
+  --code-block-keyword: blue;
+  --code-block-property: mediumvioletred;
+  --code-block-string: brown;
+  --code-block-literal: gray;
 }
 </style>

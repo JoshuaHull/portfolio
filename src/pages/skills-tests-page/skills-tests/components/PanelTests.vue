@@ -7,7 +7,9 @@
     <section class="tests-section">
       <TestExample>
         <template #testName>
-          When I press the "Run" button, then the test animation will play to completion.
+          When I press the "Run" button,
+          then the test animation will
+          play to completion.
         </template>
         <template #button>
           Run
@@ -15,7 +17,9 @@
       </TestExample>
       <TestExample>
         <template #testName>
-          When I press the "Fail" button, then the test animation will fail to complete.
+          When I press the "Fail" button,
+          then the test animation will
+          fail to complete.
         </template>
         <template #button>
           Fail
@@ -23,7 +27,8 @@
       </TestExample>
       <TestExample>
         <template #testName>
-          When I press the "Next" button, then we will unlock the next page.
+          When I press the "Next" button,
+          then we will unlock the next page.
         </template>
         <template #button>
           Next

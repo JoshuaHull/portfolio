@@ -2,8 +2,20 @@
 <router-view></router-view>
 </template>
 
-<script setup lang="ts">
-</script>
+<style>
+.keyword {
+  color: var(--code-block-keyword);
+}
 
-<style scoped>
+.property {
+  color: var(--code-block-property);
+}
+
+.string {
+  color: var(--code-block-string);
+}
+
+.literal {
+  color: var(--code-block-literal);
+}
 </style>

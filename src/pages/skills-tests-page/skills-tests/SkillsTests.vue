@@ -21,6 +21,10 @@ const panelFile = ref<InstanceType<typeof PanelFile> | null>(null);
   align-items: center;
   height: 100%;
   --skills-tests-panel-height: 40rem;
+  --code-block-keyword: fuchsia;
+  --code-block-property: mediumvioletred;
+  --code-block-string: yellow;
+  --code-block-literal: lightgray;
 }
 
 .panels {
@@ -39,9 +43,9 @@ const panelFile = ref<InstanceType<typeof PanelFile> | null>(null);
   height: var(--skills-tests-panel-height);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .panels {
-    width: 740px;
+    width: 1000px;
   }
 
   .panels {

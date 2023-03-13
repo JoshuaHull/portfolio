@@ -16,6 +16,10 @@ export type TokenKind =
   | "STRING_LITERAL"
   | "INTERPOLATED_STRING_LITERAL"
   | "STRING"
+  | "SLASH"
+  | "COLON"
+  | "EQUALS"
+  | "HASH"
   | "OTHER"
 ;
 
@@ -169,7 +173,16 @@ export abstract class Lexer {
     if (!context)
       return null;
 
-    if (context.open)
+    if (context.open && context.kind) {
+      const idx = this.contexts.findIndex(c => c === context.open);
+
+      if (idx < 0)
+        return null;
+
+      return context.kind;
+    }
+
+    if (context.open && !context.kind)
       this.contexts.push(context.open);
 
     const idx = this.contexts.findIndex(c => c === context.close);
