@@ -5,13 +5,13 @@
   <span class="description">
     <slot name="testName"></slot>
   </span>
-  <button
+  <VButton
     v-if="runState == 'before'"
     class="run-button"
     @click="handleRunClick"
   >
     <slot name="button"></slot>
-  </button>
+  </VButton>
   <IconContainer
     v-if="runState == 'after'"
     width="5rem"
@@ -73,6 +73,5 @@ function handleRunClick() {
 
 .run-button {
   grid-area: check;
-  cursor: pointer;
 }
 </style>

@@ -7,12 +7,12 @@
   <span class="staged-change-path">
     {{ simplifiedPath }}
   </span>
-  <button
+  <VButton
     class="unstage-button"
     @click="handleUnstage"
   >
     unstage
-  </button>
+  </VButton>
 </div>
 </template>
 
@@ -73,6 +73,5 @@ const emit = defineEmits(["unstage"]);
   opacity: 0;
   width: min-content;
   justify-self: flex-end;
-  cursor: pointer;
 }
 </style>

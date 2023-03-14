@@ -1,11 +1,11 @@
 <template>
 <div class="rest-endpoint">
-  <button
+  <VButton
     class="rest-method"
     @click="handleButtonClick"
   >
     {{ method }}
-  </button>
+  </VButton>
   <span class="rest-url">
     <slot></slot>
   </span>
@@ -56,7 +56,6 @@ function handleButtonClick() {
 .rest-method {
   grid-area: method;
   text-transform: uppercase;
-  cursor: pointer;
 }
 
 .rest-url {

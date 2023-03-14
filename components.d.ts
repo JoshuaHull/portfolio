@@ -66,6 +66,7 @@ declare module '@vue/runtime-core' {
     TrashSolidIcon: typeof import('@heroicons/vue/24/solid')['TrashIcon']
     UnstagedChange: typeof import('./src/components/source-controlling/UnstagedChange.vue')['default']
     UserCircleSolidIcon: typeof import('@heroicons/vue/24/solid')['UserCircleIcon']
+    VButton: typeof import('./src/components/buttons/VButton.vue')['default']
     XMarkSolidIcon: typeof import('@heroicons/vue/24/solid')['XMarkIcon']
   }
 }
