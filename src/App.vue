@@ -4,18 +4,18 @@
 
 <style>
 .keyword {
-  color: var(--code-block-keyword);
+  color: var(--code-block-keyword, blue);
 }
 
 .property {
-  color: var(--code-block-property);
+  color: var(--code-block-property, mediumvioletred);
 }
 
 .string {
-  color: var(--code-block-string);
+  color: var(--code-block-string, brown);
 }
 
 .literal {
-  color: var(--code-block-literal);
+  color: var(--code-block-literal, gray);
 }
 </style>

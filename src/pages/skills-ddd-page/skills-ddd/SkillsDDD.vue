@@ -56,9 +56,5 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  --code-block-keyword: blue;
-  --code-block-property: mediumvioletred;
-  --code-block-string: brown;
-  --code-block-literal: gray;
 }
 </style>
