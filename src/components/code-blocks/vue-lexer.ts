@@ -1,4 +1,4 @@
-import { ContextMap, Lexer, Token } from "./lexer";
+import { Lexer, Token, TokenKind } from "./lexer";
 
 const literalTokens: Token[] = [
   {
@@ -88,6 +88,14 @@ const vueContextualKeywords: string[] = [
   in a fine-tuned way.
 */
 
+type ContextMap = {
+  [kind in TokenKind]?: {
+    kind?: TokenKind;
+    close?: string;
+    open?: string;
+  };
+};
+
 const vueContextMap: ContextMap = {
   "COLON": {
     open: "value",
@@ -111,6 +119,9 @@ const vueContextMap: ContextMap = {
 };
 
 export class VueLexer extends Lexer {
+  private contextMap: ContextMap;
+  private contexts: string[];
+
   constructor(
     content: string
   ) {
@@ -119,7 +130,37 @@ export class VueLexer extends Lexer {
       vueKeywords.concat(vueContextualKeywords),
       literalTokens,
       stringLiteralTokens,
-      vueContextMap,
     );
+
+    this.contextMap = vueContextMap;
+    this.contexts = [];
+  }
+
+  protected override mutateContext(token: Token): TokenKind | null {
+    const context = this.contextMap[token.kind];
+
+    if (!context)
+      return null;
+
+    if (context.open && context.kind) {
+      const idx = this.contexts.findIndex(c => c === context.open);
+
+      if (idx < 0)
+        return null;
+
+      return context.kind;
+    }
+
+    if (context.open && !context.kind)
+      this.contexts.push(context.open);
+
+    const idx = this.contexts.findIndex(c => c === context.close);
+
+    if (idx < 0)
+      return null;
+
+    this.contexts.splice(idx, 1)
+
+    return context.kind || null;
   }
 }

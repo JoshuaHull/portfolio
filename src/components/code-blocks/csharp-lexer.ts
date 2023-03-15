@@ -1,4 +1,4 @@
-import { ContextMap, Lexer, Token } from "./lexer";
+import { Lexer, Token, TokenKind } from "./lexer";
 
 const literalTokens: Token[] = [
   {
@@ -80,6 +80,14 @@ const csharpContextualKeywords: string[] = [
   "value", "var", "when", "where", "with", "yield",
 ];
 
+type ContextMap = {
+  [kind in TokenKind]?: {
+    kind?: TokenKind;
+    close?: string;
+    open?: string;
+  };
+};
+
 const csharpContextMap: ContextMap = {
   "SYMBOL": {
     kind: "PROPERTY",
@@ -91,6 +99,9 @@ const csharpContextMap: ContextMap = {
 };
 
 export class CsharpLexer extends Lexer {
+  private contextMap: ContextMap;
+  private contexts: string[];
+
   constructor(
     content: string
   ) {
@@ -99,7 +110,37 @@ export class CsharpLexer extends Lexer {
       csharpKeywords.concat(csharpContextualKeywords),
       literalTokens,
       stringLiteralTokens,
-      csharpContextMap,
     );
+
+    this.contextMap = csharpContextMap;
+    this.contexts = [];
+  }
+
+  protected override mutateContext(token: Token): TokenKind | null {
+    const context = this.contextMap[token.kind];
+
+    if (!context)
+      return null;
+
+    if (context.open && context.kind) {
+      const idx = this.contexts.findIndex(c => c === context.open);
+
+      if (idx < 0)
+        return null;
+
+      return context.kind;
+    }
+
+    if (context.open && !context.kind)
+      this.contexts.push(context.open);
+
+    const idx = this.contexts.findIndex(c => c === context.close);
+
+    if (idx < 0)
+      return null;
+
+    this.contexts.splice(idx, 1)
+
+    return context.kind || null;
   }
 }

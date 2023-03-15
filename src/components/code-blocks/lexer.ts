@@ -28,17 +28,8 @@ export type Token = {
   kind: TokenKind;
 };
 
-export type ContextMap = {
-  [kind in TokenKind]?: {
-    kind?: TokenKind;
-    close?: string;
-    open?: string;
-  };
-};
-
 export abstract class Lexer {
   private cursor: number = 0;
-  private contexts: string[] = [];
 
   private get contentFromCursor() {
     return this.content.substring(this.cursor);
@@ -49,8 +40,9 @@ export abstract class Lexer {
     private keywords: string[],
     private literals: Token[],
     private stringLiterals: Token[],
-    private contextMap: ContextMap,
   ) {}
+
+  protected abstract mutateContext(token: Token): TokenKind | null;
 
   public next(): Token {
     if (this.cursor >= this.content.length)
@@ -83,7 +75,7 @@ export abstract class Lexer {
     if (!token)
       return null;
 
-    const newKind = this.mutateContext(token.kind);
+    const newKind = this.mutateContext(token);
 
     return {
       kind: newKind || token.kind,
@@ -165,34 +157,6 @@ export abstract class Lexer {
       kind: "SYMBOL",
       value,
     };
-  }
-
-  private mutateContext(kind: TokenKind): TokenKind | null {
-    const context = this.contextMap[kind];
-
-    if (!context)
-      return null;
-
-    if (context.open && context.kind) {
-      const idx = this.contexts.findIndex(c => c === context.open);
-
-      if (idx < 0)
-        return null;
-
-      return context.kind;
-    }
-
-    if (context.open && !context.kind)
-      this.contexts.push(context.open);
-
-    const idx = this.contexts.findIndex(c => c === context.close);
-
-    if (idx < 0)
-      return null;
-
-    this.contexts.splice(idx, 1)
-
-    return context.kind || null;
   }
 
   private getLiteralAfter(count: number): Token | null {
