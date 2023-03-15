@@ -21,7 +21,7 @@ const panelFile = ref<InstanceType<typeof PanelFile> | null>(null);
   align-items: center;
   height: 100%;
   --skills-tests-panel-height: 40rem;
-  --code-block-keyword: fuchsia;
+  --code-block-keyword: goldenrod;
   --code-block-property: mediumvioletred;
   --code-block-string: yellow;
   --code-block-literal: lightgray;

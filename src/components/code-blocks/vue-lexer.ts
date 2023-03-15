@@ -1,6 +1,30 @@
-import { Lexer, Token, TokenKind } from "./lexer";
+import { Lexer, Token } from "./lexer";
 
-const literalTokens: Token[] = [
+export type VueTokenKind =
+  | "OPEN_PAREN"
+  | "CLOSE_PAREN"
+  | "OPEN_CURLY"
+  | "CLOSE_CURLY"
+  | "OPEN_ANGLE"
+  | "CLOSE_ANGLE"
+  | "OPEN_ANGLE_SLASH"
+  | "SEMICOLON"
+  | "DOT"
+  | "EOF"
+  | "KEYWORD"
+  | "SYMBOL"
+  | "PROPERTY"
+  | "STRING_LITERAL"
+  | "INTERPOLATED_STRING_LITERAL"
+  | "STRING"
+  | "SLASH"
+  | "COLON"
+  | "EQUALS"
+  | "HASH"
+  | "OTHER"
+;
+
+const literalTokens: Token<VueTokenKind>[] = [
   {
     value: "(",
     kind: "OPEN_PAREN",
@@ -16,6 +40,10 @@ const literalTokens: Token[] = [
   {
     value: "}",
     kind: "CLOSE_CURLY",
+  },
+  {
+    value: "</",
+    kind: "OPEN_ANGLE_SLASH",
   },
   {
     value: "<",
@@ -51,7 +79,7 @@ const literalTokens: Token[] = [
   },
 ];
 
-const stringLiteralTokens: Token[] = [
+const stringLiteralTokens: Token<VueTokenKind>[] = [
   {
     value: "\"",
     kind: "STRING_LITERAL",
@@ -66,101 +94,114 @@ const stringLiteralTokens: Token[] = [
   },
 ];
 
-const vueKeywords: string[] = [
-];
-
-const vueContextualKeywords: string[] = [
-  // all html tags, i don't have internet right now so can't look them up :/
-  "template", "script", "style",
-  "article", "section", "div", "span",
-  "@media"
-];
-
-/**
-  TODO:
-  Syntax highlighting for Vue is proving how not-up-to-scratch
-  this context object is.
-  I don't think inheritance of Lexer.ts is going to work long
-  term either.
-  I think the CSharpLexer and VueLexer should both take a Lexer
-  as composition. Then call each of the consume methods as
-  needed. That will allow each class to manage the context
-  in a fine-tuned way.
-*/
-
-type ContextMap = {
-  [kind in TokenKind]?: {
-    kind?: TokenKind;
-    close?: string;
-    open?: string;
-  };
-};
-
-const vueContextMap: ContextMap = {
-  "COLON": {
-    open: "value",
-  },
-  "HASH": {
-    open: "value",
-  },
-  "SYMBOL": {
-    open: "value",
-    kind: "PROPERTY",
-  },
-  "SEMICOLON": {
-    close: "value",
-  },
-  "CLOSE_PAREN": {
-    close: "value",
-  },
-  "CLOSE_ANGLE": {
-    close: "value",
-  },
-};
-
-export class VueLexer extends Lexer {
-  private contextMap: ContextMap;
-  private contexts: string[];
+export class VueLexer extends Lexer<VueTokenKind> {
+  private contextManagers: IContextManager[];
 
   constructor(
     content: string
   ) {
     super(
       content,
-      vueKeywords.concat(vueContextualKeywords),
+      ["@media"],
       literalTokens,
       stringLiteralTokens,
     );
 
-    this.contextMap = vueContextMap;
-    this.contexts = [];
+    this.contextManagers = [
+      new HtmlTagContextManager(),
+      new CssPropertyContextManager(),
+    ];
   }
 
-  protected override mutateContext(token: Token): TokenKind | null {
-    const context = this.contextMap[token.kind];
+  protected override mutateContext(token: Token<VueTokenKind>): VueTokenKind | null {
+    for (let manager of this.contextManagers) {
+      const rtn = manager.apply(token);
 
-    if (!context)
-      return null;
-
-    if (context.open && context.kind) {
-      const idx = this.contexts.findIndex(c => c === context.open);
-
-      if (idx < 0)
-        return null;
-
-      return context.kind;
+      if (!!rtn)
+        return rtn;
     }
 
-    if (context.open && !context.kind)
-      this.contexts.push(context.open);
+    return null;
+  }
+}
 
-    const idx = this.contexts.findIndex(c => c === context.close);
+interface IContextManager {
+  apply(token: Token<VueTokenKind>): VueTokenKind | null;
+}
 
-    if (idx < 0)
+class HtmlTagContextManager implements IContextManager {
+  private openingHtmlTag: boolean = false;
+  private closingHtmlTag: boolean = false;
+  private inHtmlTag: boolean = false;
+  private hashHtmlProperty: boolean = false;
+
+  public apply(token: Token<VueTokenKind>): VueTokenKind | null {
+    if (token.kind === "OPEN_ANGLE") {
+      this.openingHtmlTag = true;
+      this.inHtmlTag = true;
       return null;
+    }
 
-    this.contexts.splice(idx, 1)
+    if (token.kind === "OPEN_ANGLE_SLASH") {
+      this.closingHtmlTag = true;
+      return null;
+    }
 
-    return context.kind || null;
+    if (token.kind === "SYMBOL" && this.openingHtmlTag) {
+      this.openingHtmlTag = false;
+      return "KEYWORD";
+    }
+
+    if (token.kind === "SYMBOL" && this.hashHtmlProperty) {
+      this.hashHtmlProperty = false;
+      return "PROPERTY";
+    }
+
+    if (token.kind === "SYMBOL" && this.closingHtmlTag) {
+      this.closingHtmlTag = false;
+      return "KEYWORD";
+    }
+
+    if (token.kind === "HASH" && this.inHtmlTag) {
+      this.hashHtmlProperty = true;
+      return null;
+    }
+
+    if (token.kind === "CLOSE_ANGLE")
+      this.inHtmlTag = false;
+
+    this.closingHtmlTag = false;
+    this.openingHtmlTag = false;
+    this.hashHtmlProperty = false;
+    return null;
+  }
+}
+
+class CssPropertyContextManager implements IContextManager {
+  private inContext: boolean = false;
+
+  private opensContext = (token: Token<VueTokenKind>) =>
+    token.kind === "COLON";
+
+  private closesContext = (token: Token<VueTokenKind>) =>
+    this.inContext && (
+      token.kind === "SEMICOLON" || token.kind === "CLOSE_PAREN"
+    );
+
+  public apply(token: Token<VueTokenKind>): VueTokenKind | null {
+    if (this.opensContext(token)) {
+      this.inContext = true;
+      return null;
+    }
+
+    if (token.kind === "SYMBOL" && this.inContext)
+      return "PROPERTY";
+
+    if (this.closesContext(token)) {
+      this.inContext = false;
+      return null;
+    }
+
+    return null;
   }
 }

@@ -1,34 +1,11 @@
 // loosely based on https://github.com/tsoding/ded/blob/master/src/lexer.c
 
-export type TokenKind =
-  | "OPEN_PAREN"
-  | "CLOSE_PAREN"
-  | "OPEN_CURLY"
-  | "CLOSE_CURLY"
-  | "OPEN_ANGLE"
-  | "CLOSE_ANGLE"
-  | "SEMICOLON"
-  | "DOT"
-  | "EOF"
-  | "KEYWORD"
-  | "SYMBOL"
-  | "PROPERTY"
-  | "STRING_LITERAL"
-  | "INTERPOLATED_STRING_LITERAL"
-  | "STRING"
-  | "SLASH"
-  | "COLON"
-  | "EQUALS"
-  | "HASH"
-  | "OTHER"
-;
-
-export type Token = {
+export type Token<TKind> = {
   value: string;
-  kind: TokenKind;
+  kind: TKind | "EOF" | "OTHER" | "STRING" | "KEYWORD" | "SYMBOL";
 };
 
-export abstract class Lexer {
+export abstract class Lexer<TKind> {
   private cursor: number = 0;
 
   private get contentFromCursor() {
@@ -38,13 +15,13 @@ export abstract class Lexer {
   constructor(
     private content: string,
     private keywords: string[],
-    private literals: Token[],
-    private stringLiterals: Token[],
+    private literals: Token<TKind>[],
+    private stringLiterals: Token<TKind>[],
   ) {}
 
-  protected abstract mutateContext(token: Token): TokenKind | null;
+  protected abstract mutateContext(token: Token<TKind>): TKind | null;
 
-  public next(): Token {
+  public next(): Token<TKind> {
     if (this.cursor >= this.content.length)
       return {
         value: "",
@@ -69,7 +46,7 @@ export abstract class Lexer {
     };
   }
 
-  private tryConsume(consume: () => Token | null): Token | null {
+  private tryConsume(consume: () => Token<TKind> | null): Token<TKind> | null {
     const token = consume();
 
     if (!token)
@@ -83,7 +60,7 @@ export abstract class Lexer {
     };
   }
 
-  private tryConsumeString: () => (Token | null) = () => {
+  private tryConsumeString: () => (Token<TKind> | null) = () => {
     const largestStringLiteral = this.getStringLiteralAfter(0);
 
     if (!largestStringLiteral)
@@ -111,7 +88,7 @@ export abstract class Lexer {
     };
   }
 
-  private tryConsumeLiteral: () => (Token | null) = () => {
+  private tryConsumeLiteral: () => (Token<TKind> | null) = () => {
     const literal = this.getLiteralAfter(0);
 
     if (!literal)
@@ -121,7 +98,7 @@ export abstract class Lexer {
     return literal;
   }
 
-  private tryConsumeKeyword: () => (Token | null) = () => {
+  private tryConsumeKeyword: () => (Token<TKind> | null) = () => {
     const largestKeyword = this.keywords
       .filter(w => this.contentFromCursor.startsWith(w))
       .sort((_1, _2) => _1.length > _2.length ? -1 : 1)
@@ -142,7 +119,7 @@ export abstract class Lexer {
   }
 
   // assumes you already called `tryConsumeKeyword`
-  private tryConsumeSymbol: () => (Token | null) = () => {
+  private tryConsumeSymbol: () => (Token<TKind> | null) = () => {
     let value = "";
 
     while (this.hasCharacterAfter(0)) {
@@ -159,7 +136,7 @@ export abstract class Lexer {
     };
   }
 
-  private getLiteralAfter(count: number): Token | null {
+  private getLiteralAfter(count: number): Token<TKind> | null {
     const content = this.contentFromCursor.substring(count);
 
     const foundLiteral = this.literals
@@ -169,7 +146,7 @@ export abstract class Lexer {
     return foundLiteral || null;
   }
 
-  private getStringLiteralAfter(count: number): Token | null {
+  private getStringLiteralAfter(count: number): Token<TKind> | null {
     const largestStringLiteral = this.stringLiterals
       .filter(l => this.contentFromCursor.substring(count).startsWith(l.value))
       .sort((_1, _2) => _1.value.length > _2.value.length ? -1 : 1)

@@ -1,6 +1,26 @@
-import { Lexer, Token, TokenKind } from "./lexer";
+import { Lexer, Token } from "./lexer";
 
-const literalTokens: Token[] = [
+export type CsharpTokenKind =
+  | "OPEN_PAREN"
+  | "CLOSE_PAREN"
+  | "OPEN_CURLY"
+  | "CLOSE_CURLY"
+  | "OPEN_ANGLE"
+  | "CLOSE_ANGLE"
+  | "SEMICOLON"
+  | "DOT"
+  | "EOF"
+  | "KEYWORD"
+  | "SYMBOL"
+  | "PROPERTY"
+  | "STRING_LITERAL"
+  | "INTERPOLATED_STRING_LITERAL"
+  | "STRING"
+  | "EQUALS"
+  | "OTHER"
+;
+
+const literalTokens: Token<CsharpTokenKind>[] = [
   {
     value: "(",
     kind: "OPEN_PAREN",
@@ -35,7 +55,7 @@ const literalTokens: Token[] = [
   },
 ];
 
-const stringLiteralTokens: Token[] = [
+const stringLiteralTokens: Token<CsharpTokenKind>[] = [
   {
     value: "\"",
     kind: "STRING_LITERAL",
@@ -81,8 +101,8 @@ const csharpContextualKeywords: string[] = [
 ];
 
 type ContextMap = {
-  [kind in TokenKind]?: {
-    kind?: TokenKind;
+  [kind in CsharpTokenKind]?: {
+    kind?: CsharpTokenKind;
     close?: string;
     open?: string;
   };
@@ -98,7 +118,7 @@ const csharpContextMap: ContextMap = {
   },
 };
 
-export class CsharpLexer extends Lexer {
+export class CsharpLexer extends Lexer<CsharpTokenKind> {
   private contextMap: ContextMap;
   private contexts: string[];
 
@@ -116,7 +136,7 @@ export class CsharpLexer extends Lexer {
     this.contexts = [];
   }
 
-  protected override mutateContext(token: Token): TokenKind | null {
+  protected override mutateContext(token: Token<CsharpTokenKind>): CsharpTokenKind | null {
     const context = this.contextMap[token.kind];
 
     if (!context)
