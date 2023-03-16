@@ -40,6 +40,8 @@ const { tabCount, variant } = toRefs(props);
 
 const currentTab = ref(props.initialCurrentTab);
 
+const cursor = computed(() => tabCount.value > 1 ? "pointer" : null);
+
 const {
   backgroundColour,
   colour,
@@ -111,6 +113,7 @@ function handleTabClick(tabNumber: number) {
   color: v-bind(colour);
   border-top-right-radius: v-bind(borderRadius);
   border-top-left-radius: v-bind(borderRadius);
+  cursor: v-bind(cursor);
 }
 
 .tabbed-document-header.selected {
