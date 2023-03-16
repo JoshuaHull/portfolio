@@ -1,0 +1,3 @@
+<template>
+PanelTests.vue
+</template>
