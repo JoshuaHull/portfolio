@@ -44,6 +44,7 @@ const cursor = computed(() => tabCount.value > 1 ? "pointer" : null);
 
 const {
   backgroundColour,
+  headerBackgroundColour,
   colour,
   padding,
   borderRadius,
@@ -52,6 +53,7 @@ const {
   if (variant?.value === "editor")
     return {
       backgroundColour: "#05445E",
+      headerBackgroundColour: "#032F40",
       colour: "white",
       padding: "0",
       borderRadius: "0",
@@ -60,6 +62,7 @@ const {
 
   return {
     backgroundColour: "khaki",
+    headerBackgroundColour: "darkkhaki",
     colour: "black",
     padding: "1rem",
     borderRadius: "0.5rem",
@@ -92,7 +95,6 @@ function handleTabClick(tabNumber: number) {
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.25rem;
-  background-color: darkkhaki;
   width: min-content;
   white-space: nowrap;
 }
@@ -113,6 +115,7 @@ function handleTabClick(tabNumber: number) {
   color: v-bind(colour);
   border-top-right-radius: v-bind(borderRadius);
   border-top-left-radius: v-bind(borderRadius);
+  background-color: v-bind(headerBackgroundColour);
   cursor: v-bind(cursor);
 }
 
