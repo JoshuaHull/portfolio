@@ -1,5 +1,8 @@
 <template>
 <Page class="skills-tests-page">
+  <template #title>
+    Behaviour Driven Testing
+  </template>
   <SkillsTestsPageContent class="skills-tests-page-desktop" />
   <SkillsTestsPageContentMobile class="skills-tests-page-mobile" />
 </Page>

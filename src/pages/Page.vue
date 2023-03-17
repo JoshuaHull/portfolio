@@ -1,5 +1,8 @@
 <template>
 <div class="page">
+  <header class="page-title">
+    <slot name="title"></slot>
+  </header>
   <div class="page-content">
     <slot></slot>
   </div>
@@ -76,10 +79,18 @@ const previousPage = computed(() => pageAtDelta(-1));
   height: 100%;
   display: grid;
   grid-template-areas:
+    "title"
     "content"
     "navbar"
   ;
-  grid-template-rows: calc(100% - 2rem) 2rem;
+  grid-template-rows: 10rem calc(100% - 12rem) 2rem;
+}
+
+.page-title {
+  grid-area: title;
+  justify-self: center;
+  align-self: flex-end;
+  font-size: 2em;
 }
 
 .page-content {
