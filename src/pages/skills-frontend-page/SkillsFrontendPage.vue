@@ -1,5 +1,5 @@
 <template>
 <Page>
-  <SkillsFrontend />
+  <SkillsFrontendPageContent />
 </Page>
 </template>

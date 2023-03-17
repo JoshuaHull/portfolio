@@ -1,9 +1,9 @@
 import { VNode } from "vue";
 import { Lexer } from "./lexer";
 
-export class Highlighter {
+export class Highlighter<TKind> {
   constructor(
-    private lexer: Lexer,
+    private lexer: Lexer<TKind>,
   ) {}
 
   public toHtml(): string {

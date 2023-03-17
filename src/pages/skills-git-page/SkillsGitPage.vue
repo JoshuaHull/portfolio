@@ -1,5 +1,5 @@
 <template>
 <Page>
-  <SkillsGit />
+  <SkillsGitPageContent />
 </Page>
 </template>

@@ -1,7 +1,7 @@
 <template>
 <Page class="skills-tests-page">
-  <SkillsTests class="skills-tests-page-desktop" />
-  <SkillsTestsMobile class="skills-tests-page-mobile" />
+  <SkillsTestsPageContent class="skills-tests-page-desktop" />
+  <SkillsTestsPageContentMobile class="skills-tests-page-mobile" />
 </Page>
 </template>
 

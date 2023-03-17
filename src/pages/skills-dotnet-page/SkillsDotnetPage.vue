@@ -1,5 +1,5 @@
 <template>
 <Page>
-  <SkillsDotnet />
+  <SkillsDotnetPageContent />
 </Page>
 </template>

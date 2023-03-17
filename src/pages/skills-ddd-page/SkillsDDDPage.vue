@@ -1,5 +1,5 @@
 <template>
 <Page>
-  <SkillsDDD />
+  <SkillsDDDPageContent />
 </Page>
 </template>
