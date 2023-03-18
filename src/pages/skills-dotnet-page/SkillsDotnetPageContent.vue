@@ -23,7 +23,7 @@ var maxDateUpdated = new DateTime(2021, 05, 05);`
 </template>
 
 <script setup lang="ts">
-import { CodeBlockForCSharp } from "@code-blocks";
+import { CodeBlockForCSharp, ResponsiveCodeBlockContent } from "@code-blocks";
 import { QueryFilter } from "@query-building";
 
 const data = [
@@ -66,20 +66,44 @@ const data = [
 
 const fitleredData = ref(data);
 
-const queries = [
+const queries: { contents: ResponsiveCodeBlockContent[], filter: QueryFilter }[] = [
   {
-    content: "    .Where(u => u.Points > 10)",
-    mobileContent: "  .Where( => u.Points > 10)",
+    contents: [
+      {
+        content: "    .Where(u => u.Points > 10)",
+        size: "medium",
+      },
+      {
+        content: "  .Where(u => u.Points > 10)",
+        size: "small",
+      },
+    ],
     filter: (user: { [key: string]: string }) => Number.parseInt(user["Points"]) > 10,
   },
   {
-    content: "    .Where(u => u.DateCreated > new DateTime(2020, 02, 02))",
-    mobileContent: "  .Where( => u.DateCreated > minDateCreated)",
+    contents: [
+      {
+        content: "    .Where(u => u.DateCreated > new DateTime(2020, 02, 02))",
+        size: "medium",
+      },
+      {
+        content: "  .Where(u => u.DateCreated > minDateCreated)",
+        size: "small",
+      },
+    ],
     filter: (user: { [key: string]: string }) => new Date(user["DateCreated"]) > new Date(2020, 2, 2),
   },
   {
-    content: "    .Where(u => u.DateUpdated < new DateTime(2021, 05, 05))",
-    mobileContent: "  .Where( => u.DateUpdated < maxDateUpdated)",
+    contents: [
+      {
+        content: "    .Where(u => u.DateUpdated < new DateTime(2021, 05, 05))",
+        size: "medium",
+      },
+      {
+        content: "  .Where(u => u.DateUpdated < maxDateUpdated)",
+        size: "small",
+      },
+    ],
     filter: (user: { [key: string]: string }) => new Date(user["DateUpdated"]) < new Date(2021, 5, 5),
   },
 ];

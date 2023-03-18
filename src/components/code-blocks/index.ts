@@ -1,9 +1,12 @@
-import CodeBlockForCSharp from "./CodeBlockForCSharp";
 import CodeBlockForVue from "./CodeBlockForVue";
+import CodeBlockForCSharp from "./CodeBlockForCSharp";
 
-export * from "./highlighter";
 export * from "./lexer";
-export * from "./csharp-lexer";
 export * from "./vue-lexer";
-export { CodeBlockForCSharp }
+export * from "./highlighter";
+export * from "./csharp-lexer";
+export * from "./code-block-language";
+export * from "./responsive-code-block-content";
+
 export { CodeBlockForVue }
+export { CodeBlockForCSharp }

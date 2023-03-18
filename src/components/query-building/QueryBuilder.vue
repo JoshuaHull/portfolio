@@ -5,13 +5,10 @@
     class="queryable"
   />
   <template v-for="(query, n) in queries">
-    <CodeBlockForCSharp
-      :class="`query query-desktop ${enabled.includes(n) ? '' : 'disabled'}`"
-      :content="query.content"
-    />
-    <CodeBlockForCSharp
-      :class="`query query-mobile ${enabled.includes(n) ? '' : 'disabled'}`"
-      :content="query.mobileContent ?? query.content"
+    <ResponsiveCodeBlock
+      :class="`query ${enabled.includes(n) ? '' : 'disabled'}`"
+      :contents="query.contents"
+      language="csharp"
     />
     <IconButton
       class="query-toggle-button"
@@ -26,12 +23,11 @@
 </template>
 
 <script setup lang="ts">
-import { CodeBlockForCSharp } from "@code-blocks";
+import { CodeBlockForCSharp, ResponsiveCodeBlockContent } from "@code-blocks";
 import { QueryFilter } from "./QueryFilter";
 
 type Query = {
-  content: string;
-  mobileContent?: string;
+  contents: ResponsiveCodeBlockContent[];
   filter: QueryFilter;
 };
 
@@ -90,20 +86,6 @@ const emitUpdatedQuery = () => {
 
 .query.disabled span {
   color: gray;
-}
-
-.query-desktop {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .query-desktop {
-    display: block;
-  }
-
-  .query-mobile {
-    display: none;
-  }
 }
 
 .query-toggle-button {
