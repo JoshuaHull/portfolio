@@ -1,10 +1,5 @@
 <template>
-<TabbedDocument>
-  <template #title>
-    C#
-  </template>
-  <template #content>
-    <CodeBlockForCSharp content =
+<CodeBlockForCSharp content =
 'public async Task<int> Handle(AwardPointsCommand command) {
   var twitchUser = await _repo.GetById(command.TwitchUserId);
 
@@ -13,8 +8,6 @@
 
   return twitchUser.Points;
 }' />
-  </template>
-</TabbedDocument>
 </template>
 
 <script setup lang="ts">

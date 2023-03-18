@@ -1,10 +1,5 @@
 <template>
-<TabbedDocument>
-  <template #title>
-    C#
-  </template>
-  <template #content>
-    <CodeBlockForCSharp content =
+<CodeBlockForCSharp content =
 "public class TwitchUser {
   public string Name => _user.Name;
   public int Points => _user.Points;
@@ -18,8 +13,6 @@
     return Task.CompletedTask;
   }
 }" />
-  </template>
-</TabbedDocument>
 </template>
 
 <script setup lang="ts">

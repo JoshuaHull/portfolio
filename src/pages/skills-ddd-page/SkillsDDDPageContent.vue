@@ -5,45 +5,31 @@
     :initialCurrentLayer="3"
   >
     <template #layer1title>
-      Application Layer
+      <LPApplicationTitle />
     </template>
     <template #layer1sidebar>
-      Application logic coordinates the requirements of a feature.
-      In this case, we retrieve a Twitch user, award points to them,
-      and save to the DB.<br /><br />
-      The actual mutation of the Twitch user, and the underlying data,
-      is handled by the Domain Layer.<br /><br />
-      The code is easy to read since it targets a single domain.
+      <LPApplicationSidebar />
     </template>
     <template #layer1content>
-      <LPContentForApplicationLogic />
+      <LPApplicationContent />
     </template>
     <template #layer2title>
-      Domain Layer
+      <LPDomainTitle />
     </template>
     <template #layer2sidebar>
-      A Domain model represents a single idea within a business.<br /><br />
-      In code, domain entities contain methods and properties which break
-      down business logic into reusable pieces.<br /><br />
-      The modelling is data-agnostic and is in this case built up from
-      multiple tables.
+      <LPDomainSidebar />
     </template>
     <template #layer2content>
-      <LPContentForDomainLogic />
+      <LPDomainContent />
     </template>
     <template #layer3title>
-      Data Access Layer
+      <LPDataAccessTitle />
     </template>
     <template #layer3sidebar>
-      It's not always appropriate to match data modelling one-to-one with
-      business needs.<br /><br />
-      In this case, one user may have multiple linked accounts for different
-      social media platforms.<br /><br />
-      But at higher layers we want to talk about, eg., Twitch Users and
-      Discord Users separately from one another.
+      <LPDataAccessSidebar />
     </template>
     <template #layer3content>
-      <LPContentForDataAccess />
+      <LPDataAccessContent />
     </template>
   </MultiLayerPanel>
 </article>
