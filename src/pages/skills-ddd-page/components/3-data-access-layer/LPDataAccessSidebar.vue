@@ -1,5 +1,5 @@
 <template>
-<div class="lp-sidebar">
+<div class="lp-data-access-sidebar">
   It's not always appropriate to match data modelling one-to-one with
   business needs.<br /><br />
   In this case, one user may have multiple linked accounts for different
@@ -8,3 +8,9 @@
   Discord Users separately from one another.
 </div>
 </template>
+
+<style>
+.lp-data-access-sidebar {
+  max-width: 22rem;
+}
+</style>

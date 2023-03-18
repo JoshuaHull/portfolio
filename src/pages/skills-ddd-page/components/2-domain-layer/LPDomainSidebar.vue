@@ -1,5 +1,5 @@
 <template>
-<div class="lp-sidebar">
+<div class="lp-domain-sidebar">
   A Domain model represents a single idea within a business.<br /><br />
   In code, domain entities contain methods and properties which break
   down business logic into reusable pieces.<br /><br />
@@ -7,3 +7,15 @@
   multiple tables.
 </div>
 </template>
+
+<style>
+.lp-domain-sidebar {
+  max-width: 24rem;
+}
+
+@media (min-width: 768px) {
+  .lp-domain-sidebar {
+    max-width: 29rem;
+  }
+}
+</style>

@@ -24,10 +24,6 @@
   width: 100%;
 }
 
-.lp-sidebar {
-  max-width: 32rem;
-}
-
 @media (min-width: 1024px) {
   .skills-ddd-page-desktop {
     display: grid;
