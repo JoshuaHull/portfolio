@@ -52,18 +52,25 @@ const columnCount = computed(() =>
 .data-table {
   display: grid;
   grid-template-columns: repeat(v-bind(columnCount), auto);
-  --data-table-cell-padding: 0.5rem;
+  --data-table-cell-padding-x: 0.5rem;
+  --data-table-cell-padding-y: 1rem;
 }
 
 .column-header {
   text-align: end;
-  padding: var(--data-table-cell-padding);
+  padding-left: var(--data-table-cell-padding-x);
+  padding-right: var(--data-table-cell-padding-x);
+  padding-top: var(--data-table-cell-padding-y);
+  padding-bottom: var(--data-table-cell-padding-y);
   border: 1px solid white;
 }
 
 .data-cell {
   text-align: end;
-  padding: var(--data-table-cell-padding);
+  padding-left: var(--data-table-cell-padding-x);
+  padding-right: var(--data-table-cell-padding-x);
+  padding-top: var(--data-table-cell-padding-y);
+  padding-bottom: var(--data-table-cell-padding-y);
   border-left: 1px solid white;
   border-right: 1px solid white;
 }
@@ -73,12 +80,12 @@ const columnCount = computed(() =>
 }
 
 .empty-data-cell {
-  height: calc(24px + 2 * var(--data-table-cell-padding));
+  height: calc(24px + 2 * var(--data-table-cell-padding-y));
 }
 
 @media (min-width: 768px) {
   .data-table {
-    --data-table-cell-padding: 1rem;
+    --data-table-cell-padding-x: 1rem;
   }
 }
 </style>

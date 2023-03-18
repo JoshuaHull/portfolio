@@ -3,10 +3,8 @@
   <div class="skills-dotnet-code">
     <CodeBlockForCSharp
       class="skills-dotnet-variables"
-      :content="`
-var minDateCreated = new DateTime(2020, 02, 02);
-var maxDateUpdated = new DateTime(2021, 05, 05);
-  `
+      :content="`var minDateCreated = new DateTime(2020, 02, 02);
+var maxDateUpdated = new DateTime(2021, 05, 05);`
     " />
     <QueryBuilder
       class="skills-dotnet-query-builder"
@@ -99,10 +97,16 @@ const handleQueryUpdated = (query: QueryFilter[]) => {
 <style>
 .skills-dotnet {
   display: grid;
-  grid-template-rows: min-content min-content;
+  grid-template-rows: repeat(2, min-content);
   align-content: center;
   row-gap: 4rem;
   height: 100%;
+}
+
+.skills-dotnet-code {
+  display: grid;
+  grid-template-rows: repeat(2, min-content);
+  row-gap: 1rem;
 }
 
 @media (min-width: 768px) {
