@@ -10,12 +10,19 @@
     >
       {{ key }}
     </span>
-    <template v-for="datum in data">
+    <template v-for="(datum, n) in data">
       <span
         v-for="value in datum"
-        class="data-cell"
+        :class="`data-cell ${n === data.length - 1 ? 'data-cell-last-row' : ''}`"
       >
         {{ value }}
+      </span>
+    </template>
+    <template v-for="_ in emptyRows">
+      <span
+        v-for="c in columnCount"
+        class="empty-data-cell"
+      >
       </span>
     </template>
   </template>
@@ -25,47 +32,53 @@
 <script setup lang="ts">
 interface DataTableProps {
   data: { [key: string]: string }[];
+  columnCount: number;
+  rowCount: number;
 }
 
 const props = defineProps<DataTableProps>();
-const { data } = toRefs(props);
+const { data, rowCount } = toRefs(props);
+
+const emptyRows = computed(() => rowCount.value - data.value.length);
 
 const columnCount = computed(() =>
   data.value.length === 0
     ? 0
     : Object.keys(data.value[0]).length
 );
-
-const borderBottom = computed(() => data.value.length === 0 ? "none" : "1px solid white");
 </script>
 
 <style>
 .data-table {
   display: grid;
   grid-template-columns: repeat(v-bind(columnCount), auto);
-  --data-table-column-max-width: 7rem;
+  --data-table-cell-padding: 0.5rem;
 }
 
 .column-header {
   text-align: end;
-  padding: 1rem;
+  padding: var(--data-table-cell-padding);
   border: 1px solid white;
-  min-width: var(--data-table-column-max-width);
-  width: 100%;
 }
 
 .data-cell {
   text-align: end;
-  padding: 1rem;
+  padding: var(--data-table-cell-padding);
   border-left: 1px solid white;
   border-right: 1px solid white;
-  min-width: var(--data-table-column-max-width);
-  width: 100%;
 }
-</style>
 
-<style scoped>
-.data-table {
-  border-bottom: v-bind(borderBottom);
+.data-cell-last-row {
+  border-bottom: 1px solid white;
+}
+
+.empty-data-cell {
+  height: calc(24px + 2 * var(--data-table-cell-padding));
+}
+
+@media (min-width: 768px) {
+  .data-table {
+    --data-table-cell-padding: 1rem;
+  }
 }
 </style>

@@ -1,19 +1,31 @@
 <template>
 <article class="skills-dotnet">
-  <QueryBuilder
-    class="skills-dotnet-query-builder"
-    queryable="_dbContext.Users"
-    :queries="queries"
-    @updated="handleQueryUpdated"
-  />
+  <div class="skills-dotnet-code">
+    <CodeBlockForCSharp
+      class="skills-dotnet-variables"
+      :content="`
+var minDateCreated = new DateTime(2020, 02, 02);
+var maxDateUpdated = new DateTime(2021, 05, 05);
+  `
+    " />
+    <QueryBuilder
+      class="skills-dotnet-query-builder"
+      queryable="_dbContext.Users"
+      :queries="queries"
+      @updated="handleQueryUpdated"
+    />
+  </div>
   <DataTable
     class="skills-dotnet-table"
     :data="fitleredData"
+    :rowCount="5"
+    :columnCount="5"
   />
 </article>
 </template>
 
 <script setup lang="ts">
+import { CodeBlockForCSharp } from "@code-blocks";
 import { QueryFilter } from "@query-building";
 
 const data = [
@@ -59,14 +71,17 @@ const fitleredData = ref(data);
 const queries = [
   {
     content: "    .Where(u => u.Points > 10)",
+    mobileContent: "  .Where( => u.Points > 10)",
     filter: (user: { [key: string]: string }) => Number.parseInt(user["Points"]) > 10,
   },
   {
     content: "    .Where(u => u.DateCreated > new DateTime(2020, 02, 02))",
+    mobileContent: "  .Where( => u.DateCreated > minDateCreated)",
     filter: (user: { [key: string]: string }) => new Date(user["DateCreated"]) > new Date(2020, 2, 2),
   },
   {
     content: "    .Where(u => u.DateUpdated < new DateTime(2021, 05, 05))",
+    mobileContent: "  .Where( => u.DateUpdated < maxDateUpdated)",
     filter: (user: { [key: string]: string }) => new Date(user["DateUpdated"]) < new Date(2021, 5, 5),
   },
 ];
@@ -84,23 +99,15 @@ const handleQueryUpdated = (query: QueryFilter[]) => {
 <style>
 .skills-dotnet {
   display: grid;
-  grid-template-areas:
-    "builder"
-    "  table"
-  ;
-  grid-template-rows: min-content 30rem;
-  row-gap: 4rem;
-  place-items: center;
+  grid-template-rows: min-content min-content;
   align-content: center;
+  row-gap: 4rem;
   height: 100%;
 }
 
-.skills-dotnet-query-builder {
-  grid-area: builder;
-}
-
-.skills-dotnet-table {
-  grid-area: table;
-  align-self: flex-start;
+@media (min-width: 768px) {
+  .skills-dotnet-variables {
+    display: none;
+  }
 }
 </style>
