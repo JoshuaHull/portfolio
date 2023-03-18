@@ -1,3 +1,3 @@
 <template>
-C#
+Linked Account
 </template>

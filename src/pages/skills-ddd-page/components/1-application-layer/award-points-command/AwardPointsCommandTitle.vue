@@ -1,3 +1,3 @@
 <template>
-C#
+Award Points Command
 </template>

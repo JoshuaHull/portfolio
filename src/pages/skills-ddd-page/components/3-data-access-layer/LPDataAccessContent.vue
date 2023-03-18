@@ -1,5 +1,5 @@
 <template>
-<div class="lp-content-for-data-access">
+<div class="lp-data-access-content">
   <TabbedDocument>
     <template #title>
       <UserTitle />
@@ -20,7 +20,7 @@
 </template>
 
 <style>
-.lp-content-for-data-access {
+.lp-data-access-content {
   display: flex;
   flex-direction: row;
   column-gap: 2rem;

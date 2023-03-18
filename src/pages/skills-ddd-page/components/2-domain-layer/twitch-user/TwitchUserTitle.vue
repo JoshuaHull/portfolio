@@ -1,3 +1,3 @@
 <template>
-C#
+Twitch User
 </template>
