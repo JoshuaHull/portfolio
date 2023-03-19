@@ -18,6 +18,10 @@
   ],
   "projects": [
     {
+      "packageName": "homepage",
+      "projectFolder": "apps/homepage"
+    },
+    {
       "packageName": "portfolio",
       "projectFolder": "apps/portfolio"
     },
