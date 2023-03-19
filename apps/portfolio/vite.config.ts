@@ -3,7 +3,8 @@ import vue from "@vitejs/plugin-vue"
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import path from "path";
-import { rollupPluginContent, rollupPluginCount } from "./src/rollup/plugins";
+import { rollupPluginCount } from "./src/rollup/plugins";
+import { rollupPluginContent } from "rollup-plugin-content";
 
 // https://vitejs.dev/config/
 export default defineConfig({

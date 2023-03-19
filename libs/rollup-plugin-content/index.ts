@@ -3,7 +3,7 @@ import { readFileSync } from "fs";
 const name = "rollup-plugin-content";
 const prefix = "content:";
 
-export function rollupPluginContent(opts = {}) {
+export function rollupPluginContent() {
   return {
     name,
     resolveId(source: string) {

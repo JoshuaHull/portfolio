@@ -20,6 +20,10 @@
     {
       "packageName": "portfolio",
       "projectFolder": "apps/portfolio"
+    },
+    {
+      "packageName": "rollup-plugin-content",
+      "projectFolder": "libs/rollup-plugin-content"
     }
   ]
 }
