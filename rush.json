@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+  "rushVersion": "5.93.2",
+  "pnpmVersion": "6.7.1",
+  "nodeSupportedVersionRange": ">=16.13.0 <17.0.0",
+  "gitPolicy": {
+    "versionBumpCommitMessage": "chore: bump versions [skip ci]",
+    "changeLogUpdateCommitMessage": "chore: update changelogs [skip ci]"
+  },
+  "repository": {
+    "url": "https://github.com/JoshuaHull/portfolio",
+    "defaultBranch": "main",
+    "defaultRemote": "origin"
+  },
+  "allowedProjectTags": [
+    "apps",
+    "libs"
+  ],
+  "projects": [
+    {
+      "packageName": "portfolio",
+      "projectFolder": "apps/portfolio"
+    }
+  ]
+}

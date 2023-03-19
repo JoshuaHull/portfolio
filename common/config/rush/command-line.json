@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/command-line.schema.json",
+  "commands": [
+    {
+      "commandKind": "bulk",
+      "name": "dev",
+      "summary": "serve all apps via Vite",
+      "enableParallelism": true,
+      "ignoreMissingScript": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "test",
+      "summary": "run all tests",
+      "enableParallelism": true,
+      "ignoreMissingScript": true
+    }
+  ]
+}
