@@ -3,7 +3,7 @@ import { PathScurry } from "path-scurry";
 const name = "rollup-plugin-count";
 const prefix = "count:";
 
-export function rollupPluginCount(opts = {}) {
+export function rollupPluginCount() {
   return {
     name,
     resolveId(source: string) {

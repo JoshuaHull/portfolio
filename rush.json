@@ -24,6 +24,10 @@
     {
       "packageName": "rollup-plugin-content",
       "projectFolder": "libs/rollup-plugin-content"
+    },
+    {
+      "packageName": "rollup-plugin-count",
+      "projectFolder": "libs/rollup-plugin-count"
     }
   ]
 }
