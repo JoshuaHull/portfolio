@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { CsharpLexer, Highlighter } from "./../../../src/components/code-blocks";
+import { CsharpLexer, CSharpTokenMap, Highlighter } from "./../../../src/components/code-blocks";
 
 describe("toHtml", () => {
   test("should return a html string with classes which allow you to highlight keywords, etc", () => {
@@ -14,7 +14,8 @@ describe("toHtml", () => {
   }
 }`;
     const lexer = new CsharpLexer(content);
-    const highlighter = new Highlighter(lexer);
+    const tokenMap = new CSharpTokenMap();
+    const highlighter = new Highlighter(lexer, tokenMap);
 
     // Act
     const result = highlighter.toHtml();

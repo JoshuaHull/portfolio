@@ -2,6 +2,7 @@
 import { Highlighter } from "./highlighter";
 import { Component } from "vue";
 import { VueLexer } from "./vue-lexer";
+import { VueTokenMap } from "./vue-token-map";
 
 const component = {
   props: [
@@ -10,7 +11,8 @@ const component = {
   setup(props: { content: string }) {
     const content = props.content;
     const lexer = new VueLexer(content);
-    const highlighter = new Highlighter(lexer);
+    const tokenMap = new VueTokenMap();
+    const highlighter = new Highlighter(lexer, tokenMap);
 
     return highlighter.toVueRenderFunction();
   }
