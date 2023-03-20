@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "rollup-plugin-replace": "workspace:*",
     "vite": "^4.2.0"
   }
 }
