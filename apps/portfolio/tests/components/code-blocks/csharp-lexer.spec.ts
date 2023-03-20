@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { CsharpLexer, Token } from "./../../../src/components/code-blocks";
+import { CsharpLexer, CsharpTokenKind, Token } from "./../../../src/components/code-blocks";
 
 describe("lexer", () => {
   test("should return EOF token when content runs out", () => {
@@ -22,7 +22,7 @@ describe("literals", () => {
     const lexer = new CsharpLexer(content);
 
     // Act
-    const result: Token[] = [];
+    const result: Token<CsharpTokenKind>[] = [];
 
     for (;;) {
       const next = lexer.next();
@@ -145,8 +145,8 @@ describe("keywords", () => {
 });
 
 describe("entire lines", () => {
-  function allTokensFrom(lexer: CsharpLexer): Token[] {
-    const rtn: Token[] = [];
+  function allTokensFrom(lexer: CsharpLexer): Token<CsharpTokenKind>[] {
+    const rtn: Token<CsharpTokenKind>[] = [];
 
     for (;;) {
       const next = lexer.next();

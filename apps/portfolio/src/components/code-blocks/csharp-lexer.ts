@@ -13,6 +13,7 @@ export type CsharpTokenKind =
   | "KEYWORD"
   | "SYMBOL"
   | "PROPERTY"
+  | "TYPE"
   | "STRING_LITERAL"
   | "INTERPOLATED_STRING_LITERAL"
   | "STRING"
@@ -100,27 +101,8 @@ const csharpContextualKeywords: string[] = [
   "value", "var", "when", "where", "with", "yield",
 ];
 
-type ContextMap = {
-  [kind in CsharpTokenKind]?: {
-    kind?: CsharpTokenKind;
-    close?: string;
-    open?: string;
-  };
-};
-
-const csharpContextMap: ContextMap = {
-  "SYMBOL": {
-    kind: "PROPERTY",
-    close: "dot",
-  },
-  "DOT": {
-    open: "dot",
-  },
-};
-
 export class CsharpLexer extends Lexer<CsharpTokenKind> {
-  private contextMap: ContextMap;
-  private contexts: string[];
+  private contextManagers: IContextManager[];
 
   constructor(
     content: string
@@ -132,35 +114,110 @@ export class CsharpLexer extends Lexer<CsharpTokenKind> {
       stringLiteralTokens,
     );
 
-    this.contextMap = csharpContextMap;
-    this.contexts = [];
+    this.contextManagers = [
+      new PropertyContextManager(),
+      new NewValueContextManager(),
+      new AsyncTypeContextManager(),
+      new ReturnTypeContextManager(),
+    ];
   }
 
   protected override mutateContext(token: Token<CsharpTokenKind>): CsharpTokenKind | null {
-    const context = this.contextMap[token.kind];
+    for (let manager of this.contextManagers) {
+      const rtn = manager.apply(token);
 
-    if (!context)
-      return null;
-
-    if (context.open && context.kind) {
-      const idx = this.contexts.findIndex(c => c === context.open);
-
-      if (idx < 0)
-        return null;
-
-      return context.kind;
+      if (!!rtn)
+        return rtn;
     }
 
-    if (context.open && !context.kind)
-      this.contexts.push(context.open);
+    return null;
+  }
+}
 
-    const idx = this.contexts.findIndex(c => c === context.close);
+interface IContextManager {
+  apply(token: Token<CsharpTokenKind>): CsharpTokenKind | null;
+}
 
-    if (idx < 0)
+class PropertyContextManager implements IContextManager {
+  private inContext: boolean = false;
+
+  public apply(token: Token<CsharpTokenKind>): CsharpTokenKind | null {
+    if (token.kind === "DOT") {
+      this.inContext = true;
       return null;
+    }
 
-    this.contexts.splice(idx, 1)
+    if (token.kind === "SYMBOL" && this.inContext) {
+      this.inContext = false;
+      return "PROPERTY";
+    }
 
-    return context.kind || null;
+    this.inContext = false;
+    return null;
+  }
+}
+
+class NewValueContextManager implements IContextManager {
+  private inContext: boolean = false;
+
+  public apply(token: Token<CsharpTokenKind>): CsharpTokenKind | null {
+    if (token.kind === "KEYWORD" && token.value === "new") {
+      this.inContext = true;
+      return null;
+    }
+
+    if (token.kind === "SYMBOL" && this.inContext) {
+      this.inContext = false;
+      return "TYPE";
+    }
+
+    this.inContext = false;
+    return null;
+  }
+}
+
+class AsyncTypeContextManager implements IContextManager {
+  private inContext: boolean = false;
+
+  public apply(token: Token<CsharpTokenKind>): CsharpTokenKind | null {
+    if (token.kind === "KEYWORD" && token.value === "async") {
+      this.inContext = true;
+      return null;
+    }
+
+    if (token.kind === "SYMBOL" && this.inContext) {
+      this.inContext = false;
+      return "TYPE";
+    }
+
+    this.inContext = false;
+    return null;
+  }
+}
+
+class ReturnTypeContextManager implements IContextManager {
+  private inContext: boolean = false;
+
+  private opensContext(token: Token<CsharpTokenKind>) {
+    return token.kind === "KEYWORD" && (
+      token.value === "private" ||
+      token.value === "public" ||
+      token.value === "readonly"
+    );
+  }
+
+  public apply(token: Token<CsharpTokenKind>): CsharpTokenKind | null {
+    if (this.opensContext(token)) {
+      this.inContext = true;
+      return null;
+    }
+
+    if (token.kind === "SYMBOL" && this.inContext) {
+      this.inContext = false;
+      return "TYPE";
+    }
+
+    this.inContext = false;
+    return null;
   }
 }

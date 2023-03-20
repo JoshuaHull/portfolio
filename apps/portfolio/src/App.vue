@@ -18,4 +18,8 @@
 .literal {
   color: var(--code-block-literal, gray);
 }
+
+.type {
+  color: var(--code-block-type, seagreen);
+}
 </style>
