@@ -10,7 +10,7 @@
     },
     {
       "commandKind": "bulk",
-      "name": "test",
+      "name": "test:nowatch",
       "summary": "run all tests",
       "enableParallelism": true,
       "ignoreMissingScript": true

@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "test": "vitest --watch false",
-    "preview": "vite preview"
+    "test": "vitest",
+    "test:nowatch": "vitest --watch false"
   },
   "dependencies": {
     "@heroicons/vue": "^2.0.8",
