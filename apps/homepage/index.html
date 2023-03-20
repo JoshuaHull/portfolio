@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Josh</title>
     <style>
       :root {
         font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -11,9 +11,13 @@
         line-height: 24px;
         font-weight: 400;
 
+        --text-color-primary: #E9EAECDD;
+        --action-background-color: #800028;
+        --background-color: #333652;
+
         color-scheme: light dark;
-        color: rgba(255, 255, 255, 0.87);
-        background-color: #242424;
+        color: var(--text-color-primary);
+        background-color: var(--background-color);
 
         font-synthesis: none;
         text-rendering: optimizeLegibility;
@@ -60,11 +64,57 @@
       main {
         height: 100%;
       }
+
+      .page-content {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .titles {
+        padding-top: 2rem;
+        padding-bottom: 4rem;
+        display: grid;
+        grid-template-rows: repeat(2, min-content);
+        row-gap: 0.25rem;
+        font-size: 1.25em;
+      }
+
+      h1 {
+        font-size: 3em;
+      }
+
+      .skills-link {
+        display: block;
+        text-decoration: none;
+        color: var(--text-color-primary);
+        padding: 0.75rem;
+        background-color: var(--action-background-color);
+        border-radius: 0.5rem;
+        white-space: nowrap;
+        width: min-content;
+      }
     </style>
   </head>
   <body>
     <div id="app">
-      app
+      <main class="page-content">
+        <article>
+          <header>
+            <h1>Hi, I'm Josh</h1>
+          </header>
+          <section class="titles">
+            <p>Backend developer</p>
+            <p>Frontend developer</p>
+          </section>
+          <section>
+            <a
+              class="skills-link"
+              href="$skills"
+            >These are my skills</a>
+          </section>
+        </article>
+      </main>
     </div>
   </body>
 </html>
