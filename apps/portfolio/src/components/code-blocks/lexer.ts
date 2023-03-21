@@ -2,7 +2,7 @@
 
 export type Token<TKind> = {
   value: string;
-  kind: TKind | "EOF" | "OTHER" | "STRING" | "KEYWORD" | "SYMBOL";
+  kind: TKind | "EOF" | "OTHER" | "STRING" | "KEYWORD" | "SYMBOL" | "NUMBER";
 };
 
 export abstract class Lexer<TKind> {
@@ -30,6 +30,7 @@ export abstract class Lexer<TKind> {
 
     const token =
       this.tryConsume(this.tryConsumeString) ||
+      this.tryConsume(this.tryConsumeNumber) ||
       this.tryConsume(this.tryConsumeLiteral) ||
       this.tryConsume(this.tryConsumeKeyword) ||
       this.tryConsume(this.tryConsumeSymbol);
@@ -87,6 +88,53 @@ export abstract class Lexer<TKind> {
       value,
     };
   }
+
+  private tryConsumeNumber: () => (Token<TKind> | null) = () => {
+    let value = "";
+    let cursor = this.cursor;
+    let hasNumber = false;
+
+    while (cursor < this.content.length) {
+      const next = this.content.substring(cursor, cursor + 1);
+
+      if (next === "-") {
+        if (value.includes("-"))
+          return null;
+
+        value = "-";
+        cursor += 1;
+        continue;
+      }
+
+      if (next === ".") {
+        if (value.includes("."))
+          return null;
+
+        value += ".";
+        cursor += 1;
+        continue;
+      }
+
+      if (/[0-9]/.test(next)) {
+        value += next;
+        cursor += 1;
+        hasNumber = true;
+        continue;
+      }
+
+      break;
+    }
+
+    if (value === "" || !hasNumber)
+      return null;
+
+    this.cursor = cursor;
+
+    return {
+      kind: "NUMBER",
+      value: value,
+    };
+  };
 
   private tryConsumeLiteral: () => (Token<TKind> | null) = () => {
     const literal = this.getLiteralAfter(0);

@@ -24,6 +24,8 @@ export class CSharpTokenMap implements ITokenMap<CsharpTokenKind> {
         return new Span("string", token.value);
       case "TYPE":
         return new Span("type", token.value);
+      case "NUMBER":
+        return new Span("number", token.value);
     }
 
     return null;

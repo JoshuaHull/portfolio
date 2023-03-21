@@ -22,4 +22,8 @@
 .type {
   color: var(--code-block-type, seagreen);
 }
+
+.number {
+  color: var(--code-block-type, dodgerblue);
+}
 </style>

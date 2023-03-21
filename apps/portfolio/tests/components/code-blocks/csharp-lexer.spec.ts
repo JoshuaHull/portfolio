@@ -59,6 +59,128 @@ describe("literals", () => {
   });
 });
 
+describe("numbers", () => {
+  test("should tokenise positive numbers", () => {
+    // Arrange
+    const content = "3.56";
+    const lexer = new CsharpLexer(content);
+
+    // Act
+    const result = lexer.next();
+
+    // Assert
+    expect(result).toStrictEqual({
+      kind: "NUMBER",
+      value: "3.56",
+    });
+  });
+
+  test("should tokenise negative numbers", () => {
+    // Arrange
+    const content = "-3.56";
+    const lexer = new CsharpLexer(content);
+
+    // Act
+    const result = lexer.next();
+
+    // Assert
+    expect(result).toStrictEqual({
+      kind: "NUMBER",
+      value: "-3.56",
+    });
+  });
+
+  test("should tokenise positive numbers with no whole number", () => {
+    // Arrange
+    const content = ".56";
+    const lexer = new CsharpLexer(content);
+
+    // Act
+    const result = lexer.next();
+
+    // Assert
+    expect(result).toStrictEqual({
+      kind: "NUMBER",
+      value: ".56",
+    });
+  });
+
+  test("should tokenise negative numbers with no whole number", () => {
+    // Arrange
+    const content = "-.56";
+    const lexer = new CsharpLexer(content);
+
+    // Act
+    const result = lexer.next();
+
+    // Assert
+    expect(result).toStrictEqual({
+      kind: "NUMBER",
+      value: "-.56",
+    });
+  });
+
+  test("should not tokenise a lone dot", () => {
+    // Arrange
+    const content = ".";
+    const lexer = new CsharpLexer(content);
+
+    // Act
+    const result = lexer.next();
+
+    // Assert
+    expect(result).toStrictEqual({
+      kind: "DOT",
+      value: ".",
+    });
+  });
+
+  test("should not tokenise a lone dash", () => {
+    // Arrange
+    const content = "-";
+    const lexer = new CsharpLexer(content);
+
+    // Act
+    const result = lexer.next();
+
+    // Assert
+    expect(result).toStrictEqual({
+      kind: "SYMBOL",
+      value: "-",
+    });
+  });
+
+  test("should not tokenise a number with multiple dashes", () => {
+    // Arrange
+    const content = "-3-4";
+    const lexer = new CsharpLexer(content);
+
+    // Act
+    const result = lexer.next();
+
+    // Assert
+    expect(result).toStrictEqual({
+      kind: "SYMBOL",
+      value: "-3-4",
+    });
+  });
+
+  test("should not tokenise a number with multiple dots", () => {
+    // Arrange
+    const content = ".3.4";
+    const lexer = new CsharpLexer(content);
+
+    // Act
+    const result = lexer.next();
+
+    // Assert
+    expect(result).toStrictEqual({
+      kind: "DOT",
+      value: ".",
+    });
+  });
+});
+
 describe("keywords", () => {
   test("should return the largest keyword that matches", () => {
     // Arrange
