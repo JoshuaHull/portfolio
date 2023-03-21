@@ -1,30 +1,26 @@
 <template>
-<section class="layer-panel">
+<article class="layer-panel">
   <header class="layer-panel-header">
     <slot name="title"></slot>
   </header>
-  <div
-    class="layer-panel-sidebar"
-    ref="sidebar"
-  >
-    <slot name="sidebar"></slot>
-  </div>
-  <div class="layer-panel-content">
-    <slot name="content"></slot>
-  </div>
-</section>
+  <section class="layer-panel-body">
+    <div
+      class="layer-panel-sidebar"
+      ref="sidebar"
+    >
+      <slot name="sidebar"></slot>
+    </div>
+    <div class="layer-panel-content">
+      <slot name="content"></slot>
+    </div>
+  </section>
+</article>
 </template>
 
 <script setup lang="ts">
 const sidebar = ref<HTMLElement | null>(null);
 
 const hasSidebar = computed(() => !!sidebar.value?.innerHTML);
-
-const gridTemplateAreas = computed(() =>
-  hasSidebar.value
-    ? `"header header" "sidebar content"`
-    : `"header" "content"`
-);
 
 const gridTemplateColumns = computed(() =>
   hasSidebar.value
@@ -44,14 +40,25 @@ const gridTemplateColumns = computed(() =>
 }
 
 .layer-panel-header {
-  grid-area: header;
   text-align: start;
   border-bottom: 2px solid white;
   padding-left: 2rem;
 }
 
+.layer-panel-body {
+  display: grid;
+  grid-template-columns: minmax(12rem, 22rem) auto;
+  width: 100%;
+  justify-self: center;
+}
+
+@media (min-width: 2048px) {
+  .layer-panel-body {
+    width: 60%;
+  }
+}
+
 .layer-panel-sidebar {
-  grid-area: sidebar;
   align-self: center;
   padding-left: 2rem;
   padding-right: 1rem;
@@ -63,7 +70,6 @@ const gridTemplateColumns = computed(() =>
 }
 
 .layer-panel-content {
-  grid-area: content;
   align-self: center;
   justify-self: center;
   padding-left: 1rem;
@@ -72,8 +78,7 @@ const gridTemplateColumns = computed(() =>
 </style>
 
 <style scoped>
-.layer-panel {
-  grid-template-areas: v-bind(gridTemplateAreas);
+.layer-panel-body {
   grid-template-columns: v-bind(gridTemplateColumns);
 }
 </style>
