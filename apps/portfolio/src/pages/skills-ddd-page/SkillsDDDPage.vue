@@ -3,34 +3,29 @@
   <template #title>
     Domain Driven Design
   </template>
-  <SkillsDDDPageContent class="skills-ddd-page-desktop" />
-  <SkillsDDDPageContentMobile class="skills-ddd-page-mobile" />
+  <SkillsDDDPageContent
+    v-if="isDesktop"
+    class="skills-ddd-page-desktop"
+  />
+  <SkillsDDDPageContentMobile
+    v-else
+    class="skills-ddd-page-mobile"
+  />
 </Page>
 </template>
 
+<script setup lang="ts">
+import { useMediaQuery } from "@vueuse/core";
+
+const isDesktop = useMediaQuery("(min-width: 1024px)");
+</script>
+
 <style>
-.skills-ddd-page-desktop {
-  display: none;
-}
-
-.skills-ddd-page-mobile {
-  display: grid;
-}
-
 .skills-ddd {
+  display: grid;
   place-items: center;
   align-items: center;
   height: 100%;
   width: 100%;
-}
-
-@media (min-width: 1024px) {
-  .skills-ddd-page-desktop {
-    display: grid;
-  }
-
-  .skills-ddd-page-mobile {
-    display: none;
-  }
 }
 </style>

@@ -3,10 +3,22 @@
   <template #title>
     Behaviour Driven Testing
   </template>
-  <SkillsTestsPageContent class="skills-tests-page-desktop" />
-  <SkillsTestsPageContentMobile class="skills-tests-page-mobile" />
+  <SkillsTestsPageContent
+    v-if="isDesktop"
+    class="skills-tests-page-desktop"
+  />
+  <SkillsTestsPageContentMobile
+    v-else
+    class="skills-tests-page-mobile"
+  />
 </Page>
 </template>
+
+<script setup lang="ts">
+import { useMediaQuery } from "@vueuse/core";
+
+const isDesktop = useMediaQuery("(min-width: 1024px)");
+</script>
 
 <style>
 .skills-tests-page {
@@ -15,19 +27,5 @@
   --code-block-property: mediumvioletred;
   --code-block-string: yellow;
   --code-block-literal: lightgray;
-}
-
-.skills-tests-page-desktop {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .skills-tests-page-desktop {
-    display: grid;
-  }
-
-  .skills-tests-page-mobile {
-    display: none;
-  }
 }
 </style>
