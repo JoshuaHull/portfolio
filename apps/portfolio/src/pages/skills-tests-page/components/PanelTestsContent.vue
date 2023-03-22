@@ -20,15 +20,6 @@
       Fail
     </template>
   </TestExample>
-  <TestExample variant="pass">
-    <template #testName>
-      When I press the "Next" button,
-      then we will unlock the next page.
-    </template>
-    <template #button>
-      Next
-    </template>
-  </TestExample>
 </section>
 </template>
 

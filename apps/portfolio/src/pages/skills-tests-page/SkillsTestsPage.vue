@@ -22,7 +22,7 @@ const isDesktop = useMediaQuery("(min-width: 1024px)");
 
 <style>
 .skills-tests-page {
-  --skills-tests-panel-height: 40rem;
+  --skills-tests-panel-height: 30rem;
   --code-block-keyword: goldenrod;
   --code-block-property: mediumvioletred;
   --code-block-string: yellow;
