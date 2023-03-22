@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AnimatedBlob: typeof import('./src/components/animations/AnimatedBlob.vue')['default']
     AnimatedCheckIcon: typeof import('./src/components/animations/AnimatedCheckIcon.vue')['default']
+    AnimatedCrossIcon: typeof import('./src/components/animations/AnimatedCrossIcon.vue')['default']
     AnimatedLoadingBar: typeof import('./src/components/animations/AnimatedLoadingBar.vue')['default']
     ArrowLongDownSolidIcon: typeof import('@heroicons/vue/24/solid')['ArrowLongDownIcon']
     ArrowLongUpSolidIcon: typeof import('@heroicons/vue/24/solid')['ArrowLongUpIcon']
