@@ -12,25 +12,32 @@
   >
     <slot name="button"></slot>
   </VButton>
-  <IconContainer
-    v-if="variant === 'pass' && runState === 'after'"
-    class="test-example-icon-container"
-    width="5rem"
-    color="green"
-  >
-    <AnimatedCheckIcon />
-  </IconContainer>
-  <IconContainer
-    v-if="variant === 'fail' && runState === 'after'"
-    class="test-example-icon-container fail"
-    width="3.75rem"
-    color="red"
-  >
-    <AnimatedCrossIcon />
-  </IconContainer>
-  <IconContainer height="2rem" class="bar">
-    <AnimatedLoadingBar :animationDuration="animationDuration" />
-  </IconContainer>
+  <template v-if="variant === 'pass'">
+    <IconContainer
+      v-if="runState === 'after'"
+      class="test-example-icon-container"
+      width="5rem"
+      color="green"
+    >
+      <AnimatedCheckIcon />
+    </IconContainer>
+    <IconContainer height="2rem" class="bar">
+      <AnimatedLoadingBar :animationDuration="animationDuration" />
+    </IconContainer>
+  </template>
+  <template v-if="variant === 'fail'">
+    <IconContainer
+      v-if="runState === 'after'"
+      class="test-example-icon-container fail"
+      width="3.75rem"
+      color="red"
+    >
+      <AnimatedCrossIcon />
+    </IconContainer>
+    <IconContainer height="2rem" class="bar">
+      <AnimatedLoadingBarFailing :animationDuration="animationDuration" />
+    </IconContainer>
+  </template>
 </section>
 </template>
 
