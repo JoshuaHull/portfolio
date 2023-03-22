@@ -12,12 +12,22 @@
   >
     <slot name="button"></slot>
   </VButton>
-  <div
-    v-if="runState == 'after'"
+  <IconContainer
+    v-if="variant === 'pass' && runState === 'after'"
     class="test-example-icon-container"
+    width="5rem"
+    color="green"
   >
-    <slot name="icon"></slot>
-  </div>
+    <AnimatedCheckIcon />
+  </IconContainer>
+  <IconContainer
+    v-if="variant === 'fail' && runState === 'after'"
+    class="test-example-icon-container fail"
+    width="3.75rem"
+    color="red"
+  >
+    <AnimatedCrossIcon />
+  </IconContainer>
   <IconContainer height="2rem" class="bar">
     <AnimatedLoadingBar :animationDuration="animationDuration" />
   </IconContainer>
@@ -25,6 +35,13 @@
 </template>
 
 <script setup lang="ts">
+interface TestExampleProps {
+  variant: "pass" | "fail";
+}
+
+const props = defineProps<TestExampleProps>();
+const { variant } = props;
+
 type RunState = "before" | "during" | "after";
 
 const animationDuration = ref<number | null>(null);
@@ -58,6 +75,10 @@ function handleRunClick() {
 
 .test-example-icon-container {
   grid-area: run;
+}
+
+.test-example-icon-container.fail {
+  padding-left: 0.75rem;
 }
 
 .description {
