@@ -9,6 +9,14 @@
     <template #button>
       Run
     </template>
+    <template #icon>
+      <IconContainer
+        width="5rem"
+        color="green"
+      >
+        <AnimatedCheckIcon />
+      </IconContainer>
+    </template>
   </TestExample>
   <TestExample>
     <template #testName>
@@ -19,6 +27,15 @@
     <template #button>
       Fail
     </template>
+    <template #icon>
+      <IconContainer
+        class="panel-tests-content-cross-icon-container"
+        width="3.75rem"
+        color="red"
+      >
+        <AnimatedCrossIcon />
+      </IconContainer>
+    </template>
   </TestExample>
   <TestExample>
     <template #testName>
@@ -27,6 +44,14 @@
     </template>
     <template #button>
       Next
+    </template>
+    <template #icon>
+      <IconContainer
+        width="5rem"
+        color="green"
+      >
+        <AnimatedCheckIcon />
+      </IconContainer>
     </template>
   </TestExample>
 </section>
@@ -44,5 +69,9 @@
   .tests-section {
     border-right: 2px solid black;
   }
+}
+
+.panel-tests-content-cross-icon-container {
+  padding-left: 0.75rem;
 }
 </style>

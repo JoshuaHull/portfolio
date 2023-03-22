@@ -12,14 +12,12 @@
   >
     <slot name="button"></slot>
   </VButton>
-  <IconContainer
+  <div
     v-if="runState == 'after'"
-    width="5rem"
-    color="green"
-    class="check"
+    class="test-example-icon-container"
   >
-    <AnimatedCheckIcon />
-  </IconContainer>
+    <slot name="icon"></slot>
+  </div>
   <IconContainer height="2rem" class="bar">
     <AnimatedLoadingBar :animationDuration="animationDuration" />
   </IconContainer>
@@ -43,8 +41,8 @@ function handleRunClick() {
 .test-example {
   display: grid;
   grid-template-areas:
-    "description check"
-    "bar         check"
+    "description run"
+    "bar         run"
   ;
   grid-template-columns: auto minmax(10px, 4rem);
   align-items: center;
@@ -58,8 +56,8 @@ function handleRunClick() {
   border-bottom: 1px solid white;
 }
 
-.check {
-  grid-area: check;
+.test-example-icon-container {
+  grid-area: run;
 }
 
 .description {
@@ -72,6 +70,6 @@ function handleRunClick() {
 }
 
 .run-button {
-  grid-area: check;
+  grid-area: run;
 }
 </style>
