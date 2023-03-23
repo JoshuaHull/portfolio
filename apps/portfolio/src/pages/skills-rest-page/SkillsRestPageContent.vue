@@ -45,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { useVanishingObject } from "@composables";
+import { useVanishingValue } from "use-vanishing-value";
 import { store } from "@store";
 
 type Blob = {
@@ -64,9 +64,9 @@ type Message = {
 
 const selectedBlobHex = ref<string | null>(null);
 const blobsOnTheScreen = ref<Blob[]>([]);
-const [createMessage, pushCreateMessage] = useVanishingObject<Message>(4000);
-const [deleteMessage, pushDeleteMessage] = useVanishingObject<Message>(4000);
-const [recolourMessage, pushRecolourMessage] = useVanishingObject<Message>(4000);
+const [createMessage, pushCreateMessage] = useVanishingValue<Message>(4000);
+const [deleteMessage, pushDeleteMessage] = useVanishingValue<Message>(4000);
+const [recolourMessage, pushRecolourMessage] = useVanishingValue<Message>(4000);
 
 const selectedColourText = computed(() => selectedBlobHex.value ?? ":selected");
 

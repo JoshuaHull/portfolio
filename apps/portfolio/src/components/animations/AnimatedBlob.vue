@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { useVanishingObject } from "@composables";
+import { useVanishingValue } from "use-vanishing-value";
 import { store } from "@store";
 
 interface AnimatedBlobProps {
@@ -41,7 +41,7 @@ const {
 const actualLeft = computed(() => left?.value ?? "auto");
 const actualTop = computed(() => top?.value ?? "auto");
 
-const [isHovering, pushIsHovering] = useVanishingObject<boolean>(500);
+const [isHovering, pushIsHovering] = useVanishingValue<boolean>(500);
 
 const blobs = store.blobs;
 

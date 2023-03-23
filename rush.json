@@ -36,6 +36,10 @@
     {
       "packageName": "rollup-plugin-replace",
       "projectFolder": "libs/rollup-plugin-replace"
+    },
+    {
+      "packageName": "use-vanishing-value",
+      "projectFolder": "composables/use-vanishing-value"
     }
   ]
 }

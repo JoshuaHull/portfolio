@@ -14,7 +14,6 @@
     "skipLibCheck": true,
     "paths": {
       "@code-blocks": ["./src/components/code-blocks"],
-      "@composables": ["./src/composables"],
       "@file-exploring": ["./src/components/file-exploring"],
       "@query-building": ["./src/components/query-building"],
       "@routers": ["./src/routers"],
