@@ -1,10 +1,10 @@
 <template>
 <article class="skills-messaging">
-    messaging
+  messaging
 </article>
 </template>
 
-<style scoped>
+<style>
 .skills-messaging {
   display: grid;
   place-items: center;

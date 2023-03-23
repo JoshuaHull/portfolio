@@ -34,6 +34,7 @@ import {
   SkillsDotnetPageName,
   SkillsFrontendPageName,
   SkillsGitPageName,
+  SkillsMessagingPageName,
   SkillsRestPageName,
   SkillsTestsPageName,
 } from "@routers";
@@ -44,6 +45,7 @@ const router = useRouter();
 const pageNav = [
   SkillsTestsPageName,
   SkillsRestPageName,
+  SkillsMessagingPageName,
   SkillsGitPageName,
   SkillsDDDPageName,
   SkillsDotnetPageName,
