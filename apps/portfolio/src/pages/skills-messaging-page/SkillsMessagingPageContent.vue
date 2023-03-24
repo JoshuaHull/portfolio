@@ -8,6 +8,12 @@
       <ServerSolidIcon />
     </IconContainer>
     <IconContainer
+      class="server-joiner server-joiner-1"
+      :height="joinerIconHeight"
+    >
+      <ServerJoiningIcon />
+    </IconContainer>
+    <IconContainer
       class="messaging-server messaging-server-2"
       :height="serverIconHeight"
     >
@@ -16,6 +22,7 @@
     <IconButton
       class="messaging-serverstack"
       height="5rem"
+      width="5rem"
       @click="handleServerStackClick"
     >
       <ServerStackSolidIcon />
@@ -25,6 +32,12 @@
       :height="serverIconHeight"
     >
       <ServerSolidIcon />
+    </IconContainer>
+    <IconContainer
+      class="server-joiner server-joiner-2"
+      :height="joinerIconHeight"
+    >
+      <ServerJoiningIcon />
     </IconContainer>
     <IconContainer
       class="messaging-server messaging-server-4"
@@ -37,7 +50,8 @@
 </template>
 
 <script setup lang="ts">
-const serverIconHeight = "11rem";
+const serverIconHeight = "3rem";
+const joinerIconHeight = "6rem";
 
 const handleServerStackClick = () => {};
 </script>
@@ -53,18 +67,20 @@ const handleServerStackClick = () => {};
 .messaging-servers {
   display: grid;
   grid-template-areas:
-    "server1 . server2"
-    ". stack ."
-    "server3 . server4"
+    "server1 joiner1 joiner1 joiner1 server2"
+    "      . joiner1 joiner1 joiner1       ."
+    "      .       .   stack       .       ."
+    "      . joiner2 joiner2 joiner2       ."
+    "server3 joiner2 joiner2 joiner2 server4"
   ;
-}
-
-.messaging-server {
-  padding: 4rem;
 }
 
 .messaging-server-1 {
   grid-area: server1;
+}
+
+.server-joiner-1 {
+  grid-area: joiner1;
 }
 
 .messaging-server-2 {
@@ -77,6 +93,14 @@ const handleServerStackClick = () => {};
 
 .messaging-server-3 {
   grid-area: server3;
+}
+
+.server-joiner-2 {
+  grid-area: joiner2;
+}
+
+.server-joiner-2 svg {
+  transform: rotate(180deg);
 }
 
 .messaging-server-4 {

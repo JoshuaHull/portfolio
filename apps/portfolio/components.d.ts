@@ -64,6 +64,7 @@ declare module '@vue/runtime-core' {
     RestEndpoint: typeof import('./src/pages/skills-rest-page/components/RestEndpoint.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ServerJoiningIcon: typeof import('./src/pages/skills-messaging-page/components/ServerJoiningIcon.vue')['default']
     ServerSolidIcon: typeof import('@heroicons/vue/24/solid')['ServerIcon']
     ServerStackSolidIcon: typeof import('@heroicons/vue/24/solid')['ServerStackIcon']
     SkillsAwsPageContent: typeof import('./src/pages/skills-aws-page/SkillsAwsPageContent.vue')['default']
