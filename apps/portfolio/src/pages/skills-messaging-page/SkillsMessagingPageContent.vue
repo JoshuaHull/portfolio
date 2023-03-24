@@ -7,12 +7,22 @@
     >
       <ServerSolidIcon />
     </IconContainer>
+    <AnimatedTravellingMessageIcon
+      class="travelling-message-icon travelling-message-icon-1"
+      variant="NW"
+    >
+    </AnimatedTravellingMessageIcon>
     <IconContainer
       class="server-joiner server-joiner-1"
       :height="joinerIconHeight"
     >
       <ServerJoiningIcon />
     </IconContainer>
+    <AnimatedTravellingMessageIcon
+      class="travelling-message-icon travelling-message-icon-2"
+      variant="NE"
+    >
+    </AnimatedTravellingMessageIcon>
     <IconContainer
       class="messaging-server messaging-server-2"
       :height="serverIconHeight"
@@ -33,12 +43,22 @@
     >
       <ServerSolidIcon />
     </IconContainer>
+    <AnimatedTravellingMessageIcon
+      class="travelling-message-icon travelling-message-icon-3"
+      variant="SW"
+    >
+    </AnimatedTravellingMessageIcon>
     <IconContainer
       class="server-joiner server-joiner-2"
       :height="joinerIconHeight"
     >
       <ServerJoiningIcon />
     </IconContainer>
+    <AnimatedTravellingMessageIcon
+      class="travelling-message-icon travelling-message-icon-4"
+      variant="SE"
+    >
+    </AnimatedTravellingMessageIcon>
     <IconContainer
       class="messaging-server messaging-server-4"
       :height="serverIconHeight"
@@ -79,7 +99,15 @@ const handleServerStackClick = () => {};
   grid-area: server1;
 }
 
+.travelling-message-icon-1 {
+  grid-area: joiner1;
+}
+
 .server-joiner-1 {
+  grid-area: joiner1;
+}
+
+.travelling-message-icon-2 {
   grid-area: joiner1;
 }
 
@@ -95,7 +123,15 @@ const handleServerStackClick = () => {};
   grid-area: server3;
 }
 
+.travelling-message-icon-3 {
+  grid-area: joiner2;
+}
+
 .server-joiner-2 {
+  grid-area: joiner2;
+}
+
+.travelling-message-icon-4 {
   grid-area: joiner2;
 }
 
