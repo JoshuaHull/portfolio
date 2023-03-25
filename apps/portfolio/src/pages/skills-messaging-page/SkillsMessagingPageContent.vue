@@ -2,29 +2,29 @@
 <article class="skills-messaging">
   <div class="messaging-servers">
     <IconContainer
-      class="messaging-server messaging-server-1"
+      class="messaging-server grid-area-server1"
       :height="serverIconHeight"
     >
       <ServerSolidIcon />
     </IconContainer>
-    <AnimatedTravellingMessageIcon
-      class="travelling-message-icon travelling-message-icon-1"
+    <AnimatedTravellingMessage
+      class="travelling-message-icon grid-area-joiner1"
       variant="NW"
     >
-    </AnimatedTravellingMessageIcon>
+    </AnimatedTravellingMessage>
     <IconContainer
-      class="server-joiner server-joiner-1"
+      class="server-joiner grid-area-joiner1"
       :height="joinerIconHeight"
     >
       <ServerJoiningIcon />
     </IconContainer>
-    <AnimatedTravellingMessageIcon
-      class="travelling-message-icon travelling-message-icon-2"
+    <AnimatedTravellingMessage
+      class="travelling-message-icon grid-area-joiner1"
       variant="NE"
     >
-    </AnimatedTravellingMessageIcon>
+    </AnimatedTravellingMessage>
     <IconContainer
-      class="messaging-server messaging-server-2"
+      class="messaging-server grid-area-server2"
       :height="serverIconHeight"
     >
       <ServerSolidIcon />
@@ -38,29 +38,29 @@
       <ServerStackSolidIcon />
     </IconButton>
     <IconContainer
-      class="messaging-server messaging-server-3"
+      class="messaging-server grid-area-server3"
       :height="serverIconHeight"
     >
       <ServerSolidIcon />
     </IconContainer>
-    <AnimatedTravellingMessageIcon
-      class="travelling-message-icon travelling-message-icon-3"
+    <AnimatedTravellingMessage
+      class="travelling-message-icon grid-area-joiner2"
       variant="SW"
     >
-    </AnimatedTravellingMessageIcon>
+    </AnimatedTravellingMessage>
     <IconContainer
-      class="server-joiner server-joiner-2"
+      class="server-joiner rotate-180 grid-area-joiner2"
       :height="joinerIconHeight"
     >
       <ServerJoiningIcon />
     </IconContainer>
-    <AnimatedTravellingMessageIcon
-      class="travelling-message-icon travelling-message-icon-4"
+    <AnimatedTravellingMessage
+      class="travelling-message-icon grid-area-joiner2"
       variant="SE"
     >
-    </AnimatedTravellingMessageIcon>
+    </AnimatedTravellingMessage>
     <IconContainer
-      class="messaging-server messaging-server-4"
+      class="messaging-server grid-area-server4"
       :height="serverIconHeight"
     >
       <ServerSolidIcon />
@@ -95,51 +95,35 @@ const handleServerStackClick = () => {};
   ;
 }
 
-.messaging-server-1 {
+.grid-area-server1 {
   grid-area: server1;
 }
 
-.travelling-message-icon-1 {
-  grid-area: joiner1;
-}
-
-.server-joiner-1 {
-  grid-area: joiner1;
-}
-
-.travelling-message-icon-2 {
-  grid-area: joiner1;
-}
-
-.messaging-server-2 {
+.grid-area-server2 {
   grid-area: server2;
+}
+
+.grid-area-server3 {
+  grid-area: server3;
+}
+
+.grid-area-server4 {
+  grid-area: server4;
+}
+
+.grid-area-joiner1 {
+  grid-area: joiner1;
+}
+
+.grid-area-joiner2 {
+  grid-area: joiner2;
 }
 
 .messaging-serverstack {
   grid-area: stack;
 }
 
-.messaging-server-3 {
-  grid-area: server3;
-}
-
-.travelling-message-icon-3 {
-  grid-area: joiner2;
-}
-
-.server-joiner-2 {
-  grid-area: joiner2;
-}
-
-.travelling-message-icon-4 {
-  grid-area: joiner2;
-}
-
-.server-joiner-2 svg {
+.rotate-180 svg {
   transform: rotate(180deg);
-}
-
-.messaging-server-4 {
-  grid-area: server4;
 }
 </style>

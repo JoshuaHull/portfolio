@@ -12,7 +12,7 @@ declare module '@vue/runtime-core' {
     AnimatedCrossIcon: typeof import('./src/components/animations/AnimatedCrossIcon.vue')['default']
     AnimatedLoadingBar: typeof import('./src/components/animations/AnimatedLoadingBar.vue')['default']
     AnimatedLoadingBarFailing: typeof import('./src/components/animations/AnimatedLoadingBarFailing.vue')['default']
-    AnimatedTravellingMessageIcon: typeof import('./src/pages/skills-messaging-page/components/AnimatedTravellingMessageIcon.vue')['default']
+    AnimatedTravellingMessage: typeof import('./src/pages/skills-messaging-page/components/AnimatedTravellingMessage.vue')['default']
     ArrowLongDownSolidIcon: typeof import('@heroicons/vue/24/solid')['ArrowLongDownIcon']
     ArrowLongUpSolidIcon: typeof import('@heroicons/vue/24/solid')['ArrowLongUpIcon']
     ArrowUpSolidIcon: typeof import('@heroicons/vue/24/solid')['ArrowUpIcon']
