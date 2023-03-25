@@ -7,11 +7,11 @@ importers:
 
   ../../apps/homepage:
     specifiers:
-      vite-plugin-replace: workspace:*
       vite: ^4.2.0
+      vite-plugin-replace: workspace:*
     devDependencies:
-      vite-plugin-replace: link:../../libs/vite-plugin-replace
       vite: 4.2.0
+      vite-plugin-replace: link:../../libs/vite-plugin-replace
 
   ../../apps/portfolio:
     specifiers:
@@ -49,6 +49,17 @@ importers:
       vue-tsc: 0.39.5_typescript@4.9.5
 
   ../../composables/use-vanishing-value:
+    specifiers:
+      typescript: ^4.9.3
+      use-vanishing-values: workspace:*
+      vue: ^3.2.37
+    dependencies:
+      use-vanishing-values: link:../use-vanishing-values
+      vue: 3.2.47
+    devDependencies:
+      typescript: 4.9.5
+
+  ../../composables/use-vanishing-values:
     specifiers:
       typescript: ^4.9.3
       vue: ^3.2.37

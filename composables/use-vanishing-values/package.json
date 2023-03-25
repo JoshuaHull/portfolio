@@ -1,5 +1,5 @@
 {
-  "name": "use-vanishing-value",
+  "name": "use-vanishing-values",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,8 +8,7 @@
     "build": "tsc --outdir ./dist"
   },
   "dependencies": {
-    "vue": "^3.2.37",
-    "use-vanishing-values": "workspace:*"
+    "vue": "^3.2.37"
   },
   "devDependencies": {
     "typescript": "^4.9.3"

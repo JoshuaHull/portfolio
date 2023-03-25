@@ -40,6 +40,10 @@
     {
       "packageName": "use-vanishing-value",
       "projectFolder": "composables/use-vanishing-value"
+    },
+    {
+      "packageName": "use-vanishing-values",
+      "projectFolder": "composables/use-vanishing-values"
     }
   ]
 }
