@@ -60,7 +60,7 @@ const endY = computed(() => {
 
 <style scoped>
 .left-travelling-message {
-  animation: travellingMessage forwards 3s;
+  animation: travellingMessage forwards 1.5s;
 }
 
 @keyframes travellingMessage {

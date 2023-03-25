@@ -7,22 +7,26 @@
     >
       <ServerSolidIcon />
     </IconContainer>
-    <AnimatedTravellingMessage
-      class="travelling-message-icon grid-area-joiner1"
-      variant="NW"
-    >
-    </AnimatedTravellingMessage>
+    <template v-for="m of messages" :key="m">
+      <AnimatedTravellingMessage
+        class="travelling-message-icon grid-area-joiner1"
+        variant="NW"
+      >
+      </AnimatedTravellingMessage>
+    </template>
     <IconContainer
       class="server-joiner grid-area-joiner1"
       :height="joinerIconHeight"
     >
       <ServerJoiningIcon />
     </IconContainer>
-    <AnimatedTravellingMessage
-      class="travelling-message-icon grid-area-joiner1"
-      variant="NE"
-    >
-    </AnimatedTravellingMessage>
+    <template v-for="m of messages" :key="m">
+      <AnimatedTravellingMessage
+        class="travelling-message-icon grid-area-joiner1"
+        variant="NE"
+      >
+      </AnimatedTravellingMessage>
+    </template>
     <IconContainer
       class="messaging-server grid-area-server2"
       :height="serverIconHeight"
@@ -43,22 +47,26 @@
     >
       <ServerSolidIcon />
     </IconContainer>
-    <AnimatedTravellingMessage
-      class="travelling-message-icon grid-area-joiner2"
-      variant="SW"
-    >
-    </AnimatedTravellingMessage>
+    <template v-for="m of messages" :key="m">
+      <AnimatedTravellingMessage
+        class="travelling-message-icon grid-area-joiner2"
+        variant="SW"
+      >
+      </AnimatedTravellingMessage>
+    </template>
     <IconContainer
       class="server-joiner rotate-180 grid-area-joiner2"
       :height="joinerIconHeight"
     >
       <ServerJoiningIcon />
     </IconContainer>
-    <AnimatedTravellingMessage
-      class="travelling-message-icon grid-area-joiner2"
-      variant="SE"
-    >
-    </AnimatedTravellingMessage>
+    <template v-for="m of messages" :key="m">
+      <AnimatedTravellingMessage
+        class="travelling-message-icon grid-area-joiner2"
+        variant="SE"
+      >
+      </AnimatedTravellingMessage>
+    </template>
     <IconContainer
       class="messaging-server grid-area-server4"
       :height="serverIconHeight"
@@ -70,10 +78,18 @@
 </template>
 
 <script setup lang="ts">
+import { useVanishingValues } from "use-vanishing-values";
+
+let messageKey = 0;
+
+const [messages, pushMessage] = useVanishingValues(1500);
+
 const serverIconHeight = "3rem";
 const joinerIconHeight = "6rem";
 
-const handleServerStackClick = () => {};
+const handleServerStackClick = () => {
+  pushMessage(messageKey += 1);
+};
 </script>
 
 <style>

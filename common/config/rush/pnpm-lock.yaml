@@ -25,6 +25,7 @@ importers:
       unplugin-auto-import: ^0.11.2
       unplugin-vue-components: ^0.22.4
       use-vanishing-value: workspace:*
+      use-vanishing-values: workspace:*
       vite: ^3.0.7
       vitest: ^0.28.5
       vue: ^3.2.37
@@ -34,6 +35,7 @@ importers:
       '@heroicons/vue': 2.0.16_vue@3.2.47
       '@vueuse/core': 9.13.0_vue@3.2.47
       use-vanishing-value: link:../../composables/use-vanishing-value
+      use-vanishing-values: link:../../composables/use-vanishing-values
       vue: 3.2.47
       vue-router: 4.1.6_vue@3.2.47
     devDependencies:

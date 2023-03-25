@@ -14,7 +14,8 @@
     "@vueuse/core": "^9.13.0",
     "vue": "^3.2.37",
     "vue-router": "^4.1.6",
-    "use-vanishing-value": "workspace:*"
+    "use-vanishing-value": "workspace:*",
+    "use-vanishing-values": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^18.7.13",
