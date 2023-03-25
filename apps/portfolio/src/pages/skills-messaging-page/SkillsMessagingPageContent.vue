@@ -11,6 +11,7 @@
       <AnimatedTravellingMessage
         class="travelling-message-icon grid-area-joiner1"
         variant="NW"
+        :animationDuration="travellingMessageAnimationDuration"
       >
       </AnimatedTravellingMessage>
     </template>
@@ -24,6 +25,7 @@
       <AnimatedTravellingMessage
         class="travelling-message-icon grid-area-joiner1"
         variant="NE"
+        :animationDuration="travellingMessageAnimationDuration"
       >
       </AnimatedTravellingMessage>
     </template>
@@ -51,6 +53,7 @@
       <AnimatedTravellingMessage
         class="travelling-message-icon grid-area-joiner2"
         variant="SW"
+        :animationDuration="travellingMessageAnimationDuration"
       >
       </AnimatedTravellingMessage>
     </template>
@@ -64,6 +67,7 @@
       <AnimatedTravellingMessage
         class="travelling-message-icon grid-area-joiner2"
         variant="SE"
+        :animationDuration="travellingMessageAnimationDuration"
       >
       </AnimatedTravellingMessage>
     </template>
@@ -80,9 +84,11 @@
 <script setup lang="ts">
 import { useVanishingValues } from "use-vanishing-values";
 
+const travellingMessageAnimationDuration = 1500;
+
 let messageKey = 0;
 
-const [messages, pushMessage] = useVanishingValues(1500);
+const [messages, pushMessage] = useVanishingValues(travellingMessageAnimationDuration);
 
 const serverIconHeight = "3rem";
 const joinerIconHeight = "6rem";

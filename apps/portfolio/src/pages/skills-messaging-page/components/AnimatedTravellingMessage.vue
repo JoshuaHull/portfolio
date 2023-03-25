@@ -1,66 +1,33 @@
 <template>
-<div class="animated-travelling-message-icon">
-  <IconContainer
-    class="left-travelling-message"
-    height="2rem"
-  >
-    <EnvelopeSolidIcon />
-  </IconContainer>
-</div>
+<IconContainer
+  class="animated-travelling-message"
+  height="2rem"
+>
+  <EnvelopeSolidIcon />
+</IconContainer>
 </template>
 
 <script setup lang="ts">
 interface AnimatedTravellingMessageIconProps {
-  // animationDurationInMs: number | null;
+  animationDuration: number | null;
   variant: "NW" | "NE" | "SW" | "SE";
 }
 
 const props = defineProps<AnimatedTravellingMessageIconProps>();
-const { variant } = toRefs(props);
+const { animationDuration, variant } = toRefs(props);
 
-const startY = computed(() => {
-  switch (variant.value) {
-    case "NW":
-      return "240%";
-    case "NE":
-      return "240%";
-    case "SW":
-      return "-40%";
-    case "SE":
-      return "-40%";
-  }
-});
+const animationDurationInMs = computed(() => `${animationDuration.value}ms`);
+const movingRight = computed(() => variant.value.endsWith("E"));
+const movingDown = computed(() => variant.value.startsWith("S"));
 
-const endX = computed(() => {
-  switch (variant.value) {
-    case "NW":
-      return "-40%";
-    case "NE":
-      return "40%";
-    case "SW":
-      return "-40%";
-    case "SE":
-      return "40%";
-  }
-});
-
-const endY = computed(() => {
-  switch (variant.value) {
-    case "NW":
-      return "20%";
-    case "NE":
-      return "20%";
-    case "SW":
-      return "170%";
-    case "SE":
-      return "170%";
-  }
-});
+const startY = computed(() => movingDown.value ? "-40%" : "240%");
+const endX = computed(() => movingRight.value ? "40%" : "-40%");
+const endY = computed(() => movingDown.value ? "170%" : "20%");
 </script>
 
 <style scoped>
-.left-travelling-message {
-  animation: travellingMessage forwards 1.5s;
+.animated-travelling-message {
+  animation: travellingMessage forwards v-bind(animationDurationInMs);
 }
 
 @keyframes travellingMessage {
