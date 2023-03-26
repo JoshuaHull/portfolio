@@ -4,7 +4,7 @@
   xmlns="http://www.w3.org/2000/svg"
   fill="none"
   viewBox="0 0 72 48"
-  stroke-width="1.5"
+  stroke-width="0.5"
   stroke="currentColor"
   aria-hidden="true"
 >

@@ -7,28 +7,24 @@
     >
       <ServerSolidIcon />
     </IconContainer>
-    <template v-for="m of messages" :key="m">
-      <AnimatedTravellingMessage
-        class="travelling-message-icon grid-area-joiner1"
-        variant="NW"
-        :animationDuration="travellingMessageAnimationDuration"
-      >
-      </AnimatedTravellingMessage>
-    </template>
+    <AnimatedTravellingMessages
+      :animationDuration="travellingMessageAnimationDuration"
+      :messages="messages"
+      messageClasses="grid-area-joiner1"
+      variant="NW"
+    />
     <IconContainer
       class="server-joiner grid-area-joiner1"
       :height="joinerIconHeight"
     >
       <ServerJoiningIcon />
     </IconContainer>
-    <template v-for="m of messages" :key="m">
-      <AnimatedTravellingMessage
-        class="travelling-message-icon grid-area-joiner1"
-        variant="NE"
-        :animationDuration="travellingMessageAnimationDuration"
-      >
-      </AnimatedTravellingMessage>
-    </template>
+    <AnimatedTravellingMessages
+      :animationDuration="travellingMessageAnimationDuration"
+      :messages="messages"
+      messageClasses="grid-area-joiner1"
+      variant="NE"
+    />
     <IconContainer
       class="messaging-server grid-area-server2"
       :height="serverIconHeight"
@@ -49,28 +45,24 @@
     >
       <ServerSolidIcon />
     </IconContainer>
-    <template v-for="m of messages" :key="m">
-      <AnimatedTravellingMessage
-        class="travelling-message-icon grid-area-joiner2"
-        variant="SW"
-        :animationDuration="travellingMessageAnimationDuration"
-      >
-      </AnimatedTravellingMessage>
-    </template>
+    <AnimatedTravellingMessages
+      :animationDuration="travellingMessageAnimationDuration"
+      :messages="messages"
+      messageClasses="grid-area-joiner2"
+      variant="SW"
+    />
     <IconContainer
       class="server-joiner rotate-180 grid-area-joiner2"
       :height="joinerIconHeight"
     >
       <ServerJoiningIcon />
     </IconContainer>
-    <template v-for="m of messages" :key="m">
-      <AnimatedTravellingMessage
-        class="travelling-message-icon grid-area-joiner2"
-        variant="SE"
-        :animationDuration="travellingMessageAnimationDuration"
-      >
-      </AnimatedTravellingMessage>
-    </template>
+    <AnimatedTravellingMessages
+      :animationDuration="travellingMessageAnimationDuration"
+      :messages="messages"
+      messageClasses="grid-area-joiner2"
+      variant="SE"
+    />
     <IconContainer
       class="messaging-server grid-area-server4"
       :height="serverIconHeight"

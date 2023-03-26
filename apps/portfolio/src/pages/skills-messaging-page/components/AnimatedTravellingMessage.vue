@@ -1,16 +1,18 @@
 <template>
 <IconContainer
   class="animated-travelling-message"
-  height="2rem"
+  height="1.5rem"
 >
   <EnvelopeSolidIcon />
 </IconContainer>
 </template>
 
 <script setup lang="ts">
+import { AnimatedTravellingMessageVariant } from "./animated-travelling-message-variant";
+
 interface AnimatedTravellingMessageIconProps {
   animationDuration: number | null;
-  variant: "NW" | "NE" | "SW" | "SE";
+  variant: AnimatedTravellingMessageVariant;
 }
 
 const props = defineProps<AnimatedTravellingMessageIconProps>();
@@ -20,9 +22,9 @@ const animationDurationInMs = computed(() => `${animationDuration.value}ms`);
 const movingRight = computed(() => variant.value.endsWith("E"));
 const movingDown = computed(() => variant.value.startsWith("S"));
 
-const startY = computed(() => movingDown.value ? "-40%" : "240%");
+const startY = computed(() => movingDown.value ? "-40%" : "340%");
 const endX = computed(() => movingRight.value ? "40%" : "-40%");
-const endY = computed(() => movingDown.value ? "170%" : "20%");
+const endY = computed(() => movingDown.value ? "170%" : "-20%");
 </script>
 
 <style scoped>
