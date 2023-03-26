@@ -38,19 +38,28 @@ import {
   SkillsRestPageName,
   SkillsTestsPageName,
 } from "@routers";
+import { useMediaQuery } from "@vueuse/core";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+const isLargeScreen = useMediaQuery("(min-width: 1024px)");
 
-const pageNav = [
-  SkillsTestsPageName,
-  SkillsRestPageName,
-  SkillsMessagingPageName,
-  SkillsGitPageName,
-  SkillsDDDPageName,
-  SkillsDotnetPageName,
-  SkillsFrontendPageName,
-];
+const pageNav = computed(() => {
+  const allPagesInOrder = [
+    SkillsTestsPageName,
+    SkillsRestPageName,
+    SkillsMessagingPageName,
+    SkillsGitPageName,
+    SkillsDDDPageName,
+    SkillsDotnetPageName,
+    SkillsFrontendPageName,
+  ];
+
+  if (isLargeScreen.value)
+    return allPagesInOrder;
+
+  return allPagesInOrder.filter(p => p !== SkillsGitPageName);
+});
 
 const pageAtDelta = (delta: number) => {
   const currentPageName = router.currentRoute.value.name as string;
@@ -58,21 +67,34 @@ const pageAtDelta = (delta: number) => {
   if (!currentPageName)
     return null;
 
-  const idx = pageNav.indexOf(currentPageName);
+  const idx = pageNav.value.indexOf(currentPageName);
 
   if (idx < 0)
     return null;
 
   const target = idx + delta;
 
-  if (target < 0 || target >= pageNav.length)
+  if (target < 0 || target >= pageNav.value.length)
     return null;
 
-  return pageNav[target];
+  return pageNav.value[target];
 }
 
 const nextPage = computed(() => pageAtDelta(1));
 const previousPage = computed(() => pageAtDelta(-1));
+
+watchEffect(() => {
+  if (isLargeScreen.value)
+    return;
+
+  // I can't figure out what the git page should look like
+  // on mobile so I'm just disabling it for now.
+  // It's a cool page but it's not exactly an unexpected
+  // skill for developers to have.
+  if (router.currentRoute.value.name === SkillsGitPageName)
+    router.push({ name: pageNav.value[0] });
+});
+
 </script>
 
 <style>
