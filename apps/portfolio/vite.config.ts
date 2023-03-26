@@ -8,6 +8,9 @@ import { rollupPluginContent } from "rollup-plugin-content";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    port: 5174,
+  },
   resolve: {
     alias: {
       "@code-blocks": path.resolve(__dirname, "./src/components/code-blocks"),
