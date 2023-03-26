@@ -10,20 +10,18 @@
     v-if="nextPage || previousPage"
     class="navbar"
   >
-    <router-link
+    <NavButton
       v-if="previousPage"
+      variant="left"
+      :to="previousPage"
       class="nav-left"
-      :to="{ name: previousPage }"
-    >
-      Previous Skill
-    </router-link>
-    <router-link
+    />
+    <NavButton
       v-if="nextPage"
+      variant="right"
+      :to="nextPage"
       class="nav-right"
-      :to="{ name: nextPage }"
-    >
-      Next Skill
-    </router-link>
+    />
   </nav>
 </div>
 </template>
@@ -107,7 +105,7 @@ watchEffect(() => {
     "content"
     "navbar"
   ;
-  grid-template-rows: 10rem calc(100% - 12rem) 2rem;
+  grid-template-rows: 10rem calc(100% - 16rem) 6rem;
 }
 
 .page-title {
