@@ -15,13 +15,13 @@
     "vue": "^3.2.37",
     "vue-router": "^4.1.6",
     "use-vanishing-value": "workspace:*",
-    "use-vanishing-values": "workspace:*",
-    "hero-icon-resolver": "workspace:*",
-    "@types/hero-icon-resolver": "workspace:*"
+    "use-vanishing-values": "workspace:*"
   },
   "devDependencies": {
+    "@types/hero-icon-resolver": "workspace:*",
     "@types/node": "^18.7.13",
     "@vitejs/plugin-vue": "^3.0.3",
+    "hero-icon-resolver": "workspace:*",
     "rollup-plugin-content": "workspace:*",
     "rollup-plugin-count": "workspace:*",
     "typescript": "^4.6.4",
