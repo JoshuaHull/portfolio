@@ -10,37 +10,37 @@ test.each([
     },
   },
   {
-    component: "EnvelopeIconSolid",
+    component: "ArrowDownIconSolid",
     expectedResult: {
-      name: "EnvelopeIcon",
+      name: "ArrowDownIcon",
       from: "@heroicons/vue/24/solid",
     },
   },
   {
-    component: "EnvelopeOutlineIcon",
+    component: "BuildingStorefrontOutlineIcon",
     expectedResult: {
-      name: "EnvelopeIcon",
+      name: "BuildingStorefrontIcon",
       from: "@heroicons/vue/24/outline",
     },
   },
   {
-    component: "EnvelopeIconOutline",
+    component: "ChartPieIconOutline",
     expectedResult: {
-      name: "EnvelopeIcon",
+      name: "ChartPieIcon",
       from: "@heroicons/vue/24/outline",
     },
   },
   {
-    component: "envelope-solid-icon",
+    component: "cake-solid-icon",
     expectedResult: {
-      name: "EnvelopeIcon",
+      name: "CakeIcon",
       from: "@heroicons/vue/24/solid",
     },
   },
   {
-    component: "envelope-icon-solid",
+    component: "chat-bubble-left-icon-solid",
     expectedResult: {
-      name: "EnvelopeIcon",
+      name: "ChatBubbleLeftIcon",
       from: "@heroicons/vue/24/solid",
     },
   },
@@ -52,13 +52,69 @@ test.each([
     },
   },
   {
-    component: "envelope-icon-outline",
+    component: "circle-stack-icon-outline",
     expectedResult: {
-      name: "EnvelopeIcon",
+      name: "CircleStackIcon",
       from: "@heroicons/vue/24/outline",
     },
   },
-])("should resolve solid or outline icons in pascal or kebab case", (
+  {
+    component: "CubeSolidMiniIcon",
+    expectedResult: {
+      name: "CubeIcon",
+      from: "@heroicons/vue/20/solid",
+    },
+  },
+  {
+    component: "CurrencyBangladeshiIconMiniSolid",
+    expectedResult: {
+      name: "CurrencyBangladeshiIcon",
+      from: "@heroicons/vue/20/solid",
+    },
+  },
+  {
+    component: "CursorArrowRaysOutlineMiniIcon",
+    expectedResult: {
+      name: "CursorArrowRaysIcon",
+      from: "@heroicons/vue/20/outline",
+    },
+  },
+  {
+    component: "DocumentDuplicateIconMiniOutline",
+    expectedResult: {
+      name: "DocumentDuplicateIcon",
+      from: "@heroicons/vue/20/outline",
+    },
+  },
+  {
+    component: "ellipsis-vertical-solid-mini-icon",
+    expectedResult: {
+      name: "EllipsisVerticalIcon",
+      from: "@heroicons/vue/20/solid",
+    },
+  },
+  {
+    component: "exclamation-triangle-icon-mini-solid",
+    expectedResult: {
+      name: "ExclamationTriangleIcon",
+      from: "@heroicons/vue/20/solid",
+    },
+  },
+  {
+    component: "eye-slash-outline-mini-icon",
+    expectedResult: {
+      name: "EyeSlashIcon",
+      from: "@heroicons/vue/20/outline",
+    },
+  },
+  {
+    component: "finger-print-icon-mini-outline",
+    expectedResult: {
+      name: "FingerPrintIcon",
+      from: "@heroicons/vue/20/outline",
+    },
+  },
+])("($component) should resolve solid or outline icons in pascal or kebab case", (
   {component, expectedResult}
 ) => {
   // Act
