@@ -1,42 +1,69 @@
 import heroIconResolver from "./index";
-import { describe, test, expect } from "vitest";
+import { test, expect } from "vitest";
 
-describe("solid icons", () => {
-  test('should resolve components with the suffix "SolidIcon"', () => {
-    const resolved = heroIconResolver("EnvelopeSolidIcon");
-
-    expect(resolved).toStrictEqual({
+test.each([
+  {
+    component: "EnvelopeSolidIcon",
+    expectedResult: {
       name: "EnvelopeIcon",
       from: "@heroicons/vue/24/solid",
-    });
-  });
-
-  test('should resolve components with the suffix "IconSolid"', () => {
-    const resolved = heroIconResolver("EnvelopeIconSolid");
-
-    expect(resolved).toStrictEqual({
+    },
+  },
+  {
+    component: "EnvelopeIconSolid",
+    expectedResult: {
       name: "EnvelopeIcon",
       from: "@heroicons/vue/24/solid",
-    });
-  });
-});
-
-describe("outline icons", () => {
-  test('should resolve components with the suffix "OutlineIcon"', () => {
-    const resolved = heroIconResolver("EnvelopeOutlineIcon");
-
-    expect(resolved).toStrictEqual({
+    },
+  },
+  {
+    component: "EnvelopeOutlineIcon",
+    expectedResult: {
       name: "EnvelopeIcon",
       from: "@heroicons/vue/24/outline",
-    });
-  });
-
-  test('should resolve components with the suffix "IconOutline"', () => {
-    const resolved = heroIconResolver("EnvelopeIconOutline");
-
-    expect(resolved).toStrictEqual({
+    },
+  },
+  {
+    component: "EnvelopeIconOutline",
+    expectedResult: {
       name: "EnvelopeIcon",
       from: "@heroicons/vue/24/outline",
-    });
-  });
+    },
+  },
+  {
+    component: "envelope-solid-icon",
+    expectedResult: {
+      name: "EnvelopeIcon",
+      from: "@heroicons/vue/24/solid",
+    },
+  },
+  {
+    component: "envelope-icon-solid",
+    expectedResult: {
+      name: "EnvelopeIcon",
+      from: "@heroicons/vue/24/solid",
+    },
+  },
+  {
+    component: "envelope-outline-icon",
+    expectedResult: {
+      name: "EnvelopeIcon",
+      from: "@heroicons/vue/24/outline",
+    },
+  },
+  {
+    component: "envelope-icon-outline",
+    expectedResult: {
+      name: "EnvelopeIcon",
+      from: "@heroicons/vue/24/outline",
+    },
+  },
+])("should resolve solid or outline icons in pascal or kebab case", (
+  {component, expectedResult}
+) => {
+  // Act
+  const resolved = heroIconResolver(component);
+
+  // Assert
+  expect(resolved).toStrictEqual(expectedResult);
 });
