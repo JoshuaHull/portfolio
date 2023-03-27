@@ -1,0 +1,13 @@
+{
+  "name": "@types/rollup-plugin-html-minify",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --outdir ./dist"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3",
+    "unplugin-vue-components": "^0.22.4"
+  }
+}

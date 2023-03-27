@@ -34,6 +34,14 @@
       "projectFolder": "libs/rollup-plugin-count"
     },
     {
+      "packageName": "rollup-plugin-html-minify",
+      "projectFolder": "libs/rollup-plugin-html-minify"
+    },
+    {
+      "packageName": "@types/rollup-plugin-html-minify",
+      "projectFolder": "types/rollup-plugin-html-minify"
+    },
+    {
       "packageName": "hero-icon-resolver",
       "projectFolder": "libs/hero-icon-resolver"
     },
