@@ -34,6 +34,14 @@
       "projectFolder": "libs/rollup-plugin-count"
     },
     {
+      "packageName": "hero-icon-resolver",
+      "projectFolder": "libs/hero-icon-resolver"
+    },
+    {
+      "packageName": "@types/hero-icon-resolver",
+      "projectFolder": "types/hero-icon-resolver"
+    },
+    {
       "packageName": "vite-plugin-replace",
       "projectFolder": "libs/vite-plugin-replace"
     },

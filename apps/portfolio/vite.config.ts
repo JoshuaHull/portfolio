@@ -5,6 +5,7 @@ import Components from "unplugin-vue-components/vite";
 import path from "path";
 import { rollupPluginCount } from "rollup-plugin-count";
 import { rollupPluginContent } from "rollup-plugin-content";
+import heroIconResolver from "hero-icon-resolver";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -36,19 +37,7 @@ export default defineConfig({
         "./src/components/**",
       ],
       resolvers: [
-        (componentName: string) => {
-          if (componentName.endsWith("OutlineIcon"))
-            return {
-              name: `${componentName.slice(0, componentName.length - "OutlineIcon".length)}Icon`,
-              from: "@heroicons/vue/24/outline",
-            };
-
-          else if (componentName.endsWith("SolidIcon"))
-            return {
-              name: `${componentName.slice(0, componentName.length - "SolidIcon".length)}Icon`,
-              from: "@heroicons/vue/24/solid",
-            };
-        },
+        heroIconResolver,
       ],
     }),
     rollupPluginContent(),

@@ -16,9 +16,11 @@ importers:
   ../../apps/portfolio:
     specifiers:
       '@heroicons/vue': ^2.0.8
+      '@types/hero-icon-resolver': workspace:*
       '@types/node': ^18.7.13
       '@vitejs/plugin-vue': ^3.0.3
       '@vueuse/core': ^9.13.0
+      hero-icon-resolver: workspace:*
       rollup-plugin-content: workspace:*
       rollup-plugin-count: workspace:*
       typescript: ^4.6.4
@@ -33,7 +35,9 @@ importers:
       vue-tsc: ^0.39.5
     dependencies:
       '@heroicons/vue': 2.0.16_vue@3.2.47
+      '@types/hero-icon-resolver': link:../../types/hero-icon-resolver
       '@vueuse/core': 9.13.0_vue@3.2.47
+      hero-icon-resolver: link:../../libs/hero-icon-resolver
       use-vanishing-value: link:../../composables/use-vanishing-value
       use-vanishing-values: link:../../composables/use-vanishing-values
       vue: 3.2.47
@@ -70,6 +74,12 @@ importers:
     devDependencies:
       typescript: 4.9.5
 
+  ../../libs/hero-icon-resolver:
+    specifiers:
+      unplugin-vue-components: ^0.22.4
+    devDependencies:
+      unplugin-vue-components: 0.22.12
+
   ../../libs/rollup-plugin-content:
     specifiers:
       '@types/node': ^18.7.13
@@ -95,6 +105,14 @@ importers:
     devDependencies:
       '@types/node': 18.15.3
       typescript: 4.9.5
+
+  ../../types/hero-icon-resolver:
+    specifiers:
+      typescript: ^4.9.3
+      unplugin-vue-components: ^0.22.4
+    devDependencies:
+      typescript: 4.9.5
+      unplugin-vue-components: 0.22.12
 
 packages:
 
@@ -1381,6 +1399,31 @@ packages:
       unplugin: 1.3.1
     transitivePeerDependencies:
       - rollup
+    dev: true
+
+  /unplugin-vue-components/0.22.12:
+    resolution: {integrity: sha512-FxyzsuBvMCYPIk+8cgscGBQ345tvwVu+qY5IhE++eorkyvA4Z1TiD/HCiim+Kbqozl10i4K+z+NCa2WO2jexRA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@babel/parser': ^7.15.8
+      vue: 2 || 3
+    peerDependenciesMeta:
+      '@babel/parser':
+        optional: true
+    dependencies:
+      '@antfu/utils': 0.7.2
+      '@rollup/pluginutils': 5.0.2
+      chokidar: 3.5.3
+      debug: 4.3.4
+      fast-glob: 3.2.12
+      local-pkg: 0.4.3
+      magic-string: 0.27.0
+      minimatch: 5.1.6
+      resolve: 1.22.1
+      unplugin: 1.3.1
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
     dev: true
 
   /unplugin-vue-components/0.22.12_vue@3.2.47:
