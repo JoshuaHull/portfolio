@@ -76,9 +76,9 @@ importers:
 
   ../../libs/hero-icon-resolver:
     specifiers:
-      unplugin-vue-components: ^0.22.4
+      vitest: ^0.28.5
     devDependencies:
-      unplugin-vue-components: 0.22.12
+      vitest: 0.28.5
 
   ../../libs/rollup-plugin-content:
     specifiers:

@@ -1,13 +1,18 @@
-export default function resolve(componentName) {
-  if (componentName.endsWith("OutlineIcon"))
-    return {
-      name: `${componentName.slice(0, componentName.length - "OutlineIcon".length)}Icon`,
-      from: "@heroicons/vue/24/outline",
-    };
+const importMap = {
+  "OutlineIcon": "@heroicons/vue/24/outline",
+  "IconOutline": "@heroicons/vue/24/outline",
+  "SolidIcon": "@heroicons/vue/24/solid",
+  "IconSolid": "@heroicons/vue/24/solid",
+};
 
-  else if (componentName.endsWith("SolidIcon"))
-    return {
-      name: `${componentName.slice(0, componentName.length - "SolidIcon".length)}Icon`,
-      from: "@heroicons/vue/24/solid",
-    };
+export default function resolve(componentName) {
+  for (let suffix in importMap) {
+    const from = importMap[suffix];
+
+    if (componentName.endsWith(suffix))
+      return {
+        name: `${componentName.slice(0, componentName.length - suffix.length)}Icon`,
+        from,
+      };
+  }
 };
