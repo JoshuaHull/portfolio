@@ -12,15 +12,16 @@ const importMap = {
 const unkebabify = (str) => str.replace(/-/, "").toUpperCase();
 const toPascal = (str) => str.replace(/(^\w|-\w)/g, unkebabify);
 
-export default function resolve(componentName) {
+export function heroIconResolver(componentName) {
   const pascalComponentName = toPascal(componentName);
 
   for (let suffix in importMap) {
     const from = importMap[suffix];
+    const name = `${pascalComponentName.slice(0, pascalComponentName.length - suffix.length)}Icon`;
 
     if (pascalComponentName.endsWith(suffix))
       return {
-        name: `${pascalComponentName.slice(0, pascalComponentName.length - suffix.length)}Icon`,
+        name,
         from,
       };
   }
