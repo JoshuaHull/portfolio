@@ -25,6 +25,10 @@ export const routes: RouteRecordRaw[] = [
     redirect: "/skills/tests",
   },
   {
+    path: "/skills",
+    redirect: "/skills/tests",
+  },
+  {
     path: "/skills/ddd",
     name: SkillsDDDPageName,
     component: SkillsDDDPage,
