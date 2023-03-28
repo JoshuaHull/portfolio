@@ -1,7 +1,9 @@
 <template>
 <article class="layer-panel">
   <header class="layer-panel-header">
-    <slot name="title"></slot>
+    <div class="layer-panel-header-content">
+      <slot name="title"></slot>
+    </div>
   </header>
   <section class="layer-panel-body">
     <div
@@ -40,9 +42,28 @@ const gridTemplateColumns = computed(() =>
 }
 
 .layer-panel-header {
-  text-align: start;
   border-bottom: 2px solid var(--color-border);
-  padding-left: 2rem;
+}
+
+.layer-panel-header-content {
+  padding-left: 0.5rem;
+}
+
+@media(min-width: 768px) {
+  .layer-panel-header-content {
+    padding-left: 2rem;
+  }
+}
+
+@media (min-width: 2048px) {
+  .layer-panel-header {
+    display: grid;
+    justify-items: center;
+  }
+
+  .layer-panel-header-content {
+    width: 60%;
+  }
 }
 
 .layer-panel-body {
@@ -72,8 +93,8 @@ const gridTemplateColumns = computed(() =>
 .layer-panel-content {
   align-self: center;
   justify-self: center;
-  padding-left: 1rem;
-  padding-right: 2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 </style>
 
