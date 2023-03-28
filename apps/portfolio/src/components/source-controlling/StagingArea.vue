@@ -131,7 +131,7 @@ const disableUnstageAllButton = computed(() => sourceControl.value.stagedChanges
   column-gap: 0.25rem;
   padding-bottom: var(--staging-area-border-gap);
   margin-bottom: var(--staging-area-border-gap);
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid var(--color-border);
 }
 
 @media (min-width: 768px) {
@@ -149,6 +149,6 @@ const disableUnstageAllButton = computed(() => sourceControl.value.stagedChanges
 
 .commit-message-input.disabled {
   cursor: not-allowed;
-  color: gray;
+  color: var(--color-text-disabled);
 }
 </style>

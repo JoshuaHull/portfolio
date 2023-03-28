@@ -96,7 +96,7 @@ function handleCreate() {
   blobsOnTheScreen.value.push(blob);
 
   pushCreateMessage({
-    colour: "green",
+    colour: "var(--color-action-create)",
     content: `200 OK: created blob with colour "${blob.hex}"`,
   });
 }
@@ -104,7 +104,7 @@ function handleCreate() {
 function handleDelete() {
   if (!selectedBlobHex.value) {
     pushDeleteMessage({
-      colour: "red",
+      colour: "var(--color-action-delete)",
       content: "400 Bad Request: route variable \"selected\" is required",
     });
     return;
@@ -117,7 +117,7 @@ function handleDelete() {
 
   blobsOnTheScreen.value.splice(idx, 1);
   pushDeleteMessage({
-    colour: "green",
+    colour: "var(--color-action-create)",
     content: `204 No Content: deleted blob with colour "${selectedBlobHex.value}"`,
   });
   selectedBlobHex.value = null;
@@ -140,7 +140,7 @@ function handleRecolour() {
   const newColour = randomHex();
   blobsOnTheScreen.value[idx].hex = newColour;
   pushRecolourMessage({
-    colour: "green",
+    colour: "var(--color-action-create)",
     content: `200 OK: updated blob colour from "${selectedBlobHex.value}" to "${newColour}"`,
   });
   selectedBlobHex.value = newColour;
@@ -201,7 +201,7 @@ for (let i = 0; i < 20; i += 1) {
   z-index: 1;
   display: grid;
   grid-template-rows: repeat(3, auto);
-  background-color: #000000dd;
+  background-color: var(--color-card-bg);
   padding: 2rem 2rem 0rem 2rem;
   border-radius: 1rem;
   font-family: monospace;

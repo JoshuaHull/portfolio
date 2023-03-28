@@ -18,7 +18,7 @@ defineProps<VButtonProps>();
 }
 
 .v-button.disabled {
-  color: gray;
+  color: var(--color-text-disabled);
   cursor: not-allowed;
 }
 </style>

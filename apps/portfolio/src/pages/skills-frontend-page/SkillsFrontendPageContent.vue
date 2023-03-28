@@ -44,7 +44,7 @@ import vueFileCount from "count:vue";
 
 [class^="frontend-skill"]:not(:last-of-type)::after {
   content: "|";
-  color: white;
+  color: var(--color-text);
   position: relative;
   left: 0.5rem;
   top: -0.05rem;

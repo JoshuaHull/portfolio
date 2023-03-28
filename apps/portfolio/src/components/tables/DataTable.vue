@@ -62,7 +62,7 @@ const columnCount = computed(() =>
   padding-right: var(--data-table-cell-padding-x);
   padding-top: var(--data-table-cell-padding-y);
   padding-bottom: var(--data-table-cell-padding-y);
-  border: 1px solid white;
+  border: 1px solid var(--color-border);
 }
 
 .data-cell {
@@ -71,12 +71,12 @@ const columnCount = computed(() =>
   padding-right: var(--data-table-cell-padding-x);
   padding-top: var(--data-table-cell-padding-y);
   padding-bottom: var(--data-table-cell-padding-y);
-  border-left: 1px solid white;
-  border-right: 1px solid white;
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
 }
 
 .data-cell-last-row {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .empty-data-cell {

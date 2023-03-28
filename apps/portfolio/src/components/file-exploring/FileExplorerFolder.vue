@@ -12,7 +12,7 @@
   <slot></slot>
   <IconButton
     width="1em"
-    tabindex="0"
+    :rounded="true"
     @click="handleTrash"
   >
     <TrashSolidIcon class="file-explorer-trash-icon" />
@@ -48,18 +48,18 @@ const handleTrash = () => {
 }
 
 .file-explorer-folder-icon {
-  color: #99aa00aa;
+  color: var(--color-mustard);
 }
 
 .file-explorer-folder:hover .file-explorer-folder-icon,
 .file-explorer-folder:focus .file-explorer-folder-icon,
 .file-explorer-folder:focus-within .file-explorer-folder-icon {
-  color: white;
+  color: var(--color-white);
 }
 
 .file-explorer-folder:hover,
 .file-explorer-folder:focus,
 .file-explorer-folder:focus-within {
-  background-color: #99aa00aa;
+  background-color: var(--color-mustard);
 }
 </style>

@@ -35,6 +35,7 @@
       class="messaging-serverstack"
       height="5rem"
       width="5rem"
+      :rounded="true"
       @click="handleServerStackClick"
     >
       <ServerStackSolidIcon />

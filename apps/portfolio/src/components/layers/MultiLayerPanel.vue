@@ -21,6 +21,7 @@
   <div class="buttons-container">
     <IconButton
       height="2rem"
+      :rounded="true"
       :disabled="disableSlideUp"
       @click="handleUp"
     >
@@ -28,6 +29,7 @@
     </IconButton>
     <IconButton
       height="2rem"
+      :rounded="true"
       :disabled="disableSlideDown"
       @click="handleDown"
     >

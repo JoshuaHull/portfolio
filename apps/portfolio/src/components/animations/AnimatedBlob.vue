@@ -76,7 +76,7 @@ path {
 .animated-blob:focus,
 .animated-blob:hover {
   cursor: pointer;
-  outline: 2px solid white;
+  outline: solid var(--color-outline) 2px;
   border-radius: 1rem;
 }
 </style>

@@ -30,8 +30,8 @@ defineProps<NavButtonProps>();
 
 .nav-button-icon-button {
   border-radius: 50%;
-  color: #E9EAECDD;
-  background-color: #800028;
+  color: var(--color-action);
+  background-color: var(--color-action-bg);
   padding: 0.5rem
 }
 </style>

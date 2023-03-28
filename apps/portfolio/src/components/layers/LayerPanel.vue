@@ -36,12 +36,12 @@ const gridTemplateColumns = computed(() =>
   height: 32rem;
   display: grid;
   grid-template-rows: min-content 30rem;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid var(--color-border);
 }
 
 .layer-panel-header {
   text-align: start;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid var(--color-border);
   padding-left: 2rem;
 }
 

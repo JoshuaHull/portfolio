@@ -1,7 +1,7 @@
 <template>
 <button
   :class="`icon-button ${isDisabled ? 'disabled' : ''}`"
-  :style="`${theHeight} ${theWidth} ${theColor}`"
+  :style="`${theHeight} ${theWidth} ${theColor} ${theBorderRadius}`"
   :tabindex="isDisabled ? -1 : 0"
 >
   <slot></slot>
@@ -14,14 +14,16 @@ interface IconButtonProps {
   width?: string;
   color?: string;
   disabled?: boolean;
+  rounded?: boolean;
 }
 
 const props = defineProps<IconButtonProps>();
-const { height, width, color, disabled } = toRefs(props);
+const { height, width, color, disabled, rounded } = toRefs(props);
 
 const theHeight = computed(() => !!height?.value ? `height: ${height.value};` : "");
 const theWidth = computed(() => !!width?.value ? `width: ${width.value};` : "");
 const theColor = computed(() => !!color?.value ? `color: ${color.value};` : "");
+const theBorderRadius = computed(() => !!rounded?.value ? "border-radius: 0.25rem" : "");
 const isDisabled = computed(() => !!disabled?.value);
 </script>
 
@@ -32,7 +34,7 @@ const isDisabled = computed(() => !!disabled?.value);
 }
 
 .icon-button:focus {
-  outline: white auto 5px;
+  outline: solid var(--color-outline) 2px;
 }
 
 .icon-button:hover,
@@ -41,7 +43,7 @@ const isDisabled = computed(() => !!disabled?.value);
 }
 
 .icon-button.disabled {
-  color: gray;
+  color: var(--color-text-disabled);
   cursor: not-allowed;
   transform: initial;
   outline: none;

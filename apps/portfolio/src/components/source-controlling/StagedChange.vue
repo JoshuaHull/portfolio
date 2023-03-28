@@ -56,7 +56,7 @@ const emit = defineEmits(["unstage"]);
 .staged-change:hover,
 .staged-change:focus,
 .staged-change:focus-within {
-  background-color: #00aa99aa;
+  background-color: var(--color-teal);
 }
 
 .staged-change:hover .unstage-button,

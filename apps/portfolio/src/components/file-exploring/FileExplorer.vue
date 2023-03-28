@@ -4,7 +4,7 @@
     <IconButton
       class="file-explorer-action-button add-file-button"
       width="1.5rem"
-      tabindex="0"
+      :rounded="true"
       @click="handleAddFile"
     >
       <DocumentPlusSolidIcon />
@@ -12,7 +12,7 @@
     <IconButton
       class="file-explorer-action-button add-folder-button"
       width="1.5rem"
-      tabindex="0"
+      :rounded="true"
       @click="handleAddFolder"
     >
       <FolderPlusSolidIcon />
@@ -20,6 +20,7 @@
     <IconButton
       class="file-explorer-action-button up-folder-button"
       width="1.5rem"
+      :rounded="true"
       :disabled="!hasParentFolder"
       @click="handleUp"
     >
@@ -105,7 +106,7 @@ const deleteFile = (filePath: string) => {
   column-gap: 0.5rem;
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid var(--color-border);
 }
 
 .up-folder-button {
@@ -114,8 +115,9 @@ const deleteFile = (filePath: string) => {
 
 .file-explorer-trash-icon {
   opacity: 0;
-  color: red;
+  color: var(--color-action-delete);
   cursor: pointer;
+  border-radius: 0.25rem;
 }
 
 .file-explorer-item:hover .file-explorer-trash-icon,

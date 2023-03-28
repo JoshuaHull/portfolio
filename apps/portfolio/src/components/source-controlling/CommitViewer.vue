@@ -45,10 +45,10 @@ const { commit } = toRefs(props);
 }
 
 .change-indicator-created {
-  color: green;
+  color: var(--color-action-create);
 }
 
 .change-indicator-deleted {
-  color: red;
+  color: var(--color-action-delete);
 }
 </style>

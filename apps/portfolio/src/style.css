@@ -4,15 +4,49 @@
   line-height: 24px;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --color-blue-gray: #333652;
+  --color-white: #E9EAECDD;
+  --color-red: #800028;
+  --color-red-light: #E32227;
+  --color-gray: #808080;
+  --color-green: #338600;
+  --color-mustard: #99aa00aa;
+  --color-teal: #00aa99aa;
+  --color-black: #000000dd;
+
+  --color-text: var(--color-blue-gray);
+  --color-text-inverted: var(--color-white);
+  --color-text-disabled: var(--color-gray);
+  --color-bg: var(--color-white);
+  --color-bg-inverted: var(--color-blue-gray);
+  --color-outline: var(--color-blue-gray);
+  --color-action: var(--color-white);
+  --color-action-bg: var(--color-red);
+  --color-action-create: var(--color-green);
+  --color-action-delete: var(--color-red-light);
+  --color-border: var(--color-blue-gray);
+  --color-card-bg: var(--color-black);
+
+  color-scheme: light dark;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: var(--color-white);
+    --color-text-inverted: var(--color-blue-gray);
+    --color-bg: var(--color-blue-gray);
+    --color-bg-inverted: var(--color-white);
+    --color-outline: var(--color-white);
+    --color-border: var(--color-white);
+  }
 }
 
 /*

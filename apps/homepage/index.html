@@ -11,19 +11,31 @@
         line-height: 24px;
         font-weight: 400;
 
-        --text-color-primary: #E9EAECDD;
-        --action-background-color: #800028;
-        --background-color: #333652;
+        --color-white: #E9EAECDD;
+        --color-red: #800028;
+        --color-blue-gray: #333652;
+
+        --color-text: var(--color-blue-gray);
+        --color-bg: var(--color-white);
+        --color-action: var(--color-white);
+        --color-action-bg: var(--color-red);
 
         color-scheme: light dark;
-        color: var(--text-color-primary);
-        background-color: var(--background-color);
+        color: var(--color-text);
+        background-color: var(--color-bg);
 
         font-synthesis: none;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         -webkit-text-size-adjust: 100%;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --color-text: var(--color-white);
+          --color-bg: var(--color-blue-gray);
+        }
       }
 
       *, *::before, *::after {
@@ -87,9 +99,9 @@
       .skills-link {
         display: block;
         text-decoration: none;
-        color: var(--text-color-primary);
+        color: var(--color-action);
         padding: 0.75rem;
-        background-color: var(--action-background-color);
+        background-color: var(--color-action-bg);
         border-radius: 0.5rem;
         white-space: nowrap;
         width: min-content;

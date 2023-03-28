@@ -85,17 +85,17 @@ const emitUpdatedQuery = () => {
 }
 
 .query.disabled span {
-  color: gray;
+  color: var(--color-text-disabled);
 }
 
 .query-toggle-button {
-  color: red;
+  color: var(--color-action-delete);
   background-color: transparent;
   border: none;
   transition: scale 0.3s ease;
 }
 
 .query.disabled + .query-toggle-button {
-  color: green;
+  color: var(--color-action-create);
 }
 </style>
