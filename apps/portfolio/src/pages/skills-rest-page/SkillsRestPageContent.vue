@@ -3,12 +3,10 @@
   <div class="blobs">
     <AnimatedBlob
       v-for="blob in blobsOnTheScreen"
-      :key="blob.hex"
+      :key="blob.id"
       :colour="blob.hex"
       :left="blob.left"
       :top="blob.top"
-      :idleBlobIdx="blob.idleBlobIdx"
-      :activeBlobIdx="blob.activeBlobIdx"
       :rotation="blob.rotation"
       class="skills-rest-animated-blob"
       @click="() => handleBlobClick(blob)"
@@ -46,14 +44,12 @@
 
 <script setup lang="ts">
 import { useVanishingValue } from "use-vanishing-value";
-import { store } from "@store";
 
 type Blob = {
+  id: number;
   hex: string;
   left: string;
   top: string;
-  idleBlobIdx: number;
-  activeBlobIdx: number;
   rotation: string;
 };
 
@@ -76,14 +72,11 @@ function randomHex() {
 
 const randomBlob = () => {
   const hex = randomHex();
-
-  const [idleBlobIdx, activeBlobIdx] = getBlobIndices();
   const rotation = `${Math.floor(Math.random() * 4) * 90}deg`;
 
   return {
+    id: Math.random(),
     hex,
-    idleBlobIdx,
-    activeBlobIdx,
     left: `${20 + Math.random() * 60}%`,
     top: `${20 + Math.random() * 60}%`,
     rotation,
@@ -126,7 +119,7 @@ function handleDelete() {
 function handleRecolour() {
   if (!selectedBlobHex.value) {
     pushRecolourMessage({
-      colour: "red",
+      colour: "var(--color-action-delete)",
       content: "400 Bad Request: route variable \"selected\" is required",
     });
     return;
@@ -148,22 +141,6 @@ function handleRecolour() {
 
 function handleBlobClick(blob: Blob) {
   selectedBlobHex.value = blob.hex;
-}
-
-function getBlobIndices(): [number, number] {
-  const blobCount = store.blobs.length;
-  const randomBlob = () => Math.floor(Math.random() * blobCount);
-  const blobIdleIdx = randomBlob();
-  const blobActiveIdx = (() => {
-    for(;;) {
-      const blob = randomBlob();
-
-      if (blob !== blobIdleIdx)
-        return blob;
-    }
-  })();
-
-  return [blobIdleIdx, blobActiveIdx];
 }
 
 for (let i = 0; i < 20; i += 1) {

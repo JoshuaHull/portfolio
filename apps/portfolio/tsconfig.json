@@ -18,7 +18,6 @@
       "@query-building": ["./src/components/query-building"],
       "@routers": ["./src/routers"],
       "@source-controlling": ["./src/components/source-controlling"],
-      "@store": ["./src/store"],
     }
   },
   "include": [

@@ -19,7 +19,6 @@ export default defineConfig({
       "@query-building": path.resolve(__dirname, "./src/query-building"),
       "@routers": path.resolve(__dirname, "./src/routers"),
       "@source-controlling": path.resolve(__dirname, "./src/components/source-controlling"),
-      "@store": path.resolve(__dirname, "./src/store"),
     },
   },
   plugins: [
