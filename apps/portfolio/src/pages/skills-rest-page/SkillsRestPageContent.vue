@@ -18,7 +18,7 @@
       @keyup.delete="() => handleDelete()"
     />
   </div>
-  <section class="rest-endpoints">
+  <VCard class="rest-endpoints">
     <RestEndpoint
       method="post"
       :response="createMessage"
@@ -40,7 +40,7 @@
     >
       /background/blobs/{{ selectedColourText }}/re-colour
     </RestEndpoint>
-  </section>
+  </VCard>
 </article>
 </template>
 
@@ -201,9 +201,6 @@ for (let i = 0; i < 20; i += 1) {
   z-index: 1;
   display: grid;
   grid-template-rows: repeat(3, auto);
-  background-color: var(--color-card-bg);
-  padding: 2rem 2rem 0rem 2rem;
-  border-radius: 1rem;
   font-family: monospace;
 }
 </style>

@@ -103,6 +103,7 @@ declare module '@vue/runtime-core' {
     UserContent: typeof import('./src/pages/skills-ddd-page/components/3-data-access-layer/user/UserContent.vue')['default']
     UserTitle: typeof import('./src/pages/skills-ddd-page/components/3-data-access-layer/user/UserTitle.vue')['default']
     VButton: typeof import('./src/components/buttons/VButton.vue')['default']
+    VCard: typeof import('./src/components/cards/VCard.vue')['default']
     XMarkSolidIcon: typeof import('@heroicons/vue/24/solid')['XMarkIcon']
   }
 }
