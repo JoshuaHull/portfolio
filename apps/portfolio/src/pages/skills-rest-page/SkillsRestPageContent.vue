@@ -202,5 +202,6 @@ for (let i = 0; i < 20; i += 1) {
   display: grid;
   grid-template-rows: repeat(3, auto);
   font-family: monospace;
+  padding-bottom: 0rem;
 }
 </style>

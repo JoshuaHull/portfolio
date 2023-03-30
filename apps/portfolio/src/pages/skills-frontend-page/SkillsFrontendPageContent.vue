@@ -1,24 +1,25 @@
 <template>
 <article class="skills-frontend">
-  <section class="frontend-skills">
-    <div class="frontend-skill-html">HTML</div>
-    <div class="frontend-skill-css">CSS</div>
-    <div class="frontend-skill-javascript">Javascript</div>
-    <div class="frontend-skill-vue"
-  >Vue<div class="vue-file-count">
-        <IconContainer
-          class="vue-file-count-arrow"
-          height="2rem"
-          width="2rem"
-        >
-          <ArrowLongUpSolidIcon />
-        </IconContainer>
-        This site is made up of {{ vueFileCount }} Vue components :)
-      </div>
-    </div>
-    <div class="frontend-skill-angular">Angular</div>
-    <div class="frontend-skill-react">React</div>
-  </section>
+  <VCard class="skills-frontend-card">
+    <p class="frontend-skills">
+      <span class="frontend-skill-html">HTML</span>
+      <span class="frontend-skill-css">CSS</span>
+      <span class="frontend-skill-javascript">Javascript</span>
+      <span class="frontend-skill-vue">Vue</span>
+      <span class="frontend-skill-angular">Angular</span>
+      <span class="frontend-skill-react">React</span>
+    </p>
+    <p>
+      <IconContainer
+        class="vue-file-count-arrow"
+        height="2rem"
+        width="2rem"
+      >
+        <ArrowLongUpSolidIcon />
+      </IconContainer>
+      This site is made up of {{ vueFileCount }} Vue components :)
+    </p>
+  </VCard>
 </article>
 </template>
 
@@ -32,8 +33,14 @@ import vueFileCount from "count:vue";
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 2rem;
   height: 100%;
+}
+
+.skills-frontend-card {
+  display: grid;
+  grid-template-rows: auto auto;
+  row-gap: 4rem;
+  justify-items: center;
 }
 
 .frontend-skills {
@@ -42,7 +49,7 @@ import vueFileCount from "count:vue";
   column-gap: 1rem;
 }
 
-[class^="frontend-skill"]:not(:last-of-type)::after {
+[class^="frontend-skill-"]:not(:last-of-type)::after {
   content: "|";
   color: var(--color-text);
   position: relative;
@@ -63,22 +70,7 @@ import vueFileCount from "count:vue";
 }
 
 .frontend-skill-vue {
-  position: relative;
   color: #41B883;
-}
-
-.vue-file-count {
-  display: grid;
-  grid-template-rows: 4rem min-content;
-  row-gap: 1.5rem;
-  justify-items: center;
-  position: absolute;
-  transform: translateX(-45%);
-  white-space: nowrap;
-}
-
-.vue-file-count-arrow {
-  transform: scale(1, 2) translateY(40%);
 }
 
 .frontend-skill-angular {
@@ -87,5 +79,10 @@ import vueFileCount from "count:vue";
 
 .frontend-skill-react {
   color: #61DBFB;
+}
+
+.vue-file-count-arrow {
+  position: absolute;
+  transform: scale(1, 2) translate(570%, -70%);
 }
 </style>
