@@ -9,7 +9,7 @@
       <span class="frontend-skill-angular">Angular</span>
       <span class="frontend-skill-react">React</span>
     </p>
-    <p>
+    <p class="vue-file-count">
       <IconContainer
         class="vue-file-count-arrow"
         height="2rem"
@@ -51,7 +51,7 @@ import vueFileCount from "count:vue";
 
 [class^="frontend-skill-"]:not(:last-of-type)::after {
   content: "|";
-  color: var(--color-text);
+  color: var(--color-card-text);
   position: relative;
   left: 0.5rem;
   top: -0.05rem;
@@ -79,6 +79,10 @@ import vueFileCount from "count:vue";
 
 .frontend-skill-react {
   color: #61DBFB;
+}
+
+.vue-file-count {
+  color: #41B883;
 }
 
 .vue-file-count-arrow {

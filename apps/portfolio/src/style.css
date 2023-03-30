@@ -16,9 +16,10 @@
   --color-red-light: #E32227;
   --color-gray: #808080;
   --color-green: #338600;
-  --color-mustard: #99aa00aa;
-  --color-teal: #00aa99aa;
-  --color-black: #000000dd;
+  --color-mustard: #99AA00AA;
+  --color-teal: #00AA99AA;
+  --color-black: #000000DD;
+  --color-yellow: #FAD02C;
 
   --color-text: var(--color-blue-gray);
   --color-text-inverted: var(--color-white);
@@ -31,7 +32,8 @@
   --color-action-create: var(--color-green);
   --color-action-delete: var(--color-red-light);
   --color-border: var(--color-blue-gray);
-  --color-card-bg: var(--color-black);
+  --color-card-text: var(--color-white);
+  --color-card-bg: var(--color-blue-gray);
 
   color-scheme: light dark;
   color: var(--color-text);
@@ -46,6 +48,8 @@
     --color-bg-inverted: var(--color-white);
     --color-outline: var(--color-white);
     --color-border: var(--color-white);
+    --color-card-text: var(--color-white);
+    --color-card-bg: var(--color-black);
   }
 }
 
