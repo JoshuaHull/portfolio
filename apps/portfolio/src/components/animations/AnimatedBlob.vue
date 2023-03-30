@@ -62,7 +62,7 @@ const [isHovering, pushIsHovering] = useVanishingValue<boolean>(500);
 
 const actualIdleBlobIdx = ref(0);
 
-setTimeout(() => actualIdleBlobIdx.value = idleBlobIdx, 500);
+setTimeout(() => actualIdleBlobIdx.value = idleBlobIdx, 0);
 
 function getBlobIndices(): [number, number] {
   const randomBlob = () => Math.floor(Math.random() * (blobs.length - 1)) + 1;
