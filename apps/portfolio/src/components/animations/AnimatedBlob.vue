@@ -7,7 +7,7 @@
   :aria-label="`blob-${colour}`"
   @mouseenter="handleHover"
   :style="`
-    --animated-blob-path-idle: '${idle}';
+    --animated-blob-path-idle: '${blobs[actualIdleBlobIdx]}';
     --animated-blob-path-active: '${blobs[activeBlobIdx]}';
   `"
 >
@@ -60,11 +60,9 @@ const actualTop = computed(() => top?.value ?? "auto");
 
 const [isHovering, pushIsHovering] = useVanishingValue<boolean>(500);
 
-const thing = ref(0);
+const actualIdleBlobIdx = ref(0);
 
-const idle = computed(() => blobs[thing.value]);
-
-setTimeout(() => thing.value = idleBlobIdx, 500);
+setTimeout(() => actualIdleBlobIdx.value = idleBlobIdx, 500);
 
 function getBlobIndices(): [number, number] {
   const randomBlob = () => Math.floor(Math.random() * (blobs.length - 1)) + 1;
