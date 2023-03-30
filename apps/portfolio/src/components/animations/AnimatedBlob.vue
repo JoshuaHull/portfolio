@@ -67,7 +67,7 @@ const idle = computed(() => blobs[thing.value]);
 setTimeout(() => thing.value = idleBlobIdx, 500);
 
 function getBlobIndices(): [number, number] {
-  const randomBlob = () => Math.floor(Math.random() * blobs.length) + 1;
+  const randomBlob = () => Math.floor(Math.random() * (blobs.length - 1)) + 1;
   const blobIdleIdx = randomBlob();
   const blobActiveIdx = (() => {
     for(;;) {
