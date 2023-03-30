@@ -5,35 +5,41 @@
   <span class="description">
     <slot name="testName"></slot>
   </span>
-  <VButton
-    v-if="runState == 'before'"
-    class="run-button"
-    @click="handleRunClick"
-  >
-    <slot name="button"></slot>
-  </VButton>
-  <template v-if="variant === 'pass'">
-    <IconContainer
-      v-if="runState === 'after'"
-      class="test-example-icon-container"
-      width="5rem"
-      color="green"
+  <Transition name="fade-out">
+    <VButton
+      v-if="runState == 'before'"
+      class="run-button"
+      @click="handleRunClick"
     >
-      <AnimatedCheckIcon />
-    </IconContainer>
+      <slot name="button"></slot>
+    </VButton>
+  </Transition>
+  <template v-if="variant === 'pass'">
+    <Transition name="fade-in">
+      <IconContainer
+        v-if="runState === 'after'"
+        class="test-example-icon-container"
+        width="5rem"
+        color="green"
+      >
+        <AnimatedCheckIcon />
+      </IconContainer>
+    </Transition>
     <IconContainer height="2rem" class="bar">
       <AnimatedLoadingBar :animationDuration="animationDuration" />
     </IconContainer>
   </template>
   <template v-if="variant === 'fail'">
-    <IconContainer
-      v-if="runState === 'after'"
-      class="test-example-icon-container fail"
-      width="3.75rem"
-      color="red"
-    >
-      <AnimatedCrossIcon />
-    </IconContainer>
+    <Transition name="fade-in">
+      <IconContainer
+        v-if="runState === 'after'"
+        class="test-example-icon-container fail"
+        width="3.75rem"
+        color="red"
+      >
+        <AnimatedCrossIcon />
+      </IconContainer>
+    </Transition>
     <IconContainer height="2rem" class="bar">
       <AnimatedLoadingBarFailing :animationDuration="animationDuration" />
     </IconContainer>
@@ -99,5 +105,21 @@ function handleRunClick() {
 
 .run-button {
   grid-area: run;
+}
+
+.fade-in-enter-active {
+  transition: all 0.5s ease;
+}
+
+.fade-in-enter-from {
+  opacity: 0;
+}
+
+.fade-out-leave-active {
+  transition: all 0.3s ease;
+}
+
+.fade-out-leave-to {
+  opacity: 0;
 }
 </style>
