@@ -1,22 +1,22 @@
 <template>
-<CodeBlockForTypescript
-  class="panel-file-content"
-  :content="contentWithLineNumbers"
-/>
+<div class="panel-file-content">
+  <pre>{{ lineNumbers }}</pre>
+  <CodeBlockForTypescript :content="panelTestsContent" />
+</div>
 </template>
 
 <script setup lang="ts">
 import panelTestsContent from "content:ts:src/pages/skills-tests-page/components/TestExample.spec";
 import { CodeBlockForTypescript } from "@code-blocks";
 
-const contentWithLineNumbers = computed(() => {
+const lineNumbers = computed(() => {
   const lines = (<string>panelTestsContent).split("\n");
 
   let rtn = "";
 
   for (let i = 0; i < lines.length; i += 1) {
     const padding = ' '.repeat(`${lines.length}`.length - `${i + 1}`.length);
-    rtn += `${padding}${i + 1} ${lines[i]}\n`;
+    rtn += `${padding}${i + 1}\n`;
   }
 
   return rtn;
@@ -25,6 +25,9 @@ const contentWithLineNumbers = computed(() => {
 
 <style>
 .panel-file-content {
+  display: grid;
+  grid-template-columns: min-content auto;
+  column-gap: 1rem;
   max-width: 500px;
   padding-left: 0.5rem;
   overflow-x: hidden;
