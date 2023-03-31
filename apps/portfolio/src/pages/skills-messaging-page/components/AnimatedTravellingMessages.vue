@@ -87,3 +87,9 @@ div { /* carefully not overriding the specificity of the exit animation */
   }
 }
 </style>
+
+<style>
+.animated-travelling-message {
+  color: var(--color-action-bg);
+}
+</style>
