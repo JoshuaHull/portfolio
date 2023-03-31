@@ -1,3 +1,3 @@
 <template>
-PanelTests.vue
+TestExample.spec.ts
 </template>
