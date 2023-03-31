@@ -24,6 +24,10 @@
 }
 
 .number {
-  color: var(--code-block-type, dodgerblue);
+  color: var(--code-block-number, dodgerblue);
+}
+
+.comment {
+  color: var(--code-block-comment, limegreen);
 }
 </style>

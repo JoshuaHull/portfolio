@@ -2,7 +2,17 @@
 
 export type Token<TKind> = {
   value: string;
-  kind: TKind | "EOF" | "OTHER" | "STRING" | "KEYWORD" | "SYMBOL" | "NUMBER";
+  kind:
+    | TKind
+    | "EOF"
+    | "OTHER"
+    | "STRING"
+    | "KEYWORD"
+    | "SYMBOL"
+    | "NUMBER"
+    | "COMMENT"
+    | "BEGIN_LINE_COMMENT"
+  ;
 };
 
 export abstract class Lexer<TKind> {
@@ -30,6 +40,7 @@ export abstract class Lexer<TKind> {
 
     const token =
       this.tryConsume(this.tryConsumeString) ||
+      this.tryConsume(this.tryConsumeComment) ||
       this.tryConsume(this.tryConsumeNumber) ||
       this.tryConsume(this.tryConsumeLiteral) ||
       this.tryConsume(this.tryConsumeKeyword) ||
@@ -88,6 +99,34 @@ export abstract class Lexer<TKind> {
       value,
     };
   }
+
+  private tryConsumeComment: () => (Token<TKind> | null) = () => {
+    const beginLineComment = this.getBeginLineCommentLiteralAfter(0);
+
+    if (!beginLineComment)
+      return null;
+  
+    let value = "";
+
+    while (this.contentFromCursor[0]) {
+      if (this.contentFromCursor[0] === "\n") {
+        value += "\n";
+        this.cursor += 1;
+        break;
+      }
+
+      value += this.contentFromCursor[0];
+      this.cursor += 1;
+    }
+
+    if (!value)
+      return null;
+
+    return {
+      kind: "COMMENT",
+      value,
+    };
+  };
 
   private tryConsumeNumber: () => (Token<TKind> | null) = () => {
     let value = "";
@@ -202,6 +241,18 @@ export abstract class Lexer<TKind> {
 
     return largestStringLiteral || null;
   }
+
+  private getBeginLineCommentLiteralAfter(count: number): Token<TKind> | null {
+    const beginLineCommentToken = this.literals.filter(t => t.kind === "BEGIN_LINE_COMMENT")[0];
+
+    if (!beginLineCommentToken)
+      return null;
+
+    if (this.contentFromCursor.substring(count).startsWith(beginLineCommentToken.value))
+      return beginLineCommentToken;
+
+    return null;
+  };
 
   private hasCharacterAfter(count: number): boolean {
     const content = this.contentFromCursor.substring(count)[0];

@@ -14,9 +14,8 @@ describe(
   });
 
   test(
-    `Given the "pass" variant, when the user
-    clicks "Run", all 10 parts of the loading
-    bar should be displayed`,
+    `When I press the "Run" button, then the
+    test animation will play to completion.`,
   async () => {
     // Arrange
     const wrapper = mount(TestExample, {
@@ -38,9 +37,8 @@ describe(
   });
 
   test(
-    `Given the "fail" variant, when the user
-    clicks "Run", only 7 parts of the loading
-    bar should be displayed`,
+    `When I press the "Fail" button, then the
+    test animation will fail to complete.`,
   async () => {
     // Arrange
     const wrapper = mount(TestExample, {

@@ -1,5 +1,5 @@
 <template>
-<CodeBlockForVue
+<CodeBlockForTypescript
   class="panel-file-content"
   :content="contentWithLineNumbers"
 />
@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import panelTestsContent from "content:ts:src/pages/skills-tests-page/components/TestExample.spec";
-import { CodeBlockForVue } from "@code-blocks";
+import { CodeBlockForTypescript } from "@code-blocks";
 
 const contentWithLineNumbers = computed(() => {
   const lines = (<string>panelTestsContent).split("\n");
