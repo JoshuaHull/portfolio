@@ -17,6 +17,7 @@ export type TypescriptTokenKind =
   | "STRING_LITERAL"
   | "INTERPOLATED_STRING_LITERAL"
   | "STRING"
+  | "INTERPOLATED_STRING"
   | "EQUALS"
   | "OTHER"
 ;
@@ -58,16 +59,16 @@ const literalTokens: Token<TypescriptTokenKind>[] = [
     value: "//",
     kind: "BEGIN_LINE_COMMENT",
   },
+  {
+    value: "`",
+    kind: "INTERPOLATED_STRING_LITERAL",
+  },
 ];
 
 const stringLiteralTokens: Token<TypescriptTokenKind>[] = [
   {
     value: "\"",
     kind: "STRING_LITERAL",
-  },
-  {
-    value: "`",
-    kind: "INTERPOLATED_STRING_LITERAL",
   },
 ];
 
@@ -98,6 +99,7 @@ export class TypescriptLexer extends Lexer<TypescriptTokenKind> {
     );
 
     this.contextManagers = [
+      new InterpolatedStringContextManager(),
       new PropertyContextManager(),
       new NewValueContextManager(),
     ];
@@ -154,5 +156,23 @@ class NewValueContextManager implements IContextManager {
 
     this.inContext = false;
     return null;
+  }
+}
+
+class InterpolatedStringContextManager implements IContextManager {
+  private inContext: boolean = false;
+
+  public apply(token: Token<TypescriptTokenKind>): TypescriptTokenKind | null {
+    if (token.kind === "INTERPOLATED_STRING_LITERAL" && this.inContext) {
+      this.inContext = false;
+      return "INTERPOLATED_STRING";
+    }
+
+    if (token.kind === "INTERPOLATED_STRING_LITERAL" && !this.inContext) {
+      this.inContext = true;
+      return "INTERPOLATED_STRING";
+    }
+
+    return this.inContext ? "INTERPOLATED_STRING" : null;
   }
 }

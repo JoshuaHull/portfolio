@@ -15,6 +15,10 @@
   color: var(--code-block-string, brown);
 }
 
+.interpolated-string {
+  color: var(--code-block-string, brown);
+}
+
 .literal {
   color: var(--code-block-literal, gray);
 }

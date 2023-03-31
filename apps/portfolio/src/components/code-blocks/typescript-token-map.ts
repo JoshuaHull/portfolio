@@ -28,6 +28,8 @@ export class TypescriptTokenMap implements ITokenMap<TypescriptTokenKind> {
         return new Span("number", token.value);
       case "COMMENT":
         return new Span("comment", token.value);
+      case "INTERPOLATED_STRING":
+        return new Span("interpolated-string", token.value);
     }
 
     return null;
