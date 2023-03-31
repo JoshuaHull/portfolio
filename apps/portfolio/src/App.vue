@@ -11,12 +11,16 @@
   color: var(--code-block-property, mediumvioletred);
 }
 
+.imported-property {
+  color: var(--code-block-imported-property, tomato);
+}
+
 .string {
   color: var(--code-block-string, brown);
 }
 
 .interpolated-string {
-  color: var(--code-block-string, brown);
+  color: var(--code-block-interpolated-string, brown);
 }
 
 .literal {

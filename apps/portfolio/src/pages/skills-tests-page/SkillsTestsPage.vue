@@ -26,6 +26,7 @@ const isDesktop = useMediaQuery("(min-width: 1024px)");
   --code-block-keyword: goldenrod;
   --code-block-property: mediumvioletred;
   --code-block-string: yellow;
+  --code-block-interpolated-string: yellow;
   --code-block-literal: lightgray;
 }
 </style>

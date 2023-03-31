@@ -9,6 +9,8 @@ export class TypescriptTokenMap implements ITokenMap<TypescriptTokenKind> {
         return new Span("keyword", token.value);
       case "PROPERTY":
         return new Span("property", token.value);
+      case "IMPORTED_PROPERTY":
+        return new Span("imported-property", token.value);
       case "SYMBOL":
         return new Span("symbol", token.value);
       case "OPEN_PAREN":

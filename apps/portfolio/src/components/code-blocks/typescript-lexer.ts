@@ -8,11 +8,13 @@ export type TypescriptTokenKind =
   | "OPEN_ANGLE"
   | "CLOSE_ANGLE"
   | "SEMICOLON"
+  | "COMMA"
   | "DOT"
   | "EOF"
   | "KEYWORD"
   | "SYMBOL"
   | "PROPERTY"
+  | "IMPORTED_PROPERTY"
   | "TYPE"
   | "STRING_LITERAL"
   | "INTERPOLATED_STRING_LITERAL"
@@ -54,6 +56,10 @@ const literalTokens: Token<TypescriptTokenKind>[] = [
   {
     value: ";",
     kind: "SEMICOLON",
+  },
+  {
+    value: ",",
+    kind: "COMMA",
   },
   {
     value: "//",
@@ -100,6 +106,7 @@ export class TypescriptLexer extends Lexer<TypescriptTokenKind> {
 
     this.contextManagers = [
       new InterpolatedStringContextManager(),
+      new ImportedPropertiesContextManager(),
       new PropertyContextManager(),
       new NewValueContextManager(),
     ];
@@ -174,5 +181,33 @@ class InterpolatedStringContextManager implements IContextManager {
     }
 
     return this.inContext ? "INTERPOLATED_STRING" : null;
+  }
+}
+
+class ImportedPropertiesContextManager implements IContextManager {
+  private inContext: boolean = false;
+  private imports: string[] = [];
+
+  public apply(token: Token<TypescriptTokenKind>): TypescriptTokenKind | null {
+    if (token.kind === "KEYWORD" && token.value === "import") {
+      this.inContext = true;
+      return null;
+    }
+
+    if (token.kind === "SYMBOL" && this.inContext) {
+      this.imports.push(token.value);
+      return null;
+    }
+
+    if (token.kind === "KEYWORD" && token.value === "from" && this.inContext) {
+      this.inContext = false;
+      return null;
+    }
+
+    if (token.kind === "SYMBOL" && this.imports.includes(token.value)) {
+      return "IMPORTED_PROPERTY";
+    }
+
+    return null;
   }
 }
