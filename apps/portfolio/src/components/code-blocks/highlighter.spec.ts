@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { CsharpLexer, CSharpTokenMap, Highlighter } from "./../../../src/components/code-blocks";
+import { CsharpLexer, CSharpTokenMap, Highlighter } from "./";
 
 describe("toHtml", () => {
   test("should return a html string with classes which allow you to highlight keywords, etc", () => {

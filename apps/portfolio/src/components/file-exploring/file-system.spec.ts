@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { FileSystem } from "./../../../src/components/file-exploring";
+import { FileSystem } from "./";
 
 describe("adding folders", () => {
   test("should add a folder with a random folder name to the list of folders", () => {

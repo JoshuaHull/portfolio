@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { CsharpLexer, CsharpTokenKind, Token } from "./../../../src/components/code-blocks";
+import { CsharpLexer, CsharpTokenKind, Token } from "./";
 
 describe("lexer", () => {
   test("should return EOF token when content runs out", () => {
