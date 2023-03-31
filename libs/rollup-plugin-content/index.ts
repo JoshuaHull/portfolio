@@ -19,7 +19,10 @@ export function rollupPluginContent() {
       if (!id.startsWith(prefix))
         return null;
 
-      const readFrom = `./${id.substring(prefix.length)}.vue`;
+      const parts = id.split(":");
+      const fileType = parts[1];
+      const fileName = parts[2];
+      const readFrom = `./${fileName}.${fileType}`;
       const content = readFileSync(readFrom, "utf-8");
 
       return {

@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import panelTestsContent from "content:src/pages/skills-tests-page/components/PanelTestsContent";
+import panelTestsContent from "content:vue:src/pages/skills-tests-page/components/PanelTestsContent";
 import { CodeBlockForVue } from "@code-blocks";
 
 const contentWithLineNumbers = computed(() => {
