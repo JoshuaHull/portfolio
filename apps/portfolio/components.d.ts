@@ -15,6 +15,7 @@ declare module '@vue/runtime-core' {
     AnimatedTravellingMessages: typeof import('./src/pages/skills-messaging-page/components/AnimatedTravellingMessages.vue')['default']
     ArrowLeftSolidIcon: typeof import('@heroicons/vue/24/solid')['ArrowLeftIcon']
     ArrowLongDownSolidIcon: typeof import('@heroicons/vue/24/solid')['ArrowLongDownIcon']
+    ArrowLongLeftSolidIcon: typeof import('@heroicons/vue/24/solid')['ArrowLongLeftIcon']
     ArrowLongUpSolidIcon: typeof import('@heroicons/vue/24/solid')['ArrowLongUpIcon']
     ArrowRightSolidIcon: typeof import('@heroicons/vue/24/solid')['ArrowRightIcon']
     ArrowUpSolidIcon: typeof import('@heroicons/vue/24/solid')['ArrowUpIcon']

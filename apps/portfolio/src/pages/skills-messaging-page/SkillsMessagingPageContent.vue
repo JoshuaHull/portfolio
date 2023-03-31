@@ -32,7 +32,7 @@
       <ServerSolidIcon />
     </IconContainer>
     <IconButton
-      class="messaging-serverstack"
+      class="grid-area-stack"
       height="5rem"
       width="5rem"
       :rounded="true"
@@ -40,6 +40,21 @@
     >
       <ServerStackSolidIcon />
     </IconButton>
+    <Transition name="fade-out">
+      <div
+        v-if="shouldShowClickMe"
+        class="messaging-clickme grid-area-clickme"
+      >
+        <span v-if="isMediumScreen">click me</span>
+        <span v-else>tap me</span>
+        <IconContainer
+          class="messaging-clickme-arrow"
+          height="1rem"
+        >
+          <ArrowLongLeftSolidIcon />
+        </IconContainer>
+      </div>
+    </Transition>
     <IconContainer
       class="messaging-server grid-area-server3"
       :height="serverIconHeight"
@@ -75,6 +90,7 @@
 </template>
 
 <script setup lang="ts">
+import { useMediaQuery } from "@vueuse/core";
 import { useVanishingValues } from "use-vanishing-values";
 
 const travellingMessageAnimationDuration = 1500;
@@ -86,7 +102,11 @@ const [messages, pushMessage] = useVanishingValues(travellingMessageAnimationDur
 const serverIconHeight = "3rem";
 const joinerIconHeight = "6rem";
 
+const shouldShowClickMe = ref(true);
+const isMediumScreen = useMediaQuery("(min-width: 768px)");
+
 const handleServerStackClick = () => {
+  shouldShowClickMe.value = false;
   pushMessage(messageKey += 1);
 };
 </script>
@@ -101,10 +121,11 @@ const handleServerStackClick = () => {
 
 .messaging-servers {
   display: grid;
+  grid-template-columns: 0.6fr 0.4fr 1fr 0.4fr 0.6fr;
   grid-template-areas:
     "server1 joiner1 joiner1 joiner1 server2"
     "      . joiner1 joiner1 joiner1       ."
-    "      .       .   stack       .       ."
+    "      .       .   stack clickme clickme"
     "      . joiner2 joiner2 joiner2       ."
     "server3 joiner2 joiner2 joiner2 server4"
   ;
@@ -134,8 +155,23 @@ const handleServerStackClick = () => {
   grid-area: joiner2;
 }
 
-.messaging-serverstack {
+.grid-area-clickme {
+  grid-area: clickme;
+}
+
+.grid-area-stack {
   grid-area: stack;
+}
+
+.messaging-clickme {
+  display: grid;
+  grid-template-rows: min-content min-content;
+  justify-items: center;
+  align-content: center;
+}
+
+.messaging-clickme-arrow {
+  transform: scaleX(300%);
 }
 
 .rotate-180 svg {
