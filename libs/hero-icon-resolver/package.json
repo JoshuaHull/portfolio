@@ -6,7 +6,8 @@
   "exports": "./index.js",
   "scripts": {
     "build": "",
-    "test": "vitest"
+    "test": "vitest",
+    "test:nowatch": "vitest --watch false"
   },
   "devDependencies": {
     "vitest": "^0.28.5"
