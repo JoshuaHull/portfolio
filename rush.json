@@ -38,6 +38,10 @@
       "projectFolder": "libs/rollup-plugin-count"
     },
     {
+      "packageName": "@types/rollup-plugin-count",
+      "projectFolder": "types/rollup-plugin-count"
+    },
+    {
       "packageName": "rollup-plugin-html-minify",
       "projectFolder": "libs/rollup-plugin-html-minify"
     },

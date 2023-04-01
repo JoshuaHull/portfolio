@@ -23,6 +23,7 @@ importers:
       '@types/hero-icon-resolver': workspace:*
       '@types/node': ^18.7.13
       '@types/rollup-plugin-content': workspace:*
+      '@types/rollup-plugin-count': workspace:*
       '@vitejs/plugin-vue': ^3.0.3
       '@vue/test-utils': ~2.3.2
       '@vueuse/core': ^9.13.0
@@ -51,6 +52,7 @@ importers:
       '@types/hero-icon-resolver': link:../../types/hero-icon-resolver
       '@types/node': 18.15.3
       '@types/rollup-plugin-content': link:../../types/rollup-plugin-content
+      '@types/rollup-plugin-count': link:../../types/rollup-plugin-count
       '@vitejs/plugin-vue': 3.2.0_vite@3.2.5+vue@3.2.47
       '@vue/test-utils': 2.3.2_vue@3.2.47
       hero-icon-resolver: link:../../libs/hero-icon-resolver
@@ -95,13 +97,9 @@ importers:
 
   ../../libs/rollup-plugin-count:
     specifiers:
-      '@types/node': ^18.7.13
       path-scurry: ^1.6.1
-      typescript: ^4.9.3
-    devDependencies:
-      '@types/node': 18.15.3
+    dependencies:
       path-scurry: 1.6.1
-      typescript: 4.9.5
 
   ../../libs/rollup-plugin-html-minify:
     specifiers: {}
@@ -123,6 +121,14 @@ importers:
       unplugin-vue-components: 0.22.12
 
   ../../types/rollup-plugin-content:
+    specifiers:
+      rollup: '>=2.75.6 <2.77.0 || ~2.77.0'
+      typescript: ^4.9.3
+    devDependencies:
+      rollup: 2.77.0
+      typescript: 4.9.5
+
+  ../../types/rollup-plugin-count:
     specifiers:
       rollup: '>=2.75.6 <2.77.0 || ~2.77.0'
       typescript: ^4.9.3
@@ -1384,7 +1390,6 @@ packages:
   /lru-cache/7.18.3:
     resolution: {integrity: sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==}
     engines: {node: '>=12'}
-    dev: true
 
   /magic-string/0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
@@ -1440,7 +1445,6 @@ packages:
   /minipass/4.2.5:
     resolution: {integrity: sha512-+yQl7SX3bIT83Lhb4BVorMAHVuqsskxRdlmO9kTpyukp8vsm2Sn/fUOV9xlnG8/a5JsypJzap21lz/y3FBMJ8Q==}
     engines: {node: '>=8'}
-    dev: true
 
   /mlly/1.2.0:
     resolution: {integrity: sha512-+c7A3CV0KGdKcylsI6khWyts/CYrGTrRVo4R/I7u/cUsy0Conxa6LUhiEzVKIw14lc2L5aiO4+SeVe4TeGRKww==}
@@ -1518,7 +1522,6 @@ packages:
     dependencies:
       lru-cache: 7.18.3
       minipass: 4.2.5
-    dev: true
 
   /pathe/1.1.0:
     resolution: {integrity: sha512-ODbEPR0KKHqECXW1GoxdDb+AZvULmXjVPy4rt+pGo2+TnjJTIPJQSVS6N63n8T2Ip+syHhbn52OewKicV0373w==}

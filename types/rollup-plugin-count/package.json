@@ -1,0 +1,13 @@
+{
+  "name": "@types/rollup-plugin-count",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --outdir ./dist"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3",
+    "rollup": ">=2.75.6 <2.77.0 || ~2.77.0"
+  }
+}

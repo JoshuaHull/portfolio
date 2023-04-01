@@ -6,7 +6,7 @@ const prefix = "count:";
 export function rollupPluginCount() {
   return {
     name,
-    resolveId(source: string) {
+    resolveId(source) {
       if (!source.startsWith(prefix))
         return null;
 
@@ -15,7 +15,7 @@ export function rollupPluginCount() {
         resolvedBy: name,
       };
     },
-    async load(id: string) {
+    async load(id) {
       if (!id.startsWith(prefix))
         return null;
 
