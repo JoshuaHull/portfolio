@@ -52,8 +52,8 @@ const {
 } = computed(() => {
   if (variant?.value === "editor")
     return {
-      backgroundColour: "#05445E",
-      headerBackgroundColour: "#032F40",
+      backgroundColour: "#232830",
+      headerBackgroundColour: "#383C4A",
       colour: "white",
       padding: "0",
       borderRadius: "0",
