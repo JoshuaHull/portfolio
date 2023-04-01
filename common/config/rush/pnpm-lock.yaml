@@ -108,7 +108,10 @@ importers:
     specifiers: {}
 
   ../../libs/vite-plugin-replace:
-    specifiers: {}
+    specifiers:
+      vitest: ^0.28.5
+    devDependencies:
+      vitest: 0.28.5
 
   ../../types/hero-icon-resolver:
     specifiers:

@@ -5,6 +5,11 @@
   "type": "module",
   "exports": "./index.js",
   "scripts": {
-    "build": ""
+    "build": "",
+    "test": "vitest",
+    "test:nowatch": "vitest --watch false"
+  },
+  "devDependencies": {
+    "vitest": "^0.28.5"
   }
 }
