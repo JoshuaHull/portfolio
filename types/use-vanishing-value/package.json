@@ -1,0 +1,13 @@
+{
+  "name": "@types/use-vanishing-value",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --outdir ./dist"
+  },
+  "devDependencies": {
+    "@types/use-vanishing-values": "workspace:*",
+    "vue": "^3.2.37"
+  }
+}

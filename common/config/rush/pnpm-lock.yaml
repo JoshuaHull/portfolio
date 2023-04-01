@@ -26,6 +26,7 @@ importers:
       '@types/node': ^18.7.13
       '@types/rollup-plugin-content': workspace:*
       '@types/rollup-plugin-count': workspace:*
+      '@types/use-vanishing-value': workspace:*
       '@types/use-vanishing-values': workspace:*
       '@vitejs/plugin-vue': ^3.0.3
       '@vue/test-utils': ~2.3.2
@@ -56,6 +57,7 @@ importers:
       '@types/node': 18.15.3
       '@types/rollup-plugin-content': link:../../types/rollup-plugin-content
       '@types/rollup-plugin-count': link:../../types/rollup-plugin-count
+      '@types/use-vanishing-value': link:../../types/use-vanishing-value
       '@types/use-vanishing-values': link:../../types/use-vanishing-values
       '@vitejs/plugin-vue': 3.2.0_vite@3.2.5+vue@3.2.47
       '@vue/test-utils': 2.3.2_vue@3.2.47
@@ -73,7 +75,6 @@ importers:
   ../../composables/use-vanishing-value:
     specifiers:
       '@types/use-vanishing-values': workspace:*
-      typescript: ^4.9.3
       use-vanishing-values: workspace:*
       vue: ^3.2.37
     dependencies:
@@ -81,7 +82,6 @@ importers:
       vue: 3.2.47
     devDependencies:
       '@types/use-vanishing-values': link:../../types/use-vanishing-values
-      typescript: 4.9.5
 
   ../../composables/use-vanishing-values:
     specifiers:
@@ -141,6 +141,14 @@ importers:
     devDependencies:
       rollup: 2.77.0
       typescript: 4.9.5
+
+  ../../types/use-vanishing-value:
+    specifiers:
+      '@types/use-vanishing-values': workspace:*
+      vue: ^3.2.37
+    devDependencies:
+      '@types/use-vanishing-values': link:../use-vanishing-values
+      vue: 3.2.47
 
   ../../types/use-vanishing-values:
     specifiers:

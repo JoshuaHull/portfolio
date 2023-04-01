@@ -70,6 +70,10 @@
       "projectFolder": "composables/use-vanishing-value"
     },
     {
+      "packageName": "@types/use-vanishing-value",
+      "projectFolder": "types/use-vanishing-value"
+    },
+    {
       "packageName": "use-vanishing-values",
       "projectFolder": "composables/use-vanishing-values"
     },
