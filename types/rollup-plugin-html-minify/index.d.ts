@@ -1,6 +1,3 @@
-export function rollupPluginHtmlMinify(): {
-  name: string;
-  transform(code: string, id: string): {
-    code: string;
-  };
-};
+import { TransformResult } from "rollup";
+
+export function rollupPluginHtmlMinify(): TransformResult;

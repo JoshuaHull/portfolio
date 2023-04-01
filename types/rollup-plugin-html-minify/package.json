@@ -8,6 +8,6 @@
   },
   "devDependencies": {
     "typescript": "^4.9.3",
-    "unplugin-vue-components": "^0.22.4"
+    "rollup": ">=2.75.6 <2.77.0 || ~2.77.0"
   }
 }
