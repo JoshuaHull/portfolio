@@ -56,4 +56,6 @@ Add a package to an existing app:
 
 [@types/rollup-plugin-html-minify](./types/rollup-plugin-html-minify) - Typescript definitions for rollup-plugin-html-minify
 
+[@types/use-vanishing-values](./types/use-vanishing-values) - Typescript definitions for use-vanishing-values
+
 [@types/vite-plugin-replace](./types/vite-plugin-replace) - Typescript definitions for vite-plugin-replace

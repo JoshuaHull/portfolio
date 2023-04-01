@@ -26,6 +26,7 @@ importers:
       '@types/node': ^18.7.13
       '@types/rollup-plugin-content': workspace:*
       '@types/rollup-plugin-count': workspace:*
+      '@types/use-vanishing-values': workspace:*
       '@vitejs/plugin-vue': ^3.0.3
       '@vue/test-utils': ~2.3.2
       '@vueuse/core': ^9.13.0
@@ -55,6 +56,7 @@ importers:
       '@types/node': 18.15.3
       '@types/rollup-plugin-content': link:../../types/rollup-plugin-content
       '@types/rollup-plugin-count': link:../../types/rollup-plugin-count
+      '@types/use-vanishing-values': link:../../types/use-vanishing-values
       '@vitejs/plugin-vue': 3.2.0_vite@3.2.5+vue@3.2.47
       '@vue/test-utils': 2.3.2_vue@3.2.47
       hero-icon-resolver: link:../../libs/hero-icon-resolver
@@ -70,6 +72,7 @@ importers:
 
   ../../composables/use-vanishing-value:
     specifiers:
+      '@types/use-vanishing-values': workspace:*
       typescript: ^4.9.3
       use-vanishing-values: workspace:*
       vue: ^3.2.37
@@ -77,16 +80,14 @@ importers:
       use-vanishing-values: link:../use-vanishing-values
       vue: 3.2.47
     devDependencies:
+      '@types/use-vanishing-values': link:../../types/use-vanishing-values
       typescript: 4.9.5
 
   ../../composables/use-vanishing-values:
     specifiers:
-      typescript: ^4.9.3
       vue: ^3.2.37
     dependencies:
       vue: 3.2.47
-    devDependencies:
-      typescript: 4.9.5
 
   ../../libs/hero-icon-resolver:
     specifiers:
@@ -135,11 +136,17 @@ importers:
 
   ../../types/rollup-plugin-html-minify:
     specifiers:
+      rollup: '>=2.75.6 <2.77.0 || ~2.77.0'
       typescript: ^4.9.3
-      unplugin-vue-components: ^0.22.4
     devDependencies:
+      rollup: 2.77.0
       typescript: 4.9.5
-      unplugin-vue-components: 0.22.12
+
+  ../../types/use-vanishing-values:
+    specifiers:
+      vue: ^3.2.37
+    devDependencies:
+      vue: 3.2.47
 
   ../../types/vite-plugin-replace:
     specifiers:
@@ -568,7 +575,6 @@ packages:
     dependencies:
       '@vue/reactivity': 3.2.47
       '@vue/shared': 3.2.47
-    dev: false
 
   /@vue/runtime-dom/3.2.47:
     resolution: {integrity: sha512-ArXrFTjS6TsDei4qwNvgrdmHtD930KgSKGhS5M+j8QxXrDJYLqYw4RRcDy1bz1m1wMmb6j+zGLifdVHtkXA7gA==}
@@ -576,7 +582,6 @@ packages:
       '@vue/runtime-core': 3.2.47
       '@vue/shared': 3.2.47
       csstype: 2.6.21
-    dev: false
 
   /@vue/server-renderer/3.2.47_vue@3.2.47:
     resolution: {integrity: sha512-dN9gc1i8EvmP9RCzvneONXsKfBRgqFeFZLurmHOveL7oH6HiFXJw5OGu294n1nHc/HMgTy6LulU/tv5/A7f/LA==}
@@ -796,7 +801,6 @@ packages:
 
   /csstype/2.6.21:
     resolution: {integrity: sha512-Z1PhmomIfypOpoMjRQB70jfvy/wxT50qW08YXO5lMIJkrdq4yOTR+AW7FqutScmB9NkLwxo+jU+kZLbofZZq/w==}
-    dev: false
 
   /data-urls/4.0.0:
     resolution: {integrity: sha512-/mMTei/JXPqvFqQtfyTowxmJVwr2PVAeCcDxyFf6LhoOu/09TX2OX3kb2wzi4DMXcfj4OItwDOnhl5oziPnT6g==}
@@ -2212,7 +2216,6 @@ packages:
       '@vue/runtime-dom': 3.2.47
       '@vue/server-renderer': 3.2.47_vue@3.2.47
       '@vue/shared': 3.2.47
-    dev: false
 
   /w3c-xmlserializer/4.0.0:
     resolution: {integrity: sha512-d+BFHzbiCx6zGfz0HyQ6Rg69w9k19nviJspaj4yNscGjrHu94sVP+aRm75yEbCh+r2/yR+7q6hux9LVtbuTGBw==}

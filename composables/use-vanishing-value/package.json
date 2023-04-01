@@ -12,6 +12,7 @@
     "use-vanishing-values": "workspace:*"
   },
   "devDependencies": {
+    "@types/use-vanishing-values": "workspace:*",
     "typescript": "^4.9.3"
   }
 }

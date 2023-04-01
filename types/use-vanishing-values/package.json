@@ -1,13 +1,12 @@
 {
-  "name": "use-vanishing-values",
+  "name": "@types/use-vanishing-values",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "exports": "./index.js",
   "scripts": {
-    "build": ""
+    "build": "tsc --outdir ./dist"
   },
-  "dependencies": {
+  "devDependencies": {
     "vue": "^3.2.37"
   }
 }

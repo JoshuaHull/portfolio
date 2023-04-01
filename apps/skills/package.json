@@ -22,6 +22,7 @@
     "@types/node": "^18.7.13",
     "@types/rollup-plugin-content": "workspace:*",
     "@types/rollup-plugin-count": "workspace:*",
+    "@types/use-vanishing-values": "workspace:*",
     "@vitejs/plugin-vue": "^3.0.3",
     "hero-icon-resolver": "workspace:*",
     "rollup-plugin-content": "workspace:*",
