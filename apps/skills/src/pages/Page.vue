@@ -44,12 +44,12 @@ const isLargeScreen = useMediaQuery("(min-width: 1024px)");
 
 const pageNav = computed(() => {
   const allPagesInOrder = [
-    SkillsTestsPageName,
     SkillsRestPageName,
+    SkillsTestsPageName,
     SkillsMessagingPageName,
-    SkillsGitPageName,
-    SkillsDDDPageName,
     SkillsDotnetPageName,
+    SkillsDDDPageName,
+    SkillsGitPageName,
     SkillsFrontendPageName,
   ];
 

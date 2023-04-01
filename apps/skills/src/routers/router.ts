@@ -22,11 +22,11 @@ export const SkillsMessagingPageName = "SkillsMessagingPage";
 export const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    redirect: "/skills/tests",
+    redirect: "/skills",
   },
   {
     path: "/skills",
-    redirect: "/skills/tests",
+    redirect: "/skills/rest",
   },
   {
     path: "/skills/ddd",
