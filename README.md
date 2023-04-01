@@ -18,9 +18,9 @@ Add a package to an existing app:
 
 ## Apps
 
-[Homepage](./apps/homepage) - single file site from which all apps are linked.
+[Homepage](./apps/homepage) - single file site from which all apps are linked
 
-[Skills](./apps/skills) - Vue app with interactive demos of some of my skills.
+[Skills](./apps/skills) - Vue app with interactive demos of some of my skills
 
 ## Packages
 
@@ -28,30 +28,32 @@ Add a package to an existing app:
 
 [hero-icon-resolver](./libs/hero-icon-resolver) - automatically resolves [Hero Icon](https://heroicons.com/) components in Vue apps
 
-[@types/hero-icon-resolver](./types/hero-icon-resolver) - Typescript definitions for hero-icon-resolver
-
 ### Rollup plugins
 
 [rollup-plugin-content](./libs/rollup-plugin-content) - import a file's content into a Javascript variable
 
-[@types/rollup-plugin-content](./types/rollup-plugin-content) - Typescript definitions for rollup-plugin-content
-
 [rollup-plugin-count](./libs/rollup-plugin-count) - import a Javascript variable equal to the number of files in the build which have a given file extension
 
-[@types/rollup-plugin-count](./types/rollup-plugin-count) - Typescript definitions for rollup-plugin-count
-
 [rollup-plugin-html-minify](./libs/rollup-plugin-html-minify) - very simply HTML minifier
-
-[@types/rollup-plugin-html-minify](./types/rollup-plugin-html-minify) - Typescript definitions for rollup-plugin-html-minify
 
 ### Vite plugins
 
 [vite-plugin-replace](./libs/vite-plugin-replace) - replace a string at build time with another string
-
-[@types/vite-plugin-replace](./types/vite-plugin-replace) - Typescript definitions for vite-plugin-replace
 
 ### Vue composables
 
 [use-vanishing-value](./composables/use-vanishing-value) - Vue composable which yields a `Ref<T | null>` object and a function to push new ephemeral values to that object
 
 [use-vanishing-values](./composables/use-vanishing-values) - extends use-vanishing-value to support tracking multiple values at once
+
+### Typescript definitions
+
+[@types/hero-icon-resolver](./types/hero-icon-resolver) - Typescript definitions for hero-icon-resolver
+
+[@types/rollup-plugin-content](./types/rollup-plugin-content) - Typescript definitions for rollup-plugin-content
+
+[@types/rollup-plugin-count](./types/rollup-plugin-count) - Typescript definitions for rollup-plugin-count
+
+[@types/rollup-plugin-html-minify](./types/rollup-plugin-html-minify) - Typescript definitions for rollup-plugin-html-minify
+
+[@types/vite-plugin-replace](./types/vite-plugin-replace) - Typescript definitions for vite-plugin-replace
