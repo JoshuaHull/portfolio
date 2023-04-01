@@ -105,7 +105,10 @@ importers:
       path-scurry: 1.6.1
 
   ../../libs/rollup-plugin-html-minify:
-    specifiers: {}
+    specifiers:
+      vitest: ^0.28.5
+    devDependencies:
+      vitest: 0.28.5
 
   ../../libs/vite-plugin-replace:
     specifiers:
