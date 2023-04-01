@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@types/rollup-plugin-html-minify": "workspace:*",
+    "@types/vite-plugin-replace": "workspace:*",
     "rollup-plugin-html-minify": "workspace:*",
     "vite-plugin-replace": "workspace:*",
     "vite": "^4.2.0"

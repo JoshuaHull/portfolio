@@ -1,9 +1,9 @@
 const name = "vite-plugin-replace";
 
-export function vitePluginReplace(opts = { replace: null, with: null }) {
+export function vitePluginReplace(opts) {
   return {
     name,
-    transformIndexHtml(code: string) {
+    transformIndexHtml(code) {
       if (!opts.replace || !opts.with)
         return null;
 
