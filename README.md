@@ -6,11 +6,11 @@ Somewhat interactive portfolio which shows off skills I've accumulated over the 
 
 This is a [Rush](https://rushjs.io/) monorepo.
 
-Run the skills app:  
-`rush dev --to skills`
-
 Run the homepage:  
 `rush dev --to homepage`
+
+Run the skills app:  
+`rush dev --to skills`
 
 Add a package to an existing app:  
 `cd ./apps/{app}`  
@@ -34,7 +34,7 @@ Add a package to an existing app:
 
 [rollup-plugin-count](./libs/rollup-plugin-count) - import a Javascript variable equal to the number of files in the build which have a given file extension
 
-[rollup-plugin-html-minify](./libs/rollup-plugin-html-minify) - very simply HTML minifier
+[rollup-plugin-html-minify](./libs/rollup-plugin-html-minify) - very simple HTML minifier
 
 ### Vite plugins
 
