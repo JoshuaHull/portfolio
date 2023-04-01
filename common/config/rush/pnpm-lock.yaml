@@ -19,7 +19,7 @@ importers:
       vite: 4.2.0
       vite-plugin-replace: link:../../libs/vite-plugin-replace
 
-  ../../apps/portfolio:
+  ../../apps/skills:
     specifiers:
       '@heroicons/vue': ^2.0.8
       '@types/hero-icon-resolver': workspace:*

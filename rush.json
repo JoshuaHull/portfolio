@@ -22,8 +22,8 @@
       "projectFolder": "apps/homepage"
     },
     {
-      "packageName": "portfolio",
-      "projectFolder": "apps/portfolio"
+      "packageName": "skills",
+      "projectFolder": "apps/skills"
     },
     {
       "packageName": "rollup-plugin-content",
