@@ -20,6 +20,7 @@
   "devDependencies": {
     "@types/hero-icon-resolver": "workspace:*",
     "@types/node": "^18.7.13",
+    "@types/rollup-plugin-content": "workspace:*",
     "@vitejs/plugin-vue": "^3.0.3",
     "hero-icon-resolver": "workspace:*",
     "rollup-plugin-content": "workspace:*",

@@ -22,6 +22,7 @@ importers:
       '@heroicons/vue': ^2.0.8
       '@types/hero-icon-resolver': workspace:*
       '@types/node': ^18.7.13
+      '@types/rollup-plugin-content': workspace:*
       '@vitejs/plugin-vue': ^3.0.3
       '@vue/test-utils': ~2.3.2
       '@vueuse/core': ^9.13.0
@@ -49,6 +50,7 @@ importers:
     devDependencies:
       '@types/hero-icon-resolver': link:../../types/hero-icon-resolver
       '@types/node': 18.15.3
+      '@types/rollup-plugin-content': link:../../types/rollup-plugin-content
       '@vitejs/plugin-vue': 3.2.0_vite@3.2.5+vue@3.2.47
       '@vue/test-utils': 2.3.2_vue@3.2.47
       hero-icon-resolver: link:../../libs/hero-icon-resolver
@@ -89,12 +91,7 @@ importers:
       vitest: 0.28.5
 
   ../../libs/rollup-plugin-content:
-    specifiers:
-      '@types/node': ^18.7.13
-      typescript: ^4.9.3
-    devDependencies:
-      '@types/node': 18.15.3
-      typescript: 4.9.5
+    specifiers: {}
 
   ../../libs/rollup-plugin-count:
     specifiers:
@@ -124,6 +121,14 @@ importers:
     devDependencies:
       typescript: 4.9.5
       unplugin-vue-components: 0.22.12
+
+  ../../types/rollup-plugin-content:
+    specifiers:
+      rollup: '>=2.75.6 <2.77.0 || ~2.77.0'
+      typescript: ^4.9.3
+    devDependencies:
+      rollup: 2.77.0
+      typescript: 4.9.5
 
   ../../types/rollup-plugin-html-minify:
     specifiers:
@@ -1613,6 +1618,14 @@ packages:
   /reusify/1.0.4:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
+    dev: true
+
+  /rollup/2.77.0:
+    resolution: {integrity: sha512-vL8xjY4yOQEw79DvyXLijhnhh+R/O9zpF/LEgkCebZFtb6ELeN9H3/2T0r8+mp+fFTBHZ5qGpOpW2ela2zRt3g==}
+    engines: {node: '>=10.0.0'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
     dev: true
 
   /rollup/2.79.1:

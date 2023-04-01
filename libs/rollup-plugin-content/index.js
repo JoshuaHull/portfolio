@@ -6,7 +6,7 @@ const prefix = "content:";
 export function rollupPluginContent() {
   return {
     name,
-    resolveId(source: string) {
+    resolveId(source) {
       if (!source.startsWith(prefix))
         return null;
 
@@ -15,7 +15,7 @@ export function rollupPluginContent() {
         resolvedBy: name,
       };
     },
-    load(id: string) {
+    load(id) {
       if (!id.startsWith(prefix))
         return null;
 

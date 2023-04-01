@@ -30,6 +30,10 @@
       "projectFolder": "libs/rollup-plugin-content"
     },
     {
+      "packageName": "@types/rollup-plugin-content",
+      "projectFolder": "types/rollup-plugin-content"
+    },
+    {
       "packageName": "rollup-plugin-count",
       "projectFolder": "libs/rollup-plugin-count"
     },
