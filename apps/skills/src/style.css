@@ -17,6 +17,7 @@
   --color-red: #800028;
   --color-red-light: #E32227;
   --color-gray: #808080;
+  --color-space-gray: #232830;
   --color-green: #338600;
   --color-mustard: #99AA00AA;
   --color-teal: #00AA99AA;
@@ -51,7 +52,7 @@
     --color-outline: var(--color-white);
     --color-border: var(--color-white);
     --color-card-text: var(--color-white);
-    --color-card-bg: var(--color-black);
+    --color-card-bg: var(--color-space-gray);
   }
 }
 
