@@ -1,4 +1,5 @@
 <template>
+<TopNavbar />
 <router-view></router-view>
 </template>
 
