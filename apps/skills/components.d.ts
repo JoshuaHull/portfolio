@@ -24,6 +24,7 @@ declare module '@vue/runtime-core' {
     AwsApiGatewayIcon: typeof import('./src/components/icons/AwsApiGatewayIcon.vue')['default']
     AwsDynamoDbIcon: typeof import('./src/components/icons/AwsDynamoDbIcon.vue')['default']
     AwsLambdaIcon: typeof import('./src/components/icons/AwsLambdaIcon.vue')['default']
+    BottomNavbar: typeof import('./src/components/navbars/BottomNavbar.vue')['default']
     CodeBlockForGivenLanguage: typeof import('./src/components/code-blocks/CodeBlockForGivenLanguage.vue')['default']
     CommitGraph: typeof import('./src/components/source-controlling/CommitGraph.vue')['default']
     CommitViewer: typeof import('./src/components/source-controlling/CommitViewer.vue')['default']

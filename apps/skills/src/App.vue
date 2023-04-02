@@ -1,6 +1,7 @@
 <template>
 <TopNavbar />
 <router-view></router-view>
+<BottomNavbar />
 </template>
 
 <style>

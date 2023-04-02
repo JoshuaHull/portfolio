@@ -16,6 +16,9 @@
 
 <style>
 .top-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
   height: var(--top-navbar-height);
   background-color: var(--color-bg);
   padding: 1rem;

@@ -11,13 +11,13 @@
   -webkit-text-size-adjust: 100%;
 
   --color-blue-gray: #333652;
-  --color-blue-gray-dark: #292b44;
+  --color-blue-gray-dark: #292B44;
   --color-white: #E9EAECDD;
-  --color-white-dark: #c7c7c7dd;
+  --color-white-dark: #C7C7C7DD;
   --color-red: #800028;
   --color-red-light: #E32227;
   --color-gray: #808080;
-  --color-space-gray: #232830;
+  --color-space-gray: #232830DD;
   --color-green: #338600;
   --color-mustard: #99AA00AA;
   --color-teal: #00AA99AA;
@@ -135,5 +135,9 @@ main {
 }
 
 #app {
+  --top-navbar-height: 4rem;
+  --bottom-navbar-height: 6rem;
+  overflow: hidden;
+  display: grid;
   height: 100%;
 }
