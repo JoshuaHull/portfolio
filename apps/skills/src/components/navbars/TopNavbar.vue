@@ -11,19 +11,38 @@
       <LogoIcon />
     </IconContainer>
   </a>
+  <IconButton
+    height="2rem"
+    width="2rem"
+    @click="toggleDrawer"
+  >
+    <Bars3SolidIcon />
+  </IconButton>
+  <Drawer
+    :isOpen="isDrawerOpen"
+    @closeDrawer="closeDrawer"
+  />
 </nav>
 </template>
 
+<script setup lang="ts">
+const isDrawerOpen = ref(false);
+
+const toggleDrawer = () => isDrawerOpen.value = !isDrawerOpen.value;
+const closeDrawer = () => isDrawerOpen.value = false;
+</script>
+
 <style>
 .top-navbar {
-  position: fixed;
+  --top-navbar-padding: 1rem;
+  position: absolute;
   top: 0;
   width: 100%;
   height: var(--top-navbar-height);
   background-color: var(--color-bg);
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: min-content auto;
+  padding: var(--top-navbar-padding);
+  display: flex;
+  justify-content: space-between;
   box-shadow: var(--color-white-dark) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 

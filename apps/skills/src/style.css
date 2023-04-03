@@ -10,7 +10,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --color-blue-gray: #333652;
+  --color-blue-gray: #333652DD;
   --color-blue-gray-dark: #292B44;
   --color-white: #E9EAECDD;
   --color-white-dark: #C7C7C7DD;
@@ -140,4 +140,6 @@ main {
   overflow: hidden;
   display: grid;
   height: 100%;
+  z-index: 0;
+  position: relative;
 }
