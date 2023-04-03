@@ -11,6 +11,14 @@ import SkillsDotnetPage from "../pages/skills-dotnet-page/SkillsDotnetPage.vue";
 import SkillsFrontendPage from "../pages/skills-frontend-page/SkillsFrontendPage.vue";
 import SkillsMessagingPage from "../pages/skills-messaging-page/SkillsMessagingPage.vue";
 
+import SkillsDDDDrawerContent from "../pages/skills-ddd-page/SkillsDDDDrawerContent.vue";
+import SkillsGitDrawerContent from "../pages/skills-git-page/SkillsGitDrawerContent.vue";
+import SkillsRestDrawerContent from "../pages/skills-rest-page/SkillsRestDrawerContent.vue";
+import SkillsTestsDrawerContent from "../pages/skills-tests-page/SkillsTestsDrawerContent.vue";
+import SkillsDotnetDrawerContent from "../pages/skills-dotnet-page/SkillsDotnetDrawerContent.vue";
+import SkillsFrontendDrawerContent from "../pages/skills-frontend-page/SkillsFrontendDrawerContent.vue";
+import SkillsMessagingDrawerContent from "../pages/skills-messaging-page/SkillsMessagingDrawerContent.vue";
+
 export const SkillsDDDPageName = "SkillsDDDPage";
 export const SkillsGitPageName = "SkillsGitPage";
 export const SkillsRestPageName = "SkillsRestPage";
@@ -31,37 +39,58 @@ export const routes: RouteRecordRaw[] = [
   {
     path: "/skills/ddd",
     name: SkillsDDDPageName,
-    component: SkillsDDDPage,
+    components: {
+      default: SkillsDDDPage,
+      drawer: SkillsDDDDrawerContent,
+    },
   },
   {
     path: "/skills/source-control",
     name: SkillsGitPageName,
-    component: SkillsGitPage,
+    components: {
+      default: SkillsGitPage,
+      drawer: SkillsGitDrawerContent,
+    },
   },
   {
     path: "/skills/rest",
     name: SkillsRestPageName,
-    component: SkillsRestPage,
+    components: {
+      default: SkillsRestPage,
+      drawer: SkillsRestDrawerContent,
+    },
   },
   {
     path: "/skills/tests",
     name: SkillsTestsPageName,
-    component: SkillsTestsPage,
+    components: {
+      default: SkillsTestsPage,
+      drawer: SkillsTestsDrawerContent,
+    },
   },
   {
     path: "/skills/dotnet",
     name: SkillsDotnetPageName,
-    component: SkillsDotnetPage,
+    components: {
+      default: SkillsDotnetPage,
+      drawer: SkillsDotnetDrawerContent,
+    },
   },
   {
     path: "/skills/frontend",
     name: SkillsFrontendPageName,
-    component: SkillsFrontendPage,
+    components: {
+      default: SkillsFrontendPage,
+      drawer: SkillsFrontendDrawerContent,
+    },
   },
   {
     path: "/skills/messaging",
     name: SkillsMessagingPageName,
-    component: SkillsMessagingPage,
+    components: {
+      default: SkillsMessagingPage,
+      drawer: SkillsMessagingDrawerContent,
+    },
   },
 ];
 

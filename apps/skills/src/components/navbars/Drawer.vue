@@ -1,13 +1,16 @@
 <template>
 <Transition name="drawer-slide">
   <div v-if="isOpen" class="drawer">
-    <IconButton
-      height="2rem"
-      width="2rem"
-      @click="closeDrawer"
-    >
-      <Bars3SolidIcon />
-    </IconButton>
+    <div class="drawer-controls">
+      <IconButton
+        height="2rem"
+        width="2rem"
+        @click="closeDrawer"
+      >
+        <Bars3SolidIcon />
+      </IconButton>
+    </div>
+    <router-view name="drawer"></router-view>
   </div>
 </Transition>
 </template>
@@ -27,9 +30,6 @@ const closeDrawer = () => emit("closeDrawer");
 <style>
 .drawer {
   position: absolute;
-  padding: var(--top-navbar-padding);
-  display: grid;
-  justify-items: flex-end;
   z-index: 10;
   top: 0;
   right: 0;
@@ -37,6 +37,12 @@ const closeDrawer = () => emit("closeDrawer");
   height: calc(100vh);
   background-color: var(--color-bg);
   box-shadow: var(--color-white-dark) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.drawer-controls {
+  display: grid;
+  justify-items: flex-end;
+  padding: var(--top-navbar-padding);
 }
 
 @media (prefers-color-scheme: dark) {

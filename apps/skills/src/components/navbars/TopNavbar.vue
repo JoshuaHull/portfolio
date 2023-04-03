@@ -12,6 +12,7 @@
     </IconContainer>
   </a>
   <IconButton
+    v-if="!isDrawerOpen"
     height="2rem"
     width="2rem"
     @click="toggleDrawer"
