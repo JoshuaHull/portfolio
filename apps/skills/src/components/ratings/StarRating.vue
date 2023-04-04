@@ -6,13 +6,15 @@
       v-for="_ in stars"
       height="2rem"
       width="2rem"
+      data-test="solid-star"
     >
-      <StarSolidIcon />
+      <StarSolidIcon/>
     </IconContainer>
     <IconContainer
       v-for="_ in empties"
       height="2rem"
       width="2rem"
+      data-test="outline-star"
     >
       <StarOutlineIcon />
     </IconContainer>
