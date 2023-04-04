@@ -14,5 +14,6 @@
   padding: 1rem;
   display: grid;
   row-gap: 2rem;
+  justify-items: center;
 }
 </style>
