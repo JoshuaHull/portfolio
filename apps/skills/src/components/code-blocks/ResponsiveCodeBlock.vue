@@ -1,24 +1,18 @@
 <template>
 <div class="responsive-code-block">
-  <template v-for="content in contents">
-    <template v-if="content.size === 'large' && isLargeScreen">
-      <CodeBlockForGivenLanguage
-        :content="content.content"
-        :language="language"
-      />
-    </template>
-    <template v-else-if="content.size === 'medium' && isMediumScreen">
-      <CodeBlockForGivenLanguage
-        :content="content.content"
-        :language="language"
-      />
-    </template>
-    <template v-else-if="content.size === 'small' && isSmallScreen">
-      <CodeBlockForGivenLanguage
-        :content="content.content"
-        :language="language"
-      />
-    </template>
+  <template v-if="flipFlop">
+    <CodeBlockForGivenLanguage
+      v-if="selectedContent"
+      :content="selectedContent"
+      :language="language"
+    />
+  </template>
+  <template v-else>
+    <CodeBlockForGivenLanguage
+      v-if="selectedContent"
+      :content="selectedContent"
+      :language="language"
+    />
   </template>
 </div>
 </template>
@@ -32,9 +26,44 @@ interface ResponsiveCodeBlockProps {
   contents: ResponsiveCodeBlockContent[];
 }
 
-defineProps<ResponsiveCodeBlockProps>();
+const props = defineProps<ResponsiveCodeBlockProps>();
+const { contents, language } = toRefs(props);
+
+// TODO: remove flipFlop
+// Explanation: the CodeBlockForCSharp, Typescript, etc components
+// are not reactive. So when we update their content, they don't
+// re-render. The flipFlop variable allows us to force a re-render.
+const flipFlop = ref(true);
 
 const isLargeScreen = useMediaQuery("(min-width: 1024px)");
 const isMediumScreen = useMediaQuery("(min-width: 768px)");
-const isSmallScreen = computed(() => !isMediumScreen.value);
+const isSmallScreen = useMediaQuery("(min-width: 640px)");
+const isTinyScreen = computed(() => !isSmallScreen.value);
+
+const selectedContent = computed(() => {
+  const largeContent = contents.value.find(c => c.size === "large");
+  const mediumContent = contents.value.find(c => c.size === "medium");
+  const smallContent = contents.value.find(c => c.size === "small");
+  const tinyContent = contents.value.find(c => c.size === "tiny");
+
+  if (isLargeScreen.value && !!largeContent) {
+    flipFlop.value = !flipFlop.value;
+    return largeContent.content;
+  }
+
+  if (isMediumScreen.value && !!mediumContent) {
+    flipFlop.value = !flipFlop.value;
+    return mediumContent.content;
+  }
+
+  if (isSmallScreen.value && !!smallContent) {
+    flipFlop.value = !flipFlop.value;
+    return smallContent.content;
+  }
+
+  if (isTinyScreen.value && !!tinyContent) {
+    flipFlop.value = !flipFlop.value;
+    return tinyContent.content;
+  }
+});
 </script>

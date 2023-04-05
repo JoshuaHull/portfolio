@@ -1,4 +1,4 @@
 export type ResponsiveCodeBlockContent = {
   content: string;
-  size: "small" | "medium" | "large";
+  size: "tiny" | "small" | "medium" | "large";
 };

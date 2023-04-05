@@ -1,11 +1,11 @@
 <template>
 <article class="skills-dotnet">
   <div class="skills-dotnet-code">
-    <CodeBlockForCSharp
+    <ResponsiveCodeBlock
       class="skills-dotnet-variables"
-      :content="`var minDateCreated = new DateTime(2020, 02, 02);
-var maxDateUpdated = new DateTime(2021, 05, 05);`
-    " />
+      :contents="variablesContents"
+      language="csharp"
+    />
     <QueryBuilder
       class="skills-dotnet-query-builder"
       queryable="_dbContext.Users"
@@ -15,7 +15,7 @@ var maxDateUpdated = new DateTime(2021, 05, 05);`
   </div>
   <DataTable
     class="skills-dotnet-table"
-    :data="fitleredData"
+    :data="responsiveData"
     :rowCount="5"
     :columnCount="5"
   />
@@ -23,8 +23,9 @@ var maxDateUpdated = new DateTime(2021, 05, 05);`
 </template>
 
 <script setup lang="ts">
-import { CodeBlockForCSharp, ResponsiveCodeBlockContent } from "@code-blocks";
+import { ResponsiveCodeBlockContent } from "@code-blocks";
 import { QueryFilter } from "@query-building";
+import {useMediaQuery} from "@vueuse/core";
 
 const data = [
   {
@@ -65,6 +66,48 @@ const data = [
 ];
 
 const fitleredData = ref(data);
+const isSmallScreen = useMediaQuery("(min-width: 640px)");
+
+const responsiveData = computed(() => {
+  if (isSmallScreen.value)
+    return fitleredData.value;
+
+  const smallerData = [];
+
+  for (let datum of fitleredData.value) {
+    const smallerDatum = {
+      ...datum,
+    };
+
+    // @ts-ignore
+    delete smallerDatum["Id"];
+    // @ts-ignore
+    delete smallerDatum["Name"];
+
+    smallerData.push(smallerDatum);
+  }
+
+  return smallerData;
+});
+
+const variablesContents: ResponsiveCodeBlockContent[] = [
+  {
+    content:
+`var minDateCreated =
+  new DateTime(2020, 02, 02);
+
+var maxDateUpdated =
+  new DateTime(2021, 05, 05);`,
+    size: "tiny",
+  },
+  {
+    content:
+`var minDateCreated = new DateTime(2020, 02, 02);
+
+var maxDateUpdated = new DateTime(2021, 05, 05);`,
+    size: "small",
+  },
+];
 
 const queries: { contents: ResponsiveCodeBlockContent[], filter: QueryFilter }[] = [
   {
@@ -76,6 +119,10 @@ const queries: { contents: ResponsiveCodeBlockContent[], filter: QueryFilter }[]
       {
         content: "  .Where(u => u.Points > 10)",
         size: "small",
+      },
+      {
+        content: "  .Where(u => u.Points > 10)",
+        size: "tiny",
       },
     ],
     filter: (user: { [key: string]: string }) => Number.parseInt(user["Points"]) > 10,
@@ -90,6 +137,12 @@ const queries: { contents: ResponsiveCodeBlockContent[], filter: QueryFilter }[]
         content: "  .Where(u => u.DateCreated > minDateCreated)",
         size: "small",
       },
+      {
+        content:
+`  .Where(u => u.DateCreated
+    > minDateCreated)`,
+        size: "tiny",
+      },
     ],
     filter: (user: { [key: string]: string }) => new Date(user["DateCreated"]) > new Date(2020, 2, 2),
   },
@@ -102,6 +155,12 @@ const queries: { contents: ResponsiveCodeBlockContent[], filter: QueryFilter }[]
       {
         content: "  .Where(u => u.DateUpdated < maxDateUpdated)",
         size: "small",
+      },
+      {
+        content:
+`  .Where(u => u.DateCreated
+    > minDateCreated)`,
+        size: "tiny",
       },
     ],
     filter: (user: { [key: string]: string }) => new Date(user["DateUpdated"]) < new Date(2021, 5, 5),

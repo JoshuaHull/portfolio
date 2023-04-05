@@ -51,9 +51,15 @@ const columnCount = computed(() =>
 <style>
 .data-table {
   display: grid;
-  grid-template-columns: repeat(v-bind(columnCount), auto);
-  --data-table-cell-padding-x: 0.5rem;
+  grid-template-columns: repeat(v-bind(columnCount), min-content);
+  --data-table-cell-padding-x: 0.25rem;
   --data-table-cell-padding-y: 1rem;
+}
+
+@media (min-width: 640px) {
+  .data-table {
+    grid-template-columns: repeat(v-bind(columnCount), auto);
+  }
 }
 
 .column-header {
@@ -81,6 +87,12 @@ const columnCount = computed(() =>
 
 .empty-data-cell {
   height: calc(24px + 2 * var(--data-table-cell-padding-y));
+}
+
+@media (min-width: 640px) {
+  .data-table {
+    --data-table-cell-padding-x: 0.5rem;
+  }
 }
 
 @media (min-width: 768px) {

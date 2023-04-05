@@ -72,8 +72,14 @@ const emitUpdatedQuery = () => {
 .query-builder {
   display: grid;
   grid-template-columns: auto min-content;
-  column-gap: 1rem;
+  column-gap: 0.25rem;
   row-gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .query-builder {
+    column-gap: 1rem;
+  }
 }
 
 .query {
