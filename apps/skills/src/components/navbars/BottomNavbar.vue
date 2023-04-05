@@ -93,6 +93,7 @@ watchEffect(() => {
   grid-auto-flow: column;
   width: 100%;
   position: absolute;
+  z-index: 10;
   bottom: 0;
   background-color: var(--color-bg);
   box-shadow: var(--color-white-dark) 0px -6px 12px -2px, rgba(0, 0, 0, 0.3) 0px -3px 7px -3px;

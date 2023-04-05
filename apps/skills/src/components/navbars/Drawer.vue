@@ -30,14 +30,15 @@ const closeDrawer = () => emit("closeDrawer");
 <style>
 .drawer {
   position: absolute;
-  z-index: 10;
+  z-index: 5;
   top: 0;
   right: 0;
   width: 24rem;
   max-width: 100%;
   height: calc(100vh);
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-solid);
   box-shadow: var(--color-white-dark) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  padding-bottom: var(--bottom-navbar-height);
 }
 
 .drawer-controls {
