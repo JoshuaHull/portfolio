@@ -158,8 +158,8 @@ const queries: { contents: ResponsiveCodeBlockContent[], filter: QueryFilter }[]
       },
       {
         content:
-`  .Where(u => u.DateCreated
-    > minDateCreated)`,
+`  .Where(u => u.DateUpdated
+    < maxDateUpdated)`,
         size: "tiny",
       },
     ],
