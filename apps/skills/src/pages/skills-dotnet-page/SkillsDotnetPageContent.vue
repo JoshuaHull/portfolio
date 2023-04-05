@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import { ResponsiveCodeBlockContent } from "@code-blocks";
 import { QueryFilter } from "@query-building";
-import {useMediaQuery} from "@vueuse/core";
+import { useMediaQuery } from "@vueuse/core";
 
 const data = [
   {

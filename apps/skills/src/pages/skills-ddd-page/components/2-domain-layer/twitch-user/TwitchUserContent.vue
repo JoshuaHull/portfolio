@@ -10,7 +10,7 @@ import { ResponsiveCodeBlockContent } from "@code-blocks";
 
 const contents: ResponsiveCodeBlockContent[] = [
   {
-    size: 'small',
+    size: "tiny",
     content:
 `public class TwitchUser {
   public string Name => _user.Name;
@@ -27,7 +27,7 @@ const contents: ResponsiveCodeBlockContent[] = [
 }`
   },
   {
-    size: 'medium',
+    size: "medium",
     content:
 `public class TwitchUser {
   public string Name => _user.Name;

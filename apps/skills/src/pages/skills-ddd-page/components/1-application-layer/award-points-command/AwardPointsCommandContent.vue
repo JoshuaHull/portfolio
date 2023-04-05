@@ -10,7 +10,7 @@ import { ResponsiveCodeBlockContent } from "@code-blocks";
 
 const contents: ResponsiveCodeBlockContent[] = [
   {
-    size: 'small',
+    size: "tiny",
     content:
 `public async Task<int> Handle(
   AwardPointsCommand command
@@ -26,7 +26,7 @@ const contents: ResponsiveCodeBlockContent[] = [
 }`
   },
   {
-    size: 'medium',
+    size: "medium",
     content:
 `public async Task<int> Handle(AwardPointsCommand command) {
   var twitchUser = await _repo.GetById(command.TwitchUserId);

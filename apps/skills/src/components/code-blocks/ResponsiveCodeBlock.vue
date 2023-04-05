@@ -41,29 +41,21 @@ const isSmallScreen = useMediaQuery("(min-width: 640px)");
 const isTinyScreen = computed(() => !isSmallScreen.value);
 
 const selectedContent = computed(() => {
-  const largeContent = contents.value.find(c => c.size === "large");
-  const mediumContent = contents.value.find(c => c.size === "medium");
-  const smallContent = contents.value.find(c => c.size === "small");
-  const tinyContent = contents.value.find(c => c.size === "tiny");
+  const screens = [isLargeScreen.value, isMediumScreen.value, isSmallScreen.value, isTinyScreen.value];
+  const sizes = ["large", "medium", "small", "tiny"];
 
-  if (isLargeScreen.value && !!largeContent) {
-    flipFlop.value = !flipFlop.value;
-    return largeContent.content;
-  }
+  for (let i = 0; i < screens.length; i += 1) {
+    if (!screens[i])
+      continue;
 
-  if (isMediumScreen.value && !!mediumContent) {
-    flipFlop.value = !flipFlop.value;
-    return mediumContent.content;
-  }
+    for (let j = i; j < sizes.length; j += 1) {
+      const content = contents.value.find(c => c.size === sizes[j]);
 
-  if (isSmallScreen.value && !!smallContent) {
-    flipFlop.value = !flipFlop.value;
-    return smallContent.content;
-  }
-
-  if (isTinyScreen.value && !!tinyContent) {
-    flipFlop.value = !flipFlop.value;
-    return tinyContent.content;
+      if (!!content) {
+        flipFlop.value = !flipFlop.value;
+        return content.content;
+      }
+    }
   }
 });
 </script>
