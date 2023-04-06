@@ -1,7 +1,5 @@
 <template>
-<section
-  class="test-example"
->
+<section class="test-example">
   <span class="description">
     <slot name="testName"></slot>
   </span>
