@@ -10,13 +10,6 @@
       <span class="frontend-skill-react">React</span>
     </p>
     <p class="vue-file-count">
-      <IconContainer
-        class="vue-file-count-arrow"
-        height="2rem"
-        width="2rem"
-      >
-        <ArrowLongUpSolidIcon />
-      </IconContainer>
       This site is made up of {{ vueFileCount }} Vue components :)
     </p>
   </VCard>
@@ -39,7 +32,7 @@ import vueFileCount from "count:vue";
 .skills-frontend-card {
   display: grid;
   grid-template-rows: auto auto;
-  row-gap: 4rem;
+  row-gap: 2rem;
   justify-items: center;
 }
 
@@ -47,6 +40,8 @@ import vueFileCount from "count:vue";
   display: flex;
   flex-direction: row;
   column-gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 [class^="frontend-skill-"]:not(:last-of-type)::after {
@@ -55,6 +50,7 @@ import vueFileCount from "count:vue";
   position: relative;
   left: 0.5rem;
   top: -0.05rem;
+  display: inline-block;
 }
 
 .frontend-skill-html {
@@ -71,6 +67,8 @@ import vueFileCount from "count:vue";
 
 .frontend-skill-vue {
   color: #41B883;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
 }
 
 .frontend-skill-angular {
@@ -83,10 +81,5 @@ import vueFileCount from "count:vue";
 
 .vue-file-count {
   color: #41B883;
-}
-
-.vue-file-count-arrow {
-  position: absolute;
-  transform: scale(1, 2) translate(570%, -70%);
 }
 </style>
