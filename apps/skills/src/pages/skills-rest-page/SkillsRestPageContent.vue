@@ -158,7 +158,7 @@ function handleBlobClick(blob: Blob) {
   selectedBlobHex.value = blob.hex;
 }
 
-const max = isShortScreen.value ? 20 : 10;
+const max = isVeryNarrowScreen.value ? 10 : 20;
 
 for (let i = 0; i < max; i += 1) {
   const blob = randomBlob();
