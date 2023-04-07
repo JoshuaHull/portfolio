@@ -15,6 +15,10 @@ export type Token<TKind> = {
   ;
 };
 
+export interface IContextManager<TKind> {
+  apply(token: Token<TKind>): TKind | null;
+}
+
 export abstract class Lexer<TKind> {
   private cursor: number = 0;
 
@@ -27,9 +31,19 @@ export abstract class Lexer<TKind> {
     private keywords: string[],
     private literals: Token<TKind>[],
     private stringLiterals: Token<TKind>[],
+    private contextManagers: IContextManager<TKind>[],
   ) {}
 
-  protected abstract mutateContext(token: Token<TKind>): TKind | null;
+  protected mutateContext(token: Token<TKind>): TKind | null {
+    for (let manager of this.contextManagers) {
+      const rtn = manager.apply(token);
+
+      if (!!rtn)
+        return rtn;
+    }
+
+    return null;
+  }
 
   public next(): Token<TKind> {
     if (this.cursor >= this.content.length)

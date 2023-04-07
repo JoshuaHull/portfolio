@@ -1,4 +1,4 @@
-import { Lexer, Token } from "./lexer";
+import { IContextManager, Lexer, Token } from "./lexer";
 
 export type CsharpTokenKind =
   | "OPEN_PAREN"
@@ -102,8 +102,6 @@ const csharpContextualKeywords: string[] = [
 ];
 
 export class CsharpLexer extends Lexer<CsharpTokenKind> {
-  private contextManagers: IContextManager[];
-
   constructor(
     content: string
   ) {
@@ -112,33 +110,17 @@ export class CsharpLexer extends Lexer<CsharpTokenKind> {
       csharpKeywords.concat(csharpContextualKeywords),
       literalTokens,
       stringLiteralTokens,
+      [
+        new PropertyContextManager(),
+        new NewValueContextManager(),
+        new AsyncTypeContextManager(),
+        new ReturnTypeContextManager(),
+      ],
     );
-
-    this.contextManagers = [
-      new PropertyContextManager(),
-      new NewValueContextManager(),
-      new AsyncTypeContextManager(),
-      new ReturnTypeContextManager(),
-    ];
-  }
-
-  protected override mutateContext(token: Token<CsharpTokenKind>): CsharpTokenKind | null {
-    for (let manager of this.contextManagers) {
-      const rtn = manager.apply(token);
-
-      if (!!rtn)
-        return rtn;
-    }
-
-    return null;
   }
 }
 
-interface IContextManager {
-  apply(token: Token<CsharpTokenKind>): CsharpTokenKind | null;
-}
-
-class PropertyContextManager implements IContextManager {
+class PropertyContextManager implements IContextManager<CsharpTokenKind> {
   private inContext: boolean = false;
 
   public apply(token: Token<CsharpTokenKind>): CsharpTokenKind | null {
@@ -157,7 +139,7 @@ class PropertyContextManager implements IContextManager {
   }
 }
 
-class NewValueContextManager implements IContextManager {
+class NewValueContextManager implements IContextManager<CsharpTokenKind> {
   private inContext: boolean = false;
 
   public apply(token: Token<CsharpTokenKind>): CsharpTokenKind | null {
@@ -176,7 +158,7 @@ class NewValueContextManager implements IContextManager {
   }
 }
 
-class AsyncTypeContextManager implements IContextManager {
+class AsyncTypeContextManager implements IContextManager<CsharpTokenKind> {
   private inContext: boolean = false;
 
   public apply(token: Token<CsharpTokenKind>): CsharpTokenKind | null {
@@ -195,7 +177,7 @@ class AsyncTypeContextManager implements IContextManager {
   }
 }
 
-class ReturnTypeContextManager implements IContextManager {
+class ReturnTypeContextManager implements IContextManager<CsharpTokenKind> {
   private inContext: boolean = false;
 
   private opensContext(token: Token<CsharpTokenKind>) {

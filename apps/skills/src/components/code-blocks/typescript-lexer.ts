@@ -1,4 +1,4 @@
-import { Lexer, Token } from "./lexer";
+import { IContextManager, Lexer, Token } from "./lexer";
 
 export type TypescriptTokenKind =
   | "OPEN_PAREN"
@@ -92,8 +92,6 @@ const typescriptContextualKeywords: string[] = [
 ];
 
 export class TypescriptLexer extends Lexer<TypescriptTokenKind> {
-  private contextManagers: IContextManager[];
-
   constructor(
     content: string
   ) {
@@ -102,33 +100,17 @@ export class TypescriptLexer extends Lexer<TypescriptTokenKind> {
       typescriptKeywords.concat(typescriptContextualKeywords),
       literalTokens,
       stringLiteralTokens,
+      [
+        new InterpolatedStringContextManager(),
+        new ImportedPropertiesContextManager(),
+        new PropertyContextManager(),
+        new NewValueContextManager(),
+      ],
     );
-
-    this.contextManagers = [
-      new InterpolatedStringContextManager(),
-      new ImportedPropertiesContextManager(),
-      new PropertyContextManager(),
-      new NewValueContextManager(),
-    ];
-  }
-
-  protected override mutateContext(token: Token<TypescriptTokenKind>): TypescriptTokenKind | null {
-    for (let manager of this.contextManagers) {
-      const rtn = manager.apply(token);
-
-      if (!!rtn)
-        return rtn;
-    }
-
-    return null;
   }
 }
 
-interface IContextManager {
-  apply(token: Token<TypescriptTokenKind>): TypescriptTokenKind | null;
-}
-
-class PropertyContextManager implements IContextManager {
+class PropertyContextManager implements IContextManager<TypescriptTokenKind> {
   private inContext: boolean = false;
 
   public apply(token: Token<TypescriptTokenKind>): TypescriptTokenKind | null {
@@ -147,7 +129,7 @@ class PropertyContextManager implements IContextManager {
   }
 }
 
-class NewValueContextManager implements IContextManager {
+class NewValueContextManager implements IContextManager<TypescriptTokenKind> {
   private inContext: boolean = false;
 
   public apply(token: Token<TypescriptTokenKind>): TypescriptTokenKind | null {
@@ -166,7 +148,7 @@ class NewValueContextManager implements IContextManager {
   }
 }
 
-class InterpolatedStringContextManager implements IContextManager {
+class InterpolatedStringContextManager implements IContextManager<TypescriptTokenKind> {
   private inContext: boolean = false;
 
   public apply(token: Token<TypescriptTokenKind>): TypescriptTokenKind | null {
@@ -184,7 +166,7 @@ class InterpolatedStringContextManager implements IContextManager {
   }
 }
 
-class ImportedPropertiesContextManager implements IContextManager {
+class ImportedPropertiesContextManager implements IContextManager<TypescriptTokenKind> {
   private inContext: boolean = false;
   private imports: string[] = [];
 

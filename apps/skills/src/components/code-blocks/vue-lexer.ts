@@ -1,4 +1,4 @@
-import { Lexer, Token } from "./lexer";
+import { IContextManager, Lexer, Token } from "./lexer";
 
 export type VueTokenKind =
   | "OPEN_PAREN"
@@ -95,8 +95,6 @@ const stringLiteralTokens: Token<VueTokenKind>[] = [
 ];
 
 export class VueLexer extends Lexer<VueTokenKind> {
-  private contextManagers: IContextManager[];
-
   constructor(
     content: string
   ) {
@@ -105,31 +103,15 @@ export class VueLexer extends Lexer<VueTokenKind> {
       ["@media"],
       literalTokens,
       stringLiteralTokens,
+      [
+        new HtmlTagContextManager(),
+        new CssPropertyContextManager(),
+      ],
     );
-
-    this.contextManagers = [
-      new HtmlTagContextManager(),
-      new CssPropertyContextManager(),
-    ];
-  }
-
-  protected override mutateContext(token: Token<VueTokenKind>): VueTokenKind | null {
-    for (let manager of this.contextManagers) {
-      const rtn = manager.apply(token);
-
-      if (!!rtn)
-        return rtn;
-    }
-
-    return null;
   }
 }
 
-interface IContextManager {
-  apply(token: Token<VueTokenKind>): VueTokenKind | null;
-}
-
-class HtmlTagContextManager implements IContextManager {
+class HtmlTagContextManager implements IContextManager<VueTokenKind> {
   private openingHtmlTag: boolean = false;
   private closingHtmlTag: boolean = false;
   private inHtmlTag: boolean = false;
@@ -177,7 +159,7 @@ class HtmlTagContextManager implements IContextManager {
   }
 }
 
-class CssPropertyContextManager implements IContextManager {
+class CssPropertyContextManager implements IContextManager<VueTokenKind> {
   private inContext: boolean = false;
 
   private opensContext = (token: Token<VueTokenKind>) =>
