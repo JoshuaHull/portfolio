@@ -15,11 +15,26 @@
   <template #tab2content>
     <LinkedAccountContent />
   </template>
-  <template #tab3title>
+  <template
+    #tab3title
+    v-if="isSmallScreen"
+  >
     Description
+  </template>
+  <template
+    #tab3title
+    v-else
+  >
+    Desc
   </template>
   <template #tab3content>
     <LPDataAccessSidebar />
   </template>
 </MultiTabbedDocument>
 </template>
+
+<script setup lang="ts">
+import { useMediaQuery } from "@vueuse/core";
+
+const isSmallScreen = useMediaQuery("(min-width: 640px)");
+</script>

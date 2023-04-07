@@ -13,6 +13,30 @@ const contents: ResponsiveCodeBlockContent[] = [
     size: "tiny",
     content:
 `public class TwitchUser {
+  public string Name
+    => _user.Name;
+  public int Points
+    => _user.Points;
+  public string TwitchId
+    => _a.ExternalId;
+
+  public User _user;
+  public LinkedAccount _a;
+
+  public Task AddPoints(
+    int points
+  ) {
+    _user.Points += points;
+
+    return Task
+      .CompletedTask;
+  }
+}`
+  },
+  {
+    size: "small",
+    content:
+`public class TwitchUser {
   public string Name => _user.Name;
   public int Points => _user.Points;
   public string TwitchId => _acc.ExternalId;

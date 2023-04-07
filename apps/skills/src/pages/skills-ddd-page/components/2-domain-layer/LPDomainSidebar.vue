@@ -10,7 +10,7 @@
 
 <style>
 .lp-domain-sidebar {
-  max-width: 24rem;
+  max-width: 14rem;
 }
 
 @media (min-width: 768px) {

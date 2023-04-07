@@ -11,6 +11,13 @@
 
 <style>
 .lp-data-access-sidebar {
-  max-width: 22rem;
+  max-width: 14rem;
 }
+
+@media (min-width: 640px) {
+  .lp-data-access-sidebar {
+    max-width: 22rem;
+  }
+}
+
 </style>

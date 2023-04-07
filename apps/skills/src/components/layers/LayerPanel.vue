@@ -71,6 +71,7 @@ const gridTemplateColumns = computed(() =>
   grid-template-columns: minmax(12rem, 22rem) auto;
   width: 100%;
   justify-self: center;
+  overflow-y: auto;
 }
 
 @media (min-width: 2048px) {

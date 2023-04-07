@@ -11,7 +11,7 @@
 
 <style>
 .lp-application-sidebar {
-  max-width: 21rem;
+  max-width: 14rem;
 }
 
 @media (min-width: 768px) {
