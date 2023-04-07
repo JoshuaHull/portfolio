@@ -6,6 +6,10 @@
   <StarRating outOf5="5">
     Personal Experience:
   </StarRating>
+  <p>
+    Source control is essential for any developer. Nowadays I use GitKraken
+    but I can whip out the terminal commands if you pass the <code>--force</code> flag.
+  </p>
 </div>
 </template>
 
