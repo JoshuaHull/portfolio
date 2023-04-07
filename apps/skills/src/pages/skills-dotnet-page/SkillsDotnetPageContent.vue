@@ -1,6 +1,6 @@
 <template>
 <article class="skills-dotnet">
-  <div class="skills-dotnet-code">
+  <section class="skills-dotnet-code">
     <ResponsiveCodeBlock
       class="skills-dotnet-variables"
       :contents="variablesContents"
@@ -12,7 +12,7 @@
       :queries="queries"
       @updated="handleQueryUpdated"
     />
-  </div>
+  </section>
   <DataTable
     class="skills-dotnet-table"
     :data="responsiveData"

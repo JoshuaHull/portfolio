@@ -1,5 +1,5 @@
 <template>
-<div class="data-table">
+<section class="data-table">
   <template v-if="data.length === 0">
     <em>no results</em>
   </template>
@@ -26,7 +26,7 @@
       </span>
     </template>
   </template>
-</div>
+</section>
 </template>
 
 <script setup lang="ts">
