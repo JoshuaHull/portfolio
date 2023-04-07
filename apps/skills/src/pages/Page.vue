@@ -23,6 +23,7 @@
 .page-title {
   justify-self: center;
   align-self: flex-end;
+  text-align: center;
   font-size: 2em;
   padding-top: 4rem;
   padding-bottom: 4rem;
