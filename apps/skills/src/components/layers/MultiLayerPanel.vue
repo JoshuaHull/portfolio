@@ -23,6 +23,7 @@
       height="2rem"
       :rounded="true"
       :disabled="disableSlideUp"
+      aria-label="move up 1 layer"
       @click="handleUp"
     >
       <ArrowLongUpSolidIcon/>
@@ -31,6 +32,7 @@
       height="2rem"
       :rounded="true"
       :disabled="disableSlideDown"
+      aria-label="move down 1 layer"
       @click="handleDown"
     >
       <ArrowLongDownSolidIcon/>

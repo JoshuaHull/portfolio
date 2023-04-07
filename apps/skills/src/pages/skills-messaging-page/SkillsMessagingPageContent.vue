@@ -35,6 +35,7 @@
       class="grid-area-stack"
       height="5rem"
       width="5rem"
+      aria-label="distribute a message to child servers"
       :rounded="true"
       @click="handleServerStackClick"
     >

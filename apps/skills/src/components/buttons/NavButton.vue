@@ -3,14 +3,15 @@
   class="nav-button"
   :to="{ name: to }"
   tabindex="-1"
+  :aria-label="variant === 'left' ? 'previous page' : 'next page'"
 >
-  <IconButton
-    height="3rem"
-    class="nav-button-icon-button"
+  <IconContainer
+    height="4rem"
+    class="nav-button-icon"
   >
     <ArrowRightSolidIcon v-if="variant === 'right'" />
     <ArrowLeftSolidIcon v-if="variant === 'left'" />
-  </IconButton>
+  </IconContainer>
 </router-link>
 </template>
 
@@ -28,10 +29,19 @@ defineProps<NavButtonProps>();
   padding: 1rem;
 }
 
-.nav-button-icon-button {
+.nav-button-icon {
   border-radius: 50%;
   color: var(--color-action);
   background-color: var(--color-action-bg);
   padding: 0.5rem
+}
+
+.nav-button-icon:focus {
+  outline: solid var(--color-outline) 2px;
+}
+
+.nav-button-icon:hover,
+.nav-button-icon:focus {
+  transform: scale(125%);
 }
 </style>

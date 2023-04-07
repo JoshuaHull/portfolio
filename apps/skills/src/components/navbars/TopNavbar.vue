@@ -15,6 +15,7 @@
     v-if="!isDrawerOpen"
     height="2rem"
     width="2rem"
+    aria-label="open drawer"
     @click="toggleDrawer"
   >
     <Bars3SolidIcon />

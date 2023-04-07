@@ -5,6 +5,7 @@
       <IconButton
         height="2rem"
         width="2rem"
+        aria-label="close drawer"
         @click="closeDrawer"
       >
         <Bars3SolidIcon />
