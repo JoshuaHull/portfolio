@@ -25,7 +25,7 @@
       /background/blobs
     </RestEndpoint>
     <RestEndpoint
-      v-if="isSmallScreen"
+      v-if="!isShortScreen && !isVeryNarrowScreen"
       method="delete"
       :response="deleteMessage"
       @action="handleDelete"
@@ -33,7 +33,7 @@
       /background/blobs/{{ selectedColourText }}
     </RestEndpoint>
     <RestEndpoint
-      v-if="isSmallScreen"
+      v-if="!isShortScreen && !isNarrowScreen"
       method="post"
       :response="recolourMessage"
       @action="handleRecolour"
@@ -69,7 +69,9 @@ const [recolourMessage, pushRecolourMessage] = useVanishingValue<Message>(4000);
 
 const selectedColourText = computed(() => selectedBlobHex.value ?? ":selected");
 
-const isSmallScreen = useMediaQuery("(min-width: 640px)");
+const isShortScreen = useMediaQuery("(max-height: 640px)");
+const isNarrowScreen = useMediaQuery("(max-width: 640px)");
+const isVeryNarrowScreen = useMediaQuery("(max-width: 340px)");
 
 function randomHex() {
   return `#${(Math.random() * 0xFFFFFF << 0).toString(16).toUpperCase()}`;
@@ -79,13 +81,13 @@ const randomBlob = () => {
   const hex = randomHex();
   const rotation = `${Math.floor(Math.random() * 4) * 90}deg`;
 
-  const left = isSmallScreen.value
-    ? Math.random() * 100
-    : Math.random() * 80;
+  const left = isVeryNarrowScreen.value
+    ? Math.random() * 80
+    : Math.random() * 100;
 
-  const top = isSmallScreen.value
-    ? Math.random() * 100
-    : Math.random() * 80;
+  const top = isVeryNarrowScreen.value
+    ? Math.random() * 80
+    : Math.random() * 100;
 
   return {
     id: Math.random(),
@@ -156,7 +158,7 @@ function handleBlobClick(blob: Blob) {
   selectedBlobHex.value = blob.hex;
 }
 
-const max = isSmallScreen.value ? 20 : 10;
+const max = isShortScreen.value ? 20 : 10;
 
 for (let i = 0; i < max; i += 1) {
   const blob = randomBlob();
@@ -195,12 +197,12 @@ for (let i = 0; i < max; i += 1) {
   display: grid;
   grid-template-rows: repeat(3, auto);
   font-family: monospace;
-  padding: 2rem 1rem 1rem 1rem;
+  padding: 2rem 2rem 0rem 2rem;
 }
 
-@media (min-width: 640px) {
+@media (max-width: 640px), (max-height: 640px) {
   .rest-endpoints {
-    padding: 2rem 2rem 0rem 2rem;
+    padding: 2rem 1rem 1rem 1rem;
   }
 }
 </style>
