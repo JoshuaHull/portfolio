@@ -3,7 +3,6 @@ import CodeBlockForCSharp from "./CodeBlockForCSharp";
 import CodeBlockForTypescript from "./CodeBlockForTypescript";
 
 export * from "./token-map";
-export * from "./vue-lexer";
 export * from "./highlighter";
 export * from "./vue-token-map";
 export * from "./csharp-token-map";

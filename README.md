@@ -36,6 +36,8 @@ Add a package to an existing app:
 
 [typescript-lexer](./libs/typescript-lexer/) - a Typescript Lexer deriving from re-lex-ation
 
+[vue-lexer](./libs/vue-lexer/) - a Vue Lexer deriving from re-lex-ation
+
 ### Rollup plugins
 
 [rollup-plugin-content](./libs/rollup-plugin-content) - import a file's content into a Javascript variable

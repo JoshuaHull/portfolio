@@ -1,4 +1,4 @@
-import { VueTokenKind } from "./vue-lexer";
+import { VueTokenKind } from "vue-lexer";
 import { Token } from "re-lex-ation";
 import { ITokenMap, Span } from "./token-map";
 

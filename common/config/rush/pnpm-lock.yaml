@@ -46,6 +46,7 @@ importers:
       vite: ^3.0.7
       vitest: ^0.28.5
       vue: ^3.2.37
+      vue-lexer: workspace:*
       vue-router: ^4.1.6
       vue-tsc: ^0.39.5
     dependencies:
@@ -57,6 +58,7 @@ importers:
       use-vanishing-value: link:../../composables/use-vanishing-value
       use-vanishing-values: link:../../composables/use-vanishing-values
       vue: 3.2.47
+      vue-lexer: link:../../libs/vue-lexer
       vue-router: 4.1.6_vue@3.2.47
     devDependencies:
       '@types/hero-icon-resolver': link:../../types/hero-icon-resolver
@@ -153,6 +155,15 @@ importers:
       vitest: ^0.28.5
     devDependencies:
       vitest: 0.28.5
+
+  ../../libs/vue-lexer:
+    specifiers:
+      re-lex-ation: workspace:*
+      typescript: ^4.9.3
+    dependencies:
+      re-lex-ation: link:../re-lex-ation
+    devDependencies:
+      typescript: 4.9.5
 
   ../../types/hero-icon-resolver:
     specifiers:

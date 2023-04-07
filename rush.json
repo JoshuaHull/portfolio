@@ -66,6 +66,10 @@
       "projectFolder": "libs/typescript-lexer"
     },
     {
+      "packageName": "vue-lexer",
+      "projectFolder": "libs/vue-lexer"
+    },
+    {
       "packageName": "@types/hero-icon-resolver",
       "projectFolder": "types/hero-icon-resolver"
     },
