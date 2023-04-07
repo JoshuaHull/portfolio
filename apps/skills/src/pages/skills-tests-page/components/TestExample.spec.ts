@@ -32,10 +32,14 @@ describe(
     await flushPromises();
 
     // Assert
-    const successLoadingBar = wrapper.find("[data-testid='loading-bar-success']");
+    const successLoadingBar = wrapper.find(
+      "[data-testid='loading-bar-success']"
+    );
     expect(successLoadingBar.exists()).toBe(true);
 
-    const failedLoadingBar = wrapper.find("[data-testid='loading-bar-fail']");
+    const failedLoadingBar = wrapper.find(
+      "[data-testid='loading-bar-fail']"
+    );
     expect(failedLoadingBar.exists()).toBe(false);
   });
 
@@ -58,10 +62,14 @@ describe(
     await flushPromises();
 
     // Assert
-    const failedLoadingBar = wrapper.find("[data-testid='loading-bar-fail']");
+    const failedLoadingBar = wrapper.find(
+      "[data-testid='loading-bar-fail']"
+    );
     expect(failedLoadingBar.exists()).toBe(true);
 
-    const successLoadingBar = wrapper.find("[data-testid='loading-bar-success']");
+    const successLoadingBar = wrapper.find(
+      "[data-testid='loading-bar-success']"
+    );
     expect(successLoadingBar.exists()).toBe(false);
   });
 });
