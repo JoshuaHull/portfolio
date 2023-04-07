@@ -30,6 +30,8 @@ Add a package to an existing app:
 
 ### Lexing
 
+[csharp-lexer](./libs/csharp-lexer/) - a C# Lexer deriving from re-lex-ation
+
 [re-lex-ation](./libs/re-lex-ation/) - a no-fuss, kinda dumb, kinda bad base lexer which might work for any language
 
 ### Rollup plugins

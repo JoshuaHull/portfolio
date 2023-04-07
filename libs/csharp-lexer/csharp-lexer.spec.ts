@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { CsharpLexer, CsharpTokenKind } from "./";
+import { CsharpLexer, CsharpTokenKind } from "./csharp-lexer";
 import { Token } from "re-lex-ation";
 
 describe("lexer", () => {

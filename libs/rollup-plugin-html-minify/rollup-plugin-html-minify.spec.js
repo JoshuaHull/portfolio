@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import {rollupPluginHtmlMinify} from ".";
+import { rollupPluginHtmlMinify } from ".";
 
 describe("rollup-plugin-html-minify", () => {
   test("should resolve null for file not ending in `.html`", () => {

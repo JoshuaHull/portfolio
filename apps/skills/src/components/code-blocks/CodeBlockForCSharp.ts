@@ -1,5 +1,5 @@
 import { Highlighter } from "./highlighter";
-import { CsharpLexer } from "./csharp-lexer";
+import { CsharpLexer } from "csharp-lexer";
 import { Component } from "vue";
 import { CSharpTokenMap } from "./csharp-token-map";
 

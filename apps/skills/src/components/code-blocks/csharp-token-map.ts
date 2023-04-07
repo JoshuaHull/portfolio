@@ -1,4 +1,4 @@
-import { CsharpTokenKind } from "./csharp-lexer";
+import { CsharpTokenKind } from "csharp-lexer";
 import { Token } from "re-lex-ation";
 import { ITokenMap, Span } from "./token-map";
 

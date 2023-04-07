@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { CsharpLexer, CSharpTokenMap, Highlighter } from "./";
+import { CSharpTokenMap, Highlighter } from "./";
+import { CsharpLexer } from "csharp-lexer";
 
 describe("toHtml", () => {
   test("should return a html string with classes which allow you to highlight keywords, etc", () => {
