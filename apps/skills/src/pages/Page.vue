@@ -1,12 +1,12 @@
 <template>
-<div class="page">
+<main class="page">
   <header class="page-title">
-    <slot name="title"></slot>
+    <h1><slot name="title"></slot></h1>
   </header>
   <div class="page-content">
     <slot></slot>
   </div>
-</div>
+</main>
 </template>
 
 <style>
@@ -27,6 +27,11 @@
   font-size: 2em;
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+.page-title h1 {
+  font-size: 1em;
+  font-weight: 400;
 }
 
 .page-content {

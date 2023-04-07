@@ -135,10 +135,6 @@ img, picture, video, canvas, svg {
   max-width: 100%;
 }
 
-main {
-  height: 100%;
-}
-
 #app {
   --top-navbar-height: 4rem;
   --bottom-navbar-height: 6rem;
