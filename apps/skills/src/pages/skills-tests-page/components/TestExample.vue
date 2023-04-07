@@ -24,7 +24,10 @@
       </IconContainer>
     </Transition>
     <IconContainer height="2rem" class="bar">
-      <AnimatedLoadingBar :animationDuration="animationDuration" />
+      <AnimatedLoadingBar
+        data-testid="loading-bar-success"
+        :animationDuration="animationDuration"
+      />
     </IconContainer>
   </template>
   <template v-if="variant === 'fail'">
@@ -39,7 +42,10 @@
       </IconContainer>
     </Transition>
     <IconContainer height="2rem" class="bar">
-      <AnimatedLoadingBarFailing :animationDuration="animationDuration" />
+      <AnimatedLoadingBarFailing
+        data-testid="loading-bar-fail"
+        :animationDuration="animationDuration"
+      />
     </IconContainer>
   </template>
 </section>

@@ -39,6 +39,7 @@ const closeDrawer = () => emit("closeDrawer");
   background-color: var(--color-bg-solid);
   box-shadow: var(--color-white-dark) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   padding-bottom: var(--bottom-navbar-height);
+  overflow-y: auto;
 }
 
 .drawer-controls {

@@ -15,7 +15,7 @@ describe(
 
   test(
     `When I press the "Run" button, then the
-    test animation will play to completion.`,
+    successful loading bar animation will play`,
   async () => {
     // Arrange
     const wrapper = mount(TestExample, {
@@ -32,13 +32,16 @@ describe(
     await flushPromises();
 
     // Assert
-    const allLoadingParts = wrapper.findAll(".loading-part");
-    expect(allLoadingParts.length).toBe(10);
+    const successLoadingBar = wrapper.find("[data-testid='loading-bar-success']");
+    expect(successLoadingBar.exists()).toBe(true);
+
+    const failedLoadingBar = wrapper.find("[data-testid='loading-bar-fail']");
+    expect(failedLoadingBar.exists()).toBe(false);
   });
 
   test(
     `When I press the "Fail" button, then the
-    test animation will fail to complete.`,
+    failing loading bar animation will play`,
   async () => {
     // Arrange
     const wrapper = mount(TestExample, {
@@ -55,7 +58,10 @@ describe(
     await flushPromises();
 
     // Assert
-    const allLoadingParts = wrapper.findAll(".loading-part");
-    expect(allLoadingParts.length).toBe(7);
+    const failedLoadingBar = wrapper.find("[data-testid='loading-bar-fail']");
+    expect(failedLoadingBar.exists()).toBe(true);
+
+    const successLoadingBar = wrapper.find("[data-testid='loading-bar-success']");
+    expect(successLoadingBar.exists()).toBe(false);
   });
 });
