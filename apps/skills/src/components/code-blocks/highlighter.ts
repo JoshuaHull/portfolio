@@ -1,5 +1,5 @@
 import { VNode } from "vue";
-import { Lexer } from "./lexer";
+import { Lexer } from "re-lex-ation";
 import { ITokenMap } from "./token-map";
 
 export class Highlighter<TKind> {

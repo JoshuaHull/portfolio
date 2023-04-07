@@ -1,0 +1,13 @@
+{
+  "name": "re-lex-ation",
+  "private": "true",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": "./dist/lexer.js",
+  "scripts": { 
+    "build": "tsc --outdir ./dist"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  }
+}

@@ -33,6 +33,7 @@ importers:
       '@vueuse/core': ^9.13.0
       hero-icon-resolver: workspace:*
       jsdom: ~21.1.1
+      re-lex-ation: workspace:*
       rollup-plugin-content: workspace:*
       rollup-plugin-count: workspace:*
       typescript: ^4.6.4
@@ -48,6 +49,7 @@ importers:
     dependencies:
       '@heroicons/vue': 2.0.16_vue@3.2.47
       '@vueuse/core': 9.13.0_vue@3.2.47
+      re-lex-ation: link:../../libs/re-lex-ation
       use-vanishing-value: link:../../composables/use-vanishing-value
       use-vanishing-values: link:../../composables/use-vanishing-values
       vue: 3.2.47
@@ -94,6 +96,12 @@ importers:
       vitest: ^0.28.5
     devDependencies:
       vitest: 0.28.5
+
+  ../../libs/re-lex-ation:
+    specifiers:
+      typescript: ^4.9.3
+    devDependencies:
+      typescript: 4.9.5
 
   ../../libs/rollup-plugin-content:
     specifiers: {}

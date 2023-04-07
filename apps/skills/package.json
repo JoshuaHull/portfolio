@@ -12,10 +12,11 @@
   "dependencies": {
     "@heroicons/vue": "^2.0.8",
     "@vueuse/core": "^9.13.0",
-    "vue": "^3.2.37",
-    "vue-router": "^4.1.6",
+    "re-lex-ation": "workspace:*",
     "use-vanishing-value": "workspace:*",
-    "use-vanishing-values": "workspace:*"
+    "use-vanishing-values": "workspace:*",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@types/hero-icon-resolver": "workspace:*",

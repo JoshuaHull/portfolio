@@ -1,4 +1,4 @@
-import { Token } from "./lexer";
+import { Token } from "re-lex-ation";
 import { ITokenMap, Span } from "./token-map";
 import { TypescriptTokenKind } from "./typescript-lexer";
 

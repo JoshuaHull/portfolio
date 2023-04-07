@@ -28,6 +28,10 @@ Add a package to an existing app:
 
 [hero-icon-resolver](./libs/hero-icon-resolver) - automatically resolves [Hero Icon](https://heroicons.com/) components in Vue apps
 
+### Lexing
+
+[re-lex-ation](./libs/re-lex-ation/) - a no-fuss, kinda dumb, kinda bad base lexer which might work for any language
+
 ### Rollup plugins
 
 [rollup-plugin-content](./libs/rollup-plugin-content) - import a file's content into a Javascript variable

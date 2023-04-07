@@ -1,4 +1,4 @@
-import { IContextManager, Lexer, Token } from "./lexer";
+import { IContextManager, Lexer, Token } from "re-lex-ation";
 
 export type VueTokenKind =
   | "OPEN_PAREN"

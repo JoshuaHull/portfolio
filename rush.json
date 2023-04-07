@@ -54,6 +54,10 @@
       "projectFolder": "libs/hero-icon-resolver"
     },
     {
+      "packageName": "re-lex-ation",
+      "projectFolder": "libs/re-lex-ation"
+    },
+    {
       "packageName": "@types/hero-icon-resolver",
       "projectFolder": "types/hero-icon-resolver"
     },

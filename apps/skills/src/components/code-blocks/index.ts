@@ -2,7 +2,6 @@ import CodeBlockForVue from "./CodeBlockForVue";
 import CodeBlockForCSharp from "./CodeBlockForCSharp";
 import CodeBlockForTypescript from "./CodeBlockForTypescript";
 
-export * from "./lexer";
 export * from "./token-map";
 export * from "./vue-lexer";
 export * from "./highlighter";

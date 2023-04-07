@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { CsharpLexer, CsharpTokenKind, Token } from "./";
+import { CsharpLexer, CsharpTokenKind } from "./";
+import { Token } from "re-lex-ation";
 
 describe("lexer", () => {
   test("should return EOF token when content runs out", () => {

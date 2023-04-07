@@ -1,4 +1,4 @@
-import { Token } from "./lexer";
+import { Token } from "re-lex-ation";
 
 export class Span {
   constructor(

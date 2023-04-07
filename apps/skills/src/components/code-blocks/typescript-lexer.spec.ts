@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { TypescriptLexer, TypescriptTokenKind, Token } from "./";
+import { TypescriptLexer, TypescriptTokenKind } from "./";
+import { Token } from "re-lex-ation";
 
 describe("lexer", () => {
   test("should return EOF token when content runs out", () => {
