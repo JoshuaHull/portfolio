@@ -7,7 +7,6 @@ export * from "./vue-lexer";
 export * from "./highlighter";
 export * from "./vue-token-map";
 export * from "./csharp-token-map";
-export * from "./typescript-lexer";
 export * from "./code-block-language";
 export * from "./responsive-code-block-content";
 

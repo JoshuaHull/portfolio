@@ -62,6 +62,10 @@
       "projectFolder": "libs/re-lex-ation"
     },
     {
+      "packageName": "typescript-lexer",
+      "projectFolder": "libs/typescript-lexer"
+    },
+    {
       "packageName": "@types/hero-icon-resolver",
       "projectFolder": "types/hero-icon-resolver"
     },

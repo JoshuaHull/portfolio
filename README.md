@@ -34,6 +34,8 @@ Add a package to an existing app:
 
 [re-lex-ation](./libs/re-lex-ation/) - a no-fuss, kinda dumb, kinda bad base lexer which might work for any language
 
+[typescript-lexer](./libs/typescript-lexer/) - a Typescript Lexer deriving from re-lex-ation
+
 ### Rollup plugins
 
 [rollup-plugin-content](./libs/rollup-plugin-content) - import a file's content into a Javascript variable

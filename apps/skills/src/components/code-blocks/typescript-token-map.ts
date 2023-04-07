@@ -1,6 +1,6 @@
 import { Token } from "re-lex-ation";
 import { ITokenMap, Span } from "./token-map";
-import { TypescriptTokenKind } from "./typescript-lexer";
+import { TypescriptTokenKind } from "typescript-lexer";
 
 export class TypescriptTokenMap implements ITokenMap<TypescriptTokenKind> {
   map(token: Token<TypescriptTokenKind>): Span | null {
