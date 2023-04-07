@@ -28,9 +28,9 @@ const lineNumbers = computed(() => {
   display: grid;
   grid-template-columns: min-content auto;
   column-gap: 1rem;
-  max-width: 500px;
+  max-width: min(calc(100vw - 1rem), 500px);
   padding-left: 0.5rem;
-  overflow-x: hidden;
+  overflow-x: scroll;
   overflow-y: scroll;
   height: calc(var(--skills-tests-panel-height) - 1.75rem);
 }

@@ -32,5 +32,6 @@ const isDesktop = useMediaQuery("(min-width: 1024px)");
   --code-block-literal: #8fa1b3;
   --code-block-comment: #65737e;
   --code-block-number: #d0876e;
+    overflow-x: hidden;
 }
 </style>

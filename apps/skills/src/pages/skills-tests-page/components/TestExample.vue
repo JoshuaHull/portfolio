@@ -75,9 +75,15 @@ function handleRunClick() {
   grid-template-columns: auto minmax(10px, 4rem);
   align-items: center;
   row-gap: 1rem;
-  column-gap: 2rem;
+  column-gap: 1rem;
   padding: 2rem;
   width: 100%;
+}
+
+@media (min-width: 640px) {
+  .test-example {
+    column-gap: 2rem;
+  }
 }
 
 .test-example:not(:last-of-type) {
