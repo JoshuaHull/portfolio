@@ -43,8 +43,7 @@
       v-model="commitMessage"
       maxlength="32"
       placeholder="optional commit message"
-      :class="`commit-message-input ${sourceControl.stagedChanges.length === 0 ? 'disabled' : ''}`"
-      :disabled="sourceControl.stagedChanges.length === 0"
+      class="commit-message-input"
     />
     <VButton
       class="commit-button"
@@ -101,11 +100,13 @@ const disableUnstageAllButton = computed(() => sourceControl.value.stagedChanges
   display: grid;
   grid-template-columns: auto;
   --staging-area-border-gap: 0.75rem;
-  width: 100%;
+  background-color: var(--color-space-gray-solid);
+  padding: 1rem;
+  border-left: 1px solid var(--color-white);
 }
 
 .staging-area-files {
-  height: 12rem;
+  height: 10.6rem;
   overflow-y: scroll;
   overflow-x: hidden;
   margin-bottom: var(--staging-area-border-gap);
@@ -115,13 +116,8 @@ const disableUnstageAllButton = computed(() => sourceControl.value.stagedChanges
   display: grid;
   grid-template-rows: auto auto;
   row-gap: 0.25rem;
-}
-
-@media (min-width: 768px) {
-  .staging-area-commit-controls {
-    grid-template-columns: auto min-content;
-    column-gap: 0.25rem;
-  }
+  grid-template-columns: auto min-content;
+  column-gap: 0.25rem;
 }
 
 .staging-area-files-header {
@@ -131,13 +127,11 @@ const disableUnstageAllButton = computed(() => sourceControl.value.stagedChanges
   column-gap: 0.25rem;
   padding-bottom: var(--staging-area-border-gap);
   margin-bottom: var(--staging-area-border-gap);
-  border-bottom: 2px solid var(--color-border);
+  border-bottom: 2px solid var(--color-white);
 }
 
-@media (min-width: 768px) {
-  .staging-area-files-header-text {
-    font-size: 1.5em;
-  }
+.staging-area-files-header-text {
+  font-size: 1.5em;
 }
 
 .stage-all-button,
@@ -147,8 +141,8 @@ const disableUnstageAllButton = computed(() => sourceControl.value.stagedChanges
   cursor: pointer;
 }
 
-.commit-message-input.disabled {
-  cursor: not-allowed;
-  color: var(--color-text-disabled);
+.commit-message-input {
+  color: var(--color-blue-gray);
+  background-color: var(--color-white-solid);
 }
 </style>

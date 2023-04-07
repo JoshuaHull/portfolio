@@ -3,7 +3,7 @@
   <div class="file-explorer-controls">
     <IconButton
       class="file-explorer-action-button add-file-button"
-      width="1.5rem"
+      width="2.25rem"
       :rounded="true"
       @click="handleAddFile"
     >
@@ -11,7 +11,7 @@
     </IconButton>
     <IconButton
       class="file-explorer-action-button add-folder-button"
-      width="1.5rem"
+      width="2.25rem"
       :rounded="true"
       @click="handleAddFolder"
     >
@@ -19,7 +19,7 @@
     </IconButton>
     <IconButton
       class="file-explorer-action-button up-folder-button"
-      width="1.5rem"
+      width="2.25rem"
       :rounded="true"
       :disabled="!hasParentFolder"
       @click="handleUp"
@@ -92,6 +92,9 @@ const deleteFile = (filePath: string) => {
   height: 100%;
   width: 100%;
   --file-explorer-header-height: 2.5rem;
+  background-color: var(--color-space-gray-solid);
+  padding: 1rem;
+  border-right: 1px solid var(--color-white);
 }
 
 .file-explorer-content {
@@ -105,8 +108,8 @@ const deleteFile = (filePath: string) => {
   grid-template-columns: min-content min-content auto;
   column-gap: 0.5rem;
   margin-bottom: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-white);
 }
 
 .up-folder-button {

@@ -74,8 +74,8 @@ const commits = computed(() => {
 
 .commit-graph-commit:hover,
 .commit-graph-commit:focus {
-  color: var(--color-text-inverted);
-  background-color: var(--color-bg-inverted);
+  color: var(--color-blue-gray);
+  background-color: var(--color-white);
 }
 
 .commit-avatar {

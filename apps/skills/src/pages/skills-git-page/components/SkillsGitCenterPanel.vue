@@ -1,5 +1,8 @@
 <template>
 <div class="skills-git-center-panel">
+  <header class="skills-git-center-panel-header">
+    <span>Commit Graph</span>
+  </header>
   <div
     v-if="selectedCommit"
     class="closeable-commit-viewer"
@@ -51,10 +54,18 @@ const handleClose = () => {
 .skills-git-center-panel {
   height: var(--skills-git-height);
   width: 100%;
-  display: grid;
-  grid-template-rows: min-content;
-  align-content: flex-end;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-space-gray);
+  padding: 1rem;
+}
+
+.skills-git-center-panel-header {
+  font-size: 1.5em;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-white);
+  margin-bottom: 1rem;
 }
 
 .skills-git-center-panel-commit-graph {

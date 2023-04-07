@@ -17,7 +17,7 @@
     >
       <MinusSolidIcon />
     </IconContainer>
-    {{ change.filePath }}
+    <span class="commit-viewer-file-path">{{ change.filePath }}</span>
   </template>
 </article>
 </template>
@@ -50,5 +50,11 @@ const { commit } = toRefs(props);
 
 .change-indicator-deleted {
   color: var(--color-action-delete);
+}
+
+.commit-viewer-file-path {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>

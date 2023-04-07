@@ -41,11 +41,7 @@ fs.addFile("in your next commit.");
   align-content: center;
   height: 100%;
   width: 100%;
-}
-
-@media (min-width: 64rem) {
-  .skills-git {
-    width: 60rem;
-  }
+  color: var(--color-white);
+  width: 64rem;
 }
 </style>

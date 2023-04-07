@@ -5,7 +5,7 @@
   @dblclick="handleStage"
 >
   <span class="unstaged-change-path">
-    {{ simplifiedPath }}
+    {{ filePath }}
   </span>
   <VButton
     class="stage-button"
@@ -24,17 +24,7 @@ interface UnstagedChangeProps {
   modification: Modification;
 }
 
-const props = defineProps<UnstagedChangeProps>();
-const { filePath, modification } = props;
-
-const simplifiedPath = (() => {
-  const parts = filePath.split("/");
-
-  if (parts.length <= 4)
-    return filePath;
-
-  return `/${parts[1]}/.../${parts[parts.length - 1]}`;
-})();
+defineProps<UnstagedChangeProps>();
 
 const handleStage = () => {
   emit("stage");
@@ -46,9 +36,9 @@ const emit = defineEmits(["stage"]);
 <style>
 .unstaged-change {
   display: grid;
-  grid-template-columns: min-content auto;
+  grid-template-columns: auto min-content;
   align-items: center;
-  column-gap: 2rem;
+  column-gap: 0.5rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
 }
@@ -67,6 +57,8 @@ const emit = defineEmits(["stage"]);
 
 .unstaged-change-path {
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .stage-button {

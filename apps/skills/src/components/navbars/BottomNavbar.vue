@@ -32,7 +32,7 @@ import { useMediaQuery } from "@vueuse/core";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-const isLargeScreen = useMediaQuery("(min-width: 1024px)");
+const isLargeScreen = useMediaQuery("(min-width: 66rem)");
 
 const pageNav = computed(() => {
   const allPagesInOrder = [
