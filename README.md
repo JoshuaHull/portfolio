@@ -2,6 +2,8 @@
 
 Somewhat interactive portfolio which shows off skills I've accumulated over the years.
 
+This is a source-available project; it's not open-source. However, the packages listed below are open-source.
+
 ## Rush
 
 This is a [Rush](https://rushjs.io/) monorepo.
@@ -22,7 +24,7 @@ Add a package to an existing app:
 
 [Skills](./apps/skills) - Vue app with interactive demos of some of my skills
 
-## Packages
+## Packages (MIT)
 
 ### Auto Component plugins
 
