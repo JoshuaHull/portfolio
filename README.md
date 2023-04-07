@@ -32,13 +32,13 @@ Add a package to an existing app:
 
 ### Lexing
 
-[csharp-lexer](./libs/csharp-lexer/) - a C# Lexer deriving from re-lex-ation
+[csharp-lexer](./libs/csharp-lexer/) - a C# lexer deriving from re-lex-ation
 
 [re-lex-ation](./libs/re-lex-ation/) - a no-fuss, kinda dumb, kinda bad base lexer which might work for any language
 
-[typescript-lexer](./libs/typescript-lexer/) - a Typescript Lexer deriving from re-lex-ation
+[typescript-lexer](./libs/typescript-lexer/) - a Typescript lexer deriving from re-lex-ation
 
-[vue-lexer](./libs/vue-lexer/) - a Vue Lexer deriving from re-lex-ation
+[vue-lexer](./libs/vue-lexer/) - a Vue lexer deriving from re-lex-ation
 
 ### Rollup plugins
 

@@ -5,9 +5,7 @@
   "type": "module",
   "exports": "./dist/index.js",
   "scripts": { 
-    "build": "tsc --outdir ./dist",
-    "test": "vitest",
-    "test:nowatch": "vitest --watch false"
+    "build": "tsc --outdir ./dist"
   },
   "dependencies": {
     "re-lex-ation": "workspace:*"

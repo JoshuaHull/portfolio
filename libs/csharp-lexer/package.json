@@ -13,7 +13,6 @@
     "re-lex-ation": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^18.7.13",
     "typescript": "^4.9.3",
     "vitest": "^0.28.5"
   }
