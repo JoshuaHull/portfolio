@@ -1,3 +1,3 @@
 declare module "content:*" {
-    export default {}
+  export default {}
 }
