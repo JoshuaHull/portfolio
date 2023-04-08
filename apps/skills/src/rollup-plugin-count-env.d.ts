@@ -1,3 +1,3 @@
 declare module "count:*" {
-    export default {}
+  export default {}
 }
