@@ -10,6 +10,6 @@
     "test:nowatch": "vitest --watch false"
   },
   "devDependencies": {
-    "vitest": "^0.28.5"
+    "vitest": "^0.29.8"
   }
 }
