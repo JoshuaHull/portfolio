@@ -23,14 +23,14 @@ export class Highlighter<TKind> {
     }
   }
 
-  public toVueRenderFunction(): () => VNode {
+  public toVNode(): VNode {
     let rtn: (VNode | string)[] = [];
 
     for (;;) {
       const next = this.lexer.next();
 
       if (next.kind === "EOF")
-        return () => h("pre", rtn);
+        return h("pre", rtn);
 
       const span = this.tokenMap.map(next);
       const add = span?.toVNode() ?? next.value;

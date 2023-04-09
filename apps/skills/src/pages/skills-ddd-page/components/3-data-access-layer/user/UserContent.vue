@@ -12,7 +12,8 @@ const contents: ResponsiveCodeBlockContent[] = [
   {
     size: "tiny",
     content:
-`public class User {
+`public class User
+{
  public long Id;
  public string Name;      
  public int Points;

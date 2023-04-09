@@ -1,19 +1,10 @@
 <template>
 <div class="responsive-code-block">
-  <template v-if="flipFlop">
-    <CodeBlockForGivenLanguage
-      v-if="selectedContent"
-      :content="selectedContent"
-      :language="language"
-    />
-  </template>
-  <template v-else>
-    <CodeBlockForGivenLanguage
-      v-if="selectedContent"
-      :content="selectedContent"
-      :language="language"
-    />
-  </template>
+  <CodeBlockForGivenLanguage
+    v-if="selectedContent"
+    :content="selectedContent"
+    :language="language"
+  />
 </div>
 </template>
 
@@ -28,12 +19,6 @@ interface ResponsiveCodeBlockProps {
 
 const props = defineProps<ResponsiveCodeBlockProps>();
 const { contents, language } = toRefs(props);
-
-// TODO: remove flipFlop
-// Explanation: the CodeBlockForCSharp, Typescript, etc components
-// are not reactive. So when we update their content, they don't
-// re-render. The flipFlop variable allows us to force a re-render.
-const flipFlop = ref(true);
 
 const isLargeScreen = useMediaQuery("(min-width: 1024px)");
 const isMediumScreen = useMediaQuery("(min-width: 768px)");
@@ -51,10 +36,8 @@ const selectedContent = computed(() => {
     for (let j = i; j < sizes.length; j += 1) {
       const content = contents.value.find(c => c.size === sizes[j]);
 
-      if (!!content) {
-        flipFlop.value = !flipFlop.value;
+      if (!!content)
         return content.content;
-      }
     }
   }
 });

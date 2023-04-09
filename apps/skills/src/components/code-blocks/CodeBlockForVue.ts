@@ -1,4 +1,3 @@
-
 import { Highlighter } from "./highlighter";
 import { Component } from "vue";
 import { VueLexer } from "vue-lexer";
@@ -9,12 +8,14 @@ const component = {
     "content",
   ],
   setup(props: { content: string }) {
-    const content = props.content;
-    const lexer = new VueLexer(content);
-    const tokenMap = new VueTokenMap();
-    const highlighter = new Highlighter(lexer, tokenMap);
+    const { content } = toRefs(props);
 
-    return highlighter.toVueRenderFunction();
+    const tokenMap = new VueTokenMap();
+
+    const lexer = computed(() => new VueLexer(content.value));
+    const highlighter = computed(() => new Highlighter(lexer.value, tokenMap));
+
+    return () => highlighter.value.toVNode();
   }
 }
 

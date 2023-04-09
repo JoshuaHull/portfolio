@@ -8,12 +8,14 @@ const component = {
     "content",
   ],
   setup(props: { content: string }) {
-    const content = props.content;
-    const lexer = new CsharpLexer(content);
-    const tokenMap = new CSharpTokenMap();
-    const highlighter = new Highlighter(lexer, tokenMap);
+    const { content } = toRefs(props);
 
-    return highlighter.toVueRenderFunction();
+    const tokenMap = new CSharpTokenMap();
+
+    const lexer = computed(() => new CsharpLexer(content.value));
+    const highlighter = computed(() => new Highlighter(lexer.value, tokenMap));
+
+    return () => highlighter.value.toVNode();
   }
 }
 
