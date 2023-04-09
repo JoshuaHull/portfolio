@@ -7,6 +7,6 @@
     "build": "tsc --outdir ./dist"
   },
   "devDependencies": {
-    "vite": "^3.0.7"
+    "vite": "^4.2.0"
   }
 }
