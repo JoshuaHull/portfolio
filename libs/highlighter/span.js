@@ -1,10 +1,13 @@
-import { Token } from "re-lex-ation";
+import { h } from "vue";
 
 export class Span {
   constructor(
-    private clazz: string,
-    private value: string,
-  ) {}
+    clazz,
+    value,
+  ) {
+    this.clazz = clazz;
+    this.value = value;
+  }
 
   toHtml() {
     return `<span class="${this.clazz}">${this.value}</span>`;
@@ -13,8 +16,4 @@ export class Span {
   toVNode() {
     return h("span", { class: this.clazz, innerHTML: this.value });
   }
-}
-
-export interface ITokenMap<TKind> {
-  map(token: Token<TKind>): Span | null;
 }

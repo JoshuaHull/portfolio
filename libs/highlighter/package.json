@@ -1,0 +1,23 @@
+{
+  "name": "highlighter",
+  "private": "true",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": "./index.js",
+  "scripts": { 
+    "build": "",
+    "test": "vitest",
+    "test:nowatch": "vitest --watch false"
+  },
+  "dependencies": {
+    "re-lex-ation": "workspace:*"
+  },
+  "devDependencies": {
+    "csharp-lexer": "workspace:*",
+    "vue": "^3.2.37",
+    "vitest": "^0.29.8"
+  },
+  "peerDependencies": {
+    "vue": "^3"
+  }
+}

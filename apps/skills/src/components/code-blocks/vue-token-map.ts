@@ -1,8 +1,8 @@
 import { VueTokenKind } from "vue-lexer";
 import { Token } from "re-lex-ation";
-import { ITokenMap, Span } from "./token-map";
+import { ITokenMapper, Span } from "highlighter";
 
-export class VueTokenMap implements ITokenMap<VueTokenKind> {
+export class VueTokenMap implements ITokenMapper<VueTokenKind> {
   map(token: Token<VueTokenKind>): Span | null {
     switch (token.kind) {
       case "KEYWORD":

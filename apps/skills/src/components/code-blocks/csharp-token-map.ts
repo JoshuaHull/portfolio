@@ -1,8 +1,8 @@
 import { CsharpTokenKind } from "csharp-lexer";
 import { Token } from "re-lex-ation";
-import { ITokenMap, Span } from "./token-map";
+import { ITokenMapper, Span } from "highlighter";
 
-export class CSharpTokenMap implements ITokenMap<CsharpTokenKind> {
+export class CSharpTokenMap implements ITokenMapper<CsharpTokenKind> {
   map(token: Token<CsharpTokenKind>): Span | null {
     switch (token.kind) {
       case "KEYWORD":

@@ -1,8 +1,8 @@
 import { Token } from "re-lex-ation";
-import { ITokenMap, Span } from "./token-map";
+import { ITokenMapper, Span } from "highlighter";
 import { TypescriptTokenKind } from "typescript-lexer";
 
-export class TypescriptTokenMap implements ITokenMap<TypescriptTokenKind> {
+export class TypescriptTokenMap implements ITokenMapper<TypescriptTokenKind> {
   map(token: Token<TypescriptTokenKind>): Span | null {
     switch (token.kind) {
       case "KEYWORD":

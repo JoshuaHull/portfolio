@@ -34,6 +34,8 @@ Add a package to an existing app:
 
 [csharp-lexer](./libs/csharp-lexer/) - a C# lexer deriving from re-lex-ation
 
+[highlighter](./libs/highlighter) - extracts all the tokens from a lexer maps them to a VNode
+
 [re-lex-ation](./libs/re-lex-ation/) - a no-fuss, kinda dumb, kinda bad base lexer which might work for any language
 
 [typescript-lexer](./libs/typescript-lexer/) - a Typescript lexer deriving from re-lex-ation
@@ -61,6 +63,8 @@ Add a package to an existing app:
 ### Typescript definitions
 
 [@types/hero-icon-resolver](./types/hero-icon-resolver) - Typescript definitions for hero-icon-resolver
+
+[@types/highlighter](./types/highlighter) - Typescript definitions for highlighter
 
 [@types/rollup-plugin-content](./types/rollup-plugin-content) - Typescript definitions for rollup-plugin-content
 

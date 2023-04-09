@@ -26,6 +26,7 @@ importers:
       '@types/node': ^18.7.13
       '@types/rollup-plugin-content': workspace:*
       '@types/rollup-plugin-count': workspace:*
+      '@types/highlighter': workspace:*
       '@types/use-vanishing-value': workspace:*
       '@types/use-vanishing-values': workspace:*
       '@vitejs/plugin-vue': ^3.0.3
@@ -37,6 +38,7 @@ importers:
       re-lex-ation: workspace:*
       rollup-plugin-content: workspace:*
       rollup-plugin-count: workspace:*
+      highlighter: workspace:*
       typescript: ^4.9.3
       typescript-lexer: workspace:*
       unplugin-auto-import: ^0.11.2
@@ -54,6 +56,7 @@ importers:
       '@vueuse/core': 9.13.0_vue@3.2.47
       csharp-lexer: link:../../libs/csharp-lexer
       re-lex-ation: link:../../libs/re-lex-ation
+      highlighter: link:../../libs/highlighter
       typescript-lexer: link:../../libs/typescript-lexer
       use-vanishing-value: link:../../composables/use-vanishing-value
       use-vanishing-values: link:../../composables/use-vanishing-values
@@ -65,6 +68,7 @@ importers:
       '@types/node': 18.15.3
       '@types/rollup-plugin-content': link:../../types/rollup-plugin-content
       '@types/rollup-plugin-count': link:../../types/rollup-plugin-count
+      '@types/highlighter': link:../../types/highlighter
       '@types/use-vanishing-value': link:../../types/use-vanishing-value
       '@types/use-vanishing-values': link:../../types/use-vanishing-values
       '@vitejs/plugin-vue': 3.2.0_vite@4.2.0+vue@3.2.47
@@ -135,6 +139,19 @@ importers:
     devDependencies:
       vitest: 0.29.8
 
+  ../../libs/highlighter:
+    specifiers:
+      csharp-lexer: workspace:*
+      re-lex-ation: workspace:*
+      vitest: ^0.29.8
+      vue: ^3.2.37
+    dependencies:
+      re-lex-ation: link:../re-lex-ation
+    devDependencies:
+      csharp-lexer: link:../csharp-lexer
+      vitest: 0.29.8
+      vue: 3.2.47
+
   ../../libs/typescript-lexer:
     specifiers:
       re-lex-ation: workspace:*
@@ -192,6 +209,14 @@ importers:
     devDependencies:
       rollup: 2.77.0
       typescript: 4.9.5
+
+  ../../types/highlighter:
+    specifiers:
+      re-lex-ation: workspace:*
+      vue: ^3.2.37
+    devDependencies:
+      re-lex-ation: link:../../libs/re-lex-ation
+      vue: 3.2.47
 
   ../../types/use-vanishing-value:
     specifiers:

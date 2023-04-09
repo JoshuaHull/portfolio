@@ -1,14 +1,15 @@
-import { VNode } from "vue";
-import { Lexer } from "re-lex-ation";
-import { ITokenMap } from "./token-map";
+import { h } from "vue";
 
-export class Highlighter<TKind> {
+export class Highlighter {
   constructor(
-    private lexer: Lexer<TKind>,
-    private tokenMap: ITokenMap<TKind>,
-  ) {}
+    lexer,
+    tokenMap,
+  ) {
+    this.lexer = lexer;
+    this.tokenMap = tokenMap;
+  }
 
-  public toHtml(): string {
+  toHtml() {
     let rtn = "";
 
     for (;;) {
@@ -23,8 +24,8 @@ export class Highlighter<TKind> {
     }
   }
 
-  public toVNode(): VNode {
-    let rtn: (VNode | string)[] = [];
+  toVNode() {
+    let rtn = [];
 
     for (;;) {
       const next = this.lexer.next();

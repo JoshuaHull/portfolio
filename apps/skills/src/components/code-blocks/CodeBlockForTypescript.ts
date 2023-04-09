@@ -1,4 +1,4 @@
-import { Highlighter } from "./highlighter";
+import { Highlighter } from "highlighter";
 import { TypescriptLexer } from "typescript-lexer";
 import { Component } from "vue";
 import { TypescriptTokenMap } from "./typescript-token-map";

@@ -1,4 +1,4 @@
-import { Highlighter } from "./highlighter";
+import { Highlighter } from "highlighter";
 import { Component } from "vue";
 import { VueLexer } from "vue-lexer";
 import { VueTokenMap } from "./vue-token-map";

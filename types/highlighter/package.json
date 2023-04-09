@@ -1,0 +1,13 @@
+{
+  "name": "@types/highlighter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --outdir ./dist"
+  },
+  "devDependencies": {
+    "re-lex-ation": "workspace:*",
+    "vue": "^3.2.37"
+  }
+}
