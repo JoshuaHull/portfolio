@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "exports": "./index.js",
+  "exports": "./vite-plugin-replace.js",
   "scripts": {
     "build": "",
     "test": "vitest",

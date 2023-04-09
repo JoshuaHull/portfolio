@@ -1,4 +1,4 @@
-import { heroIconResolver } from "./index";
+import { heroIconResolver } from "./hero-icon-resolver";
 import { test, expect } from "vitest";
 
 test.each([
