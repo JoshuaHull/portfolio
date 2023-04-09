@@ -1,3 +1,3 @@
 # @types/highlighter
 
-Typescript definitions for [highlighter](./../../composables/highlighter).
+Typescript definitions for [highlighter](./../../libs/highlighter).
