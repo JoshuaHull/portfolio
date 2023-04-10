@@ -25,6 +25,7 @@ importers:
       '@types/hero-icon-resolver': workspace:*
       '@types/highlighter': workspace:*
       '@types/node': ^18.7.13
+      '@types/re-lex-ation': workspace:*
       '@types/rollup-plugin-content': workspace:*
       '@types/rollup-plugin-count': workspace:*
       '@types/use-vanishing-value': workspace:*
@@ -67,6 +68,7 @@ importers:
       '@types/hero-icon-resolver': link:../../types/hero-icon-resolver
       '@types/highlighter': link:../../types/highlighter
       '@types/node': 18.15.3
+      '@types/re-lex-ation': link:../../types/re-lex-ation
       '@types/rollup-plugin-content': link:../../types/rollup-plugin-content
       '@types/rollup-plugin-count': link:../../types/rollup-plugin-count
       '@types/use-vanishing-value': link:../../types/use-vanishing-value
@@ -103,12 +105,14 @@ importers:
 
   ../../libs/csharp-lexer:
     specifiers:
+      '@types/re-lex-ation': workspace:*
       re-lex-ation: workspace:*
       typescript: ^4.9.3
       vitest: ^0.29.8
     dependencies:
       re-lex-ation: link:../re-lex-ation
     devDependencies:
+      '@types/re-lex-ation': link:../../types/re-lex-ation
       typescript: 4.9.5
       vitest: 0.29.8
 
@@ -132,10 +136,7 @@ importers:
       vue: 3.2.47
 
   ../../libs/re-lex-ation:
-    specifiers:
-      typescript: ^4.9.3
-    devDependencies:
-      typescript: 4.9.5
+    specifiers: {}
 
   ../../libs/rollup-plugin-content:
     specifiers: {}
@@ -154,12 +155,14 @@ importers:
 
   ../../libs/typescript-lexer:
     specifiers:
+      '@types/re-lex-ation': workspace:*
       re-lex-ation: workspace:*
       typescript: ^4.9.3
       vitest: ^0.29.8
     dependencies:
       re-lex-ation: link:../re-lex-ation
     devDependencies:
+      '@types/re-lex-ation': link:../../types/re-lex-ation
       typescript: 4.9.5
       vitest: 0.29.8
 
@@ -171,11 +174,13 @@ importers:
 
   ../../libs/vue-lexer:
     specifiers:
+      '@types/re-lex-ation': workspace:*
       re-lex-ation: workspace:*
       typescript: ^4.9.3
     dependencies:
       re-lex-ation: link:../re-lex-ation
     devDependencies:
+      '@types/re-lex-ation': link:../../types/re-lex-ation
       typescript: 4.9.5
 
   ../../types/hero-icon-resolver:
@@ -193,6 +198,12 @@ importers:
     devDependencies:
       re-lex-ation: link:../../libs/re-lex-ation
       vue: 3.2.47
+
+  ../../types/re-lex-ation:
+    specifiers:
+      typescript: ^4.9.3
+    devDependencies:
+      typescript: 4.9.5
 
   ../../types/rollup-plugin-content:
     specifiers:

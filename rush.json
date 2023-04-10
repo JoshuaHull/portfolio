@@ -62,6 +62,10 @@
       "projectFolder": "libs/re-lex-ation"
     },
     {
+      "packageName": "@types/re-lex-ation",
+      "projectFolder": "types/re-lex-ation"
+    },
+    {
       "packageName": "highlighter",
       "projectFolder": "libs/highlighter"
     },

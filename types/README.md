@@ -4,6 +4,8 @@
 
 [@types/highlighter](./highlighter) - Typescript definitions for highlighter
 
+[@types/re-lex-ation](./re-lex-ation) - Typescript definitions for re-lex-ation
+
 [@types/rollup-plugin-content](./rollup-plugin-content) - Typescript definitions for rollup-plugin-content
 
 [@types/rollup-plugin-count](./rollup-plugin-count) - Typescript definitions for rollup-plugin-count

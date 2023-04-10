@@ -13,6 +13,7 @@
     "re-lex-ation": "workspace:*"
   },
   "devDependencies": {
+    "@types/re-lex-ation": "workspace:*",
     "typescript": "^4.9.3",
     "vitest": "^0.29.8"
   }

@@ -28,6 +28,7 @@
     "@types/rollup-plugin-content": "workspace:*",
     "@types/rollup-plugin-count": "workspace:*",
     "@types/highlighter": "workspace:*",
+    "@types/re-lex-ation": "workspace:*",
     "@types/use-vanishing-value": "workspace:*",
     "@types/use-vanishing-values": "workspace:*",
     "@vitejs/plugin-vue": "^3.0.3",
