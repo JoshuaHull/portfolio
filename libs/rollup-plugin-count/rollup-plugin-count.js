@@ -3,6 +3,44 @@ import { PathScurry } from "path-scurry";
 const name = "rollup-plugin-count";
 const prefix = "count:";
 
+/**
+ * @typedef SourceMapInput
+ * @property {string} mappings
+ */
+
+/**
+ * @typedef LoadResult
+ * @property {string} code - transformed code
+ * @property {SourceMapInput} map - source map
+ */
+
+/**
+ * @typedef ResolveIdResult
+ * @property {string} id
+ * @property {string} resolvedBy
+ */
+
+/**
+ * @callback ResolveIdFn
+ * @param {string} source
+ * @returns {ResolveIdResult | null}
+ */
+
+/**
+ * @callback LoadFn
+ * @param {string} source
+ * @returns {LoadResult | null}
+ */
+
+/**
+ * @typedef Plugin
+ * @property {string} name
+ * @property {ResolveIdFn} resolveId
+ * @property {LoadFn} load
+
+/**
+ * @returns {Plugin}
+ */
 export function rollupPluginCount() {
   return {
     name,
