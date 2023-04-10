@@ -8,27 +8,17 @@
 <script setup lang="ts">
 import { ResponsiveCodeBlockContent } from "@code-blocks";
 
+import tinyContent from "content:cs@4,11:src/pages/skills-ddd-page/components/3-data-access-layer/linked-account/LinkedAccountCodeBlocks";
+import smallContent from "content:cs@14,20:src/pages/skills-ddd-page/components/3-data-access-layer/linked-account/LinkedAccountCodeBlocks";
+
 const contents: ResponsiveCodeBlockContent[] = [
   {
     size: "tiny",
-    content:
-`public class LinkedAccount
-{
- public long Id;
- public string Platform;
- public long UserId;
- public string ExternalId;
-}`,
+    content: tinyContent as string,
   },
   {
     size: "small",
-    content:
-`public class LinkedAccount {
-  public long Id { get; set; }
-  public string Platform { get; set; }
-  public long UserId { get; set; }
-  public string ExternalId { get; set; }
-}`,
+    content: smallContent as string,
   },
 ];
 </script>

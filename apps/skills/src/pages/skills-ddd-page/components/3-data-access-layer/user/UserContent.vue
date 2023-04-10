@@ -8,25 +8,17 @@
 <script setup lang="ts">
 import { ResponsiveCodeBlockContent } from "@code-blocks";
 
+import tinyContent from "content:cs@4,10:src/pages/skills-ddd-page/components/3-data-access-layer/user/UserCodeBlocks";
+import smallContent from "content:cs@13,18:src/pages/skills-ddd-page/components/3-data-access-layer/user/UserCodeBlocks";
+
 const contents: ResponsiveCodeBlockContent[] = [
   {
     size: "tiny",
-    content:
-`public class User
-{
- public long Id;
- public string Name;      
- public int Points;
-}`,
+    content: tinyContent as string,
   },
   {
     size: "small",
-    content:
-`public class User {
-  public long Id { get; set; }
-  public string Name { get; set; }
-  public int Points { get; set; }
-}`,
+    content: smallContent as string,
   },
 ];
 </script>

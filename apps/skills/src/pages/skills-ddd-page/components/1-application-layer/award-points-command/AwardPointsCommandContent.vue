@@ -8,56 +8,22 @@
 <script setup lang="ts">
 import { ResponsiveCodeBlockContent } from "@code-blocks";
 
+import tinyContent from "content:cs@5,23:src/pages/skills-ddd-page/components/1-application-layer/award-points-command/AwardPointsCommandCodeBlocks";
+import smallContent from "content:cs@26,38:src/pages/skills-ddd-page/components/1-application-layer/award-points-command/AwardPointsCommandCodeBlocks";
+import mediumContent from "content:cs@41,49:src/pages/skills-ddd-page/components/1-application-layer/award-points-command/AwardPointsCommandCodeBlocks";
+
 const contents: ResponsiveCodeBlockContent[] = [
   {
     size: "tiny",
-    content:
-`public async
-  Task<int> Handle(
-    AwardPointsCommand
-    command
-  ) {
-  var twitchUser = await
-    _repo.GetById(
-      command.TwitchUserId
-    );
-
-  await twitchUser
-    .AddPoints(10);
-  await _repo
-    .SaveChanges();
-
-  return twitchUser
-    .Points;
-}`
+    content: tinyContent as string,
   },
   {
     size: "small",
-    content:
-`public async Task<int> Handle(
-  AwardPointsCommand command
-) {
-  var twitchUser = await _repo.GetById(
-    command.TwitchUserId
-  );
-
-  await twitchUser.AddPoints(10);
-  await _repo.SaveChanges();
-
-  return twitchUser.Points;
-}`
+    content: smallContent as string,
   },
   {
     size: "medium",
-    content:
-`public async Task<int> Handle(AwardPointsCommand command) {
-  var twitchUser = await _repo.GetById(command.TwitchUserId);
-
-  await twitchUser.AddPoints(10);
-  await _repo.SaveChanges();
-
-  return twitchUser.Points;
-}`
+    content: mediumContent as string,
   },
 ];
 </script>

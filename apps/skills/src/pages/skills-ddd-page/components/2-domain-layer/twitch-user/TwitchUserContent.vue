@@ -8,64 +8,22 @@
 <script setup lang="ts">
 import { ResponsiveCodeBlockContent } from "@code-blocks";
 
+import tinyContent from "content:cs@5,25:src/pages/skills-ddd-page/components/2-domain-layer/twitch-user/TwitchUserCodeBlocks";
+import smallContent from "content:cs@28,41:src/pages/skills-ddd-page/components/2-domain-layer/twitch-user/TwitchUserCodeBlocks";
+import mediumContent from "content:cs@44,57:src/pages/skills-ddd-page/components/2-domain-layer/twitch-user/TwitchUserCodeBlocks";
+
 const contents: ResponsiveCodeBlockContent[] = [
   {
     size: "tiny",
-    content:
-`public class TwitchUser {
-  public string Name
-    => _user.Name;
-  public int Points
-    => _user.Points;
-  public string TwitchId
-    => _a.ExternalId;
-
-  public User _user;
-  public LinkedAccount _a;
-
-  public Task AddPoints(
-    int points
-  ) {
-    _user.Points += points;
-
-    return Task
-      .CompletedTask;
-  }
-}`
+    content: tinyContent as string,
   },
   {
     size: "small",
-    content:
-`public class TwitchUser {
-  public string Name => _user.Name;
-  public int Points => _user.Points;
-  public string TwitchId => _acc.ExternalId;
-
-  private readonly User _user;
-  private readonly LinkedAccount _acc;
-
-  public Task AddPoints(int points) {
-    _user.Points += points;
-    return Task.CompletedTask;
-  }
-}`
+    content: smallContent as string,
   },
   {
     size: "medium",
-    content:
-`public class TwitchUser {
-  public string Name => _user.Name;
-  public int Points => _user.Points;
-  public string TwitchId => _linkedAccount.ExternalId;
-
-  private readonly User _user;
-  private readonly LinkedAccount _linkedAccount;
-
-  public Task AddPoints(int points) {
-    _user.Points += points;
-    return Task.CompletedTask;
-  }
-}`
+    content: mediumContent as string,
   },
 ];
 </script>
