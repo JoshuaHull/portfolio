@@ -1,3 +1,3 @@
-import { TransformResult } from "rollup";
+import { Plugin } from "rollup";
 
-export function rollupPluginContent(): TransformResult;
+export function rollupPluginContent(): Plugin;

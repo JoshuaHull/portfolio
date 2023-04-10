@@ -56,3 +56,53 @@ describe("load", () => {
     });
   });
 });
+
+describe("loading part of a file", () => {
+  test("should resolve a large chunk of a file", () => {
+    // Arrange
+    const resolver = rollupPluginContent();
+
+    // Act
+    const result = resolver.load("content:cs@3,16:testAssets/LargeCSharpFile");
+
+    // Assert
+    expect(result).toStrictEqual({
+      code: `export default "public class RollupPluginContent {\\n  private const string Prefix = \\"content:\\";\\n\\n  public string Name { get; }\\n\\n  public object ResolveId(string source) {\\n    return new();\\n  }\\n\\n  public object Load(string id) {\\n    return new();\\n  }\\n}"`,
+      map: {
+        mappings: "",
+      },
+    });
+  });
+
+  test("should resolve a small chunk of a file", () => {
+    // Arrange
+    const resolver = rollupPluginContent();
+
+    // Act
+    const result = resolver.load("content:cs@4,5:testAssets/LargeCSharpFile");
+
+    // Assert
+    expect(result).toStrictEqual({
+      code: `export default "  private const string Prefix = \\"content:\\";"`,
+      map: {
+        mappings: "",
+      },
+    });
+  });
+
+  test("should resolve a single line of a file", () => {
+    // Arrange
+    const resolver = rollupPluginContent();
+
+    // Act
+    const result = resolver.load("content:cs@6,9:testAssets/LargeCSharpFile");
+
+    // Assert
+    expect(result).toStrictEqual({
+      code: `export default "  public string Name { get; }\\n\\n  public object ResolveId(string source) {"`,
+      map: {
+        mappings: "",
+      },
+    });
+  });
+});
