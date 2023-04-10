@@ -139,7 +139,10 @@ importers:
     specifiers: {}
 
   ../../libs/rollup-plugin-content:
-    specifiers: {}
+    specifiers:
+      vitest: ^0.29.8
+    devDependencies:
+      vitest: 0.29.8
 
   ../../libs/rollup-plugin-count:
     specifiers:

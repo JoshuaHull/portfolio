@@ -5,6 +5,11 @@
   "type": "module",
   "exports": "./rollup-plugin-content.js",
   "scripts": {
-    "build": ""
+    "build": "",
+    "test": "vitest",
+    "test:nowatch": "vitest --watch false"
+  },
+  "devDependencies": {
+    "vitest": "^0.29.8"
   }
 }

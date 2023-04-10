@@ -1,0 +1,1 @@
+namespace Small; public class CSharpFile {}
