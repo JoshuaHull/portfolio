@@ -5,9 +5,14 @@
   "type": "module",
   "exports": "./rollup-plugin-count.js",
   "scripts": {
-    "build": ""
+    "build": "",
+    "test": "vitest",
+    "test:nowatch": "vitest --watch false"
   },
   "dependencies": {
     "path-scurry": "^1.6.1"
+  },
+  "devDependencies": {
+    "vitest": "^0.29.8"
   }
 }

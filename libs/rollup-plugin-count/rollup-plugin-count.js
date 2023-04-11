@@ -29,7 +29,7 @@ const prefix = "count:";
 /**
  * @callback LoadFn
  * @param {string} source
- * @returns {LoadResult | null}
+ * @returns {Promise<LoadResult>}
  */
 
 /**
