@@ -1,30 +1,28 @@
-import { IContextManager, Lexer, Token } from "re-lex-ation";
+import * as relexation from "re-lex-ation";
 
-export type TypescriptTokenKind =
-  | "OPEN_PAREN"
-  | "CLOSE_PAREN"
-  | "OPEN_CURLY"
-  | "CLOSE_CURLY"
-  | "OPEN_ANGLE"
-  | "CLOSE_ANGLE"
-  | "SEMICOLON"
-  | "COMMA"
-  | "DOT"
-  | "EOF"
-  | "KEYWORD"
-  | "SYMBOL"
-  | "PROPERTY"
-  | "IMPORTED_PROPERTY"
-  | "TYPE"
-  | "STRING_LITERAL"
-  | "INTERPOLATED_STRING_LITERAL"
-  | "STRING"
-  | "INTERPOLATED_STRING"
-  | "EQUALS"
-  | "OTHER"
-;
+/**
+ * @typedef {"OPEN_PAREN" |
+ * "CLOSE_PAREN" |
+ * "OPEN_CURLY" |
+ * "CLOSE_CURLY" |
+ * "OPEN_ANGLE" |
+ * "CLOSE_ANGLE" |
+ * "SEMICOLON" |
+ * "COMMA" |
+ * "DOT" |
+ * "PROPERTY" |
+ * "IMPORTED_PROPERTY" |
+ * "TYPE" |
+ * "STRING_LITERAL" |
+ * "INTERPOLATED_STRING_LITERAL" |
+ * "INTERPOLATED_STRING" |
+ * "EQUALS"} TypescriptTokenKind
+ */
 
-const literalTokens: Token<TypescriptTokenKind>[] = [
+/**
+ * @type {relexation.Token<TypescriptTokenKind>[]}
+ */
+const literalTokens = [
   {
     value: "(",
     kind: "OPEN_PAREN",
@@ -71,14 +69,20 @@ const literalTokens: Token<TypescriptTokenKind>[] = [
   },
 ];
 
-const stringLiteralTokens: Token<TypescriptTokenKind>[] = [
+/**
+ * @type {relexation.Token<TypescriptTokenKind>[]}
+ */
+const stringLiteralTokens = [
   {
     value: "\"",
     kind: "STRING_LITERAL",
   },
 ];
 
-const typescriptKeywords: string[] = [
+/**
+ * @type {string[]}
+ */
+const typescriptKeywords = [
   "break", "as", "any", "switch", "case", "if", "throw", "else", "var",
   "number", "string", "get", "module", "type", "instanceof", "typeof", "public",
   "private", "enum", "export", "finally", "for", "while", "void", "null",
@@ -88,12 +92,21 @@ const typescriptKeywords: string[] = [
   "await", "from",
 ];
 
-const typescriptContextualKeywords: string[] = [
+/**
+ * @type {string[]}
+ */
+const typescriptContextualKeywords = [
 ];
 
-export class TypescriptLexer extends Lexer<TypescriptTokenKind> {
+/**
+ * @extends {relexation.Lexer<TypescriptTokenKind>}
+ */
+export class TypescriptLexer extends relexation.Lexer {
+  /**
+   * @param {string} content - typescript string which will be tokenised
+   */
   constructor(
-    content: string
+    content
   ) {
     super(
       content,
@@ -110,10 +123,21 @@ export class TypescriptLexer extends Lexer<TypescriptTokenKind> {
   }
 }
 
-class PropertyContextManager implements IContextManager<TypescriptTokenKind> {
-  private inContext: boolean = false;
+/**
+ * @implements {relexation.IContextManager<TypescriptTokenKind>}
+ */
+class PropertyContextManager {
+  /**
+   * @private
+   * @type {boolean}
+   */
+  inContext = false;
 
-  public apply(token: Token<TypescriptTokenKind>): TypescriptTokenKind | null {
+  /**
+   * @inheritdoc {@link relexation.IContextManager.apply}
+   * @param {relexation.Token<TypescriptTokenKind>} token
+   */
+  apply(token) {
     if (token.kind === "DOT") {
       this.inContext = true;
       return null;
@@ -129,10 +153,21 @@ class PropertyContextManager implements IContextManager<TypescriptTokenKind> {
   }
 }
 
-class NewValueContextManager implements IContextManager<TypescriptTokenKind> {
-  private inContext: boolean = false;
+/**
+ * @implements {relexation.IContextManager<TypescriptTokenKind>}
+ */
+class NewValueContextManager {
+  /**
+   * @private
+   * @type {boolean}
+   */
+  inContext = false;
 
-  public apply(token: Token<TypescriptTokenKind>): TypescriptTokenKind | null {
+  /**
+   * @inheritdoc {@link relexation.IContextManager.apply}
+   * @param {relexation.Token<TypescriptTokenKind>} token
+   */
+  apply(token) {
     if (token.kind === "KEYWORD" && token.value === "new") {
       this.inContext = true;
       return null;
@@ -148,10 +183,21 @@ class NewValueContextManager implements IContextManager<TypescriptTokenKind> {
   }
 }
 
-class InterpolatedStringContextManager implements IContextManager<TypescriptTokenKind> {
-  private inContext: boolean = false;
+/**
+ * @implements {relexation.IContextManager<TypescriptTokenKind>}
+ */
+class InterpolatedStringContextManager {
+  /**
+   * @private
+   * @type {boolean}
+   */
+  inContext = false;
 
-  public apply(token: Token<TypescriptTokenKind>): TypescriptTokenKind | null {
+  /**
+   * @inheritdoc {@link relexation.IContextManager.apply}
+   * @param {relexation.Token<TypescriptTokenKind>} token
+   */
+  apply(token) {
     if (token.kind === "INTERPOLATED_STRING_LITERAL" && this.inContext) {
       this.inContext = false;
       return "INTERPOLATED_STRING";
@@ -166,11 +212,27 @@ class InterpolatedStringContextManager implements IContextManager<TypescriptToke
   }
 }
 
-class ImportedPropertiesContextManager implements IContextManager<TypescriptTokenKind> {
-  private inContext: boolean = false;
-  private imports: string[] = [];
+/**
+ * @implements {relexation.IContextManager<TypescriptTokenKind>}
+ */
+class ImportedPropertiesContextManager {
+  /**
+   * @private
+   * @type {boolean}
+   */
+  inContext = false;
 
-  public apply(token: Token<TypescriptTokenKind>): TypescriptTokenKind | null {
+  /**
+   * @private
+   * @type {string[]}
+   */
+  imports = [];
+
+  /**
+   * @inheritdoc {@link relexation.IContextManager.apply}
+   * @param {relexation.Token<TypescriptTokenKind>} token
+   */
+  apply(token) {
     if (token.kind === "KEYWORD" && token.value === "import") {
       this.inContext = true;
       return null;

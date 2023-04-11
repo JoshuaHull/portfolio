@@ -3,9 +3,9 @@
   "private": "true",
   "version": "0.0.0",
   "type": "module",
-  "exports": "./dist/typescript-lexer.js",
+  "exports": "./typescript-lexer.js",
   "scripts": { 
-    "build": "tsc --outdir ./dist",
+    "build": "",
     "test": "vitest",
     "test:nowatch": "vitest --watch false"
   },
@@ -14,7 +14,6 @@
   },
   "devDependencies": {
     "@types/re-lex-ation": "workspace:*",
-    "typescript": "^4.9.3",
     "vitest": "^0.29.8"
   }
 }

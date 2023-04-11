@@ -28,6 +28,7 @@ importers:
       '@types/re-lex-ation': workspace:*
       '@types/rollup-plugin-content': workspace:*
       '@types/rollup-plugin-count': workspace:*
+      '@types/typescript-lexer': workspace:*
       '@types/use-vanishing-value': workspace:*
       '@types/use-vanishing-values': workspace:*
       '@vitejs/plugin-vue': ^3.0.3
@@ -71,6 +72,7 @@ importers:
       '@types/re-lex-ation': link:../../types/re-lex-ation
       '@types/rollup-plugin-content': link:../../types/rollup-plugin-content
       '@types/rollup-plugin-count': link:../../types/rollup-plugin-count
+      '@types/typescript-lexer': link:../../types/typescript-lexer
       '@types/use-vanishing-value': link:../../types/use-vanishing-value
       '@types/use-vanishing-values': link:../../types/use-vanishing-values
       '@vitejs/plugin-vue': 3.2.0_vite@4.2.0+vue@3.2.47
@@ -163,13 +165,11 @@ importers:
     specifiers:
       '@types/re-lex-ation': workspace:*
       re-lex-ation: workspace:*
-      typescript: ^4.9.3
       vitest: ^0.29.8
     dependencies:
       re-lex-ation: link:../re-lex-ation
     devDependencies:
       '@types/re-lex-ation': link:../../types/re-lex-ation
-      typescript: 4.9.5
       vitest: 0.29.8
 
   ../../libs/vite-plugin-replace:
@@ -233,6 +233,12 @@ importers:
       typescript: ^4.9.3
     devDependencies:
       rollup: 2.77.0
+      typescript: 4.9.5
+
+  ../../types/typescript-lexer:
+    specifiers:
+      typescript: ^4.9.3
+    devDependencies:
       typescript: 4.9.5
 
   ../../types/use-vanishing-value:

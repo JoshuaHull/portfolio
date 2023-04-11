@@ -78,6 +78,10 @@
       "projectFolder": "libs/typescript-lexer"
     },
     {
+      "packageName": "@types/typescript-lexer",
+      "projectFolder": "types/typescript-lexer"
+    },
+    {
       "packageName": "vue-lexer",
       "projectFolder": "libs/vue-lexer"
     },
