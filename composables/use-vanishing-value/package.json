@@ -5,13 +5,16 @@
   "type": "module",
   "exports": "./use-vanishing-value.js",
   "scripts": {
-    "build": ""
+    "build": "",
+    "test": "vitest",
+    "test:nowatch": "vitest --watch false"
   },
   "dependencies": {
     "vue": "^3.2.37",
     "use-vanishing-values": "workspace:*"
   },
   "devDependencies": {
-    "@types/use-vanishing-values": "workspace:*"
+    "@types/use-vanishing-values": "workspace:*",
+    "vitest": "^0.29.8"
   }
 }

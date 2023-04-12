@@ -92,12 +92,14 @@ importers:
     specifiers:
       '@types/use-vanishing-values': workspace:*
       use-vanishing-values: workspace:*
+      vitest: ^0.29.8
       vue: ^3.2.37
     dependencies:
       use-vanishing-values: link:../use-vanishing-values
       vue: 3.2.47
     devDependencies:
       '@types/use-vanishing-values': link:../../types/use-vanishing-values
+      vitest: 0.29.8
 
   ../../composables/use-vanishing-values:
     specifiers:
