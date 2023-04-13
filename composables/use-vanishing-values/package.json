@@ -5,9 +5,14 @@
   "type": "module",
   "exports": "./use-vanishing-values.js",
   "scripts": {
-    "build": ""
+    "build": "",
+    "test": "vitest",
+    "test:nowatch": "vitest --watch false"
   },
   "dependencies": {
     "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "vitest": "^0.29.8"
   }
 }

@@ -101,9 +101,12 @@ importers:
 
   ../../composables/use-vanishing-values:
     specifiers:
+      vitest: ^0.29.8
       vue: ^3.2.37
     dependencies:
       vue: 3.2.47
+    devDependencies:
+      vitest: 0.29.8
 
   ../../libs/csharp-lexer:
     specifiers:
