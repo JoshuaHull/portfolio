@@ -14,7 +14,6 @@
     "use-vanishing-values": "workspace:*"
   },
   "devDependencies": {
-    "@types/use-vanishing-values": "workspace:*",
     "vitest": "^0.29.8"
   }
 }
