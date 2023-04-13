@@ -8,16 +8,6 @@ This is a source-available project; it's not open-source. However, the packages 
 
 This is a [Rush](https://rushjs.io/) monorepo.
 
-Run the homepage:  
-`rush dev --to homepage`
-
-Run the skills app:  
-`rush dev --to skills`
-
-Add a package to an existing app:  
-`cd ./apps/{app}`  
-`rush add -p {package} [--dev]`
-
 ## Apps
 
 [Homepage](./apps/homepage) - single file site from which all apps are linked
@@ -26,7 +16,7 @@ Add a package to an existing app:
 
 ## Packages (MIT)
 
-### Auto Component plugins
+### unplugin-vue-components plugins
 
 [hero-icon-resolver](./libs/hero-icon-resolver) - automatically resolves [Hero Icon](https://heroicons.com/) components in Vue apps
 
@@ -36,7 +26,7 @@ Add a package to an existing app:
 
 [highlighter](./libs/highlighter) - extracts all the tokens from a lexer and maps them to a VNode
 
-[re-lex-ation](./libs/re-lex-ation/) - a no-fuss, kinda dumb, kinda bad base lexer which might work for any language
+[re-lex-ation](./libs/re-lex-ation/) - a no-fuss base lexer which might work for any language
 
 [typescript-lexer](./libs/typescript-lexer/) - a Typescript lexer deriving from re-lex-ation
 
@@ -58,8 +48,8 @@ Add a package to an existing app:
 
 [use-vanishing-value](./composables/use-vanishing-value) - Vue composable which yields a `Ref<T | null>` object and a function to push new ephemeral values to that object
 
-[use-vanishing-values](./composables/use-vanishing-values) - extends use-vanishing-value to support tracking multiple values at once
+[use-vanishing-values](./composables/use-vanishing-values) - Vue composable which yields a `Ref<T[] | null>` object and a function to push new ephemeral values onto the queue
 
 ### Typescript definitions
 
-[All Typescript definition packages are listed here.](./types/)
+All Typescript definition packages are listed [here](./types/).
