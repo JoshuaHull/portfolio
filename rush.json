@@ -54,6 +54,10 @@
       "projectFolder": "libs/csharp-lexer"
     },
     {
+      "packageName": "@types/csharp-lexer",
+      "projectFolder": "types/csharp-lexer"
+    },
+    {
       "packageName": "hero-icon-resolver",
       "projectFolder": "libs/hero-icon-resolver"
     },

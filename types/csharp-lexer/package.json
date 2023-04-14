@@ -1,5 +1,5 @@
 {
-  "name": "@types/typescript-lexer",
+  "name": "@types/csharp-lexer",
   "private": true,
   "version": "0.0.0",
   "type": "module",

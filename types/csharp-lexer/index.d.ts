@@ -1,6 +1,6 @@
 import { Lexer } from "re-lex-ation";
 
-export type TypescriptTokenKind =
+export type CSharpTokenKind =
   | "OPEN_PAREN"
   | "CLOSE_PAREN"
   | "OPEN_CURLY"
@@ -8,18 +8,16 @@ export type TypescriptTokenKind =
   | "OPEN_ANGLE"
   | "CLOSE_ANGLE"
   | "SEMICOLON"
-  | "COMMA"
   | "DOT"
   | "PROPERTY"
-  | "IMPORTED_PROPERTY"
   | "TYPE"
   | "STRING_LITERAL"
   | "INTERPOLATED_STRING_LITERAL"
-  | "INTERPOLATED_STRING"
+  | "STRING"
   | "EQUALS"
 ;
 
-export class TypescriptLexer extends Lexer<TypescriptTokenKind> {
+export class CSharpLexer extends Lexer<CSharpTokenKind> {
   constructor(
     content: string,
   );

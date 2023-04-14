@@ -1,27 +1,26 @@
-import { IContextManager, Lexer, Token } from "re-lex-ation";
+import * as relexation from "re-lex-ation";
 
-export type CsharpTokenKind =
-  | "OPEN_PAREN"
-  | "CLOSE_PAREN"
-  | "OPEN_CURLY"
-  | "CLOSE_CURLY"
-  | "OPEN_ANGLE"
-  | "CLOSE_ANGLE"
-  | "SEMICOLON"
-  | "DOT"
-  | "EOF"
-  | "KEYWORD"
-  | "SYMBOL"
-  | "PROPERTY"
-  | "TYPE"
-  | "STRING_LITERAL"
-  | "INTERPOLATED_STRING_LITERAL"
-  | "STRING"
-  | "EQUALS"
-  | "OTHER"
-;
+/**
+ * @typedef {"OPEN_PAREN" |
+ * "CLOSE_PAREN" |
+ * "OPEN_CURLY" |
+ * "CLOSE_CURLY" |
+ * "OPEN_ANGLE" |
+ * "CLOSE_ANGLE" |
+ * "SEMICOLON" |
+ * "DOT" |
+ * "PROPERTY" |
+ * "TYPE" |
+ * "STRING_LITERAL" |
+ * "INTERPOLATED_STRING_LITERAL" |
+ * "STRING" |
+ * "EQUALS"} CSharpTokenKind
+ */
 
-const literalTokens: Token<CsharpTokenKind>[] = [
+/**
+ * @type {relexation.Token<CSharpTokenKind>[]}
+ */
+const literalTokens = [
   {
     value: "(",
     kind: "OPEN_PAREN",
@@ -56,7 +55,10 @@ const literalTokens: Token<CsharpTokenKind>[] = [
   },
 ];
 
-const stringLiteralTokens: Token<CsharpTokenKind>[] = [
+/**
+ * @type {relexation.Token<CSharpTokenKind>[]}
+ */
+const stringLiteralTokens = [
   {
     value: "\"",
     kind: "STRING_LITERAL",
@@ -79,7 +81,10 @@ const stringLiteralTokens: Token<CsharpTokenKind>[] = [
   },
 ];
 
-const csharpKeywords: string[] = [
+/**
+ * @type {string[]}
+ */
+const csharpKeywords = [
   "abstract", "as", "base", "bool", "break", "byte", "case", "catch", "char",
   "checked", "class", "const", "continue", "decimal", "default", "delegate",
   "do", "double", "else", "enum", "event", "explicit", "extern", "false",
@@ -92,7 +97,10 @@ const csharpKeywords: string[] = [
   "unsafe", "ushort", "using", "virtual", "void", "volatile", "while",
 ];
 
-const csharpContextualKeywords: string[] = [
+/**
+ * @type {string[]}
+ */
+const csharpContextualKeywords = [
   "add", "and", "alias", "ascending", "args", "async", "await", "by",
   "descending", "dynamic", "equals", "file", "from", "get", "global",
   "group", "init", "into", "join", "let", "managed", "nameof", "nint",
@@ -101,9 +109,15 @@ const csharpContextualKeywords: string[] = [
   "value", "var", "when", "where", "with", "yield",
 ];
 
-export class CsharpLexer extends Lexer<CsharpTokenKind> {
+/**
+ * @extends {relexation.Lexer<CSharpTokenKind>}
+ */
+export class CSharpLexer extends relexation.Lexer {
+  /**
+   * @param {string} content - C# string which will be tokenised
+   */
   constructor(
-    content: string
+    content,
   ) {
     super(
       content,
@@ -120,10 +134,21 @@ export class CsharpLexer extends Lexer<CsharpTokenKind> {
   }
 }
 
-class PropertyContextManager implements IContextManager<CsharpTokenKind> {
-  private inContext: boolean = false;
+/**
+ * @implements {relexation.IContextManager<CSharpTokenKind>}
+ */
+class PropertyContextManager {
+  /**
+   * @private
+   * @type {boolean}
+   */
+  inContext = false;
 
-  public apply(token: Token<CsharpTokenKind>): CsharpTokenKind | null {
+  /**
+   * @inheritdoc {@link relexation.IContextManager.apply}
+   * @param {relexation.Token<CSharpTokenKind>} token
+   */
+  apply(token) {
     if (token.kind === "DOT") {
       this.inContext = true;
       return null;
@@ -139,10 +164,21 @@ class PropertyContextManager implements IContextManager<CsharpTokenKind> {
   }
 }
 
-class NewValueContextManager implements IContextManager<CsharpTokenKind> {
-  private inContext: boolean = false;
+/**
+ * @implements {relexation.IContextManager<CSharpTokenKind>}
+ */
+class NewValueContextManager {
+  /**
+   * @private
+   * @type {boolean}
+   */
+  inContext = false;
 
-  public apply(token: Token<CsharpTokenKind>): CsharpTokenKind | null {
+  /**
+   * @inheritdoc {@link relexation.IContextManager.apply}
+   * @param {relexation.Token<CSharpTokenKind>} token
+   */
+  apply(token) {
     if (token.kind === "KEYWORD" && token.value === "new") {
       this.inContext = true;
       return null;
@@ -158,10 +194,21 @@ class NewValueContextManager implements IContextManager<CsharpTokenKind> {
   }
 }
 
-class AsyncTypeContextManager implements IContextManager<CsharpTokenKind> {
-  private inContext: boolean = false;
+/**
+ * @implements {relexation.IContextManager<CSharpTokenKind>}
+ */
+class AsyncTypeContextManager {
+  /**
+   * @private
+   * @type {boolean}
+   */
+  inContext = false;
 
-  public apply(token: Token<CsharpTokenKind>): CsharpTokenKind | null {
+  /**
+   * @inheritdoc {@link relexation.IContextManager.apply}
+   * @param {relexation.Token<CSharpTokenKind>} token
+   */
+  apply(token) {
     if (token.kind === "KEYWORD" && token.value === "async") {
       this.inContext = true;
       return null;
@@ -177,10 +224,22 @@ class AsyncTypeContextManager implements IContextManager<CsharpTokenKind> {
   }
 }
 
-class ReturnTypeContextManager implements IContextManager<CsharpTokenKind> {
-  private inContext: boolean = false;
+/**
+ * @implements {relexation.IContextManager<CSharpTokenKind>}
+ */
+class ReturnTypeContextManager {
+  /**
+   * @private
+   * @type {boolean}
+   */
+  inContext = false;
 
-  private opensContext(token: Token<CsharpTokenKind>) {
+  /**
+   * @private
+   * @param {relexation.Token<CSharpTokenKind>} token
+   * @returns {boolean}
+   */
+  opensContext(token) {
     return token.kind === "KEYWORD" && (
       token.value === "private" ||
       token.value === "public" ||
@@ -188,7 +247,11 @@ class ReturnTypeContextManager implements IContextManager<CsharpTokenKind> {
     );
   }
 
-  public apply(token: Token<CsharpTokenKind>): CsharpTokenKind | null {
+  /**
+   * @inheritdoc {@link relexation.IContextManager.apply}
+   * @param {relexation.Token<CSharpTokenKind>} token
+   */
+  apply(token) {
     if (this.opensContext(token)) {
       this.inContext = true;
       return null;

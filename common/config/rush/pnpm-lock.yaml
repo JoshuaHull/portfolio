@@ -22,6 +22,7 @@ importers:
   ../../apps/skills:
     specifiers:
       '@heroicons/vue': ^2.0.8
+      '@types/csharp-lexer': workspace:*
       '@types/hero-icon-resolver': workspace:*
       '@types/highlighter': workspace:*
       '@types/node': ^18.7.13
@@ -66,6 +67,7 @@ importers:
       vue-lexer: link:../../libs/vue-lexer
       vue-router: 4.1.6_vue@3.2.47
     devDependencies:
+      '@types/csharp-lexer': link:../../types/csharp-lexer
       '@types/hero-icon-resolver': link:../../types/hero-icon-resolver
       '@types/highlighter': link:../../types/highlighter
       '@types/node': 18.15.3
@@ -110,15 +112,11 @@ importers:
 
   ../../libs/csharp-lexer:
     specifiers:
-      '@types/re-lex-ation': workspace:*
       re-lex-ation: workspace:*
-      typescript: ^4.9.3
       vitest: ^0.29.8
     dependencies:
       re-lex-ation: link:../re-lex-ation
     devDependencies:
-      '@types/re-lex-ation': link:../../types/re-lex-ation
-      typescript: 4.9.5
       vitest: 0.29.8
 
   ../../libs/hero-icon-resolver:
@@ -192,6 +190,14 @@ importers:
       '@types/re-lex-ation': link:../../types/re-lex-ation
       typescript: 4.9.5
 
+  ../../types/csharp-lexer:
+    specifiers:
+      '@types/re-lex-ation': workspace:*
+      typescript: ^4.9.3
+    devDependencies:
+      '@types/re-lex-ation': link:../re-lex-ation
+      typescript: 4.9.5
+
   ../../types/hero-icon-resolver:
     specifiers:
       typescript: ^4.9.3
@@ -240,8 +246,10 @@ importers:
 
   ../../types/typescript-lexer:
     specifiers:
+      '@types/re-lex-ation': workspace:*
       typescript: ^4.9.3
     devDependencies:
+      '@types/re-lex-ation': link:../re-lex-ation
       typescript: 4.9.5
 
   ../../types/use-vanishing-value:

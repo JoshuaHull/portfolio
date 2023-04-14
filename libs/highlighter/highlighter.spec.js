@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { Span, Highlighter } from "./";
-import { CsharpLexer } from "csharp-lexer";
+import { CSharpLexer } from "csharp-lexer";
 
 // TODO: this is copy-pasted, I want to either be a dev dependency
 // or use a different language
@@ -46,7 +46,7 @@ describe("toHtml", () => {
     Name = newName;
   }
 }`;
-    const lexer = new CsharpLexer(content);
+    const lexer = new CSharpLexer(content);
     const tokenMap = new CSharpTokenMap();
     const highlighter = new Highlighter(lexer, tokenMap);
 

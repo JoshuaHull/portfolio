@@ -106,7 +106,7 @@ export class TypescriptLexer extends relexation.Lexer {
    * @param {string} content - typescript string which will be tokenised
    */
   constructor(
-    content
+    content,
   ) {
     super(
       content,
