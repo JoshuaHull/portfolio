@@ -33,6 +33,7 @@
     "@types/typescript-lexer": "workspace:*",
     "@types/use-vanishing-value": "workspace:*",
     "@types/use-vanishing-values": "workspace:*",
+    "@types/vue-lexer": "workspace:*",
     "@vitejs/plugin-vue": "^3.0.3",
     "hero-icon-resolver": "workspace:*",
     "rollup-plugin-content": "workspace:*",

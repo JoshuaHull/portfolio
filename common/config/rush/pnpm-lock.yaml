@@ -32,6 +32,7 @@ importers:
       '@types/typescript-lexer': workspace:*
       '@types/use-vanishing-value': workspace:*
       '@types/use-vanishing-values': workspace:*
+      '@types/vue-lexer': workspace:*
       '@vitejs/plugin-vue': ^3.0.3
       '@vue/test-utils': ~2.3.2
       '@vueuse/core': ^9.13.0
@@ -77,6 +78,7 @@ importers:
       '@types/typescript-lexer': link:../../types/typescript-lexer
       '@types/use-vanishing-value': link:../../types/use-vanishing-value
       '@types/use-vanishing-values': link:../../types/use-vanishing-values
+      '@types/vue-lexer': link:../../types/vue-lexer
       '@vitejs/plugin-vue': 3.2.0_vite@4.2.0+vue@3.2.47
       '@vue/test-utils': 2.3.2_vue@3.2.47
       hero-icon-resolver: link:../../libs/hero-icon-resolver
@@ -273,6 +275,14 @@ importers:
       vite: ^4.2.0
     devDependencies:
       vite: 4.2.0
+
+  ../../types/vue-lexer:
+    specifiers:
+      '@types/re-lex-ation': workspace:*
+      typescript: ^4.9.3
+    devDependencies:
+      '@types/re-lex-ation': link:../re-lex-ation
+      typescript: 4.9.5
 
 packages:
 

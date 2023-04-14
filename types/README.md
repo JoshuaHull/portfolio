@@ -1,5 +1,7 @@
 # @types
 
+[@types/csharp-lexer](./csharp-lexer) - Typescript definitions for csharp-lexer
+
 [@types/hero-icon-resolver](./hero-icon-resolver) - Typescript definitions for hero-icon-resolver
 
 [@types/highlighter](./highlighter) - Typescript definitions for highlighter
@@ -19,3 +21,5 @@
 [@types/use-vanishing-values](./use-vanishing-values) - Typescript definitions for use-vanishing-values
 
 [@types/vite-plugin-replace](./vite-plugin-replace) - Typescript definitions for vite-plugin-replace
+
+[@types/vue-lexer](./vue-lexer) - Typescript definitions for vue-lexer

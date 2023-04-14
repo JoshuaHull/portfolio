@@ -1,30 +1,41 @@
 import { IContextManager, Lexer, Token } from "re-lex-ation";
 
-export type VueTokenKind =
-  | "OPEN_PAREN"
-  | "CLOSE_PAREN"
-  | "OPEN_CURLY"
-  | "CLOSE_CURLY"
-  | "OPEN_ANGLE"
-  | "CLOSE_ANGLE"
-  | "OPEN_ANGLE_SLASH"
-  | "SEMICOLON"
-  | "DOT"
-  | "EOF"
-  | "KEYWORD"
-  | "SYMBOL"
-  | "PROPERTY"
-  | "STRING_LITERAL"
-  | "INTERPOLATED_STRING_LITERAL"
-  | "STRING"
-  | "SLASH"
-  | "COLON"
-  | "EQUALS"
-  | "HASH"
-  | "OTHER"
-;
+/**
+ * @typedef {import("./../re-lex-ation/lexer").Token<VueTokenKind>} VueToken
+ */
 
-const literalTokens: Token<VueTokenKind>[] = [
+/**
+ * @typedef {import("./../re-lex-ation/lexer").IContextManager<VueTokenKind>} IVueContextManager
+ */
+
+/**
+ * @typedef {"OPEN_PAREN" |
+ * "CLOSE_PAREN" |
+ * "OPEN_CURLY" |
+ * "CLOSE_CURLY" |
+ * "OPEN_ANGLE" |
+ * "CLOSE_ANGLE" |
+ * "OPEN_ANGLE_SLASH" |
+ * "SEMICOLON" |
+ * "DOT" |
+ * "EOF" |
+ * "KEYWORD" |
+ * "SYMBOL" |
+ * "PROPERTY" |
+ * "STRING_LITERAL" |
+ * "INTERPOLATED_STRING_LITERAL" |
+ * "STRING" |
+ * "SLASH" |
+ * "COLON" |
+ * "HASH" |
+ * "OTHER" |
+ * "EQUALS"} VueTokenKind
+ */
+
+/**
+ * @type {VueToken[]}
+ */
+const literalTokens = [
   {
     value: "(",
     kind: "OPEN_PAREN",
@@ -79,7 +90,10 @@ const literalTokens: Token<VueTokenKind>[] = [
   },
 ];
 
-const stringLiteralTokens: Token<VueTokenKind>[] = [
+/**
+ * @type {VueToken[]}
+ */
+const stringLiteralTokens = [
   {
     value: "\"",
     kind: "STRING_LITERAL",
@@ -94,9 +108,15 @@ const stringLiteralTokens: Token<VueTokenKind>[] = [
   },
 ];
 
-export class VueLexer extends Lexer<VueTokenKind> {
+/**
+ * @extends {Lexer<VueTokenKind>}
+ */
+export class VueLexer extends Lexer {
+  /**
+   * @param {string} content - Vue string which will be tokenised
+   */
   constructor(
-    content: string
+    content,
   ) {
     super(
       content,
@@ -111,13 +131,39 @@ export class VueLexer extends Lexer<VueTokenKind> {
   }
 }
 
-class HtmlTagContextManager implements IContextManager<VueTokenKind> {
-  private openingHtmlTag: boolean = false;
-  private closingHtmlTag: boolean = false;
-  private inHtmlTag: boolean = false;
-  private hashHtmlProperty: boolean = false;
+/**
+ * @implements {IVueContextManager}
+ */
+class HtmlTagContextManager {
+  /**
+   * @private
+   * @type {boolean}
+   */
+  openingHtmlTag = false;
 
-  public apply(token: Token<VueTokenKind>): VueTokenKind | null {
+  /**
+   * @private
+   * @type {boolean}
+   */
+  closingHtmlTag = false;
+
+  /**
+   * @private
+   * @type {boolean}
+   */
+  inHtmlTag = false;
+
+  /**
+   * @private
+   * @type {boolean}
+   */
+  hashHtmlProperty = false;
+
+  /**
+   * @inheritdoc {@link IVueContextManager.apply}
+   * @param {VueToken} token
+   */
+  apply(token) {
     if (token.kind === "OPEN_ANGLE") {
       this.openingHtmlTag = true;
       this.inHtmlTag = true;
@@ -159,18 +205,39 @@ class HtmlTagContextManager implements IContextManager<VueTokenKind> {
   }
 }
 
-class CssPropertyContextManager implements IContextManager<VueTokenKind> {
-  private inContext: boolean = false;
+/**
+ * @implements {IVueContextManager}
+ */
+class CssPropertyContextManager {
+  /**
+   * @private
+   * @type {boolean}
+   */
+  inContext = false;
 
-  private opensContext = (token: Token<VueTokenKind>) =>
+  /**
+   * @private
+   * @param {VueToken} token
+   * @returns {boolean}
+   */
+  opensContext = (token) =>
     token.kind === "COLON";
 
-  private closesContext = (token: Token<VueTokenKind>) =>
+  /**
+   * @private
+   * @param {VueToken} token
+   * @returns {boolean}
+   */
+  closesContext = (token) =>
     this.inContext && (
       token.kind === "SEMICOLON" || token.kind === "CLOSE_PAREN"
     );
 
-  public apply(token: Token<VueTokenKind>): VueTokenKind | null {
+  /**
+   * @inheritdoc {@link IVueContextManager.apply}
+   * @param {VueToken} token
+   */
+  apply(token) {
     if (this.opensContext(token)) {
       this.inContext = true;
       return null;
