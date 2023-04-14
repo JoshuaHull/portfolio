@@ -1,6 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { TypescriptLexer, TypescriptTokenKind } from "./";
-import * as relexation from "re-lex-ation";
+import { TypescriptLexer } from "./typescript-lexer";
 
 describe("lexer", () => {
   test("should return EOF token when content runs out", () => {
@@ -19,10 +18,9 @@ describe("lexer", () => {
 describe("entire lines", () => {
   /**
    * @param {TypescriptLexer} lexer
-   * @returns {relexation.Token<TypescriptTokenKind>[]}
+   * @returns {import("./typescript-lexer").TypescriptToken[]}
    */
   function allTokensFrom(lexer) {
-    /* @type {relexation.Token<TypescriptTokenKind>[]} */
     const rtn = [];
 
     for (;;) {

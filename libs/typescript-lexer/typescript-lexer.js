@@ -1,4 +1,12 @@
-import * as relexation from "re-lex-ation";
+import { Lexer } from "re-lex-ation";
+
+/**
+ * @typedef {import("./../re-lex-ation/lexer").Token<TypescriptTokenKind>} TypescriptToken
+ */
+
+/**
+ * @typedef {import("./../re-lex-ation/lexer").IContextManager<TypescriptTokenKind>} ITypescriptContextManager
+ */
 
 /**
  * @typedef {"OPEN_PAREN" |
@@ -20,7 +28,7 @@ import * as relexation from "re-lex-ation";
  */
 
 /**
- * @type {relexation.Token<TypescriptTokenKind>[]}
+ * @type {TypescriptToken[]}
  */
 const literalTokens = [
   {
@@ -70,7 +78,7 @@ const literalTokens = [
 ];
 
 /**
- * @type {relexation.Token<TypescriptTokenKind>[]}
+ * @type {TypescriptToken[]}
  */
 const stringLiteralTokens = [
   {
@@ -99,9 +107,9 @@ const typescriptContextualKeywords = [
 ];
 
 /**
- * @extends {relexation.Lexer<TypescriptTokenKind>}
+ * @extends {Lexer<TypescriptTokenKind>}
  */
-export class TypescriptLexer extends relexation.Lexer {
+export class TypescriptLexer extends Lexer {
   /**
    * @param {string} content - typescript string which will be tokenised
    */
@@ -124,7 +132,7 @@ export class TypescriptLexer extends relexation.Lexer {
 }
 
 /**
- * @implements {relexation.IContextManager<TypescriptTokenKind>}
+ * @implements {ITypescriptContextManager}
  */
 class PropertyContextManager {
   /**
@@ -134,8 +142,8 @@ class PropertyContextManager {
   inContext = false;
 
   /**
-   * @inheritdoc {@link relexation.IContextManager.apply}
-   * @param {relexation.Token<TypescriptTokenKind>} token
+   * @inheritdoc {@link ITypescriptContextManager.apply}
+   * @param {TypescriptToken} token
    */
   apply(token) {
     if (token.kind === "DOT") {
@@ -154,7 +162,7 @@ class PropertyContextManager {
 }
 
 /**
- * @implements {relexation.IContextManager<TypescriptTokenKind>}
+ * @implements {ITypescriptContextManager}
  */
 class NewValueContextManager {
   /**
@@ -164,8 +172,8 @@ class NewValueContextManager {
   inContext = false;
 
   /**
-   * @inheritdoc {@link relexation.IContextManager.apply}
-   * @param {relexation.Token<TypescriptTokenKind>} token
+   * @inheritdoc {@link ITypescriptContextManager.apply}
+   * @param {TypescriptToken} token
    */
   apply(token) {
     if (token.kind === "KEYWORD" && token.value === "new") {
@@ -184,7 +192,7 @@ class NewValueContextManager {
 }
 
 /**
- * @implements {relexation.IContextManager<TypescriptTokenKind>}
+ * @implements {ITypescriptContextManager}
  */
 class InterpolatedStringContextManager {
   /**
@@ -194,8 +202,8 @@ class InterpolatedStringContextManager {
   inContext = false;
 
   /**
-   * @inheritdoc {@link relexation.IContextManager.apply}
-   * @param {relexation.Token<TypescriptTokenKind>} token
+   * @inheritdoc {@link ITypescriptContextManager.apply}
+   * @param {TypescriptToken} token
    */
   apply(token) {
     if (token.kind === "INTERPOLATED_STRING_LITERAL" && this.inContext) {
@@ -213,7 +221,7 @@ class InterpolatedStringContextManager {
 }
 
 /**
- * @implements {relexation.IContextManager<TypescriptTokenKind>}
+ * @implements {ITypescriptContextManager}
  */
 class ImportedPropertiesContextManager {
   /**
@@ -229,8 +237,8 @@ class ImportedPropertiesContextManager {
   imports = [];
 
   /**
-   * @inheritdoc {@link relexation.IContextManager.apply}
-   * @param {relexation.Token<TypescriptTokenKind>} token
+   * @inheritdoc {@link ITypescriptContextManager.apply}
+   * @param {TypescriptToken} token
    */
   apply(token) {
     if (token.kind === "KEYWORD" && token.value === "import") {

@@ -112,11 +112,13 @@ importers:
 
   ../../libs/csharp-lexer:
     specifiers:
+      '@types/re-lex-ation': workspace:*
       re-lex-ation: workspace:*
       vitest: ^0.29.8
     dependencies:
       re-lex-ation: link:../re-lex-ation
     devDependencies:
+      '@types/re-lex-ation': link:../../types/re-lex-ation
       vitest: 0.29.8
 
   ../../libs/hero-icon-resolver:

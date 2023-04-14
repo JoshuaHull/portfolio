@@ -11,7 +11,7 @@
 /**
  * @template [TKind = string]
  * @typedef IContextManager<TKind>
- * @property {IContextManagerApplyFn} apply - replace the most recently tokenised token with this token.
+ * @property {IContextManagerApplyFn<TKind>} apply - replace the most recently tokenised token with this token.
  */
 
  /**

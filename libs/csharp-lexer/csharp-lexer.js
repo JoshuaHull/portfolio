@@ -1,4 +1,12 @@
-import * as relexation from "re-lex-ation";
+import { Lexer } from "re-lex-ation";
+
+/**
+ * @typedef {import("./../re-lex-ation/lexer").Token<CSharpTokenKind>} CSharpToken
+ */
+
+/**
+ * @typedef {import("./../re-lex-ation/lexer").IContextManager<CSharpTokenKind>} ICSharpContextManager
+ */
 
 /**
  * @typedef {"OPEN_PAREN" |
@@ -18,7 +26,7 @@ import * as relexation from "re-lex-ation";
  */
 
 /**
- * @type {relexation.Token<CSharpTokenKind>[]}
+ * @type {CSharpToken[]}
  */
 const literalTokens = [
   {
@@ -56,7 +64,7 @@ const literalTokens = [
 ];
 
 /**
- * @type {relexation.Token<CSharpTokenKind>[]}
+ * @type {CSharpToken[]}
  */
 const stringLiteralTokens = [
   {
@@ -110,9 +118,9 @@ const csharpContextualKeywords = [
 ];
 
 /**
- * @extends {relexation.Lexer<CSharpTokenKind>}
+ * @extends {Lexer<CSharpTokenKind>}
  */
-export class CSharpLexer extends relexation.Lexer {
+export class CSharpLexer extends Lexer {
   /**
    * @param {string} content - C# string which will be tokenised
    */
@@ -135,7 +143,7 @@ export class CSharpLexer extends relexation.Lexer {
 }
 
 /**
- * @implements {relexation.IContextManager<CSharpTokenKind>}
+ * @implements {ICSharpContextManager}
  */
 class PropertyContextManager {
   /**
@@ -145,8 +153,8 @@ class PropertyContextManager {
   inContext = false;
 
   /**
-   * @inheritdoc {@link relexation.IContextManager.apply}
-   * @param {relexation.Token<CSharpTokenKind>} token
+   * @inheritdoc {@link ICSharpContextManager.apply}
+   * @param {CSharpToken} token
    */
   apply(token) {
     if (token.kind === "DOT") {
@@ -165,7 +173,7 @@ class PropertyContextManager {
 }
 
 /**
- * @implements {relexation.IContextManager<CSharpTokenKind>}
+ * @implements {ICSharpContextManager}
  */
 class NewValueContextManager {
   /**
@@ -175,8 +183,8 @@ class NewValueContextManager {
   inContext = false;
 
   /**
-   * @inheritdoc {@link relexation.IContextManager.apply}
-   * @param {relexation.Token<CSharpTokenKind>} token
+   * @inheritdoc {@link ICSharpContextManager.apply}
+   * @param {CSharpToken} token
    */
   apply(token) {
     if (token.kind === "KEYWORD" && token.value === "new") {
@@ -195,7 +203,7 @@ class NewValueContextManager {
 }
 
 /**
- * @implements {relexation.IContextManager<CSharpTokenKind>}
+ * @implements {ICSharpContextManager}
  */
 class AsyncTypeContextManager {
   /**
@@ -205,8 +213,8 @@ class AsyncTypeContextManager {
   inContext = false;
 
   /**
-   * @inheritdoc {@link relexation.IContextManager.apply}
-   * @param {relexation.Token<CSharpTokenKind>} token
+   * @inheritdoc {@link ICSharpContextManager.apply}
+   * @param {CSharpToken} token
    */
   apply(token) {
     if (token.kind === "KEYWORD" && token.value === "async") {
@@ -225,7 +233,7 @@ class AsyncTypeContextManager {
 }
 
 /**
- * @implements {relexation.IContextManager<CSharpTokenKind>}
+ * @implements {ICSharpContextManager}
  */
 class ReturnTypeContextManager {
   /**
@@ -236,7 +244,7 @@ class ReturnTypeContextManager {
 
   /**
    * @private
-   * @param {relexation.Token<CSharpTokenKind>} token
+   * @param {CSharpToken} token
    * @returns {boolean}
    */
   opensContext(token) {
@@ -248,8 +256,8 @@ class ReturnTypeContextManager {
   }
 
   /**
-   * @inheritdoc {@link relexation.IContextManager.apply}
-   * @param {relexation.Token<CSharpTokenKind>} token
+   * @inheritdoc {@link ICSharpContextManager.apply}
+   * @param {CSharpToken} token
    */
   apply(token) {
     if (this.opensContext(token)) {

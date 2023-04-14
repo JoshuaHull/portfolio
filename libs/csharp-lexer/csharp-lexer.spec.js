@@ -1,10 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { CSharpLexer } from "./csharp-lexer";
 
-/**
- * @typedef {import("./../re-lex-ation/lexer").Token<import("./csharp-lexer").CSharpTokenKind>} CSharpToken
- */
-
 describe("lexer", () => {
   test("should return EOF token when content runs out", () => {
     // Arrange
@@ -273,7 +269,7 @@ describe("keywords", () => {
 describe("entire lines", () => {
   /**
    * @param {CSharpLexer} lexer
-   * @returns {CSharpToken[]}
+   * @returns {import("./csharp-lexer").CSharpToken[]}
    */
   function allTokensFrom(lexer) {
     const rtn = [];
