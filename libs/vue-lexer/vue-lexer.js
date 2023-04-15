@@ -1,4 +1,4 @@
-import { IContextManager, Lexer, Token } from "re-lex-ation";
+import { Lexer } from "re-lex-ation";
 
 /**
  * @typedef {import("./../re-lex-ation/lexer").Token<VueTokenKind>} VueToken

@@ -2,7 +2,7 @@
 <nav class="top-navbar">
   <a
     aria-label="home"
-    href="https://localhost:5173"
+    :href="homepageLink"
   >
     <IconContainer
       height="2rem"
@@ -29,6 +29,8 @@
 
 <script setup lang="ts">
 const isDrawerOpen = ref(false);
+
+const homepageLink = import.meta.env.VITE_HOMEPAGE;
 
 const toggleDrawer = () => isDrawerOpen.value = !isDrawerOpen.value;
 const closeDrawer = () => isDrawerOpen.value = false;

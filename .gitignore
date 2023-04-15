@@ -10,7 +10,7 @@
 node_modules/
 
 # dotenv environment variables file
-.env
+.env.local
 
 # OS X temporary files
 .DS_Store
