@@ -8,16 +8,12 @@ importers:
   ../../apps/homepage:
     specifiers:
       '@types/rollup-plugin-html-minify': workspace:*
-      '@types/vite-plugin-replace': workspace:*
       rollup-plugin-html-minify: workspace:*
       vite: ^4.2.0
-      vite-plugin-replace: workspace:*
     devDependencies:
       '@types/rollup-plugin-html-minify': link:../../types/rollup-plugin-html-minify
-      '@types/vite-plugin-replace': link:../../types/vite-plugin-replace
       rollup-plugin-html-minify: link:../../libs/rollup-plugin-html-minify
       vite: 4.2.0
-      vite-plugin-replace: link:../../libs/vite-plugin-replace
 
   ../../apps/skills:
     specifiers:
