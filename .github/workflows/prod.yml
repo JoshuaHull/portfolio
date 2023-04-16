@@ -3,7 +3,7 @@ name: Deploy to prod
 on:
   push:
     brnaches:
-      - "joshh/ci/actions"
+      - "main"
 
 jobs:
   build:
