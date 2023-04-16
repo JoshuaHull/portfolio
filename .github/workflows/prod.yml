@@ -12,10 +12,15 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      uses: actions/checkout@v3
-      uses: actions/setup-node@v3
-      working-directory: ./apps
-      run: |
-        npm i
-        npm i -g rush
-        rush build
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+
+      - name: Build apps
+        working-directory: ./apps
+        run: |
+          npm i
+          npm i -g rush
+          rush build
