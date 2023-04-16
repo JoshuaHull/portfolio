@@ -18,9 +18,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
 
+      - name: Rush Install
+        run: node common/scripts/install-run-rush.js install
+
       - name: Build apps
-        working-directory: ./apps
-        run: |
-          npm i -g rush
-          rush update
-          rush build
+        run: rush build
