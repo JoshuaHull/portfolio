@@ -6,20 +6,23 @@ on:
       - "joshh/ci/actions"
 
 jobs:
-  apps:
-    name: Deploy apps
+  build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
 
       - name: Setup Node
         uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: Rush Install
         run: node common/scripts/install-run-rush.js install
 
-      - name: Build apps
-        run: rush build
+      - name: Rush rebuild
+        run: node common/scripts/install-run-rush.js rebuild --verbose --production
