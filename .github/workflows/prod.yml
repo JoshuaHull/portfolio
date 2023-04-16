@@ -21,6 +21,6 @@ jobs:
       - name: Build apps
         working-directory: ./apps
         run: |
-          npm i
           npm i -g rush
+          rush update
           rush build
