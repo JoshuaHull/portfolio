@@ -9,6 +9,7 @@ import { heroIconResolver } from "hero-icon-resolver";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/skills/",
   server: {
     port: 5174,
   },
