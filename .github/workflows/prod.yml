@@ -2,8 +2,6 @@ name: Deploy to prod
 
 on:
   push:
-    branches:
-      - "main"
 
 jobs:
   build:
@@ -34,6 +32,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Deploy
+      - name: Deploy Homepage
         working-directory: ./apps/homepage
         run: aws s3 sync ./dist/ s3://prod-fullstackjosh-dot-com --delete
+
+      - name: Deploy Skills
+        working-directory: ./apps/skills
+        run: aws s3 sync ./dist/ s3://prod-fullstackjosh-dot-com/skills --delete
