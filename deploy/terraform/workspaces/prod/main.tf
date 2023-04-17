@@ -19,6 +19,24 @@ provider "aws" {
 module "static-site" {
   source = "./../../modules/static-site"
   environment = "prod"
+  bucket = "fullstackjosh-dot-com"
+  domain = "fullstackjosh"
+  genericTLD = "com"
+  subdomain = ""
+
+  providers = {
+    aws.apsoutheast2 = aws.apsoutheast2
+    aws.useast1 = aws.useast1
+  }
+}
+
+module "skills" {
+  source = "./../../modules/static-site"
+  environment = "prod"
+  bucket = "fullstackjosh-dot-com-skills"
+  domain = "fullstackjosh"
+  genericTLD = "com"
+  subdomain = "skills."
 
   providers = {
     aws.apsoutheast2 = aws.apsoutheast2
