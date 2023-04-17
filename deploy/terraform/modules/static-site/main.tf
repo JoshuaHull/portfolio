@@ -1,9 +1,3 @@
-locals {
-  bucket = "fullstackjosh-dot-com"
-  domain = "fullstackjosh"
-  genericTLD = "com"
-}
-
 terraform {
   required_providers {
     aws = {
@@ -19,7 +13,7 @@ terraform {
 resource aws_s3_bucket SiteBucket {
   provider = aws.apsoutheast2
 
-  bucket = "${var.environment}-${local.bucket}"
+  bucket = "${var.environment}-${var.bucket}"
 }
 
 resource aws_s3_bucket_cors_configuration SiteBucketCors {
@@ -30,7 +24,7 @@ resource aws_s3_bucket_cors_configuration SiteBucketCors {
   cors_rule {
     allowed_headers = ["Authorization", "Content-Length"]
     allowed_methods = ["GET"]
-    allowed_origins = ["https://${local.domain}.${local.genericTLD}"]
+    allowed_origins = ["https://${var.subdomain}${var.domain}.${var.genericTLD}"]
     expose_headers  = []
     max_age_seconds = 3000
   }
@@ -77,7 +71,7 @@ resource aws_s3_bucket_policy SiteBucketPolicy {
         "AWS": "${aws_cloudfront_origin_access_identity.SiteIdentity.iam_arn}"
       },
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::${var.environment}-${local.bucket}/*"
+      "Resource": "arn:aws:s3:::${var.environment}-${var.bucket}/*"
     }
   ]
 }
@@ -87,7 +81,7 @@ EOF
 data aws_acm_certificate SiteCertificate {
   provider = aws.useast1
 
-  domain = "${local.domain}.${local.genericTLD}"
+  domain = "${var.domain}.${var.genericTLD}"
   statuses = ["ISSUED"]
 }
 
@@ -97,11 +91,11 @@ resource aws_cloudfront_distribution SiteDistribution {
   enabled = true
   is_ipv6_enabled = true
   default_root_object = "index.html"
-  aliases = ["${local.domain}.${local.genericTLD}"]
+  aliases = ["${var.subdomain}${var.domain}.${var.genericTLD}"]
 
   origin {
     domain_name = aws_s3_bucket.SiteBucket.bucket_regional_domain_name
-    origin_id = "${var.environment}-${local.bucket}"
+    origin_id = "${var.environment}-${var.bucket}"
 
     s3_origin_config {
       origin_access_identity = aws_cloudfront_origin_access_identity.SiteIdentity.cloudfront_access_identity_path
@@ -118,7 +112,7 @@ resource aws_cloudfront_distribution SiteDistribution {
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
     cached_methods   = ["GET", "HEAD"]
-    target_origin_id = "${var.environment}-${local.bucket}"
+    target_origin_id = "${var.environment}-${var.bucket}"
 
     forwarded_values {
       query_string = false

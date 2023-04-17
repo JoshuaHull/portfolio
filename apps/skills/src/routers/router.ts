@@ -30,14 +30,10 @@ export const SkillsMessagingPageName = "SkillsMessagingPage";
 export const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    redirect: "/skills",
+    redirect: "/rest",
   },
   {
-    path: "/skills",
-    redirect: "/skills/rest",
-  },
-  {
-    path: "/skills/ddd",
+    path: "/ddd",
     name: SkillsDDDPageName,
     components: {
       default: SkillsDDDPage,
@@ -45,7 +41,7 @@ export const routes: RouteRecordRaw[] = [
     },
   },
   {
-    path: "/skills/source-control",
+    path: "/source-control",
     name: SkillsGitPageName,
     components: {
       default: SkillsGitPage,
@@ -53,7 +49,7 @@ export const routes: RouteRecordRaw[] = [
     },
   },
   {
-    path: "/skills/rest",
+    path: "/rest",
     name: SkillsRestPageName,
     components: {
       default: SkillsRestPage,
@@ -61,7 +57,7 @@ export const routes: RouteRecordRaw[] = [
     },
   },
   {
-    path: "/skills/tests",
+    path: "/tests",
     name: SkillsTestsPageName,
     components: {
       default: SkillsTestsPage,
@@ -69,7 +65,7 @@ export const routes: RouteRecordRaw[] = [
     },
   },
   {
-    path: "/skills/dotnet",
+    path: "/dotnet",
     name: SkillsDotnetPageName,
     components: {
       default: SkillsDotnetPage,
@@ -77,7 +73,7 @@ export const routes: RouteRecordRaw[] = [
     },
   },
   {
-    path: "/skills/frontend",
+    path: "/frontend",
     name: SkillsFrontendPageName,
     components: {
       default: SkillsFrontendPage,
@@ -85,7 +81,7 @@ export const routes: RouteRecordRaw[] = [
     },
   },
   {
-    path: "/skills/messaging",
+    path: "/messaging",
     name: SkillsMessagingPageName,
     components: {
       default: SkillsMessagingPage,
