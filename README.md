@@ -16,10 +16,6 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 ## Packages (MIT)
 
-### unplugin-vue-components plugins
-
-[hero-icon-resolver](./libs/hero-icon-resolver) - automatically resolves [Hero Icon](https://heroicons.com/) components in Vue apps
-
 ### Lexing
 
 [csharp-lexer](./libs/csharp-lexer/) - a C# lexer deriving from re-lex-ation
@@ -39,6 +35,10 @@ This is a [Rush](https://rushjs.io/) monorepo.
 [rollup-plugin-count](./libs/rollup-plugin-count) - import a Javascript variable equal to the number of files in the build which have a given file extension
 
 [rollup-plugin-html-minify](./libs/rollup-plugin-html-minify) - very simple HTML minifier
+
+### unplugin-vue-components plugins
+
+[hero-icon-resolver](./libs/hero-icon-resolver) - automatically resolves [Hero Icon](https://heroicons.com/) components in Vue apps
 
 ### Vite plugins
 

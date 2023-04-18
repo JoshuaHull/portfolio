@@ -4,9 +4,11 @@ Single file site from which all apps are linked.
 
 ## Colours:
 
-colour palette: https://www.canva.com/colors/color-palettes/foil-covered-sneakers/
-with help from: https://www.canva.com/colors/color-meanings/dark-blue/
-and: https://www.canva.com/colors/color-meanings/chili-pepper/
+The primary colour palette is [Foil-covered Sneakers](https://www.canva.com/colors/color-palettes/foil-covered-sneakers/).
+
+The red colour from hovering over links comes from the Triad colour combination of [Canva's Dark Blue](https://www.canva.com/colors/color-meanings/dark-blue/).
+
+The red which indicates a delete action is [Chilli Pepper](https://www.canva.com/colors/color-meanings/chili-pepper/).
 
 ## Running the app:
 
