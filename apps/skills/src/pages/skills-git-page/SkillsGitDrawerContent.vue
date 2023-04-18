@@ -1,9 +1,9 @@
 <template>
 <div class="skills-git-drawer-content">
-  <StarRating outOf5="5">
+  <StarRating :outOf5="5">
     Professional Experience:
   </StarRating>
-  <StarRating outOf5="5">
+  <StarRating :outOf5="5">
     Personal Experience:
   </StarRating>
   <p>

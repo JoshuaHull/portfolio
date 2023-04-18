@@ -1,9 +1,9 @@
 <template>
 <div class="skills-frontend-drawer-content">
-  <StarRating outOf5="4">
+  <StarRating :outOf5="4">
     Professional Experience:
   </StarRating>
-  <StarRating outOf5="5">
+  <StarRating :outOf5="5">
     Personal Experience:
   </StarRating>
   <p>

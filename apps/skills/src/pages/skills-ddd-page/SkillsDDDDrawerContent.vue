@@ -1,9 +1,9 @@
 <template>
 <div class="skills-ddd-drawer-content">
-  <StarRating outOf5="3">
+  <StarRating :outOf5="3">
     Professional Experience:
   </StarRating>
-  <StarRating outOf5="4">
+  <StarRating :outOf5="4">
     Personal Experience:
   </StarRating>
   <p>
