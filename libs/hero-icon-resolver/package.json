@@ -3,6 +3,8 @@
   "private": false,
   "version": "1.0.1",
   "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/JoshuaHull/portfolio/tree/main/libs/hero-icon-resolver#readme",
   "author": {
     "name": "Joshua Hull",
     "url": "https://github.com/JoshuaHull"
