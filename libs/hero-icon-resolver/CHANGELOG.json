@@ -2,6 +2,18 @@
   "name": "hero-icon-resolver",
   "entries": [
     {
+      "version": "1.0.2",
+      "tag": "hero-icon-resolver_v1.0.2",
+      "date": "Tue, 18 Apr 2023 13:14:40 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "add license and homepage to package.json"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.0.1",
       "tag": "hero-icon-resolver_v1.0.1",
       "date": "Tue, 18 Apr 2023 11:32:33 GMT",
