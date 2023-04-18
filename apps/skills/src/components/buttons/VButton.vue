@@ -22,6 +22,7 @@ defineProps<VButtonProps>();
   background-color: var(--color-action-bg);
   color: var(--color-action);
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  height: min-content;
 }
 
 .v-button.disabled {
