@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "hero-icon-resolver",
+      "comment": "more detailed package.json",
+      "type": "patch"
+    }
+  ],
+  "packageName": "hero-icon-resolver"
+}

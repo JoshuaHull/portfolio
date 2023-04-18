@@ -3,6 +3,26 @@
   "private": false,
   "version": "1.0.0",
   "type": "module",
+  "author": {
+    "name": "Joshua Hull",
+    "url": "https://github.com/JoshuaHull"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JoshuaHull/portfolio.git",
+    "directory": "libs/hero-icon-resolver"
+  },
+  "keywords": [
+    "vue",
+    "vite",
+    "unplugin-vue-components",
+    "hero",
+    "icons",
+    "solid",
+    "mini",
+    "outline"
+  ],
+  "description": "Automatically resolves [Hero Icon](https://heroicons.com/) components in Vue apps.",
   "exports": "./hero-icon-resolver.js",
   "scripts": {
     "build": "",
