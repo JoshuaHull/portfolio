@@ -38,7 +38,8 @@ const gridTemplateColumns = computed(() =>
   height: 32rem;
   display: grid;
   grid-template-rows: min-content 30rem;
-  border-bottom: 2px solid var(--color-border);
+  --layer-panel-border-bottom-thickness: 2px;
+  border-bottom: var(--layer-panel-border-bottom-thickness) solid var(--color-border);
 }
 
 .layer-panel-header {
@@ -72,6 +73,9 @@ const gridTemplateColumns = computed(() =>
   width: 100%;
   justify-self: center;
   overflow-y: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  max-height: calc(100vh - (var(--bottom-navbar-height) + var(--top-navbar-height) + 10rem) + 2 * var(--layer-panel-border-bottom-thickness));
 }
 
 @media (min-width: 2048px) {
