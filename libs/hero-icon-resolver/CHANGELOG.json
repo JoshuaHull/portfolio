@@ -1,0 +1,17 @@
+{
+  "name": "hero-icon-resolver",
+  "entries": [
+    {
+      "version": "1.0.0",
+      "tag": "hero-icon-resolver_v1.0.0",
+      "date": "Tue, 18 Apr 2023 11:25:09 GMT",
+      "comments": {
+        "major": [
+          {
+            "comment": "feat: automatically resolve Hero icon components"
+          }
+        ]
+      }
+    }
+  ]
+}
