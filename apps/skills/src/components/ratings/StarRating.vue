@@ -8,7 +8,7 @@
       width="2rem"
       data-test="solid-star"
     >
-      <StarSolidIcon/>
+      <HeroStarSolid />
     </IconContainer>
     <IconContainer
       v-for="_ in empties"
@@ -16,7 +16,7 @@
       width="2rem"
       data-test="outline-star"
     >
-      <StarOutlineIcon />
+      <HeroStarOutline />
     </IconContainer>
   </div>
 </div>

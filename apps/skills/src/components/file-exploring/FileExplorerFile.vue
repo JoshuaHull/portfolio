@@ -4,7 +4,7 @@
   tabindex="0"
 >
   <IconContainer width="1em">
-    <DocumentSolidIcon class="file-explorer-file-icon" />
+    <HeroDocumentSolid class="file-explorer-file-icon" />
   </IconContainer>
   <slot></slot>
   <IconButton
@@ -12,7 +12,7 @@
     :rounded="true"
     @click="handleTrash"
   >
-    <TrashSolidIcon class="file-explorer-trash-icon" />
+    <HeroTrashSolid class="file-explorer-trash-icon" />
   </IconButton>
 </div>
 </template>

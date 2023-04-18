@@ -13,7 +13,7 @@
       height="2rem"
       width="6rem"
     >
-      <UserCircleSolidIcon />
+      <HeroUserCircleSolid />
     </IconContainer>
     <div class="commit-message">
       {{ commit.message }}

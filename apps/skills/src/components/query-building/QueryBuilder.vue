@@ -16,8 +16,8 @@
       :aria-label="enabled.includes(n) ? 'exclude expression' : 'include expression'"
       @click="() => onToggle(n)"
     >
-      <PlusSolidIcon v-if="!enabled.includes(n)" />
-      <MinusSolidIcon v-if="enabled.includes(n)" />
+      <HeroPlusSolid v-if="!enabled.includes(n)" />
+      <HeroMinusSolid v-if="enabled.includes(n)" />
     </IconButton>
   </template>
 </div>

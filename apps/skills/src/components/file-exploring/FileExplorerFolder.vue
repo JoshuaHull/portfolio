@@ -7,7 +7,7 @@
   @keypress.enter="handleClick"
 >
   <IconContainer width="1em">
-    <FolderSolidIcon class="file-explorer-folder-icon" />
+    <HeroFolderSolid class="file-explorer-folder-icon" />
   </IconContainer>
   <slot></slot>
   <IconButton
@@ -15,7 +15,7 @@
     :rounded="true"
     @click="handleTrash"
   >
-    <TrashSolidIcon class="file-explorer-trash-icon" />
+    <HeroTrashSolid class="file-explorer-trash-icon" />
   </IconButton>
 </div>
 </template>

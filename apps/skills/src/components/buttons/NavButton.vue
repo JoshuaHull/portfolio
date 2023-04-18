@@ -9,8 +9,8 @@
     height="4rem"
     class="nav-button-icon"
   >
-    <ArrowRightSolidIcon v-if="variant === 'right'" />
-    <ArrowLeftSolidIcon v-if="variant === 'left'" />
+    <HeroArrowRightSolid v-if="variant === 'right'" />
+    <HeroArrowLeftSolid v-if="variant === 'left'" />
   </IconContainer>
 </router-link>
 </template>

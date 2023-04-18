@@ -5,7 +5,7 @@
       class="messaging-server grid-area-server1"
       :height="serverIconHeight"
     >
-      <ServerSolidIcon />
+      <HeroServerSolid />
     </IconContainer>
     <AnimatedTravellingMessages
       :animationDuration="travellingMessageAnimationDuration"
@@ -29,7 +29,7 @@
       class="messaging-server grid-area-server2"
       :height="serverIconHeight"
     >
-      <ServerSolidIcon />
+      <HeroServerSolid />
     </IconContainer>
     <IconButton
       class="grid-area-stack"
@@ -39,7 +39,7 @@
       :rounded="true"
       @click="handleServerStackClick"
     >
-      <ServerStackSolidIcon />
+      <HeroServerStackSolid />
     </IconButton>
     <Transition name="fade-out">
       <div
@@ -52,7 +52,7 @@
           class="messaging-clickme-arrow"
           height="1rem"
         >
-          <ArrowLongLeftSolidIcon />
+          <HeroArrowLongLeftSolid />
         </IconContainer>
       </div>
     </Transition>
@@ -60,7 +60,7 @@
       class="messaging-server grid-area-server3"
       :height="serverIconHeight"
     >
-      <ServerSolidIcon />
+      <HeroServerSolid />
     </IconContainer>
     <AnimatedTravellingMessages
       :animationDuration="travellingMessageAnimationDuration"
@@ -84,7 +84,7 @@
       class="messaging-server grid-area-server4"
       :height="serverIconHeight"
     >
-      <ServerSolidIcon />
+      <HeroServerSolid />
     </IconContainer>
   </div>
 </article>

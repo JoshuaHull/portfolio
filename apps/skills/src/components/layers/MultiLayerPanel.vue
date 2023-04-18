@@ -26,7 +26,7 @@
       aria-label="move up 1 layer"
       @click="handleUp"
     >
-      <ArrowLongUpSolidIcon/>
+      <HeroArrowLongUpSolid />
     </IconButton>
     <IconButton
       height="2rem"
@@ -35,7 +35,7 @@
       aria-label="move down 1 layer"
       @click="handleDown"
     >
-      <ArrowLongDownSolidIcon/>
+      <HeroArrowLongDownSolid />
     </IconButton>
   </div>
 </div>

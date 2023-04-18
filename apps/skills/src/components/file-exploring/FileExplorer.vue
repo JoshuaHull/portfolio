@@ -7,7 +7,7 @@
       :rounded="true"
       @click="handleAddFile"
     >
-      <DocumentPlusSolidIcon />
+      <HeroDocumentPlusSolid />
     </IconButton>
     <IconButton
       class="file-explorer-action-button add-folder-button"
@@ -15,7 +15,7 @@
       :rounded="true"
       @click="handleAddFolder"
     >
-      <FolderPlusSolidIcon />
+      <HeroFolderPlusSolid />
     </IconButton>
     <IconButton
       class="file-explorer-action-button up-folder-button"
@@ -24,7 +24,7 @@
       :disabled="!hasParentFolder"
       @click="handleUp"
     >
-      <ArrowUpSolidIcon />
+      <HeroArrowUpSolid />
     </IconButton>
   </div>
   <div class="file-explorer-content">

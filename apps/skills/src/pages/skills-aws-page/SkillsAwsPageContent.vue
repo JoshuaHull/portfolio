@@ -2,7 +2,7 @@
 <article class="skills-aws">
   <section class="icons">
     <IconContainer height="10rem">
-      <ComputerDesktopSolidIcon />
+      <HeroComputerDesktopSolid />
     </IconContainer>
     <IconContainer height="10rem">
       <AwsLambdaIcon />

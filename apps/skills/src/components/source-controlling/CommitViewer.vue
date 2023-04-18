@@ -8,14 +8,14 @@
       class="change-indicator-created"
       width="1rem"
     >
-      <PlusSolidIcon />
+      <HeroPlusSolid />
     </IconContainer>
     <IconContainer
       v-if="change.modification === 'Delete'"
       class="change-indicator-deleted"
       width="1rem"
     >
-      <MinusSolidIcon />
+      <HeroMinusSolid />
     </IconContainer>
     <span class="commit-viewer-file-path">{{ change.filePath }}</span>
   </template>

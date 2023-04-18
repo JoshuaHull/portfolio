@@ -5,7 +5,7 @@
       :class="`animated-travelling-message ${messageClasses}`"
       height="1.5rem"
     >
-      <EnvelopeSolidIcon />
+      <HeroEnvelopeSolid />
     </IconContainer>
   </template>
 </TransitionGroup>

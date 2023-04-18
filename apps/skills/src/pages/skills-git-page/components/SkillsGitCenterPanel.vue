@@ -15,7 +15,7 @@
       tabindex="0"
       @click="handleClose"
     >
-      <XMarkSolidIcon />
+      <HeroXMarkSolid />
     </IconButton>
   </div>
   <div
