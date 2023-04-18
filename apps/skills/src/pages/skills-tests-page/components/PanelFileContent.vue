@@ -28,10 +28,16 @@ const lineNumbers = computed(() => {
   display: grid;
   grid-template-columns: min-content auto;
   column-gap: 1rem;
-  max-width: min(calc(100vw - 1rem), 500px);
+  max-width: 400px;
   padding-left: 0.5rem;
   overflow-x: scroll;
   overflow-y: scroll;
   height: calc(var(--skills-tests-panel-height) - 1.75rem);
+}
+
+@media (min-width: 1024px) {
+  .panel-file-content {
+    max-width: min(calc(100vw - 1rem), 500px);
+  }
 }
 </style>
