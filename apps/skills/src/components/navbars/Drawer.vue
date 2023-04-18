@@ -8,7 +8,7 @@
         aria-label="close drawer"
         @click="closeDrawer"
       >
-        <Bars3SolidIcon />
+        <HeroBars3Solid />
       </IconButton>
     </div>
     <router-view name="drawer"></router-view>

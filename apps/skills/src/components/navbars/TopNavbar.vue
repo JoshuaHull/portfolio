@@ -18,7 +18,7 @@
     aria-label="open drawer"
     @click="toggleDrawer"
   >
-    <Bars3SolidIcon />
+    <HeroBars3Solid />
   </IconButton>
   <Drawer
     :isOpen="isDrawerOpen"

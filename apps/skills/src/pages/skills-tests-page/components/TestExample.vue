@@ -20,7 +20,7 @@
         width="5rem"
         color="green"
       >
-        <HeroAnimatedCheck />
+        <AnimatedCheckIcon />
       </IconContainer>
     </Transition>
     <IconContainer height="2rem" class="bar">
@@ -38,7 +38,7 @@
         width="3.75rem"
         color="red"
       >
-        <HeroAnimatedCross />
+        <AnimatedCrossIcon />
       </IconContainer>
     </Transition>
     <IconContainer height="2rem" class="bar">
