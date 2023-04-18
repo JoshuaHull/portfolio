@@ -59,7 +59,12 @@
     },
     {
       "packageName": "hero-icon-resolver",
-      "projectFolder": "libs/hero-icon-resolver"
+      "projectFolder": "libs/hero-icon-resolver",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@types/hero-icon-resolver",
+      "projectFolder": "types/hero-icon-resolver"
     },
     {
       "packageName": "re-lex-ation",
@@ -92,10 +97,6 @@
     {
       "packageName": "@types/vue-lexer",
       "projectFolder": "types/vue-lexer"
-    },
-    {
-      "packageName": "@types/hero-icon-resolver",
-      "projectFolder": "types/hero-icon-resolver"
     },
     {
       "packageName": "vite-plugin-replace",

@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "hero-icon-resolver",
+      "comment": "feat: automatically resolve Hero icon components",
+      "type": "major"
+    }
+  ],
+  "packageName": "hero-icon-resolver"
+}
