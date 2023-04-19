@@ -18,7 +18,6 @@ importers:
       '@heroicons/vue': ^2.0.8
       '@types/highlighter': workspace:*
       '@types/node': ^18.7.13
-      '@types/rollup-plugin-content': workspace:*
       '@types/rollup-plugin-count': workspace:*
       '@types/use-vanishing-value': workspace:*
       '@types/use-vanishing-values': workspace:*
@@ -59,7 +58,6 @@ importers:
     devDependencies:
       '@types/highlighter': link:../../types/highlighter
       '@types/node': 18.15.3
-      '@types/rollup-plugin-content': link:../../types/rollup-plugin-content
       '@types/rollup-plugin-count': link:../../types/rollup-plugin-count
       '@types/use-vanishing-value': link:../../types/use-vanishing-value
       '@types/use-vanishing-values': link:../../types/use-vanishing-values
@@ -138,8 +136,12 @@ importers:
 
   ../../libs/rollup-plugin-content:
     specifiers:
+      rollup: '>=2.75.6 <2.77.0 || ~2.77.0'
+      typescript: ^4.9.3
       vitest: ^0.29.8
     devDependencies:
+      rollup: 2.77.0
+      typescript: 4.9.5
       vitest: 0.29.8
 
   ../../libs/rollup-plugin-count:
@@ -196,14 +198,6 @@ importers:
     devDependencies:
       re-lex-ation: link:../../libs/re-lex-ation
       vue: 3.2.47
-
-  ../../types/rollup-plugin-content:
-    specifiers:
-      rollup: '>=2.75.6 <2.77.0 || ~2.77.0'
-      typescript: ^4.9.3
-    devDependencies:
-      rollup: 2.77.0
-      typescript: 4.9.5
 
   ../../types/rollup-plugin-count:
     specifiers:
