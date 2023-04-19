@@ -11,7 +11,8 @@
     we need to step away from a system's legacy code.
     DDD is famous for being slow to implement, but
     long-term it can greatly improve the quality of a
-    feature, even if your starting point is not ideal.
+    feature. Overall, that's worth it in my opinion,
+    even if your starting point is not ideal.
   </p>
 </div>
 </template>
