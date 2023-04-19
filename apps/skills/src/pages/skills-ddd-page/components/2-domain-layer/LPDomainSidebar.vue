@@ -13,6 +13,12 @@
   max-width: 14rem;
 }
 
+@media (min-width: 640px) {
+  .lp-domain-sidebar {
+    max-width: 24rem;
+  }
+}
+
 @media (min-width: 768px) {
   .lp-domain-sidebar {
     max-width: 29rem;

@@ -14,6 +14,12 @@
   max-width: 14rem;
 }
 
+@media (min-width: 640px) {
+  .lp-application-sidebar {
+    max-width: 22rem;
+  }
+}
+
 @media (min-width: 768px) {
   .lp-application-sidebar {
     max-width: 33rem;
