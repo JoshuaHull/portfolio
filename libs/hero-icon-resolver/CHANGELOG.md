@@ -1,6 +1,13 @@
 # Change Log - hero-icon-resolver
 
-This log was last generated on Tue, 18 Apr 2023 13:14:40 GMT and should not be manually modified.
+This log was last generated on Wed, 19 Apr 2023 09:49:33 GMT and should not be manually modified.
+
+## 1.1.0
+Wed, 19 Apr 2023 09:49:33 GMT
+
+### Minor changes
+
+- bundle Typescript definitions with package
 
 ## 1.0.2
 Tue, 18 Apr 2023 13:14:40 GMT
