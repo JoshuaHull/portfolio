@@ -25,7 +25,6 @@
   "devDependencies": {
     "@types/highlighter": "workspace:*",
     "@types/node": "^18.7.13",
-    "@types/rollup-plugin-count": "workspace:*",
     "@types/use-vanishing-value": "workspace:*",
     "@types/use-vanishing-values": "workspace:*",
     "@vitejs/plugin-vue": "^3.0.3",
