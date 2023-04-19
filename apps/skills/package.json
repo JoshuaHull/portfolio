@@ -25,7 +25,6 @@
   "devDependencies": {
     "@types/highlighter": "workspace:*",
     "@types/node": "^18.7.13",
-    "@types/use-vanishing-value": "workspace:*",
     "@vitejs/plugin-vue": "^3.0.3",
     "hero-icon-resolver": "workspace:*",
     "rollup-plugin-content": "workspace:*",

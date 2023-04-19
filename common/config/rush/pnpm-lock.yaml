@@ -18,7 +18,6 @@ importers:
       '@heroicons/vue': ^2.0.8
       '@types/highlighter': workspace:*
       '@types/node': ^18.7.13
-      '@types/use-vanishing-value': workspace:*
       '@vitejs/plugin-vue': ^3.0.3
       '@vue/test-utils': ~2.3.2
       '@vueuse/core': ^9.13.0
@@ -56,7 +55,6 @@ importers:
     devDependencies:
       '@types/highlighter': link:../../types/highlighter
       '@types/node': 18.15.3
-      '@types/use-vanishing-value': link:../../types/use-vanishing-value
       '@vitejs/plugin-vue': 3.2.0_vite@4.2.0+vue@3.2.47
       '@vue/test-utils': 2.3.2_vue@3.2.47
       hero-icon-resolver: link:../../libs/hero-icon-resolver
@@ -197,14 +195,6 @@ importers:
       vue: ^3.2.37
     devDependencies:
       re-lex-ation: link:../../libs/re-lex-ation
-      vue: 3.2.47
-
-  ../../types/use-vanishing-value:
-    specifiers:
-      use-vanishing-values: workspace:*
-      vue: ^3.2.37
-    devDependencies:
-      use-vanishing-values: link:../../composables/use-vanishing-values
       vue: 3.2.47
 
 packages:
