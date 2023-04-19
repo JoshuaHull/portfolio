@@ -4,12 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "exports": "./rollup-plugin-html-minify.js",
+  "types": "./rollup-plugin-html-minify.d.ts",
   "scripts": {
     "build": "",
     "test": "vitest",
     "test:nowatch": "vitest --watch false"
   },
   "devDependencies": {
+    "rollup": ">=2.75.6 <2.77.0 || ~2.77.0",
+    "typescript": "^4.9.3",
     "vitest": "^0.29.8"
   }
 }

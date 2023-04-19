@@ -8,7 +8,6 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "@types/rollup-plugin-html-minify": "workspace:*",
     "rollup-plugin-html-minify": "workspace:*",
     "vite": "^4.2.0"
   }

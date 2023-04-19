@@ -46,10 +46,6 @@
       "projectFolder": "libs/rollup-plugin-html-minify"
     },
     {
-      "packageName": "@types/rollup-plugin-html-minify",
-      "projectFolder": "types/rollup-plugin-html-minify"
-    },
-    {
       "packageName": "csharp-lexer",
       "projectFolder": "libs/csharp-lexer"
     },
