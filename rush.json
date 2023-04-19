@@ -54,10 +54,6 @@
       "projectFolder": "libs/csharp-lexer"
     },
     {
-      "packageName": "@types/csharp-lexer",
-      "projectFolder": "types/csharp-lexer"
-    },
-    {
       "packageName": "hero-icon-resolver",
       "projectFolder": "libs/hero-icon-resolver",
       "shouldPublish": true
@@ -65,10 +61,6 @@
     {
       "packageName": "re-lex-ation",
       "projectFolder": "libs/re-lex-ation"
-    },
-    {
-      "packageName": "@types/re-lex-ation",
-      "projectFolder": "types/re-lex-ation"
     },
     {
       "packageName": "highlighter",
@@ -83,16 +75,8 @@
       "projectFolder": "libs/typescript-lexer"
     },
     {
-      "packageName": "@types/typescript-lexer",
-      "projectFolder": "types/typescript-lexer"
-    },
-    {
       "packageName": "vue-lexer",
       "projectFolder": "libs/vue-lexer"
-    },
-    {
-      "packageName": "@types/vue-lexer",
-      "projectFolder": "types/vue-lexer"
     },
     {
       "packageName": "vite-plugin-replace",

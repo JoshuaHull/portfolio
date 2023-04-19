@@ -23,16 +23,12 @@
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
-    "@types/csharp-lexer": "workspace:*",
     "@types/highlighter": "workspace:*",
     "@types/node": "^18.7.13",
-    "@types/re-lex-ation": "workspace:*",
     "@types/rollup-plugin-content": "workspace:*",
     "@types/rollup-plugin-count": "workspace:*",
-    "@types/typescript-lexer": "workspace:*",
     "@types/use-vanishing-value": "workspace:*",
     "@types/use-vanishing-values": "workspace:*",
-    "@types/vue-lexer": "workspace:*",
     "@vitejs/plugin-vue": "^3.0.3",
     "hero-icon-resolver": "workspace:*",
     "rollup-plugin-content": "workspace:*",

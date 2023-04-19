@@ -4,7 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "exports": "./lexer.js",
+  "types": "./lexer.d.ts",
   "scripts": { 
     "build": ""
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3"
   }
 }

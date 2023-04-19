@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "exports": "./typescript-lexer.js",
+  "types": "./typescript-lexer.d.ts",
   "scripts": { 
     "build": "",
     "test": "vitest",
@@ -13,7 +14,7 @@
     "re-lex-ation": "workspace:*"
   },
   "devDependencies": {
-    "@types/re-lex-ation": "workspace:*",
+    "typescript": "^4.9.3",
     "vitest": "^0.29.8"
   }
 }

@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "exports": "./vue-lexer.js",
+  "types": "./vue-lexer.d.ts",
   "scripts": { 
     "build": ""
   },
@@ -11,7 +12,6 @@
     "re-lex-ation": "workspace:*"
   },
   "devDependencies": {
-    "@types/re-lex-ation": "workspace:*",
     "typescript": "^4.9.3"
   }
 }
