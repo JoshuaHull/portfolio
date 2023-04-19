@@ -172,8 +172,10 @@ importers:
 
   ../../libs/vite-plugin-replace:
     specifiers:
+      vite: ^4.2.0
       vitest: ^0.29.8
     devDependencies:
+      vite: 4.2.0
       vitest: 0.29.8
 
   ../../libs/vue-lexer:
@@ -230,12 +232,6 @@ importers:
       vue: ^3.2.37
     devDependencies:
       vue: 3.2.47
-
-  ../../types/vite-plugin-replace:
-    specifiers:
-      vite: ^4.2.0
-    devDependencies:
-      vite: 4.2.0
 
 packages:
 

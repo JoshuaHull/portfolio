@@ -83,10 +83,6 @@
       "projectFolder": "libs/vite-plugin-replace"
     },
     {
-      "packageName": "@types/vite-plugin-replace",
-      "projectFolder": "types/vite-plugin-replace"
-    },
-    {
       "packageName": "use-vanishing-value",
       "projectFolder": "composables/use-vanishing-value"
     },

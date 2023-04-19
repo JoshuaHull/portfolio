@@ -4,12 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "exports": "./vite-plugin-replace.js",
+  "types": "./vite-plugin-replace.d.ts",
   "scripts": {
     "build": "",
     "test": "vitest",
     "test:nowatch": "vitest --watch false"
   },
   "devDependencies": {
+    "vite": "^4.2.0",
     "vitest": "^0.29.8"
   }
 }

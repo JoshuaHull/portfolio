@@ -11,5 +11,3 @@
 [@types/use-vanishing-value](./use-vanishing-value) - Typescript definitions for use-vanishing-value
 
 [@types/use-vanishing-values](./use-vanishing-values) - Typescript definitions for use-vanishing-values
-
-[@types/vite-plugin-replace](./vite-plugin-replace) - Typescript definitions for vite-plugin-replace
