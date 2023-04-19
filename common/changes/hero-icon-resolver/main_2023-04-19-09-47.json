@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "hero-icon-resolver",
+      "comment": "bundle Typescript definitions with package",
+      "type": "minor"
+    }
+  ],
+  "packageName": "hero-icon-resolver"
+}

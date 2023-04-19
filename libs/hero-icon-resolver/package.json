@@ -26,12 +26,15 @@
   ],
   "description": "Automatically resolves [Hero Icon](https://heroicons.com/) components in Vue apps.",
   "exports": "./hero-icon-resolver.js",
+  "types": "./hero-icon-resolver.d.ts",
   "scripts": {
     "build": "",
     "test": "vitest",
     "test:nowatch": "vitest --watch false"
   },
   "devDependencies": {
-    "vitest": "^0.29.8"
+    "vitest": "^0.29.8",
+    "typescript": "^4.9.3",
+    "unplugin-vue-components": "^0.22.4"
   }
 }

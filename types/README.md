@@ -2,8 +2,6 @@
 
 [@types/csharp-lexer](./csharp-lexer) - Typescript definitions for csharp-lexer
 
-[@types/hero-icon-resolver](./hero-icon-resolver) - Typescript definitions for hero-icon-resolver
-
 [@types/highlighter](./highlighter) - Typescript definitions for highlighter
 
 [@types/re-lex-ation](./re-lex-ation) - Typescript definitions for re-lex-ation
