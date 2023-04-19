@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "exports": "./use-vanishing-values.js",
+  "types": "./use-vanishing-values.d.ts",
   "scripts": {
     "build": "",
     "test": "vitest",

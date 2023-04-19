@@ -7,7 +7,7 @@
     "build": "tsc --outdir ./dist"
   },
   "devDependencies": {
-    "@types/use-vanishing-values": "workspace:*",
+    "use-vanishing-values": "workspace:*",
     "vue": "^3.2.37"
   }
 }

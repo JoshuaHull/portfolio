@@ -81,10 +81,6 @@
     {
       "packageName": "use-vanishing-values",
       "projectFolder": "composables/use-vanishing-values"
-    },
-    {
-      "packageName": "@types/use-vanishing-values",
-      "projectFolder": "types/use-vanishing-values"
     }
   ]
 }
