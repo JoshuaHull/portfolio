@@ -202,7 +202,7 @@ for (let i = 0; i < max; i += 1) {
 
 @media (max-width: 640px), (max-height: 640px) {
   .rest-endpoints {
-    padding: 2rem 1rem 1rem 1rem;
+    padding: 2rem 1rem 2rem 1rem;
   }
 }
 </style>
