@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "hero-icon-resolver",
+      "comment": "add installation section to readme",
+      "type": "none"
+    }
+  ],
+  "packageName": "hero-icon-resolver"
+}

@@ -2,6 +2,12 @@
 
 Automatically resolves [Hero Icon](https://heroicons.com/) components in Vue apps.
 
+## Installation
+
+`npm i -D hero-icon-resolver`
+
+[NPM](https://www.npmjs.com/package/hero-icon-resolver)
+
 ## Usage
 
 Used in combination with [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components).
