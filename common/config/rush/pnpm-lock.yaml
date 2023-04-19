@@ -16,7 +16,6 @@ importers:
   ../../apps/skills:
     specifiers:
       '@heroicons/vue': ^2.0.8
-      '@types/highlighter': workspace:*
       '@types/node': ^18.7.13
       '@vitejs/plugin-vue': ^3.0.3
       '@vue/test-utils': ~2.3.2
@@ -53,7 +52,6 @@ importers:
       vue-lexer: link:../../libs/vue-lexer
       vue-router: 4.1.6_vue@3.2.47
     devDependencies:
-      '@types/highlighter': link:../../types/highlighter
       '@types/node': 18.15.3
       '@vitejs/plugin-vue': 3.2.0_vite@4.2.0+vue@3.2.47
       '@vue/test-utils': 2.3.2_vue@3.2.47
@@ -188,14 +186,6 @@ importers:
       re-lex-ation: link:../re-lex-ation
     devDependencies:
       typescript: 4.9.5
-
-  ../../types/highlighter:
-    specifiers:
-      re-lex-ation: workspace:*
-      vue: ^3.2.37
-    devDependencies:
-      re-lex-ation: link:../../libs/re-lex-ation
-      vue: 3.2.47
 
 packages:
 
