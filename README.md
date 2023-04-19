@@ -49,7 +49,3 @@ This is a [Rush](https://rushjs.io/) monorepo.
 [use-vanishing-value](./composables/use-vanishing-value) - Vue composable which yields a `Ref<T | null>` object and a function to push new ephemeral values to that object
 
 [use-vanishing-values](./composables/use-vanishing-values) - Vue composable which yields a `Ref<T[] | null>` object and a function to push new ephemeral values onto the queue
-
-### Typescript definitions
-
-All Typescript definition packages are listed [here](./types/).
