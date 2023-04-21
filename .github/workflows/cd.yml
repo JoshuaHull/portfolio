@@ -44,3 +44,12 @@ jobs:
       - name: Deploy Skills
         working-directory: ./apps/skills
         run: aws s3 sync ./dist/ s3://prod-fullstackjosh-dot-com-skills --delete
+
+      - name: Invalidate Skills CloudFront
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION: ${{ secrets.SKILLS_DISTRIBUTION }}
+          PATHS: "/*"
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
