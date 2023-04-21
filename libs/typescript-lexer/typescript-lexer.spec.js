@@ -11,7 +11,7 @@ describe("lexer", () => {
     const result = lexer.next();
 
     // Assert
-    expect(result.kind).toBe("EOF");
+    expect(result.kind).toBe("fda");
   });
 });
 
