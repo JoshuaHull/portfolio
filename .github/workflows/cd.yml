@@ -27,6 +27,9 @@ jobs:
       - name: Rush Rebuild
         run: node common/scripts/install-run-rush.js rebuild --verbose
 
+      - name: Rush Test
+        run: node common/scripts/install-run-rush.js test:nowatch
+
       - name: Setup AWS
         uses: aws-actions/configure-aws-credentials@v1
         with:
