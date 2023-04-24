@@ -6,7 +6,9 @@ Automatically resolves [Hero Icon](https://heroicons.com/) components in Vue app
 
 `npm i -D hero-icon-resolver`
 
-[NPM](https://www.npmjs.com/package/hero-icon-resolver)
+And if you haven't already
+
+`npm i @heroicons/vue`
 
 ## Usage
 
