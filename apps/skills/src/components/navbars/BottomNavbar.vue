@@ -20,13 +20,13 @@
 
 <script setup lang="ts">
 import {
-  SkillsDDDPageName,
-  SkillsDotnetPageName,
-  SkillsFrontendPageName,
-  SkillsGitPageName,
-  SkillsMessagingPageName,
-  SkillsRestPageName,
-  SkillsTestsPageName,
+  DDDPageName,
+  DotnetPageName,
+  FrontendPageName,
+  GitPageName,
+  MessagingPageName,
+  RestPageName,
+  TestsPageName,
 } from "@routers";
 import { useMediaQuery } from "@vueuse/core";
 import { useRouter } from "vue-router";
@@ -36,19 +36,19 @@ const isLargeScreen = useMediaQuery("(min-width: 66rem)");
 
 const pageNav = computed(() => {
   const allPagesInOrder = [
-    SkillsRestPageName,
-    SkillsTestsPageName,
-    SkillsMessagingPageName,
-    SkillsDotnetPageName,
-    SkillsDDDPageName,
-    SkillsGitPageName,
-    SkillsFrontendPageName,
+    RestPageName,
+    TestsPageName,
+    MessagingPageName,
+    DotnetPageName,
+    DDDPageName,
+    GitPageName,
+    FrontendPageName,
   ];
 
   if (isLargeScreen.value)
     return allPagesInOrder;
 
-  return allPagesInOrder.filter(p => p !== SkillsGitPageName);
+  return allPagesInOrder.filter(p => p !== GitPageName);
 });
 
 const pageAtDelta = (delta: number) => {
@@ -81,7 +81,7 @@ watchEffect(() => {
   // on mobile so I'm just disabling it for now.
   // It's a cool page but it's not exactly an unexpected
   // skill for developers to have.
-  if (router.currentRoute.value.name === SkillsGitPageName)
+  if (router.currentRoute.value.name === GitPageName)
     router.push({ name: pageNav.value[0] });
 });
 </script>

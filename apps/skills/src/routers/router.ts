@@ -3,29 +3,29 @@ import {
   createRouter,
   RouteRecordRaw,
 } from "vue-router";
-import SkillsDDDPage from "../pages/skills-ddd-page/SkillsDDDPage.vue";
-import SkillsGitPage from "../pages/skills-git-page/SkillsGitPage.vue";
-import SkillsRestPage from "../pages/skills-rest-page/SkillsRestPage.vue";
-import SkillsTestsPage from "../pages/skills-tests-page/SkillsTestsPage.vue";
-import SkillsDotnetPage from "../pages/skills-dotnet-page/SkillsDotnetPage.vue";
-import SkillsFrontendPage from "../pages/skills-frontend-page/SkillsFrontendPage.vue";
-import SkillsMessagingPage from "../pages/skills-messaging-page/SkillsMessagingPage.vue";
+import DDDPage from "../pages/ddd-page/DDDPage.vue";
+import GitPage from "../pages/git-page/GitPage.vue";
+import RestPage from "../pages/rest-page/RestPage.vue";
+import TestsPage from "../pages/tests-page/TestsPage.vue";
+import DotnetPage from "../pages/dotnet-page/DotnetPage.vue";
+import FrontendPage from "../pages/frontend-page/FrontendPage.vue";
+import MessagingPage from "../pages/messaging-page/MessagingPage.vue";
 
-import SkillsDDDDrawerContent from "../pages/skills-ddd-page/SkillsDDDDrawerContent.vue";
-import SkillsGitDrawerContent from "../pages/skills-git-page/SkillsGitDrawerContent.vue";
-import SkillsRestDrawerContent from "../pages/skills-rest-page/SkillsRestDrawerContent.vue";
-import SkillsTestsDrawerContent from "../pages/skills-tests-page/SkillsTestsDrawerContent.vue";
-import SkillsDotnetDrawerContent from "../pages/skills-dotnet-page/SkillsDotnetDrawerContent.vue";
-import SkillsFrontendDrawerContent from "../pages/skills-frontend-page/SkillsFrontendDrawerContent.vue";
-import SkillsMessagingDrawerContent from "../pages/skills-messaging-page/SkillsMessagingDrawerContent.vue";
+import DDDDrawerContent from "../pages/ddd-page/DDDDrawerContent.vue";
+import GitDrawerContent from "../pages/git-page/GitDrawerContent.vue";
+import RestDrawerContent from "../pages/rest-page/RestDrawerContent.vue";
+import TestsDrawerContent from "../pages/tests-page/TestsDrawerContent.vue";
+import DotnetDrawerContent from "../pages/dotnet-page/DotnetDrawerContent.vue";
+import FrontendDrawerContent from "../pages/frontend-page/FrontendDrawerContent.vue";
+import MessagingDrawerContent from "../pages/messaging-page/MessagingDrawerContent.vue";
 
-export const SkillsDDDPageName = "SkillsDDDPage";
-export const SkillsGitPageName = "SkillsGitPage";
-export const SkillsRestPageName = "SkillsRestPage";
-export const SkillsTestsPageName = "SkillsTestsPage";
-export const SkillsDotnetPageName = "SkillsDotnetPage";
-export const SkillsFrontendPageName = "SkillsFrontendPage";
-export const SkillsMessagingPageName = "SkillsMessagingPage";
+export const DDDPageName = "DDDPage";
+export const GitPageName = "GitPage";
+export const RestPageName = "RestPage";
+export const TestsPageName = "TestsPage";
+export const DotnetPageName = "DotnetPage";
+export const FrontendPageName = "FrontendPage";
+export const MessagingPageName = "MessagingPage";
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -34,58 +34,58 @@ export const routes: RouteRecordRaw[] = [
   },
   {
     path: "/ddd",
-    name: SkillsDDDPageName,
+    name: DDDPageName,
     components: {
-      default: SkillsDDDPage,
-      drawer: SkillsDDDDrawerContent,
+      default: DDDPage,
+      drawer: DDDDrawerContent,
     },
   },
   {
     path: "/source-control",
-    name: SkillsGitPageName,
+    name: GitPageName,
     components: {
-      default: SkillsGitPage,
-      drawer: SkillsGitDrawerContent,
+      default: GitPage,
+      drawer: GitDrawerContent,
     },
   },
   {
     path: "/rest",
-    name: SkillsRestPageName,
+    name: RestPageName,
     components: {
-      default: SkillsRestPage,
-      drawer: SkillsRestDrawerContent,
+      default: RestPage,
+      drawer: RestDrawerContent,
     },
   },
   {
     path: "/tests",
-    name: SkillsTestsPageName,
+    name: TestsPageName,
     components: {
-      default: SkillsTestsPage,
-      drawer: SkillsTestsDrawerContent,
+      default: TestsPage,
+      drawer: TestsDrawerContent,
     },
   },
   {
     path: "/dotnet",
-    name: SkillsDotnetPageName,
+    name: DotnetPageName,
     components: {
-      default: SkillsDotnetPage,
-      drawer: SkillsDotnetDrawerContent,
+      default: DotnetPage,
+      drawer: DotnetDrawerContent,
     },
   },
   {
     path: "/frontend",
-    name: SkillsFrontendPageName,
+    name: FrontendPageName,
     components: {
-      default: SkillsFrontendPage,
-      drawer: SkillsFrontendDrawerContent,
+      default: FrontendPage,
+      drawer: FrontendDrawerContent,
     },
   },
   {
     path: "/messaging",
-    name: SkillsMessagingPageName,
+    name: MessagingPageName,
     components: {
-      default: SkillsMessagingPage,
-      drawer: SkillsMessagingDrawerContent,
+      default: MessagingPage,
+      drawer: MessagingDrawerContent,
     },
   },
 ];
