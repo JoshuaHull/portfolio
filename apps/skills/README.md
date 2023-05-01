@@ -10,25 +10,25 @@ are under [components](./src/components/).
 
 ## Pages
 
-[Aws](./src/pages/skills-aws-page/) - TODO
+[Aws](./src/pages/aws-page/) - TODO
 
-[DDD](./src/pages/skills-ddd-page/)
+[DDD](./src/pages/ddd-page/)
 
-[Dotnet](./src/pages/skills-dotnet-page/)
+[Dotnet](./src/pages/dotnet-page/)
 
-[Frontend](./src/pages//skills-frontend-page/)
+[Frontend](./src/pages//frontend-page/)
 
-[Source Control](./src/pages/skills-git-page/)
+[Source Control](./src/pages/git-page/)
 
-[Messaging](./src/pages/skills-messaging-page/)
+[Messaging](./src/pages/messaging-page/)
 
-[Monoliths](./src/pages/skills-monoliths-page/) - TODO
+[Monoliths](./src/pages/monoliths-page/) - TODO
 
-[Rest](./src/pages/skills-rest-page/)
+[Rest](./src/pages/rest-page/)
 
-[Solid](./src/pages/skills-solid-page/) - TODO
+[Solid](./src/pages/solid-page/) - TODO
 
-[Tests](./src/pages/skills-tests-page/)
+[Tests](./src/pages/tests-page/)
 
 ## Running the app:
 
