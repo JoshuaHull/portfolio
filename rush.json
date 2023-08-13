@@ -22,6 +22,10 @@
       "projectFolder": "apps/homepage"
     },
     {
+      "packageName": "playground-web-components",
+      "projectFolder": "apps/playground-web-components"
+    },
+    {
       "packageName": "skills",
       "projectFolder": "apps/skills"
     },
@@ -73,6 +77,10 @@
     {
       "packageName": "use-vanishing-values",
       "projectFolder": "composables/use-vanishing-values"
+    },
+    {
+      "packageName": "@fullstackjosh/web-components",
+      "projectFolder": "components/web-components"
     }
   ]
 }

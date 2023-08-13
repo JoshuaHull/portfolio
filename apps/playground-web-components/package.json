@@ -1,0 +1,21 @@
+{
+  "name": "playground-web-components",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build"
+  },
+  "dependencies": {
+    "vue": "^3.2.37",
+    "@fullstackjosh/web-components": "workspace:"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.13",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "typescript": "^5.1.6",
+    "vite": "^4.2.0",
+    "vue-tsc": "^0.39.5"
+  }
+}

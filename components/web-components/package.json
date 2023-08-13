@@ -1,0 +1,25 @@
+{
+  "name": "@fullstackjosh/web-components",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.es.js",
+      "require": "./dist/*.cjs.js"
+    }
+  },
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build"
+  },
+  "dependencies": {
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.13",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "vite": "^4.2.0",
+    "vite-plugin-dts": "~3.5.2",
+    "vue-tsc": "^0.39.5"
+  }
+}
