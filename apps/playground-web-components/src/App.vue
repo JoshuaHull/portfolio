@@ -1,5 +1,5 @@
 <template>
-<fsj-foldable-panel id="1231" title="first ever web component">
+<fsj-foldable-panel checkboxId="1231" title="first ever web component">
   I've always wanted to do this but never found the time.
 </fsj-foldable-panel>
 </template>

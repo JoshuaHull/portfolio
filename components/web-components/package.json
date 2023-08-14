@@ -10,16 +10,12 @@
     }
   },
   "scripts": {
-    "build": "vue-tsc --noEmit && vite build"
-  },
-  "dependencies": {
-    "vue": "^3.2.37"
+    "build": "tsc --noEmit && vite build"
   },
   "devDependencies": {
     "@types/node": "^18.7.13",
-    "@vitejs/plugin-vue": "^3.0.3",
+    "typescript": "^5.1.6",
     "vite": "^4.2.0",
-    "vite-plugin-dts": "~3.5.2",
-    "vue-tsc": "^0.39.5"
+    "vite-plugin-dts": "~3.5.2"
   }
 }
