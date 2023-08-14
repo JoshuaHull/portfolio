@@ -88,11 +88,13 @@ importers:
   ../../components/web-components:
     specifiers:
       '@types/node': ^18.7.13
+      rollup-plugin-content: 'workspace:'
       typescript: ^5.1.6
       vite: ^4.2.0
       vite-plugin-dts: ~3.5.2
     devDependencies:
       '@types/node': 18.15.3
+      rollup-plugin-content: link:../../libs/rollup-plugin-content
       typescript: 5.1.6
       vite: 4.2.0_@types+node@18.15.3
       vite-plugin-dts: 3.5.2_f7c2c516f0e99c323b12a163760e6eb6
