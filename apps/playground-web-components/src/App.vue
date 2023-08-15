@@ -1,7 +1,9 @@
 <template>
-<fsj-foldable-panel checkboxId="1231" panelTitle="first ever web component">
-  I've always wanted to do this but never found the time.
-</fsj-foldable-panel>
+<fsj-foldable-panel
+  checkboxId="1231"
+  panelTitle="first ever web component"
+  panelContent="I've always wanted to do this but never found the time."
+/>
 </template>
 
 <script setup lang="ts">

@@ -23,6 +23,7 @@ export const attachFoldablePanelTo = (element: HTMLTemplateElement) => {
     connectedCallback() {
       this.#upgradeProperty("checkboxId");
       this.#upgradeProperty("panelTitle");
+      this.#upgradeProperty("panelContent");
     }
 
     get checkboxId(): string {
@@ -42,6 +43,15 @@ export const attachFoldablePanelTo = (element: HTMLTemplateElement) => {
 
     set panelTitle(value: string) {
       const label: HTMLLabelElement = this.shadowRoot!.querySelector(".foldable__label")!;
+      label.insertAdjacentText("beforeend", value);
+    }
+
+    get panelContent(): string {
+      return this.getAttribute("panelContent") ?? "";
+    }
+
+    set panelContent(value: string) {
+      const label: HTMLLabelElement = this.shadowRoot!.querySelector(".foldable__description")!;
       label.insertAdjacentText("beforeend", value);
     }
 
