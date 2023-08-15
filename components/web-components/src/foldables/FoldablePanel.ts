@@ -3,13 +3,21 @@ import foldablePanelContent from "content:html:src/foldables/foldable-panel";
 export const registerFoldablePanel = () => {
   const template = document.createElement("template");
 
-  template.innerHTML = foldablePanelContent as string;
+  template.innerHTML = getFoldablePanelHtml();
 
+  attachFoldablePanelTo(template);
+};
+
+export const getFoldablePanelHtml = () => {
+  return foldablePanelContent as string;
+};
+
+export const attachFoldablePanelTo = (element: HTMLTemplateElement) => {
   class FoldablePanel extends HTMLElement {
     constructor() {
       super();
       this.attachShadow({ mode: 'open' });
-      this.shadowRoot!.appendChild(template.content.cloneNode(true));
+      this.shadowRoot!.appendChild(element.content.cloneNode(true));
     }
 
     connectedCallback() {
