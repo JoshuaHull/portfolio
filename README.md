@@ -32,6 +32,8 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 [rollup-plugin-content](./libs/rollup-plugin-content) - import a file's content into a Javascript variable
 
+[rollup-plugin-copy](./libs/rollup-plugin-copy) - copy a file or group of files to another location
+
 [rollup-plugin-count](./libs/rollup-plugin-count) - import a Javascript variable equal to the number of files in the build which have a given file extension
 
 [rollup-plugin-html-minify](./libs/rollup-plugin-html-minify) - very simple HTML minifier
