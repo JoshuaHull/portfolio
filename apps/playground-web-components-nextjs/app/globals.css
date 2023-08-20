@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-blue-gray: #333652DD;
+  --color-blue-gray-solid: #333652;
+  --color-blue-gray-dark: #292B44;
+  --color-white: #E9EAECDD;
+  --color-white-solid: #E9EAEC;
+  --color-white-dark: #D5D7DBDD;
+  --color-white-dark-solid: #D5D7DB;
+  --color-red: #800028;
+  --color-red-light: #E32227;
+  --color-gray: #808080;
+  --color-space-gray: #232830DD;
+  --color-space-gray-solid: #232830;
+  --color-space-gray-dark: #1B1E24DD;
+  --color-green: #338600;
+  --color-mustard: #99AA00AA;
+  --color-teal: #00AA99AA;
+  --color-black: #000000DD;
+  --color-yellow: #FAD02C;
+  --color-cyan: #6AF2F0;
+  --color-turquoise: #01B9CC;
+
+  --color-text: var(--color-blue-gray);
+  --color-text-inverted: var(--color-white);
+  --color-text-disabled: var(--color-gray);
+  --color-bg: var(--color-white-dark);
+  --color-bg-solid: var(--color-white-dark-solid);
+  --color-bg-inverted: var(--color-blue-gray);
+  --color-fg: var(--color-white);
+  --color-outline: var(--color-blue-gray);
+  --color-action: var(--color-white);
+  --color-action-bg: var(--color-red);
+  --color-action-create: var(--color-green);
+  --color-action-delete: var(--color-red-light);
+  --color-link: var(--color-turquoise);
+  --color-border: var(--color-blue-gray);
+  --color-card-text: var(--color-blue-gray);
+  --color-card-bg: var(--color-white);
+
+  color-scheme: light dark;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: var(--color-white);
+    --color-text-inverted: var(--color-blue-gray);
+    --color-bg: var(--color-space-gray);
+    --color-bg-solid: var(--color-space-blue-solid);
+    --color-bg-inverted: var(--color-white);
+    --color-fg: var(--color-space-gray-dark);
+    --color-outline: var(--color-white);
+    --color-border: var(--color-white);
+    --color-card-text: var(--color-white);
+    --color-card-bg: var(--color-space-gray);
+    --color-link: var(--color-cyan);
+  }
+}
+
+@media (min-width: 640px) {
+  :root {
+    --color-bg: var(--color-white);
+    --color-bg-solid: var(--color-white-solid);
+    --color-card-bg: var(--color-white-dark);
+    --color-fg: var(--color-white);
+  }
+}
+
+@media (prefers-color-scheme:dark) and (min-width: 640px) {
+  :root {
+    --color-bg: var(--color-blue-gray);
+    --color-bg-solid: var(--color-blue-gray-solid);
+    --color-card-bg: var(--color-space-gray);
+    --color-fg: var(--color-space-gray-dark);
+  }
+}

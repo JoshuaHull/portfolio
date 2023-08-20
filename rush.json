@@ -26,6 +26,10 @@
       "projectFolder": "apps/playground-web-components"
     },
     {
+      "packageName": "playground-web-components-nextjs",
+      "projectFolder": "apps/playground-web-components-nextjs"
+    },
+    {
       "packageName": "skills",
       "projectFolder": "apps/skills"
     },
