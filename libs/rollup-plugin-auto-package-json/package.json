@@ -1,0 +1,11 @@
+{
+  "name": "rollup-plugin-auto-package-json",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": "./rollup-plugin-auto-package-json.js",
+  "types": "./rollup-plugin-auto-package-json.d.ts",
+  "scripts": {
+    "build": ""
+  }
+}

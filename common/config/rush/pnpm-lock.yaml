@@ -184,6 +184,9 @@ importers:
     devDependencies:
       typescript: 4.9.5
 
+  ../../libs/rollup-plugin-auto-package-json:
+    specifiers: {}
+
   ../../libs/rollup-plugin-content:
     specifiers:
       rollup: '>=2.75.6 <2.77.0 || ~2.77.0'

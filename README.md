@@ -30,6 +30,8 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 ### Rollup plugins
 
+[rollup-plugin-auto-package-json](./libs/rollup-plugin-auto-package-json) - Copies `package.json`, removes some fields, and dumps it in `dist`.
+
 [rollup-plugin-content](./libs/rollup-plugin-content) - import a file's content into a Javascript variable
 
 [rollup-plugin-copy](./libs/rollup-plugin-copy) - copy a file or group of files to another location

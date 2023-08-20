@@ -34,6 +34,10 @@
       "projectFolder": "apps/skills"
     },
     {
+      "packageName": "rollup-plugin-auto-package-json",
+      "projectFolder": "libs/rollup-plugin-auto-package-json"
+    },
+    {
       "packageName": "rollup-plugin-content",
       "projectFolder": "libs/rollup-plugin-content"
     },
