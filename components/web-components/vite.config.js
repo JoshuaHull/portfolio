@@ -2,6 +2,7 @@ import { resolve } from "path";
 import { defineConfig } from "vite";
 import { rollupPluginContent } from "rollup-plugin-content";
 import { rollupPluginCopy } from "rollup-plugin-copy";
+import { rollupPluginAutoPackageJson } from "rollup-plugin-auto-package-json";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,6 +18,9 @@ export default defineConfig({
     },
   },
   plugins: [
+    rollupPluginAutoPackageJson({
+      packageJsonLocation: resolve(__dirname, "package.json"),
+    }),
     rollupPluginContent(),
     rollupPluginCopy({
       from: resolve(__dirname, "src/*/index.d.ts"),

@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "rimraf": "~5.0.1",
+    "rollup-plugin-auto-package-json": "workspace:",
     "rollup-plugin-content": "workspace:",
     "rollup-plugin-copy": "workspace:",
     "vite": "^4.2.0"

@@ -115,11 +115,13 @@ importers:
   ../../components/web-components:
     specifiers:
       rimraf: ~5.0.1
+      rollup-plugin-auto-package-json: 'workspace:'
       rollup-plugin-content: 'workspace:'
       rollup-plugin-copy: 'workspace:'
       vite: ^4.2.0
     devDependencies:
       rimraf: 5.0.1
+      rollup-plugin-auto-package-json: link:../../libs/rollup-plugin-auto-package-json
       rollup-plugin-content: link:../../libs/rollup-plugin-content
       rollup-plugin-copy: link:../../libs/rollup-plugin-copy
       vite: 4.2.0
