@@ -1,4 +1,5 @@
 import foldablePanelContent from "content:html:src/FoldablePanel/foldable-panel";
+import Handlebars from "handlebars";
 
 /**
  * @type {() => void}
@@ -15,7 +16,18 @@ export const registerFoldablePanel = () => {
  * @type {() => string}
  */
 export const getFoldablePanelHtml = () => {
-  return foldablePanelContent;
+  return getFoldablePanelHtmlTemplate()({
+    checkboxId: "",
+    panelTitle: "",
+    panelContent: "",
+  });
+};
+
+/**
+ * @type {() => Handlebars.TemplateDelegate<any>}
+ */
+export const getFoldablePanelHtmlTemplate = () => {
+  return Handlebars.compile(foldablePanelContent);
 };
 
 /**

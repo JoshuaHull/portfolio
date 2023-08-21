@@ -1,1 +1,6 @@
-export { registerFoldablePanel, getFoldablePanelHtml, attachFoldablePanelTo } from "./foldable-panel";
+export {
+  registerFoldablePanel,
+  getFoldablePanelHtml,
+  getFoldablePanelHtmlTemplate,
+  attachFoldablePanelTo,
+} from "./foldable-panel";

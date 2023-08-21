@@ -12,6 +12,9 @@
   "scripts": {
     "build": "rimraf dist && vite build"
   },
+  "dependencies": {
+    "handlebars": "~4.7.8"
+  },
   "devDependencies": {
     "rimraf": "~5.0.1",
     "rollup-plugin-auto-package-json": "workspace:",

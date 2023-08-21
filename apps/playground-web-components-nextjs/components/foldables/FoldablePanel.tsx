@@ -1,6 +1,6 @@
 "use server";
 
-import { getFoldablePanelHtml } from "@fullstackjosh/web-components/FoldablePanel";
+import { getFoldablePanelHtmlTemplate } from "@fullstackjosh/web-components/FoldablePanel";
 import dynamic from "next/dynamic"
 
 const FoldablePanelClient = dynamic(async () => {
@@ -9,8 +9,13 @@ const FoldablePanelClient = dynamic(async () => {
 }, {
   ssr: false,
   loading: () => {
-    const html = getFoldablePanelHtml();
-    return  <template style={{ display: "contents" }} dangerouslySetInnerHTML={{__html: html}} />;
+    const template = getFoldablePanelHtmlTemplate();
+    const html = template({
+      checkboxId: "1234",
+      panelTitle: "SSR Panel Title",
+      panelContent: "This web component is rendered server side. And soon you'll see the client side hydration.",
+    });
+    return  <div style={{ display: "contents" }} dangerouslySetInnerHTML={{__html: html}} />;
   },
 });
 

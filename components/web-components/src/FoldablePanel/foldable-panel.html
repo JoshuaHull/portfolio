@@ -3,6 +3,7 @@
     class="foldable__checkbox"
     type="checkbox"
     defaultChecked="true"
+    id="{{checkboxId}}"
   />
   <label class="foldable__label">
     <div class="foldable__chevron__container">
@@ -22,9 +23,11 @@
         />
       </svg>
     </div>
+    {{panelTitle}}
   </label>
   <div class="foldable__description__wrapper">
     <p class="foldable__description">
+      {{panelContent}}
     </p>
   </div>
 </div>
