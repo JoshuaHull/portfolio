@@ -6,5 +6,6 @@ export declare const getFoldablePanelHtmlTemplate: () => Handlebars.TemplateDele
   checkboxId: string;
   panelTitle: string;
   panelContent: string;
+  defaultChecked: boolean;
 }>;
 export declare const attachFoldablePanelTo: (element: HTMLTemplateElement) => void;

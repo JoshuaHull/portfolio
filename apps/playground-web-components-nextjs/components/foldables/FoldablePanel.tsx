@@ -12,6 +12,7 @@ const FoldablePanelClient = dynamic(async () => {
     const template = getFoldablePanelHtmlTemplate();
     const html = template({
       checkboxId: "1234",
+      defaultChecked: true,
       panelTitle: "SSR Panel Title",
       panelContent: "This web component is rendered server side. And soon you'll see the client side hydration.",
     });
@@ -23,6 +24,7 @@ export async function FoldablePanel() {
   return (
     <FoldablePanelClient
       checkboxId="1234"
+      defaultChecked={true}
       panelTitle="Web Components in NextJS"
       panelContent="
         This web component is rendered server side.

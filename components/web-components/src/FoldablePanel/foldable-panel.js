@@ -20,6 +20,7 @@ export const getFoldablePanelHtml = () => {
     checkboxId: "",
     panelTitle: "",
     panelContent: "",
+    defaultChecked: false,
   });
 };
 
@@ -43,6 +44,7 @@ export const attachFoldablePanelTo = (element) => {
 
     connectedCallback() {
       this.#upgradeProperty("checkboxId");
+      this.#upgradeProperty("defaultChecked");
       this.#upgradeProperty("panelTitle");
       this.#upgradeProperty("panelContent");
     }
@@ -65,6 +67,22 @@ export const attachFoldablePanelTo = (element) => {
       /** @type {HTMLLabelElement} */
       const label = this.shadowRoot.querySelector(".foldable__label");
       label.htmlFor = value;
+    }
+
+    /**
+     * @returns {boolean}
+     */
+    get defaultChecked() {
+      return this.getAttribute("defaultChecked") ?? "";
+    }
+
+    /**
+     * @param {string} value
+     */
+    set defaultChecked(value) {
+      /** @type {HTMLInputElement} */
+      const checkbox = this.shadowRoot.querySelector(".foldable__checkbox");
+      checkbox.checked = value;
     }
 
     /**

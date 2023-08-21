@@ -6,6 +6,7 @@ import { registerFoldablePanel } from "@fullstackjosh/web-components/FoldablePan
 
 type FoldablePanelClientProps = PropsWithChildren & {
   checkboxId: string;
+  defaultChecked: boolean;
   panelTitle: string;
   panelContent: string;
 };
