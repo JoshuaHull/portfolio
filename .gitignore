@@ -28,6 +28,10 @@ dist
 .vscode/*
 !.vscode/extensions.json
 
+# next.js
+.next/
+next-env.d.ts
+
 # Terraform
 **/.terraform/*
 *.tfstate
