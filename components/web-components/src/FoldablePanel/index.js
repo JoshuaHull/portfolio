@@ -1,6 +1,1 @@
-export {
-  registerFoldablePanel,
-  getFoldablePanelHtml,
-  getFoldablePanelHtmlTemplate,
-  attachFoldablePanelTo,
-} from "./foldable-panel";
+export * from "./foldable-panel";

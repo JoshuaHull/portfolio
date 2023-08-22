@@ -1,15 +1,9 @@
 "use client";
 
 import React from "react";
-import { PropsWithChildren } from "react";
-import { registerFoldablePanel } from "@fullstackjosh/web-components/FoldablePanel";
+import { FoldablePanelProps, registerFoldablePanel } from "@fullstackjosh/web-components/FoldablePanel";
 
-type FoldablePanelClientProps = PropsWithChildren & {
-  checkboxId: string;
-  defaultChecked: boolean;
-  panelTitle: string;
-  panelContent: string;
-};
+type FoldablePanelClientProps = FoldablePanelProps;
 
 export const FoldablePanelClient = (props: FoldablePanelClientProps) => {
   registerFoldablePanel();
