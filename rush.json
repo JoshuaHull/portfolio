@@ -93,6 +93,10 @@
     {
       "packageName": "@fullstackjosh/web-components",
       "projectFolder": "components/web-components"
+    },
+    {
+      "packageName": "@fullstackjosh/web-components-wrapper-nextjs",
+      "projectFolder": "components/web-components-wrapper-nextjs"
     }
   ]
 }
