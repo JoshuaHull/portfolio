@@ -1,6 +1,5 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
-import vitePluginReact from "@vitejs/plugin-react";
 import vitePluginDts from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
@@ -8,14 +7,14 @@ export default defineConfig({
   build: {
     lib: {
       entry: {
-        "FoldablePanel": resolve(__dirname, "src/FoldablePanels/FoldablePanel.tsx"),
-        "FoldablePanelClientOnly": resolve(__dirname, "src/FoldablePanels/FoldablePanelClientOnly.tsx"),
+        "FoldablePanel": resolve(__dirname, "src/FoldablePanels/FoldablePanel.ts"),
+        "FoldablePanelClientOnly": resolve(__dirname, "src/FoldablePanels/FoldablePanelClientOnly.ts"),
       },
       name: "@fullstackjosh/web-components-wrapper-nextjs",
-      formats: ["es", "cjs"],
+      formats: ["es"],
     },
     rollupOptions: {
-      external: ["react", "react-dom", "next"],
+      external: ["react", "next"],
       output: {
         preserveModules: true,
         preserveModulesRoot: __dirname,
@@ -23,7 +22,6 @@ export default defineConfig({
     },
   },
   plugins: [
-    vitePluginReact(),
     vitePluginDts({
       entryRoot: __dirname,
       outDir: "dist",

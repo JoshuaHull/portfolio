@@ -5,5 +5,5 @@ import { FoldablePanelProps, registerFoldablePanel } from "@fullstackjosh/web-co
 
 export const FoldablePanelClientOnly = (props: FoldablePanelProps) => {
   registerFoldablePanel();
-  return <fsj-foldable-panel {...props}></fsj-foldable-panel>
+  return React.createElement("fsj-foldable-panel", props);
 };

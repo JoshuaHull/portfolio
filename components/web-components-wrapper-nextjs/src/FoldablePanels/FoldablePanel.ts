@@ -2,6 +2,7 @@
 
 import { FoldablePanelProps, getFoldablePanelHtmlTemplate } from "@fullstackjosh/web-components/FoldablePanel";
 import dynamic from "next/dynamic";
+import React from "react";
 
 export async function FoldablePanel(props: FoldablePanelProps) {
   const FoldablePanelClientOnly = dynamic(async () => {
@@ -12,9 +13,19 @@ export async function FoldablePanel(props: FoldablePanelProps) {
     loading: () => {
       const template = getFoldablePanelHtmlTemplate();
       const html = template(props);
-      return <div style={{ display: "contents" }} dangerouslySetInnerHTML={{__html: html}} />;
+      return React.createElement(
+        "div",
+        {
+          style: {
+            display: "contents"
+          },
+          dangerouslySetInnerHTML: {
+            __html: html
+          },
+        }
+      );
     },
   });
 
-  return <FoldablePanelClientOnly {...props}/>;
+  return React.createElement(FoldablePanelClientOnly, props);
 }
