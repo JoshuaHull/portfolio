@@ -1,3 +1,4 @@
+// @ts-ignore
 import { FoldablePanel } from "@fullstackjosh/web-components-wrapper-nextjs/FoldablePanel";
 
 export default function Home() {
