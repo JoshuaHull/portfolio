@@ -1,10 +1,14 @@
 "use server";
 
-import { FoldablePanelProps, getFoldablePanelHtmlTemplate } from "@fullstackjosh/web-components/FoldablePanel";
+import { getFoldablePanelHtmlTemplate } from "@fullstackjosh/web-components/FoldablePanel";
 import dynamic from "next/dynamic";
 import React from "react";
+import * as Types from "./index.d.ts";
 
-export async function FoldablePanel(props: FoldablePanelProps) {
+/**
+ * @type {Types.FoldablePanel}
+ */
+export async function FoldablePanel(props) {
   const FoldablePanelClientOnly = dynamic(async () => {
     const { FoldablePanelClientOnly } = await import("./FoldablePanelClientOnly");
     return { default: FoldablePanelClientOnly };

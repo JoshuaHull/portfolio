@@ -12,19 +12,16 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@fullstackjosh/web-components": "workspace:*",
-    "vite-plugin-dts": "~3.5.2"
+    "@fullstackjosh/web-components": "workspace:*"
   },
   "peerDependencies": {
     "next": ">=13",
     "react": ">=18"
   },
   "devDependencies": {
-    "@types/node": "20.5.1",
     "@types/react": "18.2.20",
     "next": "13.4.19",
     "react": "18.2.0",
-    "typescript": "5.1.6",
     "vite": "^4.2.0"
   }
 }
