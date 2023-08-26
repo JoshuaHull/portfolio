@@ -133,7 +133,10 @@ importers:
     specifiers:
       '@fullstackjosh/web-components': workspace:*
       '@types/react': 18.2.20
+      acorn-loose: ^8.3.0
       ignore-loader: ~0.1.2
+      loose-envify: ^1.1.0
+      neo-async: ^2.6.1
       react: 18.2.0
       rimraf: ~5.0.1
       webpack: ~5.88.2
@@ -142,7 +145,10 @@ importers:
       '@fullstackjosh/web-components': link:../web-components
     devDependencies:
       '@types/react': 18.2.20
+      acorn-loose: 8.3.0
       ignore-loader: 0.1.2
+      loose-envify: 1.4.0
+      neo-async: 2.6.2
       react: 18.2.0
       rimraf: 5.0.1
       webpack: 5.88.2_webpack-cli@5.1.4
@@ -1093,6 +1099,13 @@ packages:
     resolution: {integrity: sha512-cmMwop9x+8KFhxvKrKfPYmN6/pKTYYHBqLa0DfvVZcKMJWNyWLnaqND7dx/qn66R7ewM1UX5XMaDVP5wlVTaVA==}
     peerDependencies:
       acorn: ^8
+    dependencies:
+      acorn: 8.8.2
+    dev: true
+
+  /acorn-loose/8.3.0:
+    resolution: {integrity: sha512-75lAs9H19ldmW+fAbyqHdjgdCrz0pWGXKmnqFoh8PyVd1L2RIb4RzYrSjmopeqv3E1G3/Pimu6GgLlrGbrkF7w==}
+    engines: {node: '>=0.4.0'}
     dependencies:
       acorn: 8.8.2
     dev: true

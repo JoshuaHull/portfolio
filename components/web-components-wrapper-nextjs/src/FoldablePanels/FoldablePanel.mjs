@@ -1,6 +1,7 @@
 "use server";
 
 import { getFoldablePanelHtmlTemplate } from "@fullstackjosh/web-components/FoldablePanel";
+import { FoldablePanelClientOnly } from "./FoldablePanelClientOnly.mjs";
 import React from "react";
 
 export async function FoldablePanel(props) {
@@ -29,5 +30,5 @@ export async function FoldablePanel(props) {
 
   return React.createElement(FoldablePanelClientOnly, props);
   */
-  return React.createElement("div");
+  return React.createElement(FoldablePanelClientOnly, props);
 }

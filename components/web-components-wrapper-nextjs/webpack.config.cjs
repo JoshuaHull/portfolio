@@ -1,11 +1,12 @@
 const path = require("path");
+const ReactFlightWebpackPlugin = require('./src/react-server-dom-webpack/plugin.cjs');
 
 module.exports = {
   entry: {
     FoldablePanel: "./src/index.mjs",
   },
   resolve: {
-    extensions: [".mjs"],
+    extensions: [".mjs", ".cjs", ".js"],
     descriptionFiles: ["package.json"],
     fullySpecified: false,
   },
@@ -29,4 +30,14 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new ReactFlightWebpackPlugin({
+      isServer: false,
+      clientReferences: {
+        directory: './src',
+        recursive: true,
+        include: /\.(js|ts|jsx|tsx|mjs|cjs)$/,
+      },
+    }),
+  ],
 };
