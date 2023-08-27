@@ -2,7 +2,7 @@
   "name": "@fullstackjosh/web-components-wrapper-nextjs",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
+  "type": "commonjs",
   "sideEffects": false,
   "exports": {
     "./*": {
@@ -11,7 +11,7 @@
     }
   },
   "scripts": {
-    "build": "rimraf dist && webpack"
+    "build": "gulp"
   },
   "dependencies": {
     "@fullstackjosh/web-components": "workspace:*"
@@ -22,13 +22,12 @@
   },
   "devDependencies": {
     "@types/react": "18.2.20",
-    "acorn-loose": "^8.3.0",
-    "ignore-loader": "~0.1.2",
-    "loose-envify": "^1.1.0",
-    "neo-async": "^2.6.1",
+    "gulp": "~4.0.2",
+    "gulp-gzip": "~1.4.2",
+    "gulp-tar": "~3.1.0",
+    "gulp-zip": "~5.1.0",
+    "next": "13.4.19",
     "react": "18.2.0",
-    "rimraf": "~5.0.1",
-    "webpack": "~5.88.2",
-    "webpack-cli": "~5.1.4"
+    "rimraf": "~5.0.1"
   }
 }
