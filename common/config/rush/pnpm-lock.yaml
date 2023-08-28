@@ -34,7 +34,7 @@ importers:
 
   ../../apps/playground-web-components-nextjs:
     specifiers:
-      '@fullstackjosh/web-components-wrapper-nextjs': workspace:*
+      '@fullstackjosh/web-components': workspace:*
       '@types/node': 20.5.1
       '@types/react': 18.2.20
       '@types/react-dom': 18.2.7
@@ -46,7 +46,7 @@ importers:
       tailwindcss: 3.3.3
       typescript: 5.1.6
     dependencies:
-      '@fullstackjosh/web-components-wrapper-nextjs': link:../../components/web-components-wrapper-nextjs
+      '@fullstackjosh/web-components': link:../../components/web-components
       next: 13.4.19_react-dom@18.2.0+react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0

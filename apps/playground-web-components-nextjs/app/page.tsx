@@ -1,7 +1,8 @@
-// @ts-ignore
+"use server";
+
 import { FoldablePanel } from "@fullstackjosh/web-components-wrapper-nextjs/FoldablePanel";
 
-export default function Home() {
+export default async function App() {
   return (
     <main className="p-24">
       <FoldablePanel
@@ -15,5 +16,5 @@ export default function Home() {
           this in a hand-rolled way."
       />
     </main>
-  )
+  );
 }
