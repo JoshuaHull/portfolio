@@ -6,15 +6,12 @@
   "exports": "./rollup-plugin-copy.js",
   "types": "./rollup-plugin-copy.d.ts",
   "scripts": {
-    "build": "",
-    "test": "vitest",
-    "test:nowatch": "vitest --watch false"
+    "build": ""
   },
   "dependencies": {
     "path-scurry": "^1.6.1"
   },
   "devDependencies": {
-    "rollup": ">=2.75.6 <2.77.0 || ~2.77.0",
-    "vitest": "^0.29.8"
+    "rollup": ">=2.75.6 <2.77.0 || ~2.77.0"
   }
 }

@@ -229,12 +229,10 @@ importers:
     specifiers:
       path-scurry: ^1.6.1
       rollup: '>=2.75.6 <2.77.0 || ~2.77.0'
-      vitest: ^0.29.8
     dependencies:
       path-scurry: 1.6.4
     devDependencies:
       rollup: 2.77.0
-      vitest: 0.29.8
 
   ../../libs/rollup-plugin-count:
     specifiers:
