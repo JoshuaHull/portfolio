@@ -28,6 +28,9 @@ dist
 .vscode/*
 !.vscode/extensions.json
 
+# Storybook
+storybook-static
+
 # next.js
 .next/
 next-env.d.ts
