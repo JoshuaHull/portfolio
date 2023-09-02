@@ -22,6 +22,14 @@
       "enableParallelism": true,
       "ignoreMissingScript": true,
       "incremental": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "build:storybook",
+      "summary": "build all Storybooks",
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "incremental": true
     }
   ]
 }
