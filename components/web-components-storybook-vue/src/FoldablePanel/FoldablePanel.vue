@@ -19,17 +19,3 @@ defineProps<{
   defaultChecked: boolean;
 }>();
 </script>
-
-<style>
-:root {
-  --color-white: #E9EAECDD;
-  --color-blue-gray: #333652DD;
-  --color-space-gray-dark: #1B1E24DD;
-
-  --color-fg: var(--color-space-gray-dark);
-  --color-border: var(--color-white);
-
-  background-color: var(--color-blue-gray);
-  color: var(--color-white);
-}
-</style>
