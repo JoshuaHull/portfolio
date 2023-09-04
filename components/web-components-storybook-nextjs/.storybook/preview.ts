@@ -1,7 +1,9 @@
 import type { Preview } from "@storybook/react";
 import "./../app/globals.css";
+import { FsjProviderDecorator } from "./decorators/FsjProviderDecorator";
 
 const preview: Preview = {
+  decorators: [FsjProviderDecorator],
   parameters: {
     nextjs: {
       appDirectory: true,
