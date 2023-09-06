@@ -1,6 +1,5 @@
 import { readFileSync } from "fs";
 import Handlebars from "handlebars";
-import * as Types from "./rollup-plugin-handlebars-compile.d.ts";
 
 const name = "rollup-plugin-handlebars-compile";
 const prefix = "compile:";

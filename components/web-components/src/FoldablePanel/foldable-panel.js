@@ -1,11 +1,7 @@
 import foldablePanelContent from "content:html:src/FoldablePanel/foldable-panel";
 import foldablePanelCompiled from "compile:html:src/FoldablePanel/foldable-panel";
 import Handlebars from "handlebars";
-import * as Types from "./index";
 
-/**
- * @type {Types.registerFoldablePanel}
- */
 export const registerFoldablePanel = () => {
   const template = document.createElement("template");
 
