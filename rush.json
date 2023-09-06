@@ -42,6 +42,10 @@
       "projectFolder": "libs/rollup-plugin-copy"
     },
     {
+      "packageName": "rollup-plugin-handlebars-compile",
+      "projectFolder": "libs/rollup-plugin-handlebars-compile"
+    },
+    {
       "packageName": "rollup-plugin-html-minify",
       "projectFolder": "libs/rollup-plugin-html-minify"
     },

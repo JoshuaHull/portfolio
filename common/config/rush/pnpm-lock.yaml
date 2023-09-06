@@ -73,6 +73,7 @@ importers:
       rollup-plugin-auto-package-json: 'workspace:'
       rollup-plugin-content: 'workspace:'
       rollup-plugin-copy: 'workspace:'
+      rollup-plugin-handlebars-compile: 'workspace:'
       vite: ^4.2.0
     dependencies:
       handlebars: 4.7.8
@@ -81,6 +82,7 @@ importers:
       rollup-plugin-auto-package-json: link:../../libs/rollup-plugin-auto-package-json
       rollup-plugin-content: link:../../libs/rollup-plugin-content
       rollup-plugin-copy: link:../../libs/rollup-plugin-copy
+      rollup-plugin-handlebars-compile: link:../../libs/rollup-plugin-handlebars-compile
       vite: 4.2.0
 
   ../../components/web-components-storybook-nextjs:
@@ -282,6 +284,15 @@ importers:
       rollup: 2.77.0
       typescript: 4.9.5
       vitest: 0.29.8
+
+  ../../libs/rollup-plugin-handlebars-compile:
+    specifiers:
+      handlebars: ~4.7.8
+      rollup: '>=2.75.6 <2.77.0 || ~2.77.0'
+    dependencies:
+      handlebars: 4.7.8
+    devDependencies:
+      rollup: 2.77.0
 
   ../../libs/rollup-plugin-html-minify:
     specifiers:
@@ -5017,7 +5028,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.2.47
-      vue-component-type-helpers: 1.8.8
+      vue-component-type-helpers: 1.8.10
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -14151,8 +14162,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /vue-component-type-helpers/1.8.8:
-    resolution: {integrity: sha512-Ohv9HQY92nSbpReC6WhY0X4YkOszHzwUHaaN/lev5tHQLM1AEw+LrLeB2bIGIyKGDU7ZVrncXcv/oBny4rjbYg==}
+  /vue-component-type-helpers/1.8.10:
+    resolution: {integrity: sha512-FJtmfw2Gn6eQ8kAVNEhw9nYIzWmVQJjdyQRtJXZ7tgXh/FoZhQnZ2KyxR+NuF9U4iZLBvSspeetIpnP9yxxyMw==}
     dev: true
 
   /vue-demi/0.13.11_vue@3.2.47:

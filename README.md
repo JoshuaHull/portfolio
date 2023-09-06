@@ -38,6 +38,8 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 [rollup-plugin-count](./libs/rollup-plugin-count) - import a Javascript variable equal to the number of files in the build which have a given file extension
 
+[rollup-plugin-handlebars-compile](./libs/rollup-plugin-handlebars-compile) - Import the contents of a HTML file, after having run `Handlebars.compile()` over it
+
 [rollup-plugin-html-minify](./libs/rollup-plugin-html-minify) - very simple HTML minifier
 
 ### unplugin-vue-components plugins

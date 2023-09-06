@@ -1,0 +1,17 @@
+{
+  "name": "rollup-plugin-handlebars-compile",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": "./rollup-plugin-handlebars-compile.js",
+  "types": "./rollup-plugin-handlebars-compile.d.ts",
+  "scripts": {
+    "build": ""
+  },
+  "dependencies": {
+    "handlebars": "~4.7.8"
+  },
+  "devDependencies": {
+    "rollup": ">=2.75.6 <2.77.0 || ~2.77.0"
+  }
+}

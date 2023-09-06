@@ -20,6 +20,7 @@
     "rollup-plugin-auto-package-json": "workspace:",
     "rollup-plugin-content": "workspace:",
     "rollup-plugin-copy": "workspace:",
+    "rollup-plugin-handlebars-compile": "workspace:",
     "vite": "^4.2.0"
   }
 }
