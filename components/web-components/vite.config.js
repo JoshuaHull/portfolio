@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import { rollupPluginContent } from "rollup-plugin-content";
 import { rollupPluginCopy } from "rollup-plugin-copy";
 import { rollupPluginAutoPackageJson } from "rollup-plugin-auto-package-json";
+import { rollupPluginHandlebarsCompile } from "rollup-plugin-handlebars-compile";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -26,5 +27,6 @@ export default defineConfig({
       from: resolve(__dirname, "src/*/index.d.ts"),
       to: resolve(__dirname, "dist/*/index.d.ts"),
     }),
+    rollupPluginHandlebarsCompile(),
   ],
 });
