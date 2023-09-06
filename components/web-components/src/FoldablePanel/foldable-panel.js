@@ -131,5 +131,7 @@ export const attachFoldablePanelTo = (element) => {
     }
   }
 
-  customElements.define("fsj-foldable-panel", FoldablePanel);
+  try {
+    customElements.define("fsj-foldable-panel", FoldablePanel);
+  } catch {}
 };
