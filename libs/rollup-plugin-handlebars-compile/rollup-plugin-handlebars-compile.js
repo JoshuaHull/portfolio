@@ -7,7 +7,7 @@ const prefix = "compile:";
 /**
  * @type {import("./rollup-plugin-handlebars-compile").rollupPluginHandlebarsCompile}
  */
-export function rollupPluginHandlebarsCompile() {
+export function rollupPluginHandlebarsCompile(options) {
   return {
     name,
     resolveId(source) {
@@ -30,7 +30,7 @@ export function rollupPluginHandlebarsCompile() {
       const readFrom = `./${fileName}.${fileType}`;
       const content = readFileSync(readFrom, "utf-8");
 
-      const compiled = Handlebars.compile(content)();
+      const compiled = Handlebars.compile(content)(options?.vars);
 
       return {
         code: `export default ${JSON.stringify(compiled)}`,

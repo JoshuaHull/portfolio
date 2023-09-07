@@ -55,4 +55,26 @@ describe("load", () => {
       },
     });
   });
+
+  test("should compile a file and fill in the given variables", () => {
+    // Arrange
+    const resolver = rollupPluginHandlebarsCompile({
+      vars: {
+        first: "a",
+        second: "with",
+        third: "vars",
+      },
+    });
+
+    // Act
+    const result = resolver.load("compile:html:testAssets/populate-vars.template");
+
+    // Assert
+    expect(result).toStrictEqual({
+      code: "export default \"<p>Compiling a file with three vars.</p>\"",
+      map: {
+        mappings: "",
+      },
+    });
+  });
 });
