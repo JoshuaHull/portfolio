@@ -6,12 +6,15 @@
   "exports": "./rollup-plugin-handlebars-compile.js",
   "types": "./rollup-plugin-handlebars-compile.d.ts",
   "scripts": {
-    "build": ""
+    "build": "",
+    "test": "vitest",
+    "test:nowatch": "vitest --watch false"
   },
   "dependencies": {
     "handlebars": "~4.7.8"
   },
   "devDependencies": {
-    "rollup": ">=2.75.6 <2.77.0 || ~2.77.0"
+    "rollup": ">=2.75.6 <2.77.0 || ~2.77.0",
+    "vitest": "^0.29.8"
   }
 }
