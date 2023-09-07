@@ -5,7 +5,7 @@ const name = "rollup-plugin-handlebars-compile";
 const prefix = "compile:";
 
 /**
- * @type {Types.rollupPluginHandlebarsCompile}
+ * @type {import("./rollup-plugin-handlebars-compile").rollupPluginHandlebarsCompile}
  */
 export function rollupPluginHandlebarsCompile() {
   return {
