@@ -3,20 +3,7 @@ import fs from "fs/promises";
 const name = "rollup-plugin-auto-package-json";
 
 /**
- * @typedef PluginOptions
- * @property {string} packageJsonLocation
- */
-
-/**
- * @callback BuildEndFn
- * @returns {Promise<void>}
- */
-
-/**
- * @function PluginFn
- * @param {PluginOptions} options
- * @property {string} name
- * @property {BuildEndFn} buildEnd
+ * @type {import("./rollup-plugin-auto-package-json").rollupPluginAutoPackageJson}
  */
 export function rollupPluginAutoPackageJson({
   packageJsonLocation,
