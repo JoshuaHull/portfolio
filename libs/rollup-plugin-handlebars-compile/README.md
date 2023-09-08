@@ -1,6 +1,6 @@
 # rollup-plugin-handlebars-compile
 
-Import the contents of a HTML file, having run it through `Handlebars.compile()` at build time.
+Import the contents of a file, having run it through `Handlebars.compile()` at build time.
 
 ## Usage
 
@@ -55,4 +55,4 @@ Will produce:
 <div><div>This is a Handlebars template.</div></div>
 ```
 
-Since the compilation runs at build time, I recommend using this for cases where you don't actually want variables populated in the template, and instead want them replaced with nothing. For me, that's useful to assist with server side rendering of web components. You can see an example [here](../../components/web-components/).
+Since the compilation runs at build time, I recommend using this for cases where you don't actually want variables populated in the template, and instead want them replaced with nothing. For me, that's useful to assist with server side rendering of web components. You can see an example [here](./../../components/web-components).
