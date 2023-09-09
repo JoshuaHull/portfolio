@@ -130,7 +130,7 @@ importers:
 
   ../../components/web-components-storybook-vue:
     specifiers:
-      '@fullstackjosh/web-components': 'workspace:'
+      '@fullstackjosh/web-components': workspace:0.0.1
       '@storybook/addon-essentials': ^7.4.0
       '@storybook/addon-interactions': ^7.4.0
       '@storybook/addon-links': ^7.4.0
