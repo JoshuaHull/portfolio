@@ -1,6 +1,13 @@
 # Change Log - @fullstackjosh/web-components
 
-This log was last generated on Sat, 09 Sep 2023 08:02:59 GMT and should not be manually modified.
+This log was last generated on Sat, 09 Sep 2023 11:11:20 GMT and should not be manually modified.
+
+## 0.0.4
+Sat, 09 Sep 2023 11:11:20 GMT
+
+### Patches
+
+- feat: use innerHTML to set panel title and content
 
 ## 0.0.3
 Sat, 09 Sep 2023 08:02:59 GMT
