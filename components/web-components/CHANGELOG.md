@@ -1,6 +1,13 @@
 # Change Log - @fullstackjosh/web-components
 
-This log was last generated on Sat, 09 Sep 2023 07:54:13 GMT and should not be manually modified.
+This log was last generated on Sat, 09 Sep 2023 08:02:59 GMT and should not be manually modified.
+
+## 0.0.3
+Sat, 09 Sep 2023 08:02:59 GMT
+
+### Patches
+
+- fix: did not build before publishing
 
 ## 0.0.2
 Sat, 09 Sep 2023 07:54:13 GMT

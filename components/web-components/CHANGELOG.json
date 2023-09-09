@@ -2,6 +2,18 @@
   "name": "@fullstackjosh/web-components",
   "entries": [
     {
+      "version": "0.0.3",
+      "tag": "@fullstackjosh/web-components_v0.0.3",
+      "date": "Sat, 09 Sep 2023 08:02:59 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "fix: did not build before publishing"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.0.2",
       "tag": "@fullstackjosh/web-components_v0.0.2",
       "date": "Sat, 09 Sep 2023 07:54:13 GMT",
