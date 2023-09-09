@@ -4,21 +4,7 @@ import fs from "fs/promises";
 const name = "rollup-plugin-copy";
 
 /**
- * @typedef PluginOptions
- * @property {string} from
- * @property {string} to
- */
-
-/**
- * @callback BuildStartFn
- * @returns {Promise<void>}
- */
-
-/**
- * @function PluginFn
- * @param {PluginOptions} options
- * @property {string} name
- * @property {BuildStartFn} buildStart
+ * @type {import("./rollup-plugin-copy").rollupPluginCopy}
  */
 export function rollupPluginCopy({
   from,
