@@ -1,0 +1,17 @@
+{
+  "name": "@fullstackjosh/web-components",
+  "entries": [
+    {
+      "version": "0.0.1",
+      "tag": "@fullstackjosh/web-components_v0.0.1",
+      "date": "Sat, 09 Sep 2023 05:59:19 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "feat: foldable panel (initial release)"
+          }
+        ]
+      }
+    }
+  ]
+}
