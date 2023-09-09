@@ -1,5 +1,8 @@
 const name = "rollup-plugin-html-minify";
 
+/**
+ * @type {import("./rollup-plugin-html-minify").rollupPluginHtmlMinify}
+ */
 export function rollupPluginHtmlMinify() {
   return {
     name,

@@ -1,3 +1,3 @@
-import { TransformResult } from "rollup";
+import { Plugin } from "rollup";
 
-export function rollupPluginHtmlMinify(): TransformResult;
+export function rollupPluginHtmlMinify(): Plugin;
