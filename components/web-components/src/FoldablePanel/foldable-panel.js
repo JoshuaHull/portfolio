@@ -57,7 +57,7 @@ export const attachFoldablePanelTo = (element) => {
     }
 
     /**
-     * @param {string} value - whether the panel should be open (true) or closed (false) by default
+     * @param {string} value - whether the panel should be unfolded (true) or folded (false) by default
      */
     set defaultChecked(value) {
       /** @type {HTMLInputElement} */
@@ -78,7 +78,26 @@ export const attachFoldablePanelTo = (element) => {
     set panelTitle(value) {
       /** @type {HTMLLabelElement} */
       const label = this.shadowRoot.querySelector(".foldable__label");
-      label.insertAdjacentText("beforeend", value);
+      const icon = `
+        <div class="foldable__chevron__container">
+          <!-- Hero Icons' chevron-down icon, MIT, https://heroicons.com/ -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </div>
+      `;
+      label.innerHTML = `${icon}${value}`;
     }
 
     /**
@@ -94,7 +113,7 @@ export const attachFoldablePanelTo = (element) => {
     set panelContent(value) {
       /** @type {HTMLParagraphElement} */
       const paragraph = this.shadowRoot.querySelector(".foldable__description");
-      paragraph.insertAdjacentText("beforeend", value);
+      paragraph.innerHTML = value;
     }
 
     /**

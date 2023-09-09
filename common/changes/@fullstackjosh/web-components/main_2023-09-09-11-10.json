@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@fullstackjosh/web-components",
+      "comment": "feat: use innerHTML to set panel title and content",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@fullstackjosh/web-components"
+}
