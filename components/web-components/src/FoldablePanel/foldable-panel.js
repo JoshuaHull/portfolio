@@ -1,6 +1,4 @@
-import foldablePanelContent from "content:html:src/FoldablePanel/foldable-panel";
 import foldablePanelCompiled from "compile:html:src/FoldablePanel/foldable-panel";
-import Handlebars from "handlebars";
 
 /**
  * @type {import("./index").registerFoldablePanel}
@@ -11,13 +9,6 @@ export const registerFoldablePanel = () => {
   template.innerHTML = foldablePanelCompiled;
 
   attachFoldablePanelTo(template);
-};
-
-/**
- * @type {import("./index").getFoldablePanelHtmlTemplate}
- */
-export const getFoldablePanelHtmlTemplate = () => {
-  return Handlebars.compile(foldablePanelContent);
 };
 
 /**

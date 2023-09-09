@@ -1,6 +1,6 @@
 "use server";
 
-import { getFoldablePanelHtmlTemplate } from "@fullstackjosh/web-components/FoldablePanel";
+import { getFoldablePanelHtmlTemplate } from "@fullstackjosh/web-components/FoldablePanelTemplate";
 import dynamic from "next/dynamic";
 import React from "react";
 

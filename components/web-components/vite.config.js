@@ -12,6 +12,7 @@ export default defineConfig({
     lib: {
       entry: {
         "FoldablePanel": resolve(__dirname, "src/FoldablePanel/index.js"),
+        "FoldablePanelTemplate": resolve(__dirname, "src/FoldablePanelTemplate/index.js"),
       },
       name: "@fullstackjosh/web-components",
       formats: ["es", "cjs"],
