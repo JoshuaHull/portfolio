@@ -24,6 +24,9 @@ jobs:
         with:
           node-version: 16
 
+      - name: Rush Verify
+        run: node common/scripts/install-run-rush.js change --verify
+
       - name: Rush Install
         run: node common/scripts/install-run-rush.js install
 
