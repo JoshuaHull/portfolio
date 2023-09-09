@@ -22,9 +22,9 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 [web-components-storybook-nextjs](./components/web-components-storybook-nextjs) - Storybook app demonstrating use of web-components in a NextJS app
 
-[web-components-storybook-vue](./components/web-components-storybook-vue) - Storybook app demonstrating use of web-components in a Vue app.
+[web-components-storybook-vue](./components/web-components-storybook-vue) - Storybook app demonstrating use of web-components in a Vue app
 
-[web-components-wrapper-nextjs](./components/web-components-wrapper-nextjs) - a wrapper around web-components which allows those components to be rendered on the server of a NextJS app.
+[web-components-wrapper-nextjs](./components/web-components-wrapper-nextjs) - a wrapper around web-components which allows those components to be rendered on the server of a NextJS app
 
 ### Lexing
 
@@ -40,7 +40,7 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 ### Rollup plugins
 
-[rollup-plugin-auto-package-json](./libs/rollup-plugin-auto-package-json) - Copies `package.json`, removes some fields, and dumps it in `dist`
+[rollup-plugin-auto-package-json](./libs/rollup-plugin-auto-package-json) - copies `package.json`, removes some fields, and dumps it in `dist`
 
 [rollup-plugin-content](./libs/rollup-plugin-content) - import a file's content into a Javascript variable
 
@@ -48,7 +48,7 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 [rollup-plugin-count](./libs/rollup-plugin-count) - import a Javascript variable equal to the number of files in the build which have a given file extension
 
-[rollup-plugin-handlebars-compile](./libs/rollup-plugin-handlebars-compile) - Import the contents of a file, having run it through `Handlebars.compile()` at build time
+[rollup-plugin-handlebars-compile](./libs/rollup-plugin-handlebars-compile) - import the contents of a file, having run it through `Handlebars.compile()` at build time
 
 [rollup-plugin-html-minify](./libs/rollup-plugin-html-minify) - very simple HTML minifier
 

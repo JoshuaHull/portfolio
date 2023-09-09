@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@fullstackjosh/web-components",
+      "comment": "feat: foldable panel (initial release)",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@fullstackjosh/web-components"
+}

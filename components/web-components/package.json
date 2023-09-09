@@ -1,7 +1,29 @@
 {
   "name": "@fullstackjosh/web-components",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/JoshuaHull/portfolio/tree/main/components/web-components#readme",
+  "author": {
+    "name": "Joshua Hull",
+    "url": "https://github.com/JoshuaHull"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JoshuaHull/portfolio.git",
+    "directory": "components/web-components"
+  },
+  "keywords": [
+    "web",
+    "components",
+    "vue",
+    "nextjs",
+    "ssr",
+    "custom",
+    "elements"
+  ],
+  "description": "Web components structured in such a way which enables both server side and client side rendering.",
   "exports": {
     "./*": {
       "types": "./src/*/index.d.ts",

@@ -88,7 +88,8 @@
     },
     {
       "packageName": "@fullstackjosh/web-components",
-      "projectFolder": "components/web-components"
+      "projectFolder": "components/web-components",
+      "shouldPublish": true
     },
     {
       "packageName": "@fullstackjosh/web-components-wrapper-nextjs",
