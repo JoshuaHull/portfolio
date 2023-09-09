@@ -2,6 +2,18 @@
   "name": "@fullstackjosh/web-components",
   "entries": [
     {
+      "version": "0.0.2",
+      "tag": "@fullstackjosh/web-components_v0.0.2",
+      "date": "Sat, 09 Sep 2023 07:54:13 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "fix: split out Handlebars dependency"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.0.1",
       "tag": "@fullstackjosh/web-components_v0.0.1",
       "date": "Sat, 09 Sep 2023 05:59:19 GMT",
