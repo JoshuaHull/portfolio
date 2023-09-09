@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@fullstackjosh/web-components",
+      "comment": "fix: did not build before publishing",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@fullstackjosh/web-components"
+}

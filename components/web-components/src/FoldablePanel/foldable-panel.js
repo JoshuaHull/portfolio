@@ -57,7 +57,7 @@ export const attachFoldablePanelTo = (element) => {
     }
 
     /**
-     * @param {string} value
+     * @param {string} value - whether the panel should be open (true) or closed (false) by default
      */
     set defaultChecked(value) {
       /** @type {HTMLInputElement} */
