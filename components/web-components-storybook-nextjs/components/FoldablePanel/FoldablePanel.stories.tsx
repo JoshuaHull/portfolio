@@ -25,6 +25,7 @@ export const Primary = () => {
   fixFoldablePanel({
     panelTitle: "Primary Foldable Panel",
   });
+  // @ts-ignore
   return <FoldablePanelClientOnly />;
 };
 
@@ -33,5 +34,6 @@ export const Expanded = () => {
     panelTitle: "Expanded Foldable Panel",
     defaultChecked: true,
   });
+  // @ts-ignore
   return <FoldablePanelClientOnly />;
 };
