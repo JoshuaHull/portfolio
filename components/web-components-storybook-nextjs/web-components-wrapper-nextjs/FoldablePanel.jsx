@@ -4,6 +4,9 @@ import { getFoldablePanelHtmlTemplate } from "@fullstackjosh/web-components/Fold
 import dynamic from "next/dynamic";
 import React from "react";
 
+/**
+ * @type {import("./FoldablePanel").FoldablePanel}
+ */
 export async function FoldablePanel(props) {
   const FoldablePanelClientOnly = dynamic(async () => {
     const { FoldablePanelClientOnly } = await import("./FoldablePanelClientOnly.jsx");

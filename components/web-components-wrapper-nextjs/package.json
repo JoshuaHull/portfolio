@@ -2,7 +2,7 @@
   "name": "@fullstackjosh/web-components-wrapper-nextjs",
   "version": "0.0.0",
   "private": true,
-  "type": "commonjs",
+  "type": "module",
   "sideEffects": false,
   "exports": {
     "./*": {
@@ -11,10 +11,11 @@
     }
   },
   "scripts": {
-    "build": "gulp"
+    "build": "",
+    "build:next": "npx gulp -f gulpfile.cjs"
   },
   "dependencies": {
-    "@fullstackjosh/web-components": "workspace:*"
+    "@fullstackjosh/web-components": "workspace:0.0.4"
   },
   "peerDependencies": {
     "next": ">=13",
