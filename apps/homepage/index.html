@@ -17,8 +17,11 @@
         font-weight: 400;
 
         --color-white: #E9EAECDD;
+        --color-white-dark: #C7C7C7DD;
         --color-red: #800028;
         --color-blue-gray: #333652DD;
+        --color-blue-gray-solid: #333652;
+        --color-space-gray: #232830DD;
 
         --color-text: var(--color-blue-gray);
         --color-bg: var(--color-white);
@@ -64,6 +67,7 @@
       }
 
       .page-content {
+        z-index: 1;
         padding-left: 1rem;
         padding-right: 1rem;
       }
@@ -71,19 +75,19 @@
       .titles {
         padding-top: 1rem;
         padding-bottom: 4rem;
-        font-size: 1.25em;
-        line-height: 1.25em;
+        font-size: 1.75em;
+        line-height: 1.75em;
       }
 
       h1 {
-        font-size: 3em;
-        line-height: 3.5rem;
+        font-size: 4em;
+        line-height: 4.5rem;
       }
 
       .links {
         display: grid;
         grid-template-rows: repeat(2, auto);
-        row-gap: 0.5rem;
+        row-gap: 1.25rem;
       }
 
       .links a {
@@ -109,6 +113,15 @@
         color: #24292f;
       }
 
+      body::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        filter: brightness(100%);
+        background: radial-gradient(circle at center, var(--color-white) 50%, var(--color-white-dark) 100%), url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgNDAwIDQwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz4KICA8ZmlsdGVyIGlkPSdub2lzZUZpbHRlcic+CiAgICA8ZmVUdXJidWxlbmNlIAogICAgICB0eXBlPSdmcmFjdGFsTm9pc2UnIAogICAgICBiYXNlRnJlcXVlbmN5PSc5Ljk5JyAKICAgICAgbnVtT2N0YXZlcz0nMScgCiAgICAgIHN0aXRjaFRpbGVzPSdzdGl0Y2gnLz4KICA8L2ZpbHRlcj4KICAKICA8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbm9pc2VGaWx0ZXIpJy8+Cjwvc3ZnPg==);
+      }
+
       @media (prefers-color-scheme: dark) {
         :root {
           --color-text: var(--color-white);
@@ -118,12 +131,33 @@
         .github-link svg {
           color: #fff;
         }
+
+        body::before {
+          background: radial-gradient(circle at center, var(--color-blue-gray-solid) 50%, var(--color-space-gray) 100%), url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgNDAwIDQwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz4KICA8ZmlsdGVyIGlkPSdub2lzZUZpbHRlcic+CiAgICA8ZmVUdXJidWxlbmNlIAogICAgICB0eXBlPSdmcmFjdGFsTm9pc2UnIAogICAgICBiYXNlRnJlcXVlbmN5PSc5Ljk5JyAKICAgICAgbnVtT2N0YXZlcz0nMScgCiAgICAgIHN0aXRjaFRpbGVzPSdzdGl0Y2gnLz4KICA8L2ZpbHRlcj4KICAKICA8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbm9pc2VGaWx0ZXIpJy8+Cjwvc3ZnPg==);
+        }
       }
 
-      @media(min-width: 768px) {
-        .page-content {
-          column-gap: 4rem;
-          grid-template-columns: 2rem auto 2rem;
+      @media (min-width: 1024px) {
+        h1 {
+          font-size: 8em;
+          line-height: 8.5rem;
+        }
+
+        .titles {
+          font-size: 2em;
+          line-height: 2em;
+        }
+      }
+
+      @media (min-width: 2048px) {
+        h1 {
+          font-size: 10em;
+          line-height: 10.5rem;
+        }
+
+        .titles {
+          font-size: 2.25em;
+          line-height: 2.25em;
         }
       }
     </style>

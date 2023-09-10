@@ -50,7 +50,7 @@ const gridTemplateColumns = computed(() =>
   padding-left: 0.5rem;
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .layer-panel-header-content {
     padding-left: 2rem;
   }
