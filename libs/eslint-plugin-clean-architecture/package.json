@@ -1,0 +1,17 @@
+{
+  "name": "eslint-plugin-clean-architecture",
+  "private": true,
+  "version": "0.0.0",
+  "type": "commonjs",
+  "exports": "./eslint-plugin-clean-architecture.js",
+  "types": "./eslint-plugin-clean-architecture.d.ts",
+  "scripts": {
+    "build": ""
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  },
+  "peerDependencies": {
+    "eslint": ">=0.8.0"
+  }
+}
