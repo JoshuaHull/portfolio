@@ -6,10 +6,14 @@
   "exports": "./eslint-plugin-clean-architecture.js",
   "types": "./eslint-plugin-clean-architecture.d.ts",
   "scripts": {
-    "build": ""
+    "build": "",
+    "test": "vitest",
+    "test:nowatch": "vitest --watch false"
   },
   "devDependencies": {
-    "typescript": "^4.9.3"
+    "eslint": "^8.46.0",
+    "typescript": "^4.9.3",
+    "vitest": "^0.29.8"
   },
   "peerDependencies": {
     "eslint": ">=0.8.0"
