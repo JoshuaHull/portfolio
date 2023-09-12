@@ -9,7 +9,7 @@ const newLinter = () => new ESLint({
       sourceType: "module",
     },
     extends: [
-      "plugin:clean-architecture/all",
+      "plugin:clean-architecture/withNumbers",
     ],
   }
 });
