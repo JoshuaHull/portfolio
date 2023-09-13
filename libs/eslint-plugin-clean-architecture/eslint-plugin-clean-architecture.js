@@ -150,15 +150,37 @@ const getConfig = (withNumbers, withData, allowInfraIntoPres) => {
   };
 };
 
-module.exports = {
-  configs: {
-    allowInfraIntoPres: getConfig(false, false, true),
-    strict: getConfig(false, false, false),
-    withData_allowInfraIntoPres: getConfig(false, true, true),
-    withData: getConfig(false, true, false),
-    withNumbers_allowInfraIntoPres: getConfig(true, false, true),
-    withNumbers_withData_allowInfraIntoPres: getConfig(true, true, true),
-    withNumbers_withData: getConfig(true, true, false),
-    withNumbers: getConfig(true, false, false),
+const dynamicConfigs = {
+  get(_, prop) {
+    if (typeof prop !== "string")
+      return undefined;
+
+    const strict = prop.includes("strict");
+    const withNumbers = prop.includes("withNumbers");
+    const withData = prop.includes("withData");
+    const allowInfraIntoPres = prop.includes("allowInfraIntoPres");
+
+    if (!strict && !withNumbers && !withData && !allowInfraIntoPres)
+      return undefined;
+
+    if (strict && (withNumbers || withData || allowInfraIntoPres))
+      return undefined;
+
+    return getConfig(withNumbers, withData, allowInfraIntoPres);
   }
-}
+};
+
+const configs = new Proxy({}, dynamicConfigs);
+
+module.exports = {
+  configs,
+};
+
+const CleanArchitectureSettings = [
+  "withNumbers",
+  "withData",
+  "allowInfraIntoPres",
+  "strict",
+];
+
+module.exports.CleanArchitectureSettings = CleanArchitectureSettings;
