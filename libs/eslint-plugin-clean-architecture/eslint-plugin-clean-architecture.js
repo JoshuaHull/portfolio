@@ -12,6 +12,25 @@
 /**
  * @param {boolean} withNumbers
  */
+const getPresentationalConfig = (withNumbers) => {
+  const folderNames = getFolderNames(withNumbers);
+
+  return {
+    files: [`**/${folderNames.presentational}/**`],
+    rules: {
+      "no-restricted-imports": ["error", {
+        patterns: [{
+          group: [`**/${folderNames.infrastructure}`],
+          message: "Do not import infrastructure code into the presentational layer",
+        }],
+      }],
+    },
+  };
+};
+
+/**
+ * @param {boolean} withNumbers
+ */
 const getInfrastructureConfig = (withNumbers) => {
   const folderNames = getFolderNames(withNumbers);
 
@@ -105,24 +124,36 @@ const getDataConfig = (withNumbers) => {
 
 /**
  * @param {boolean} withNumbers
+ * @param {boolean} withData
+ * @param {boolean} allowInfraIntoPres
  */
-const getConfig = (withNumbers) => {
+const getConfig = (withNumbers, withData, allowInfraIntoPres) => {
+  const overrides = [
+    allowInfraIntoPres ? null : getPresentationalConfig(withNumbers),
+    getInfrastructureConfig(withNumbers),
+    getApplicationConfig(withNumbers),
+    getDomainConfig(withNumbers),
+    withData ? getDataConfig(withNumbers) : null,
+  ];
+
   return {
     plugins: ["clean-architecture"],
     rules: {
       "no-restricted-imports": "off",
     },
-    overrides: [
-      getInfrastructureConfig(withNumbers),
-      getApplicationConfig(withNumbers),
-      getDomainConfig(withNumbers),
-      getDataConfig(withNumbers),
-    ],
+    overrides: overrides.filter(o => o !== null),
   };
 };
 
 module.exports = {
   configs: {
-    withNumbers: getConfig(true),
+    allowInfraIntoPres: getConfig(false, false, true),
+    strict: getConfig(false, false, false),
+    withData_allowInfraIntoPres: getConfig(false, true, true),
+    withData: getConfig(false, true, false),
+    withNumbers_allowInfraIntoPres: getConfig(true, false, true),
+    withNumbers_withData_allowInfraIntoPres: getConfig(true, true, true),
+    withNumbers_withData: getConfig(true, true, false),
+    withNumbers: getConfig(true, false, false),
   }
 }
