@@ -1,8 +1,8 @@
 /**
  * @param {boolean} withNumbers
  */
- const getFolderNames = (withNumbers) => ({
-  presentation: withNumbers ? "1-presentation" : "presentation",
+ const getFolderNames = (withNumbers, allowInfraIntoPres) => ({
+  presentation: withNumbers ? `${allowInfraIntoPres ? "0" : "1"}-presentation` : "presentation",
   infrastructure: withNumbers ? "1-infrastructure" : "infrastructure",
   application: withNumbers ? "2-application" : "application",
   domain: withNumbers ? "3-domain" : "domain",
@@ -11,9 +11,10 @@
 
 /**
  * @param {boolean} withNumbers
+ * @param {boolean} allowInfraIntoPres
  */
-const getpresentationConfig = (withNumbers) => {
-  const folderNames = getFolderNames(withNumbers);
+const getpresentationConfig = (withNumbers, allowInfraIntoPres) => {
+  const folderNames = getFolderNames(withNumbers, allowInfraIntoPres);
 
   return {
     files: [`**/${folderNames.presentation}/**`],
@@ -30,9 +31,10 @@ const getpresentationConfig = (withNumbers) => {
 
 /**
  * @param {boolean} withNumbers
+ * @param {boolean} allowInfraIntoPres
  */
-const getInfrastructureConfig = (withNumbers) => {
-  const folderNames = getFolderNames(withNumbers);
+const getInfrastructureConfig = (withNumbers, allowInfraIntoPres) => {
+  const folderNames = getFolderNames(withNumbers, allowInfraIntoPres);
 
   return {
     files: [`**/${folderNames.infrastructure}/**`],
@@ -49,9 +51,10 @@ const getInfrastructureConfig = (withNumbers) => {
 
 /**
  * @param {boolean} withNumbers
+ * @param {boolean} allowInfraIntoPres
  */
-const getApplicationConfig = (withNumbers) => {
-  const folderNames = getFolderNames(withNumbers);
+const getApplicationConfig = (withNumbers, allowInfraIntoPres) => {
+  const folderNames = getFolderNames(withNumbers, allowInfraIntoPres);
 
   return {
     files: [`**/${folderNames.application}/**`],
@@ -71,9 +74,10 @@ const getApplicationConfig = (withNumbers) => {
 
 /**
  * @param {boolean} withNumbers
+ * @param {boolean} allowInfraIntoPres
  */
-const getDomainConfig = (withNumbers) => {
-  const folderNames = getFolderNames(withNumbers);
+const getDomainConfig = (withNumbers, allowInfraIntoPres) => {
+  const folderNames = getFolderNames(withNumbers, allowInfraIntoPres);
 
   return {
     files: [`**/${folderNames.domain}/**`],
@@ -96,9 +100,10 @@ const getDomainConfig = (withNumbers) => {
 
 /**
  * @param {boolean} withNumbers
+ * @param {boolean} allowInfraIntoPres
  */
-const getDataConfig = (withNumbers) => {
-  const folderNames = getFolderNames(withNumbers);
+const getDataConfig = (withNumbers, allowInfraIntoPres) => {
+  const folderNames = getFolderNames(withNumbers, allowInfraIntoPres);
 
   return {
     files: [`**/${folderNames.data}/**`],
@@ -129,11 +134,11 @@ const getDataConfig = (withNumbers) => {
  */
 const getConfig = (withNumbers, withData, allowInfraIntoPres) => {
   const overrides = [
-    allowInfraIntoPres ? null : getpresentationConfig(withNumbers),
-    getInfrastructureConfig(withNumbers),
-    getApplicationConfig(withNumbers),
-    getDomainConfig(withNumbers),
-    withData ? getDataConfig(withNumbers) : null,
+    allowInfraIntoPres ? null : getpresentationConfig(withNumbers, allowInfraIntoPres),
+    getInfrastructureConfig(withNumbers, allowInfraIntoPres),
+    getApplicationConfig(withNumbers, allowInfraIntoPres),
+    getDomainConfig(withNumbers, allowInfraIntoPres),
+    withData ? getDataConfig(withNumbers, allowInfraIntoPres) : null,
   ];
 
   return {
