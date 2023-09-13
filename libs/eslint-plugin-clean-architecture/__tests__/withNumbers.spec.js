@@ -6,20 +6,20 @@ const config = "withNumbers";
 describe(`eslint-plugin-clean-architecture > ${config}`, () => {
   it.each([
     {
-      from: "1-presentational",
+      from: "1-presentation",
       to: "1-infrastructure",
     },
     {
-      from: "1-presentational",
+      from: "1-presentation",
       to: "2-application",
     },
     {
-      from: "1-presentational",
+      from: "1-presentation",
       to: "3-domain",
     },
     {
       from: "1-infrastructure",
-      to: "1-presentational",
+      to: "1-presentation",
     },
     {
       from: "1-infrastructure",
@@ -62,8 +62,8 @@ describe(`eslint-plugin-clean-architecture > ${config}`, () => {
 
   it.each([
     {
-      from: "1-presentational",
-      to: "1-presentational",
+      from: "1-presentation",
+      to: "1-presentation",
     },
     {
       from: "1-infrastructure",
@@ -79,7 +79,7 @@ describe(`eslint-plugin-clean-architecture > ${config}`, () => {
     },
     {
       from: "3-domain",
-      to: "1-presentational",
+      to: "1-presentation",
     },
     {
       from: "3-domain",
@@ -91,7 +91,7 @@ describe(`eslint-plugin-clean-architecture > ${config}`, () => {
     },
     {
       from: "2-application",
-      to: "1-presentational",
+      to: "1-presentation",
     },
     {
       from: "2-application",

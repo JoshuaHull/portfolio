@@ -2,7 +2,7 @@
  * @param {boolean} withNumbers
  */
  const getFolderNames = (withNumbers) => ({
-  presentational: withNumbers ? "1-presentational" : "presentational",
+  presentation: withNumbers ? "1-presentation" : "presentation",
   infrastructure: withNumbers ? "1-infrastructure" : "infrastructure",
   application: withNumbers ? "2-application" : "application",
   domain: withNumbers ? "3-domain" : "domain",
@@ -12,16 +12,16 @@
 /**
  * @param {boolean} withNumbers
  */
-const getPresentationalConfig = (withNumbers) => {
+const getpresentationConfig = (withNumbers) => {
   const folderNames = getFolderNames(withNumbers);
 
   return {
-    files: [`**/${folderNames.presentational}/**`],
+    files: [`**/${folderNames.presentation}/**`],
     rules: {
       "no-restricted-imports": ["error", {
         patterns: [{
           group: [`**/${folderNames.infrastructure}`],
-          message: "Do not import infrastructure code into the presentational layer",
+          message: "Do not import infrastructure code into the presentation layer",
         }],
       }],
     },
@@ -39,8 +39,8 @@ const getInfrastructureConfig = (withNumbers) => {
     rules: {
       "no-restricted-imports": ["error", {
         patterns: [{
-          group: [`**/${folderNames.presentational}`],
-          message: "Do not import presentational code into the infrastructure layer",
+          group: [`**/${folderNames.presentation}`],
+          message: "Do not import presentation code into the infrastructure layer",
         }],
       }],
     },
@@ -61,8 +61,8 @@ const getApplicationConfig = (withNumbers) => {
           group: [`**/${folderNames.infrastructure}`],
           message: "Do not import infrastructure code into the application layer",
         }, {
-          group: [`**/${folderNames.presentational}`],
-          message: "Do not import presentational code into the application layer",
+          group: [`**/${folderNames.presentation}`],
+          message: "Do not import presentation code into the application layer",
         }],
       }],
     },
@@ -83,8 +83,8 @@ const getDomainConfig = (withNumbers) => {
           group: [`**/${folderNames.infrastructure}`],
           message: "Do not import infrastructure code into the domain layer",
         }, {
-          group: [`**/${folderNames.presentational}`],
-          message: "Do not import presentational code into the domain layer",
+          group: [`**/${folderNames.presentation}`],
+          message: "Do not import presentation code into the domain layer",
         }, {
           group: [`**/${folderNames.application}`],
           message: "Do not import application code into the domain layer",
@@ -108,8 +108,8 @@ const getDataConfig = (withNumbers) => {
           group: [`**/${folderNames.infrastructure}`],
           message: "Do not import infrastructure code into the data layer",
         }, {
-          group: [`**/${folderNames.presentational}`],
-          message: "Do not import presentational code into the data layer",
+          group: [`**/${folderNames.presentation}`],
+          message: "Do not import presentation code into the data layer",
         }, {
           group: [`**/${folderNames.application}`],
           message: "Do not import application code into the data layer",
@@ -129,7 +129,7 @@ const getDataConfig = (withNumbers) => {
  */
 const getConfig = (withNumbers, withData, allowInfraIntoPres) => {
   const overrides = [
-    allowInfraIntoPres ? null : getPresentationalConfig(withNumbers),
+    allowInfraIntoPres ? null : getpresentationConfig(withNumbers),
     getInfrastructureConfig(withNumbers),
     getApplicationConfig(withNumbers),
     getDomainConfig(withNumbers),

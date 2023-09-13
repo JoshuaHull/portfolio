@@ -6,19 +6,19 @@ const config = "withData_allowInfraIntoPres";
 describe(`eslint-plugin-clean-architecture > ${config}`, () => {
   it.each([
     {
-      from: "presentational",
+      from: "presentation",
       to: "infrastructure",
     },
     {
-      from: "presentational",
+      from: "presentation",
       to: "application",
     },
     {
-      from: "presentational",
+      from: "presentation",
       to: "domain",
     },
     {
-      from: "presentational",
+      from: "presentation",
       to: "data",
     },
     {
@@ -72,12 +72,12 @@ describe(`eslint-plugin-clean-architecture > ${config}`, () => {
 
   it.each([
     {
-      from: "presentational",
-      to: "presentational",
+      from: "presentation",
+      to: "presentation",
     },
     {
       from: "infrastructure",
-      to: "presentational",
+      to: "presentation",
     },
     {
       from: "infrastructure",
@@ -97,7 +97,7 @@ describe(`eslint-plugin-clean-architecture > ${config}`, () => {
     },
     {
       from: "data",
-      to: "presentational",
+      to: "presentation",
     },
     {
       from: "data",
@@ -113,7 +113,7 @@ describe(`eslint-plugin-clean-architecture > ${config}`, () => {
     },
     {
       from: "domain",
-      to: "presentational",
+      to: "presentation",
     },
     {
       from: "domain",
@@ -125,7 +125,7 @@ describe(`eslint-plugin-clean-architecture > ${config}`, () => {
     },
     {
       from: "application",
-      to: "presentational",
+      to: "presentation",
     },
     {
       from: "application",

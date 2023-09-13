@@ -6,20 +6,20 @@ const config = "strict";
 describe(`eslint-plugin-clean-architecture > ${config}`, () => {
   it.each([
     {
-      from: "presentational",
+      from: "presentation",
       to: "infrastructure",
     },
     {
-      from: "presentational",
+      from: "presentation",
       to: "application",
     },
     {
-      from: "presentational",
+      from: "presentation",
       to: "domain",
     },
     {
       from: "infrastructure",
-      to: "presentational",
+      to: "presentation",
     },
     {
       from: "infrastructure",
@@ -60,8 +60,8 @@ describe(`eslint-plugin-clean-architecture > ${config}`, () => {
 
   it.each([
     {
-      from: "presentational",
-      to: "presentational",
+      from: "presentation",
+      to: "presentation",
     },
     {
       from: "infrastructure",
@@ -77,7 +77,7 @@ describe(`eslint-plugin-clean-architecture > ${config}`, () => {
     },
     {
       from: "domain",
-      to: "presentational",
+      to: "presentation",
     },
     {
       from: "domain",
@@ -89,7 +89,7 @@ describe(`eslint-plugin-clean-architecture > ${config}`, () => {
     },
     {
       from: "application",
-      to: "presentational",
+      to: "presentation",
     },
     {
       from: "application",

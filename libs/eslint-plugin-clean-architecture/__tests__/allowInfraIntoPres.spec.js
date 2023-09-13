@@ -6,7 +6,7 @@ const config = "allowInfraIntoPres";
 describe(`eslint-plugin-clean-architecture > ${config}`, () => {
   it.each([
     {
-      from: "presentational",
+      from: "presentation",
       to: "infrastructure",
     },
   ])("should not allow importing $from code into the $to layer", async ({ from, to }) => {
@@ -36,8 +36,8 @@ describe(`eslint-plugin-clean-architecture > ${config}`, () => {
 
   it.each([
     {
-      from: "presentational",
-      to: "presentational",
+      from: "presentation",
+      to: "presentation",
     },
     {
       from: "infrastructure",
@@ -45,7 +45,7 @@ describe(`eslint-plugin-clean-architecture > ${config}`, () => {
     },
     {
       from: "infrastructure",
-      to: "presentational",
+      to: "presentation",
     },
   ])("should allow importing $from code into the $to layer", async ({ from, to }) => {
     // Arrange
