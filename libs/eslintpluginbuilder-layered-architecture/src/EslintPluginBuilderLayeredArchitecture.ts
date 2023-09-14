@@ -1,10 +1,10 @@
 export class EslintPluginBuilderLayeredArchitecture {
   withLayer<L extends string>(layer: L) {
-    return new LayeredArchitectureBuilder<L, never>(layer, [], new Set<string>());
+    return new LayeredArchitectureBuilder<L, never>(layer, [], new Set<string>([layer]));
   }
 }
 
-class LayeredArchitectureBuilder<T, D> {
+class LayeredArchitectureBuilder<T extends string, D> {
   constructor(
     private layer: T,
     private dependsOn: D[],
@@ -15,9 +15,14 @@ class LayeredArchitectureBuilder<T, D> {
     if (this.allLayers.has(layer))
       throw new Error(`Cannot add layer "${layer}" has it has already been added`);
 
+    const deps = dependsOn ?? [];
+
+    for (let dep of deps)
+      if (!this.allLayers.has(dep))
+        throw new Error(`Layer "${layer}" cannot depend on layer "${dep}" as layer "${dep}" has not been added to the builder`);
+
     this.allLayers.add(layer);
 
-    const deps = dependsOn ?? [];
     return new LayeredArchitectureBuilder<T | L, T>(layer, deps, this.allLayers);
   }
 }
