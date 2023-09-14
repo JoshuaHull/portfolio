@@ -8,6 +8,10 @@
     "test": "vitest",
     "test:nowatch": "vitest --watch false"
   },
+  "dependencies": {
+    "eslint": "^8.46.0",
+    "@types/eslint": "~8.44.2"
+  },
   "devDependencies": {
     "typescript": "^4.9.3",
     "vite": "^4.2.0",
