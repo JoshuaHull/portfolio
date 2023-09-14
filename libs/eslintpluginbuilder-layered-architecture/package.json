@@ -1,0 +1,16 @@
+{
+  "name": "eslintpluginbuilder-layered-architecture",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest",
+    "test:nowatch": "vitest --watch false"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0",
+    "vitest": "^0.29.8"
+  }
+}

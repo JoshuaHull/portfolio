@@ -231,6 +231,16 @@ importers:
       typescript: 4.9.5
       vitest: 0.29.8
 
+  ../../libs/eslintpluginbuilder-layered-architecture:
+    specifiers:
+      typescript: ^4.9.3
+      vite: ^4.2.0
+      vitest: ^0.29.8
+    devDependencies:
+      typescript: 4.9.5
+      vite: 4.2.0
+      vitest: 0.29.8
+
   ../../libs/hero-icon-resolver:
     specifiers:
       typescript: ^4.9.3
@@ -5102,7 +5112,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.2.47
-      vue-component-type-helpers: 1.8.10
+      vue-component-type-helpers: 1.8.11
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -13147,7 +13157,7 @@ packages:
   /strip-literal/1.0.1:
     resolution: {integrity: sha512-QZTsipNpa2Ppr6v1AmJHESqJ3Uz247MUS0OjrnnZjFAvEoWqxuyFuXn2xLgMtRnijJShAa1HL0gtJyUs7u7n3Q==}
     dependencies:
-      acorn: 8.8.2
+      acorn: 8.10.0
     dev: true
 
   /style-loader/3.3.3:
@@ -14330,7 +14340,7 @@ packages:
       '@vitest/runner': 0.29.8
       '@vitest/spy': 0.29.8
       '@vitest/utils': 0.29.8
-      acorn: 8.8.2
+      acorn: 8.10.0
       acorn-walk: 8.2.0
       cac: 6.7.14
       chai: 4.3.7
@@ -14394,7 +14404,7 @@ packages:
       '@vitest/runner': 0.29.8
       '@vitest/spy': 0.29.8
       '@vitest/utils': 0.29.8
-      acorn: 8.8.2
+      acorn: 8.10.0
       acorn-walk: 8.2.0
       cac: 6.7.14
       chai: 4.3.7
@@ -14430,8 +14440,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /vue-component-type-helpers/1.8.10:
-    resolution: {integrity: sha512-FJtmfw2Gn6eQ8kAVNEhw9nYIzWmVQJjdyQRtJXZ7tgXh/FoZhQnZ2KyxR+NuF9U4iZLBvSspeetIpnP9yxxyMw==}
+  /vue-component-type-helpers/1.8.11:
+    resolution: {integrity: sha512-CWItFzuEWjkSXDeMGwQEc5cFH4FaueyPQHfi1mBDe+wA2JABqNjFxFUtmZJ9WHkb0HpEwqgBg1umiXrWYXkXHw==}
     dev: true
 
   /vue-demi/0.13.11_vue@3.2.47:

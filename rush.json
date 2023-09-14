@@ -58,6 +58,10 @@
       "projectFolder": "libs/eslint-plugin-clean-architecture"
     },
     {
+      "packageName": "eslintpluginbuilder-layered-architecture",
+      "projectFolder": "libs/eslintpluginbuilder-layered-architecture"
+    },
+    {
       "packageName": "hero-icon-resolver",
       "projectFolder": "libs/hero-icon-resolver",
       "shouldPublish": true
