@@ -46,7 +46,7 @@ class LayeredArchitectureBuilder<T extends string, D> {
           continue;
 
         patterns.push({
-          group: [`**/${otherLayer}`],
+          group: [otherLayer],
           message: `Do not import ${otherLayer} code into the ${layer} layer`,
         });
       }

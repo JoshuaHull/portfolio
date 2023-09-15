@@ -48,13 +48,13 @@ describe("EslintPluginBuilderLayeredArchitecture", () => {
           rules: {
             "no-restricted-imports": ["error", {
               patterns: [{
-                group: ["**/application"],
+                group: ["application"],
                 message: "Do not import application code into the domain layer",
               }, {
-                group: ["**/presentation"],
+                group: ["presentation"],
                 message: "Do not import presentation code into the domain layer",
               }, {
-                group: ["**/infrastructure"],
+                group: ["infrastructure"],
                 message: "Do not import infrastructure code into the domain layer",
               }],
             }],
@@ -65,10 +65,10 @@ describe("EslintPluginBuilderLayeredArchitecture", () => {
           rules: {
             "no-restricted-imports": ["error", {
               patterns: [{
-                group: ["**/presentation"],
+                group: ["presentation"],
                 message: "Do not import presentation code into the application layer",
               }, {
-                group: ["**/infrastructure"],
+                group: ["infrastructure"],
                 message: "Do not import infrastructure code into the application layer",
               }],
             }],
@@ -79,7 +79,7 @@ describe("EslintPluginBuilderLayeredArchitecture", () => {
           rules: {
             "no-restricted-imports": ["error", {
               patterns: [{
-                group: ["**/infrastructure"],
+                group: ["infrastructure"],
                 message: "Do not import infrastructure code into the presentation layer",
               }],
             }],
@@ -90,7 +90,7 @@ describe("EslintPluginBuilderLayeredArchitecture", () => {
           rules: {
             "no-restricted-imports": ["error", {
               patterns: [{
-                group: ["**/presentation"],
+                group: ["presentation"],
                 message: "Do not import presentation code into the infrastructure layer",
               }],
             }],
