@@ -15,7 +15,7 @@ class LayeredArchitectureBuilder {
 
   withLayer(layer, dependsOn) {
     if (this.layerMap.hasOwnProperty(layer))
-      throw new Error(`Cannot add layer "${layer}" has it has already been added`);
+      throw new Error(`Cannot add layer "${layer}" as it has already been added`);
 
     const deps = dependsOn ?? [];
 

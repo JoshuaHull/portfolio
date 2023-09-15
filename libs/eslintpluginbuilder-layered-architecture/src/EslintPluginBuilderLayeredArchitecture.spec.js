@@ -11,7 +11,7 @@ describe("EslintPluginBuilderLayeredArchitecture", () => {
       .withLayer("second");
 
     // Assert
-    expect(act).toThrowError(`Cannot add layer "second" has it has already been added`);
+    expect(act).toThrowError(`Cannot add layer "second" as it has already been added`);
   });
 
   it("should not allow adding a layer which depends on a non-existing layer", () => {
