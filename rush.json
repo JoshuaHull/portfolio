@@ -50,6 +50,10 @@
       "projectFolder": "libs/rollup-plugin-html-minify"
     },
     {
+      "packageName": "rollup-plugin-prepare-dist",
+      "projectFolder": "libs/rollup-plugin-prepare-dist"
+    },
+    {
       "packageName": "csharp-lexer",
       "projectFolder": "libs/csharp-lexer"
     },

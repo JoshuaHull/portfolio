@@ -52,6 +52,8 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 [rollup-plugin-html-minify](./libs/rollup-plugin-html-minify) - very simple HTML minifier
 
+[rollup-plugin-prepare-dist](./libs/rollup-plugin-prepare-dist) - simply deletes and re-creates the `dist` folder
+
 ### unplugin-vue-components plugins
 
 [hero-icon-resolver](./libs/hero-icon-resolver) - automatically resolves [Hero Icon](https://heroicons.com/) components in Vue apps

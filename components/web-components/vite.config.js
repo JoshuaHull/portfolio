@@ -4,6 +4,7 @@ import { rollupPluginContent } from "rollup-plugin-content";
 import { rollupPluginCopy } from "rollup-plugin-copy";
 import { rollupPluginAutoPackageJson } from "rollup-plugin-auto-package-json";
 import { rollupPluginHandlebarsCompile } from "rollup-plugin-handlebars-compile";
+import { rollupPluginPrepareDist } from "rollup-plugin-prepare-dist";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,6 +21,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    rollupPluginPrepareDist(),
     rollupPluginAutoPackageJson({
       packageJsonLocation: resolve(__dirname, "package.json"),
     }),
