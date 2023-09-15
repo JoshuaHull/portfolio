@@ -4,16 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "vite build",
+    "build": "rimraf dist && vite build",
     "test": "vitest",
     "test:nowatch": "vitest --watch false"
   },
-  "dependencies": {
-    "eslint": "^8.46.0",
-    "@types/eslint": "~8.44.2"
-  },
   "devDependencies": {
-    "typescript": "^4.9.3",
+    "@types/eslint": "~8.44.2",
+    "rimraf": "~5.0.1",
+    "rollup-plugin-auto-package-json": "workspace:",
     "vite": "^4.2.0",
     "vitest": "^0.29.8"
   }

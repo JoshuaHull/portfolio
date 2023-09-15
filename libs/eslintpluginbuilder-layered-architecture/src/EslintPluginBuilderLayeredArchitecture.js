@@ -1,19 +1,19 @@
-import { ESLint } from "eslint";
-
 export class EslintPluginBuilderLayeredArchitecture {
-  public withLayer<L extends string>(layer: L) {
-    const layerMap = {} as { [layer in L]: [] };
+  withLayer(layer) {
+    const layerMap = {};
     layerMap[layer] = [];
-    return new LayeredArchitectureBuilder<L, never>(layerMap);
+    return new LayeredArchitectureBuilder(layerMap);
   }
 }
 
-class LayeredArchitectureBuilder<T extends string, D> {
+class LayeredArchitectureBuilder {
   constructor(
-    private layerMap: { [layer in T]: D[] },
-  ) {}
+    layerMap,
+  ) {
+    this.layerMap = layerMap;
+  }
 
-  public withLayer<L extends string>(layer: L, dependsOn? : T[]) {
+  withLayer(layer, dependsOn) {
     if (this.layerMap.hasOwnProperty(layer))
       throw new Error(`Cannot add layer "${layer}" has it has already been added`);
 
@@ -23,16 +23,14 @@ class LayeredArchitectureBuilder<T extends string, D> {
       if (!this.layerMap.hasOwnProperty(dep))
         throw new Error(`Layer "${layer}" cannot depend on layer "${dep}" as layer "${dep}" has not been added to the builder`);
 
-    // type gynmastics :(
-    // TODO: remove typescript
-    const layerMap = this.layerMap as unknown as { [layer in T | L]: T[] };
+    const layerMap = this.layerMap;
     layerMap[layer] = deps;
 
-    return this as unknown as LayeredArchitectureBuilder<T | L, T>;
+    return this;
   }
 
-  public build(pluginName: string): ESLint.Plugin["configs"] {
-    const overrides: any[] = [];
+  build(pluginName) {
+    const overrides = [];
 
     for (let layer in this.layerMap) {
       const deps = this.layerMap[layer];
@@ -42,7 +40,7 @@ class LayeredArchitectureBuilder<T extends string, D> {
         if (layer === otherLayer)
           continue;
 
-        if (deps.includes(otherLayer as any))
+        if (deps.includes(otherLayer))
           continue;
 
         patterns.push({
@@ -67,6 +65,6 @@ class LayeredArchitectureBuilder<T extends string, D> {
         "no-restricted-imports": "off",
       },
       overrides,
-    } as ESLint.Plugin["configs"];
+    };
   }
 }

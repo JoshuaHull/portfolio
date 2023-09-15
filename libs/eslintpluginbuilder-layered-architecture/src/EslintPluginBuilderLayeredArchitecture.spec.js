@@ -19,7 +19,7 @@ describe("EslintPluginBuilderLayeredArchitecture", () => {
     const act = () => new EslintPluginBuilderLayeredArchitecture()
       .withLayer("first")
       .withLayer("second", ["first"])
-      .withLayer("third", ["first", "second", "fourth" as "second"]);
+      .withLayer("third", ["first", "second", "fourth"]);
 
     // Assert
     expect(act).toThrowError(`Layer "third" cannot depend on layer "fourth" as layer "fourth" has not been added to the builder`);
