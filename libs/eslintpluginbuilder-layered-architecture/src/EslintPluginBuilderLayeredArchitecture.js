@@ -1,3 +1,6 @@
+/**
+ * @type {import("./index").EslintPluginBuilderLayeredArchitecture}
+ */
 export class EslintPluginBuilderLayeredArchitecture {
   withLayer(layer) {
     const layerMap = {};
@@ -6,13 +9,24 @@ export class EslintPluginBuilderLayeredArchitecture {
   }
 }
 
+/**
+ * @typedef {Object.<string, string[]>} LayerMap
+ */
+
 class LayeredArchitectureBuilder {
+  /**
+   * @param {LayerMap} layerMap
+   */
   constructor(
     layerMap,
   ) {
     this.layerMap = layerMap;
   }
 
+  /**
+   * @param {string} layer
+   * @param {string[]} dependsOn
+   */
   withLayer(layer, dependsOn) {
     if (this.layerMap.hasOwnProperty(layer))
       throw new Error(`Cannot add layer "${layer}" as it has already been added`);
@@ -29,6 +43,9 @@ class LayeredArchitectureBuilder {
     return this;
   }
 
+  /**
+   * @param {string} pluginName
+   */
   build(pluginName) {
     const overrides = [];
 

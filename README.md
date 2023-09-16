@@ -26,6 +26,10 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 [web-components-wrapper-nextjs](./components/web-components-wrapper-nextjs) - a wrapper around web-components which allows those components to be rendered on the server of a NextJS app
 
+### Eslint plugins
+
+[eslintpluginbuilder](./libs/eslintpluginbuilder-layered-architecture) - build up Eslint plugins which enforce layering of your code
+
 ### Lexing
 
 [csharp-lexer](./libs/csharp-lexer/) - a C# lexer deriving from re-lex-ation
