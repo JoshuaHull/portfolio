@@ -247,6 +247,7 @@ importers:
       '@types/eslint': ~8.44.2
       rimraf: ~5.0.1
       rollup-plugin-auto-package-json: 'workspace:'
+      rollup-plugin-copy: 'workspace:'
       rollup-plugin-prepare-dist: 'workspace:'
       vite: ^4.2.0
       vitest: ^0.29.8
@@ -254,6 +255,7 @@ importers:
       '@types/eslint': 8.44.2
       rimraf: 5.0.1
       rollup-plugin-auto-package-json: link:../rollup-plugin-auto-package-json
+      rollup-plugin-copy: link:../rollup-plugin-copy
       rollup-plugin-prepare-dist: link:../rollup-plugin-prepare-dist
       vite: 4.2.0
       vitest: 0.29.8
