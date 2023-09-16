@@ -63,7 +63,8 @@
     },
     {
       "packageName": "eslintpluginbuilder-layered-architecture",
-      "projectFolder": "libs/eslintpluginbuilder-layered-architecture"
+      "projectFolder": "libs/eslintpluginbuilder-layered-architecture",
+      "shouldPublish": true
     },
     {
       "packageName": "hero-icon-resolver",
