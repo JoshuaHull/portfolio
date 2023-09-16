@@ -1,56 +1,42 @@
 import { describe, expect, it } from "vitest";
 import { newLinter } from "./utils";
 
-const config = "withNumbers_withData_allowInfraIntoPres";
+const config = "strictWithNumbers";
 
 describe(`eslint-plugin-clean-architecture > ${config}`, () => {
   it.each([
     {
-      from: "0-presentation",
+      from: "1-presentation",
       to: "1-infrastructure",
     },
     {
-      from: "0-presentation",
+      from: "1-presentation",
       to: "2-application",
     },
     {
-      from: "0-presentation",
-      to: "3-domain",
-    },
-    {
-      from: "0-presentation",
-      to: "4-data",
-    },
-    {
-      from: "1-infrastructure",
-      to: "2-application",
-    },
-    {
-      from: "1-infrastructure",
+      from: "1-presentation",
       to: "3-domain",
     },
     {
       from: "1-infrastructure",
-      to: "4-data",
+      to: "1-presentation",
+    },
+    {
+      from: "1-infrastructure",
+      to: "2-application",
+    },
+    {
+      from: "1-infrastructure",
+      to: "3-domain",
     },
     {
       from: "2-application",
       to: "3-domain",
-    },
-    {
-      from: "2-application",
-      to: "4-data",
-    },
-    {
-      from: "3-domain",
-      to: "4-data",
     },
   ])("should not allow importing $from code into the $to layer", async ({ from, to }) => {
     // Arrange
     const linter = newLinter(config);
-    const fromName = from.split("-")[1];
-    const toName = to.split("-")[1];
-    const expectedErrorMessage = `Do not import ${fromName} code into the ${toName} layer`;
+    const expectedErrorMessage = `Do not import ${from} code into the ${to} layer`;
 
     // Act
     const lintResults = await linter.lintText(
@@ -74,12 +60,8 @@ describe(`eslint-plugin-clean-architecture > ${config}`, () => {
 
   it.each([
     {
-      from: "0-presentation",
-      to: "0-presentation",
-    },
-    {
-      from: "1-infrastructure",
-      to: "0-presentation",
+      from: "1-presentation",
+      to: "1-presentation",
     },
     {
       from: "1-infrastructure",
@@ -95,7 +77,7 @@ describe(`eslint-plugin-clean-architecture > ${config}`, () => {
     },
     {
       from: "3-domain",
-      to: "0-presentation",
+      to: "1-presentation",
     },
     {
       from: "3-domain",
@@ -107,31 +89,11 @@ describe(`eslint-plugin-clean-architecture > ${config}`, () => {
     },
     {
       from: "2-application",
-      to: "0-presentation",
+      to: "1-presentation",
     },
     {
       from: "2-application",
       to: "1-infrastructure",
-    },
-    {
-      from: "4-data",
-      to: "4-data",
-    },
-    {
-      from: "4-data",
-      to: "3-domain",
-    },
-    {
-      from: "4-data",
-      to: "2-application",
-    },
-    {
-      from: "4-data",
-      to: "1-infrastructure",
-    },
-    {
-      from: "4-data",
-      to: "0-presentation",
     },
   ])("should allow importing $from code into the $to layer", async ({ from, to }) => {
     // Arrange

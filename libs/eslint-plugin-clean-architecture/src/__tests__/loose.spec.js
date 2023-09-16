@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { newLinter } from "./utils";
 
-const config = "allowInfraIntoPres";
+const config = "loose";
 
 describe(`eslint-plugin-clean-architecture > ${config}`, () => {
   it.each([

@@ -224,11 +224,20 @@ importers:
   ../../libs/eslint-plugin-clean-architecture:
     specifiers:
       eslint: ^8.46.0
+      eslintpluginbuilder-layered-architecture: workspace:*
+      rollup-plugin-auto-package-json: 'workspace:'
+      rollup-plugin-prepare-dist: 'workspace:'
       typescript: ^4.9.3
+      vite: ^4.2.0
       vitest: ^0.29.8
+    dependencies:
+      eslintpluginbuilder-layered-architecture: link:../eslintpluginbuilder-layered-architecture
     devDependencies:
       eslint: 8.49.0
+      rollup-plugin-auto-package-json: link:../rollup-plugin-auto-package-json
+      rollup-plugin-prepare-dist: link:../rollup-plugin-prepare-dist
       typescript: 4.9.5
+      vite: 4.2.0
       vitest: 0.29.8
 
   ../../libs/eslintpluginbuilder-layered-architecture:
@@ -236,12 +245,14 @@ importers:
       '@types/eslint': ~8.44.2
       rimraf: ~5.0.1
       rollup-plugin-auto-package-json: 'workspace:'
+      rollup-plugin-prepare-dist: 'workspace:'
       vite: ^4.2.0
       vitest: ^0.29.8
     devDependencies:
       '@types/eslint': 8.44.2
       rimraf: 5.0.1
       rollup-plugin-auto-package-json: link:../rollup-plugin-auto-package-json
+      rollup-plugin-prepare-dist: link:../rollup-plugin-prepare-dist
       vite: 4.2.0
       vitest: 0.29.8
 

@@ -2,17 +2,25 @@
   "name": "eslint-plugin-clean-architecture",
   "private": true,
   "version": "0.0.0",
-  "type": "commonjs",
-  "exports": "./eslint-plugin-clean-architecture.js",
-  "types": "./eslint-plugin-clean-architecture.d.ts",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs",
+    "types": "./src/index.d.ts"
+  },
   "scripts": {
-    "build": "",
+    "build": "vite build",
     "test": "vitest",
     "test:nowatch": "vitest --watch false"
   },
+  "dependencies": {
+    "eslintpluginbuilder-layered-architecture": "workspace:*"
+  },
   "devDependencies": {
     "eslint": "^8.46.0",
+    "rollup-plugin-auto-package-json": "workspace:",
+    "rollup-plugin-prepare-dist": "workspace:",
     "typescript": "^4.9.3",
+    "vite": "^4.2.0",
     "vitest": "^0.29.8"
   },
   "peerDependencies": {

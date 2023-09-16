@@ -2,9 +2,13 @@
   "name": "eslintpluginbuilder-layered-architecture",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs",
+    "types": "./src/index.d.ts"
+  },
   "scripts": {
-    "build": "rimraf dist && vite build",
+    "build": "vite build",
     "test": "vitest",
     "test:nowatch": "vitest --watch false"
   },
@@ -12,6 +16,7 @@
     "@types/eslint": "~8.44.2",
     "rimraf": "~5.0.1",
     "rollup-plugin-auto-package-json": "workspace:",
+    "rollup-plugin-prepare-dist": "workspace:",
     "vite": "^4.2.0",
     "vitest": "^0.29.8"
   }
