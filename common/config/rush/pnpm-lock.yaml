@@ -226,6 +226,7 @@ importers:
       eslint: ^8.46.0
       eslintpluginbuilder-layered-architecture: workspace:*
       rollup-plugin-auto-package-json: 'workspace:'
+      rollup-plugin-copy: 'workspace:'
       rollup-plugin-prepare-dist: 'workspace:'
       typescript: ^4.9.3
       vite: ^4.2.0
@@ -235,6 +236,7 @@ importers:
     devDependencies:
       eslint: 8.49.0
       rollup-plugin-auto-package-json: link:../rollup-plugin-auto-package-json
+      rollup-plugin-copy: link:../rollup-plugin-copy
       rollup-plugin-prepare-dist: link:../rollup-plugin-prepare-dist
       typescript: 4.9.5
       vite: 4.2.0
