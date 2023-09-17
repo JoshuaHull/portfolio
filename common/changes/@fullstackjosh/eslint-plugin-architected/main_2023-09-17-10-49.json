@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@fullstackjosh/eslint-plugin-architected",
+      "comment": "fix: I forgot to build first (night coding fails me)",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@fullstackjosh/eslint-plugin-architected"
+}
