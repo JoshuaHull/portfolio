@@ -1,0 +1,17 @@
+{
+  "name": "eslintpluginbuilder-layered-architecture",
+  "entries": [
+    {
+      "version": "0.0.1",
+      "tag": "eslintpluginbuilder-layered-architecture_v0.0.1",
+      "date": "Sun, 17 Sep 2023 03:24:28 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "build up eslint plugins which enforce layering of your code"
+          }
+        ]
+      }
+    }
+  ]
+}
