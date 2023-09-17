@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "eslintpluginbuilder-layered-architecture",
+      "comment": "",
+      "type": "none"
+    }
+  ],
+  "packageName": "eslintpluginbuilder-layered-architecture"
+}
