@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@fullstackjosh/eslint-plugin-architected",
+      "comment": "remove test script from package.json",
+      "type": "none"
+    }
+  ],
+  "packageName": "@fullstackjosh/eslint-plugin-architected"
+}

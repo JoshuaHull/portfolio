@@ -27,9 +27,7 @@
     "types": "./dist/index.d.ts"
   },
   "scripts": {
-    "build": "vite build",
-    "test": "vitest",
-    "test:nowatch": "vitest --watch false"
+    "build": "vite build"
   },
   "dependencies": {
     "eslintpluginbuilder-layered-architecture": "workspace:*"
