@@ -30,6 +30,8 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 [eslintpluginbuilder](./libs/eslintpluginbuilder-layered-architecture) - build up Eslint plugins which enforce layering of your code
 
+[eslint-plugin-architected](./libs/eslint-plugin-architected) - enforce layering your code following my personal preferences, based on Jason Taylor's Clean Architecture
+
 [eslint-plugin-clean-architecture](./libs/eslint-plugin-clean-architecture) - enforce layering your code following Jason Taylor's Clean Architecture
 
 ### Lexing
