@@ -2,7 +2,7 @@
 
 Enforce layering your code following [Jason Taylor's Clean Architecture](https://jasontaylor.dev/clean-architecture-getting-started/).
 
-![Taylor, J. 2020. Clean Architecture Diagram](https://github.com/JoshuaHull/portfolio/tree/main/libs/eslint-plugin-clean-architecture/clean-architecture-diagram.webp)
+![Taylor, J. 2020. Clean Architecture Diagram](https://github.com/JoshuaHull/portfolio/blob/main/libs/eslint-plugin-clean-architecture/clean-architecture-diagram.png)
 
 There are four configurations available:
 * plugin:clean-architecture/strict
@@ -82,3 +82,7 @@ layered-code
 ```
 
 Note that the presentation layer is prefixed with "0-" for `looseWithNumbers` but "1-" for `strictWithNumbers`.
+
+## EslintPluginBuilder
+
+This plugin is built on top of my [eslint plugin builder for layered architectures](./../eslintpluginbuilder-layered-architecture). You can use that library to enforce lint rules for any layer names you like, in case you're not a fan of clean architecture.
