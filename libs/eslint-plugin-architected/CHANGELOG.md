@@ -1,6 +1,13 @@
 # Change Log - @fullstackjosh/eslint-plugin-architected
 
-This log was last generated on Sun, 17 Sep 2023 10:46:00 GMT and should not be manually modified.
+This log was last generated on Sun, 17 Sep 2023 10:50:50 GMT and should not be manually modified.
+
+## 0.0.4
+Sun, 17 Sep 2023 10:50:50 GMT
+
+### Patches
+
+- fix: I forgot to build first (night coding fails me)
 
 ## 0.0.3
 Sun, 17 Sep 2023 10:46:00 GMT
