@@ -10,7 +10,7 @@ If you'd like a more strict implementation of clean architecture, checkout [esli
 // .eslintrc.js
 
 module.exports = {
-  extends: ["plugin:architected/clean-ish"],
+  extends: ["plugin:@fullstackjosh/architected/clean-ish"],
 };
 ```
 
