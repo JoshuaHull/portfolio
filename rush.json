@@ -58,6 +58,10 @@
       "projectFolder": "libs/csharp-lexer"
     },
     {
+      "packageName": "@fullstackjosh/eslint-plugin-architected",
+      "projectFolder": "libs/eslint-plugin-architected"
+    },
+    {
       "packageName": "eslint-plugin-clean-architecture",
       "projectFolder": "libs/eslint-plugin-clean-architecture",
       "shouldPublish": true
