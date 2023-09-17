@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@fullstackjosh/eslint-plugin-architected",
+      "comment": "fix: incorrect plugin name (yes twice)",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@fullstackjosh/eslint-plugin-architected"
+}
