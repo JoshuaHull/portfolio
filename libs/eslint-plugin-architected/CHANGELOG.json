@@ -2,6 +2,23 @@
   "name": "@fullstackjosh/eslint-plugin-architected",
   "entries": [
     {
+      "version": "0.0.2",
+      "tag": "@fullstackjosh/eslint-plugin-architected_v0.0.2",
+      "date": "Sun, 17 Sep 2023 10:43:06 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "remove test script from package.json"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "fix: incorrect plugin name"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.0.1",
       "tag": "@fullstackjosh/eslint-plugin-architected_v0.0.1",
       "date": "Sun, 17 Sep 2023 07:55:14 GMT",
