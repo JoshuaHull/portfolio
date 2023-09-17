@@ -1,0 +1,17 @@
+{
+  "name": "eslint-plugin-clean-architecture",
+  "entries": [
+    {
+      "version": "0.0.1",
+      "tag": "eslint-plugin-clean-architecture_v0.0.1",
+      "date": "Sun, 17 Sep 2023 03:29:04 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "eslint rules to enforce clean architecture"
+          }
+        ]
+      }
+    }
+  ]
+}
