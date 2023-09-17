@@ -59,7 +59,8 @@
     },
     {
       "packageName": "@fullstackjosh/eslint-plugin-architected",
-      "projectFolder": "libs/eslint-plugin-architected"
+      "projectFolder": "libs/eslint-plugin-architected",
+      "shouldPublish": true
     },
     {
       "packageName": "eslint-plugin-clean-architecture",
