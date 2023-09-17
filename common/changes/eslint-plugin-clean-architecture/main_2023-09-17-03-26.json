@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "eslint-plugin-clean-architecture",
+      "comment": "eslint rules to enforce clean architecture",
+      "type": "patch"
+    }
+  ],
+  "packageName": "eslint-plugin-clean-architecture"
+}

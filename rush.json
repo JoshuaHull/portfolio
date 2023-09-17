@@ -59,7 +59,8 @@
     },
     {
       "packageName": "eslint-plugin-clean-architecture",
-      "projectFolder": "libs/eslint-plugin-clean-architecture"
+      "projectFolder": "libs/eslint-plugin-clean-architecture",
+      "shouldPublish": true
     },
     {
       "packageName": "eslintpluginbuilder-layered-architecture",
