@@ -1,12 +1,12 @@
 import { readFileSync } from "fs";
 
-const name = "rollup-plugin-content";
+const name = "rollup-plugin-content-chunks";
 const prefix = "content:";
 
 /**
- * @type {import("./rollup-plugin-content").rollupPluginContent}
+ * @type {import("./rollup-plugin-content-chunks").rollupPluginContentChunks}
  */
-export function rollupPluginContent() {
+export function rollupPluginContentChunks() {
   return {
     name,
     resolveId(source) {

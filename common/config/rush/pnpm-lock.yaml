@@ -25,7 +25,7 @@ importers:
       highlighter: workspace:*
       jsdom: ~21.1.1
       re-lex-ation: workspace:*
-      rollup-plugin-content: workspace:*
+      rollup-plugin-content-chunks: workspace:*
       rollup-plugin-count: workspace:*
       typescript: ^4.9.3
       typescript-lexer: workspace:*
@@ -57,7 +57,7 @@ importers:
       '@vue/test-utils': 2.3.2_vue@3.2.47
       hero-icon-resolver: link:../../libs/hero-icon-resolver
       jsdom: 21.1.1
-      rollup-plugin-content: link:../../libs/rollup-plugin-content
+      rollup-plugin-content-chunks: link:../../libs/rollup-plugin-content-chunks
       rollup-plugin-count: link:../../libs/rollup-plugin-count
       typescript: 4.9.5
       unplugin-auto-import: 0.11.5_@vueuse+core@9.13.0
@@ -70,7 +70,7 @@ importers:
     specifiers:
       handlebars: ~4.7.8
       rollup-plugin-auto-package-json: 'workspace:'
-      rollup-plugin-content: 'workspace:'
+      rollup-plugin-content-chunks: 'workspace:'
       rollup-plugin-copy: 'workspace:'
       rollup-plugin-handlebars-compile: 'workspace:'
       rollup-plugin-prepare-dist: 'workspace:'
@@ -79,7 +79,7 @@ importers:
       handlebars: 4.7.8
     devDependencies:
       rollup-plugin-auto-package-json: link:../../libs/rollup-plugin-auto-package-json
-      rollup-plugin-content: link:../../libs/rollup-plugin-content
+      rollup-plugin-content-chunks: link:../../libs/rollup-plugin-content-chunks
       rollup-plugin-copy: link:../../libs/rollup-plugin-copy
       rollup-plugin-handlebars-compile: link:../../libs/rollup-plugin-handlebars-compile
       rollup-plugin-prepare-dist: link:../../libs/rollup-plugin-prepare-dist
@@ -311,7 +311,7 @@ importers:
   ../../libs/rollup-plugin-auto-package-json:
     specifiers: {}
 
-  ../../libs/rollup-plugin-content:
+  ../../libs/rollup-plugin-content-chunks:
     specifiers:
       rollup: '>=2.75.6 <2.77.0 || ~2.77.0'
       typescript: ^4.9.3

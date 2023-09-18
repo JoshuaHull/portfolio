@@ -1,6 +1,6 @@
 namespace Large;
 
-public class RollupPluginContent {
+public class RollupPluginContentChunks {
   private const string Prefix = "content:";
 
   public string Name { get; }

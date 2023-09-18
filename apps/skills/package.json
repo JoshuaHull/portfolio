@@ -26,7 +26,7 @@
     "@types/node": "^18.7.13",
     "@vitejs/plugin-vue": "^3.0.3",
     "hero-icon-resolver": "workspace:*",
-    "rollup-plugin-content": "workspace:*",
+    "rollup-plugin-content-chunks": "workspace:*",
     "rollup-plugin-count": "workspace:*",
     "typescript": "^4.9.3",
     "unplugin-auto-import": "^0.11.2",

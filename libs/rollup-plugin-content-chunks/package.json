@@ -1,10 +1,10 @@
 {
-  "name": "rollup-plugin-content",
+  "name": "rollup-plugin-content-chunks",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "exports": "./rollup-plugin-content.js",
-  "types": "./rollup-plugin-content.d.ts",
+  "exports": "./rollup-plugin-content-chunks.js",
+  "types": "./rollup-plugin-content-chunks.d.ts",
   "scripts": {
     "build": "",
     "test": "vitest",

@@ -1,6 +1,6 @@
-# rollup-plugin-content
+# rollup-plugin-content-chunks
 
-Import a file's content into a Javascript variable.
+Import a file's content into a Javascript variable. You may also import a chunk of content from a file, rather than the whole thing.
 
 ## Usage
 

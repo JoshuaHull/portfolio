@@ -4,7 +4,7 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import path from "path";
 import { rollupPluginCount } from "rollup-plugin-count";
-import { rollupPluginContent } from "rollup-plugin-content";
+import { rollupPluginContentChunks } from "rollup-plugin-content-chunks";
 import { heroIconResolver } from "hero-icon-resolver";
 
 // https://vitejs.dev/config/
@@ -39,7 +39,7 @@ export default defineConfig({
         heroIconResolver,
       ],
     }),
-    rollupPluginContent(),
+    rollupPluginContentChunks(),
     rollupPluginCount(),
   ],
 });

@@ -30,8 +30,8 @@
       "projectFolder": "libs/rollup-plugin-auto-package-json"
     },
     {
-      "packageName": "rollup-plugin-content",
-      "projectFolder": "libs/rollup-plugin-content"
+      "packageName": "rollup-plugin-content-chunks",
+      "projectFolder": "libs/rollup-plugin-content-chunks"
     },
     {
       "packageName": "rollup-plugin-count",

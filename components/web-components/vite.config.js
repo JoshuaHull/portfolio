@@ -1,6 +1,6 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
-import { rollupPluginContent } from "rollup-plugin-content";
+import { rollupPluginContentChunks } from "rollup-plugin-content-chunks";
 import { rollupPluginCopy } from "rollup-plugin-copy";
 import { rollupPluginAutoPackageJson } from "rollup-plugin-auto-package-json";
 import { rollupPluginHandlebarsCompile } from "rollup-plugin-handlebars-compile";
@@ -25,7 +25,7 @@ export default defineConfig({
     rollupPluginAutoPackageJson({
       packageJsonLocation: resolve(__dirname, "package.json"),
     }),
-    rollupPluginContent(),
+    rollupPluginContentChunks(),
     rollupPluginCopy({
       from: resolve(__dirname, "src/*/index.d.ts"),
       to: resolve(__dirname, "dist/*/index.d.ts"),
