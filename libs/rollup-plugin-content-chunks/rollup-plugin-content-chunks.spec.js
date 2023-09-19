@@ -67,7 +67,7 @@ describe("loading part of a file", () => {
 
     // Assert
     expect(result).toStrictEqual({
-      code: `export default "public class rollupPluginContentChunks {\\n  private const string Prefix = \\"content:\\";\\n\\n  public string Name { get; }\\n\\n  public object ResolveId(string source) {\\n    return new();\\n  }\\n\\n  public object Load(string id) {\\n    return new();\\n  }\\n}"`,
+      code: `export default "public class RollupPluginContentChunks {\\n  private const string Prefix = \\"content:\\";\\n\\n  public string Name { get; }\\n\\n  public object ResolveId(string source) {\\n    return new();\\n  }\\n\\n  public object Load(string id) {\\n    return new();\\n  }\\n}"`,
       map: {
         mappings: "",
       },
@@ -100,6 +100,42 @@ describe("loading part of a file", () => {
     // Assert
     expect(result).toStrictEqual({
       code: `export default "  public string Name { get; }\\n\\n  public object ResolveId(string source) {"`,
+      map: {
+        mappings: "",
+      },
+    });
+  });
+
+  test("should load a file with non-unix line separators", () => {
+    // Arrange
+    const resolver = rollupPluginContentChunks({
+      fileLineSeparator: ",",
+    });
+
+    // Act
+    const result = resolver.load("content:csv@2,5:testAssets/CsvFile");
+
+    // Assert
+    expect(result).toStrictEqual({
+      code: `export default "is\\nsome\\ncsv"`,
+      map: {
+        mappings: "",
+      },
+    });
+  });
+
+  test("should output content with non-unix line separators", () => {
+    // Arrange
+    const resolver = rollupPluginContentChunks({
+      outputLineSeparator: "$",
+    });
+
+    // Act
+    const result = resolver.load("content:cs@6,9:testAssets/LargeCSharpFile");
+
+    // Assert
+    expect(result).toStrictEqual({
+      code: `export default "  public string Name { get; }$$  public object ResolveId(string source) {"`,
       map: {
         mappings: "",
       },

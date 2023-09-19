@@ -1,3 +1,8 @@
 import { Plugin } from "rollup";
 
-export function rollupPluginContentChunks(): Plugin;
+export type ContentChunksOptions = {
+  fileLineSeparator: string;
+  outputLineSeparator: string;
+};
+
+export function rollupPluginContentChunks(options?: ContentChunksOptions): Plugin;

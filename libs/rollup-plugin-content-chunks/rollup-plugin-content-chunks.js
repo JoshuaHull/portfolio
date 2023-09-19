@@ -6,7 +6,7 @@ const prefix = "content:";
 /**
  * @type {import("./rollup-plugin-content-chunks").rollupPluginContentChunks}
  */
-export function rollupPluginContentChunks() {
+export function rollupPluginContentChunks(options) {
   return {
     name,
     resolveId(source) {
@@ -27,7 +27,7 @@ export function rollupPluginContentChunks() {
       const fileName = parts[2];
 
       return fileType.includes("@")
-        ? readChunkOfFile(fileType, fileName)
+        ? readChunkOfFile(fileType, fileName, options)
         : readEntireFile(fileType, fileName);
     },
   };
@@ -53,9 +53,12 @@ function readEntireFile(fileType, fileName) {
 /**
  * @param {string} fileType
  * @param {string} fileName
+ * @param {import("./rollup-plugin-content-chunks").ContentChunksOptions | undefined} options
  * @returns {LoadResult}
  */
-function readChunkOfFile(fileType, fileName) {
+function readChunkOfFile(fileType, fileName, options) {
+  const fileLineSeparator = options?.fileLineSeparator ?? "\n";
+  const outputLineSeparator = options?.outputLineSeparator ?? "\n";
   const [ft, selectedLines] = fileType.split("@");
 
   const [from, to] = selectedLines.split(",");
@@ -65,9 +68,9 @@ function readChunkOfFile(fileType, fileName) {
   const readFrom = `./${fileName}.${ft}`;
   const content = readFileSync(readFrom, "utf-8");
 
-  const lines = content.split("\n");
+  const lines = content.split(fileLineSeparator);
 
-  const selectedContent = lines.slice(fromIdx, toIdx).join("\n");
+  const selectedContent = lines.slice(fromIdx, toIdx).join(outputLineSeparator);
 
   return {
     code: `export default ${JSON.stringify(selectedContent)}`,
