@@ -31,7 +31,8 @@
     },
     {
       "packageName": "rollup-plugin-content-chunks",
-      "projectFolder": "libs/rollup-plugin-content-chunks"
+      "projectFolder": "libs/rollup-plugin-content-chunks",
+      "shouldPublish": true
     },
     {
       "packageName": "rollup-plugin-count",

@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-content-chunks",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "exports": "./rollup-plugin-content-chunks.js",

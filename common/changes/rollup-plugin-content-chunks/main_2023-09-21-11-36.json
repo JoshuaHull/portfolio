@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "rollup-plugin-content-chunks",
+      "comment": "feat: rollup plugin to import file content into js variable",
+      "type": "patch"
+    }
+  ],
+  "packageName": "rollup-plugin-content-chunks"
+}
