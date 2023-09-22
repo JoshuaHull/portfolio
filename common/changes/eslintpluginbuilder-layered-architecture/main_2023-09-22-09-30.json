@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "eslintpluginbuilder-layered-architecture",
+      "comment": "chore: limit files published to NPM",
+      "type": "minor"
+    }
+  ],
+  "packageName": "eslintpluginbuilder-layered-architecture"
+}
