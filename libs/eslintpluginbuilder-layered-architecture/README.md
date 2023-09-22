@@ -2,6 +2,12 @@
 
 Build up Eslint plugins which enforce layering of your code. For a usage example and rationale, see [eslint-plugin-clean-architecture]("./../../eslint-plugin-clean-architecture).
 
+## Installation
+
+```
+npm i eslintpluginbuilder-layered-architecture
+```
+
 ## Usage
 
 Create an Eslint plugin, and return the output of the builder as a config object.

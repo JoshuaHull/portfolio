@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "eslintpluginbuilder-layered-architecture",
+      "comment": "docs: add installation command to readme",
+      "type": "none"
+    }
+  ],
+  "packageName": "eslintpluginbuilder-layered-architecture"
+}
