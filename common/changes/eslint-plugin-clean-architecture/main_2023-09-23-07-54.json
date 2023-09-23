@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "eslint-plugin-clean-architecture",
+      "comment": "docs: add installation command to readme",
+      "type": "none"
+    }
+  ],
+  "packageName": "eslint-plugin-clean-architecture"
+}

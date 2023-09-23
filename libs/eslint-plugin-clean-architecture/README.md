@@ -16,6 +16,12 @@ Numbered configurations prefix each layer with "1-", "2-", etc. This helps organ
 
 Loose configurations allow the presentation layer to reference the infrastructure layer. This is handy for bootstrapping your dependencies, factories, etc.
 
+## Installation
+
+```
+npm i -D eslint-plugin-clean-architecture
+```
+
 ## Usage
 
 ```js
