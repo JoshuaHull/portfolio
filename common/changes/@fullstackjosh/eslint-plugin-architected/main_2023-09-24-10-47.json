@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@fullstackjosh/eslint-plugin-architected",
+      "comment": "docs: add installation command to readme",
+      "type": "none"
+    }
+  ],
+  "packageName": "@fullstackjosh/eslint-plugin-architected"
+}

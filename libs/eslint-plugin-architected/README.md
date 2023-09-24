@@ -4,6 +4,12 @@ Enforce layering your code following my personal preferences, based on [Jason Ta
 
 If you'd like a more strict implementation of clean architecture, checkout [eslint-plugin-clean-architecture](./../eslint-plugin-clean-architecture).
 
+## Installation
+
+```
+npm i -D @fullstackjosh/eslint-plugin-architected
+```
+
 ## Usage
 
 ```js
