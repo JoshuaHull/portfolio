@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@fullstackjosh/eslint-plugin-architected",
+      "comment": "chore: limit files published to NPM",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@fullstackjosh/eslint-plugin-architected"
+}
