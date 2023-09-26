@@ -7,3 +7,9 @@ Web components structured in such a way which enables both server side and clien
 This package is in early early access. Don't install it into anything long-lived.
 
 And yes, I know there's only one component right now.
+
+## Installation
+
+```
+npm i @fullstackjosh/web-components
+```

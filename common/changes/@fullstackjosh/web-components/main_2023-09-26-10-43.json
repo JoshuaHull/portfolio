@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@fullstackjosh/web-components",
+      "comment": "docs: add installation command to readme",
+      "type": "none"
+    }
+  ],
+  "packageName": "@fullstackjosh/web-components"
+}
