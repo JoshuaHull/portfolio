@@ -18,7 +18,7 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 ### Components
 
-[web-components](./components/web-components) - web components structured in such a way which enables both server side and client side rendering
+<img src="./assets/npm-logo.png" height="16" /> [web-components](./components/web-components) - web components structured in such a way which enables both server side and client side rendering
 
 [web-components-storybook-nextjs](./components/web-components-storybook-nextjs) - Storybook app demonstrating use of web-components in a NextJS app
 
@@ -28,11 +28,11 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 ### Eslint plugins
 
-[eslintpluginbuilder](./libs/eslintpluginbuilder-layered-architecture) - build up Eslint plugins which enforce layering of your code
+<img src="./assets/npm-logo.png" height="16" /> [eslintpluginbuilder](./libs/eslintpluginbuilder-layered-architecture) - build up Eslint plugins which enforce layering of your code
 
-[eslint-plugin-architected](./libs/eslint-plugin-architected) - enforce layering your code following my personal preferences, based on Jason Taylor's Clean Architecture
+<img src="./assets/npm-logo.png" height="16" /> [eslint-plugin-architected](./libs/eslint-plugin-architected) - enforce layering your code following my personal preferences, based on Jason Taylor's Clean Architecture
 
-[eslint-plugin-clean-architecture](./libs/eslint-plugin-clean-architecture) - enforce layering your code following Jason Taylor's Clean Architecture
+<img src="./assets/npm-logo.png" height="16" /> [eslint-plugin-clean-architecture](./libs/eslint-plugin-clean-architecture) - enforce layering your code following Jason Taylor's Clean Architecture
 
 ### Lexing
 
@@ -64,7 +64,7 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 ### unplugin-vue-components plugins
 
-[hero-icon-resolver](./libs/hero-icon-resolver) - automatically resolves [Hero Icon](https://heroicons.com/) components in Vue apps
+<img src="./assets/npm-logo.png" height="16" /> [hero-icon-resolver](./libs/hero-icon-resolver) - automatically resolves [Hero Icon](https://heroicons.com/) components in Vue apps
 
 ### Vite plugins
 
