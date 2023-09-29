@@ -1,6 +1,11 @@
 # Change Log - eslint-plugin-clean-architecture
 
-This log was last generated on Sun, 17 Sep 2023 07:55:14 GMT and should not be manually modified.
+This log was last generated on Fri, 29 Sep 2023 12:08:38 GMT and should not be manually modified.
+
+## 0.0.3
+Fri, 29 Sep 2023 12:08:38 GMT
+
+_Version update only_
 
 ## 0.0.2
 Sun, 17 Sep 2023 07:55:14 GMT

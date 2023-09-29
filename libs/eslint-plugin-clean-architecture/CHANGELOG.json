@@ -2,6 +2,23 @@
   "name": "eslint-plugin-clean-architecture",
   "entries": [
     {
+      "version": "0.0.3",
+      "tag": "eslint-plugin-clean-architecture_v0.0.3",
+      "date": "Fri, 29 Sep 2023 12:08:38 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "docs: add installation command to readme"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"eslintpluginbuilder-layered-architecture\" to `0.1.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.0.2",
       "tag": "eslint-plugin-clean-architecture_v0.0.2",
       "date": "Sun, 17 Sep 2023 07:55:14 GMT",
