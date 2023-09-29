@@ -1,7 +1,7 @@
 {
   "name": "eslintpluginbuilder-layered-architecture",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "homepage": "https://github.com/JoshuaHull/portfolio/tree/main/libs/eslintpluginbuilder-layered-architecture#readme",
   "author": {

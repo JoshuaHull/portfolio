@@ -2,6 +2,23 @@
   "name": "eslintpluginbuilder-layered-architecture",
   "entries": [
     {
+      "version": "0.1.0",
+      "tag": "eslintpluginbuilder-layered-architecture_v0.1.0",
+      "date": "Fri, 29 Sep 2023 12:08:38 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "docs: add installation command to readme"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "chore: limit files published to NPM"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.0.1",
       "tag": "eslintpluginbuilder-layered-architecture_v0.0.1",
       "date": "Sun, 17 Sep 2023 03:24:28 GMT",
