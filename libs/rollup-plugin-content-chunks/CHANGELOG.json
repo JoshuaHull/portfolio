@@ -1,0 +1,17 @@
+{
+  "name": "rollup-plugin-content-chunks",
+  "entries": [
+    {
+      "version": "0.0.1",
+      "tag": "rollup-plugin-content-chunks_v0.0.1",
+      "date": "Fri, 29 Sep 2023 12:08:38 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "feat: rollup plugin to import file content into js variable"
+          }
+        ]
+      }
+    }
+  ]
+}
