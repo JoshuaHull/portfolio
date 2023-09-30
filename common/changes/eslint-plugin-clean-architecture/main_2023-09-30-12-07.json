@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "eslint-plugin-clean-architecture",
+      "comment": "",
+      "type": "none"
+    }
+  ],
+  "packageName": "eslint-plugin-clean-architecture"
+}

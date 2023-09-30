@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@fullstackjosh/eslint-plugin-architected",
+      "comment": "",
+      "type": "none"
+    }
+  ],
+  "packageName": "@fullstackjosh/eslint-plugin-architected"
+}

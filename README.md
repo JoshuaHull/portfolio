@@ -50,7 +50,7 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 [rollup-plugin-auto-package-json](./libs/rollup-plugin-auto-package-json) - copies `package.json`, removes some fields, and dumps it in `dist`
 
-[rollup-plugin-content-chunks](./libs/rollup-plugin-content-chunks) - import a file's content into a Javascript variable
+<img src="./common/assets/npm-logo.png" height="16" alt="Available on NPM" />  [rollup-plugin-content-chunks](./libs/rollup-plugin-content-chunks) - import a file's content into a Javascript variable
 
 [rollup-plugin-copy](./libs/rollup-plugin-copy) - copy a file or group of files to another location
 
