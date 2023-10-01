@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "rollup-plugin-content-chunks",
+      "comment": "chore: limit files published to NPM",
+      "type": "minor"
+    }
+  ],
+  "packageName": "rollup-plugin-content-chunks"
+}

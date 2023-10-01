@@ -5,6 +5,28 @@
   "type": "module",
   "exports": "./rollup-plugin-content-chunks.js",
   "types": "./rollup-plugin-content-chunks.d.ts",
+  "license": "MIT",
+  "homepage": "https://github.com/JoshuaHull/portfolio/tree/main/libs/rollup-plugin-content-chunks#readme",
+  "author": {
+    "name": "Joshua Hull",
+    "url": "https://github.com/JoshuaHull"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JoshuaHull/portfolio.git",
+    "directory": "libs/rollup-plugin-content-chunks"
+  },
+  "keywords": [
+    "rollup",
+    "plugin",
+    "content",
+    "chunks"
+  ],
+  "description": "Import a file's content into a Javascript variable",
+  "files": [
+    "./rollup-plugin-content-chunks.d.ts",
+    "./rollup-plugin-content-chunks.js"
+  ],
   "scripts": {
     "build": "",
     "test": "vitest",
