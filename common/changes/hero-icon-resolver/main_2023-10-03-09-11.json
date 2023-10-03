@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "hero-icon-resolver",
+      "comment": "chore: limit files published to NPM",
+      "type": "minor"
+    }
+  ],
+  "packageName": "hero-icon-resolver"
+}

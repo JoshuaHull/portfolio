@@ -25,6 +25,10 @@
     "outline"
   ],
   "description": "Automatically resolves [Hero Icon](https://heroicons.com/) components in Vue apps.",
+  "files": [
+    "./hero-icon-resolver.d.ts",
+    "./hero-icon-resolver.js"
+  ],
   "exports": "./hero-icon-resolver.js",
   "types": "./hero-icon-resolver.d.ts",
   "scripts": {
