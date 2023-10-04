@@ -24,6 +24,9 @@
     "elements"
   ],
   "description": "Web components structured in such a way which enables both server side and client side rendering.",
+  "files": [
+    "./dist/**/index.*"
+  ],
   "exports": {
     "./*": {
       "types": "./src/*/index.d.ts",
