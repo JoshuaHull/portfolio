@@ -1,0 +1,101 @@
+<div class="fsj-reset foldable">
+  <input
+    class="foldable__checkbox"
+    type="checkbox"
+    name="{{checkboxName}}"
+    id="{{checkboxId}}"
+    {{#disabled}}disabled{{/disabled}}
+    {{#defaultChecked}}checked{{/defaultChecked}}
+  >
+  <label class="foldable__label">
+    {{{panelTitle}}}
+  </label>
+  <div class="foldable__textarea__wrapper">
+    <textarea
+      class="foldable__textarea"
+      placeholder="{{textAreaPlaceholder}}"
+      name="{{textAreaName}}"
+      maxlength="{{textAreaMaxLength}}"
+      {{#disabled}}disabled{{/disabled}}
+    >
+      {{{textAreaValue}}}
+    </textarea>
+  </div>
+</div>
+<style>
+.fsj-reset {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fsj-reset, .fsj-reset *, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.fsj-reset, .fsj-reset * {
+  margin: 0;
+}
+
+.fsj-reset p,
+.fsj-reset h1,
+.fsj-reset h2,
+.fsj-reset h3,
+.fsj-reset h4,
+.fsj-reset h5,
+.fsj-reset h6 {
+  overflow-wrap: break-word;
+}
+
+.foldable {
+  grid-template-columns: min-content auto;
+  grid-template-rows: auto min-content;
+
+  border: 1px var(--color-border) solid;
+  border-radius: 0.5rem;
+  background-color: var(--color-fg);
+}
+
+.foldable__checkbox {
+  margin-left: 0.5rem;
+  width: 1rem;
+}
+
+.foldable__checkbox:checked ~ .foldable__textarea__wrapper textarea {
+  max-height: 100px;
+}
+
+.foldable__checkbox:not(:checked) ~ .foldable__textarea__wrapper textarea {
+  max-height: 0px;
+}
+
+.foldable__label {
+  padding-left: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 0.5rem;
+
+  cursor: pointer;
+  width: 100%;
+}
+
+.foldable__textarea__wrapper {
+  grid-column: span 2;
+
+  border-top: 1px var(--color-border) dotted;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.foldable__textarea {
+  resize: none;
+  outline: none;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+
+  transition: all 200ms;
+  overflow: hidden;
+  height: 100px;
+}
+</style>

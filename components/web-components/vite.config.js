@@ -14,6 +14,8 @@ export default defineConfig({
       entry: {
         "FoldablePanel": resolve(__dirname, "src/FoldablePanel/index.js"),
         "FoldablePanelTemplate": resolve(__dirname, "src/FoldablePanelTemplate/index.js"),
+        "FoldableTextArea": resolve(__dirname, "src/FoldableTextArea/index.js"),
+        "FoldableTextAreaTemplate": resolve(__dirname, "src/FoldableTextAreaTemplate/index.js"),
       },
       name: "@fullstackjosh/web-components",
       formats: ["es", "cjs"],
