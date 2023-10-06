@@ -46,7 +46,14 @@
   overflow-wrap: break-word;
 }
 
+.fsj-reset textarea {
+  font-family: initial;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
 .foldable {
+  display: grid;
   grid-template-columns: min-content auto;
   grid-template-rows: auto min-content;
 
@@ -56,6 +63,7 @@
 }
 
 .foldable__checkbox {
+  display: block;
   margin-left: 0.5rem;
   width: 1rem;
 }
@@ -74,8 +82,10 @@
   padding-bottom: 0.5rem;
   padding-right: 0.5rem;
 
+  display: block;
   cursor: pointer;
   width: 100%;
+  color: var(--color-text);
 }
 
 .foldable__textarea__wrapper {
@@ -93,9 +103,11 @@
   background-color: transparent;
   display: block;
   width: 100%;
+  height: 100px;
+  border: none;
+  color: var(--color-text);
 
   transition: all 200ms;
   overflow: hidden;
-  height: 100px;
 }
 </style>
