@@ -1,6 +1,6 @@
 "use server";
 
-import { getFoldablePanelHtmlTemplate } from "@fullstackjosh/web-components/FoldablePanelTemplate";
+import { getFoldablePanelTemplate } from "@fullstackjosh/web-components/FoldablePanelTemplate";
 import dynamic from "next/dynamic";
 import React from "react";
 
@@ -14,7 +14,7 @@ export async function FoldablePanel(props) {
   }, {
     ssr: false,
     loading: () => {
-      const template = getFoldablePanelHtmlTemplate();
+      const template = getFoldablePanelTemplate();
       const html = template(props);
       return (
         <div
