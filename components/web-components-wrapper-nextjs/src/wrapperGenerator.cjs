@@ -4,12 +4,15 @@
 function* wrapperGenerator(...components) {
   yield readme();
 
-  const elementNames = [];
+    let customElementsDeclarationContent = `declare namespace JSX {
+  interface IntrinsicElements {
+`;
 
   for (let component of components) {
     const [componentName, elementName] = component;
 
-    elementNames.push(elementName);
+    customElementsDeclarationContent += `    "${elementName}": any,
+`;
 
     yield declarationForServerComponent(componentName);
     yield serverComponentFor(componentName);
@@ -17,7 +20,11 @@ function* wrapperGenerator(...components) {
     yield clientComponentFor(componentName, elementName);
   }
 
-  yield customElementsDeclaration(elementNames);
+  customElementsDeclarationContent += `  }
+}
+`;
+
+  yield ["fsj-web-components.d.ts", customElementsDeclarationContent];
 }
 
 /**
@@ -35,29 +42,6 @@ A wrapper around [web-components](./../../web-components) which allows those com
 These files were not developed here. Changes may be erased.
 
 Development for this wrapper lives [here](https://github.com/JoshuaHull/portfolio/tree/main/components/web-components-wrapper-nextjs).
-`;
-
-  return [fileName, content];
-}
-
-/**
- * @param {string[]} elementNames
- * @returns {[fileName: string, content: string]}
- */
-function customElementsDeclaration(elementNames) {
-  const fileName = "fsj-web-components.d.ts";
-
-  let content = `declare namespace JSX {
-  interface IntrinsicElements {
-`;
-
-  for (let elementName of elementNames) {
-    content += `    "${elementName}": any,
-`;
-  }
-
-  content += `  }
-}
 `;
 
   return [fileName, content];
