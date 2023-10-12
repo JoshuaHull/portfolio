@@ -23,7 +23,7 @@ cd components/web-components/wrapper-nextjs
 pnpm build:next
 ```
 
-Now that you're set up, install the actual web components to a NextJS app of your choice:
+Now that you're set up, install the actual web components into a NextJS app of your choice:
 ```sh
 npm i @fullstackjosh/web-components
 ```
