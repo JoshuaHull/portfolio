@@ -19,7 +19,7 @@ export default defineConfig({
       },
       name: "@fullstackjosh/web-components",
       formats: ["es", "cjs"],
-      fileName: (format, entryName) => `${entryName}/index.${format}.js`,
+      fileName: (format, entryName) => `${entryName}/index.${format === "es" ? "mjs" : "cjs"}`,
     },
   },
   plugins: [

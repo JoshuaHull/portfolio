@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@fullstackjosh/web-components",
+      "comment": "fix: use correct es vs cjs filenames in build output",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@fullstackjosh/web-components"
+}
