@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@fullstackjosh/web-components",
+      "comment": "feat: FoldableTextArea",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@fullstackjosh/web-components"
+}
