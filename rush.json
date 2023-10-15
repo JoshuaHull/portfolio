@@ -87,6 +87,10 @@
       "projectFolder": "libs/highlighter"
     },
     {
+      "packageName": "highlighter-html",
+      "projectFolder": "libs/highlighter-html"
+    },
+    {
       "packageName": "typescript-lexer",
       "projectFolder": "libs/typescript-lexer"
     },

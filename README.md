@@ -40,6 +40,8 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 [highlighter](./libs/highlighter) - extracts all the tokens from a lexer and maps them to a VNode
 
+[highlighter-html](./libs/highlighter-html) - extracts all the tokens from a lexer and maps them to a HTML string
+
 [re-lex-ation](./libs/re-lex-ation/) - a no-fuss base lexer which might work for any language
 
 [typescript-lexer](./libs/typescript-lexer/) - a Typescript lexer deriving from re-lex-ation

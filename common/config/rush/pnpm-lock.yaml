@@ -70,7 +70,7 @@ importers:
     specifiers:
       handlebars: ~4.7.8
       rollup-plugin-auto-package-json: 'workspace:'
-      rollup-plugin-content-chunks: 'workspace:'
+      rollup-plugin-content-chunks: workspace:0.0.1
       rollup-plugin-copy: 'workspace:'
       rollup-plugin-handlebars-compile: 'workspace:'
       rollup-plugin-prepare-dist: 'workspace:'
@@ -301,6 +301,17 @@ importers:
       csharp-lexer: link:../csharp-lexer
       vitest: 0.29.8
       vue: 3.2.47
+
+  ../../libs/highlighter-html:
+    specifiers:
+      csharp-lexer: workspace:*
+      re-lex-ation: workspace:*
+      vitest: ^0.29.8
+    dependencies:
+      re-lex-ation: link:../re-lex-ation
+    devDependencies:
+      csharp-lexer: link:../csharp-lexer
+      vitest: 0.29.8
 
   ../../libs/re-lex-ation:
     specifiers:
@@ -5157,7 +5168,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.2.47
-      vue-component-type-helpers: 1.8.11
+      vue-component-type-helpers: 1.8.19
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -14457,8 +14468,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /vue-component-type-helpers/1.8.11:
-    resolution: {integrity: sha512-CWItFzuEWjkSXDeMGwQEc5cFH4FaueyPQHfi1mBDe+wA2JABqNjFxFUtmZJ9WHkb0HpEwqgBg1umiXrWYXkXHw==}
+  /vue-component-type-helpers/1.8.19:
+    resolution: {integrity: sha512-1OANGSZK4pzHF4uc86usWi+o5Y0zgoDtqWkPg6Am6ot+jHSAmpOah59V/4N82So5xRgivgCxGgK09lBy1XNUfQ==}
     dev: true
 
   /vue-demi/0.13.11_vue@3.2.47:
