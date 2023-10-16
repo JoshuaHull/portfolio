@@ -83,8 +83,8 @@
       "projectFolder": "libs/re-lex-ation"
     },
     {
-      "packageName": "highlighter",
-      "projectFolder": "libs/highlighter"
+      "packageName": "highlighter-vue",
+      "projectFolder": "libs/highlighter-vue"
     },
     {
       "packageName": "highlighter-html",

@@ -1,16 +1,16 @@
 import { VueTokenKind } from "vue-lexer";
 import { Token } from "re-lex-ation";
-import { ITokenMapper, Span } from "highlighter";
+import { ITokenMapper, SpanVue } from "highlighter-vue";
 
 export class VueTokenMap implements ITokenMapper<VueTokenKind> {
-  map(token: Token<VueTokenKind>): Span | null {
+  map(token: Token<VueTokenKind>): SpanVue | null {
     switch (token.kind) {
       case "KEYWORD":
-        return new Span("keyword", token.value);
+        return new SpanVue("keyword", token.value);
       case "PROPERTY":
-        return new Span("property", token.value);
+        return new SpanVue("property", token.value);
       case "SYMBOL":
-        return new Span("symbol", token.value);
+        return new SpanVue("symbol", token.value);
       case "OPEN_PAREN":
       case "CLOSE_PAREN":
       case "OPEN_CURLY":
@@ -19,9 +19,9 @@ export class VueTokenMap implements ITokenMapper<VueTokenKind> {
       case "CLOSE_ANGLE":
       case "DOT":
       case "SEMICOLON":
-        return new Span("literal", token.value);
+        return new SpanVue("literal", token.value);
       case "STRING":
-        return new Span("string", token.value);
+        return new SpanVue("string", token.value);
     }
 
     return null;

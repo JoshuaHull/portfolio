@@ -14,7 +14,7 @@
     "@vueuse/core": "^9.13.0",
     "csharp-lexer": "workspace:*",
     "re-lex-ation": "workspace:*",
-    "highlighter": "workspace:*",
+    "highlighter-vue": "workspace:*",
     "typescript-lexer": "workspace:*",
     "use-vanishing-value": "workspace:*",
     "use-vanishing-values": "workspace:*",

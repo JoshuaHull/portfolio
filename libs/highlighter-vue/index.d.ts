@@ -1,7 +1,7 @@
 import { Lexer, Token } from "re-lex-ation";
 import { VNode } from "vue";
 
-declare class Span {
+declare class SpanVue {
   constructor(
     clazz: string,
     value: string,
@@ -9,16 +9,14 @@ declare class Span {
 }
 
 declare interface ITokenMapper<TKind> {
-  map(token: Token<TKind>): Span | null;
+  map(token: Token<TKind>): SpanVue | null;
 }
 
-declare class Highlighter<TKind> {
+declare class HighlighterVue<TKind> {
   constructor(
     lexer: Lexer<TKind>,
     tokenMap: ITokenMapper<TKind>,
   );
-
-  toHtml(): string;
 
   toVNode(): VNode;
 }

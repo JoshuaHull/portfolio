@@ -1,4 +1,4 @@
-import { Highlighter } from "highlighter";
+import { HighlighterVue } from "highlighter-vue";
 import { CSharpLexer } from "csharp-lexer";
 import { Component } from "vue";
 import { CSharpTokenMap } from "./csharp-token-map";
@@ -13,7 +13,7 @@ const component = {
     const tokenMap = new CSharpTokenMap();
 
     const lexer = computed(() => new CSharpLexer(content.value));
-    const highlighter = computed(() => new Highlighter(lexer.value, tokenMap));
+    const highlighter = computed(() => new HighlighterVue(lexer.value, tokenMap));
 
     return () => highlighter.value.toVNode();
   }

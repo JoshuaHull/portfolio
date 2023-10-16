@@ -22,7 +22,7 @@ importers:
       '@vueuse/core': ^9.13.0
       csharp-lexer: workspace:*
       hero-icon-resolver: workspace:*
-      highlighter: workspace:*
+      highlighter-vue: workspace:*
       jsdom: ~21.1.1
       re-lex-ation: workspace:*
       rollup-plugin-content-chunks: workspace:*
@@ -43,7 +43,7 @@ importers:
       '@heroicons/vue': 2.0.16_vue@3.2.47
       '@vueuse/core': 9.13.0_vue@3.2.47
       csharp-lexer: link:../../libs/csharp-lexer
-      highlighter: link:../../libs/highlighter
+      highlighter-vue: link:../../libs/highlighter-vue
       re-lex-ation: link:../../libs/re-lex-ation
       typescript-lexer: link:../../libs/typescript-lexer
       use-vanishing-value: link:../../composables/use-vanishing-value
@@ -289,19 +289,6 @@ importers:
       unplugin-vue-components: 0.22.12
       vitest: 0.29.8
 
-  ../../libs/highlighter:
-    specifiers:
-      csharp-lexer: workspace:*
-      re-lex-ation: workspace:*
-      vitest: ^0.29.8
-      vue: ^3.2.37
-    dependencies:
-      re-lex-ation: link:../re-lex-ation
-    devDependencies:
-      csharp-lexer: link:../csharp-lexer
-      vitest: 0.29.8
-      vue: 3.2.47
-
   ../../libs/highlighter-html:
     specifiers:
       csharp-lexer: workspace:*
@@ -312,6 +299,17 @@ importers:
     devDependencies:
       csharp-lexer: link:../csharp-lexer
       vitest: 0.29.8
+
+  ../../libs/highlighter-vue:
+    specifiers:
+      csharp-lexer: workspace:*
+      re-lex-ation: workspace:*
+      vue: ^3.2.37
+    dependencies:
+      re-lex-ation: link:../re-lex-ation
+    devDependencies:
+      csharp-lexer: link:../csharp-lexer
+      vue: 3.2.47
 
   ../../libs/re-lex-ation:
     specifiers:

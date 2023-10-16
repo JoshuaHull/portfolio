@@ -38,9 +38,9 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 [csharp-lexer](./libs/csharp-lexer/) - a C# lexer deriving from re-lex-ation
 
-[highlighter](./libs/highlighter) - extracts all the tokens from a lexer and maps them to a VNode
-
 [highlighter-html](./libs/highlighter-html) - extracts all the tokens from a lexer and maps them to a HTML string
+
+[highlighter-vue](./libs/highlighter-vue) - extracts all the tokens from a lexer and maps them to a VNode
 
 [re-lex-ation](./libs/re-lex-ation/) - a no-fuss base lexer which might work for any language
 

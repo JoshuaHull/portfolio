@@ -1,16 +1,12 @@
 import { h } from "vue";
 
-export class Span {
+export class SpanVue {
   constructor(
     clazz,
     value,
   ) {
     this.clazz = clazz;
     this.value = value;
-  }
-
-  toHtml() {
-    return `<span class="${this.clazz}">${this.value}</span>`;
   }
 
   toVNode() {

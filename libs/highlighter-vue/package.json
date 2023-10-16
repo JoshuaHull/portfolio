@@ -1,5 +1,5 @@
 {
-  "name": "highlighter",
+  "name": "highlighter-vue",
   "private": "true",
   "version": "0.0.0",
   "type": "module",
@@ -7,16 +7,15 @@
   "types": "./index.d.ts",
   "scripts": { 
     "build": "",
-    "test": "vitest",
-    "test:nowatch": "vitest --watch false"
+    "test": "",
+    "test:nowatch": ""
   },
   "dependencies": {
     "re-lex-ation": "workspace:*"
   },
   "devDependencies": {
     "csharp-lexer": "workspace:*",
-    "vue": "^3.2.37",
-    "vitest": "^0.29.8"
+    "vue": "^3.2.37"
   },
   "peerDependencies": {
     "vue": "^3"
