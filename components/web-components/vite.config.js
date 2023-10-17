@@ -16,6 +16,8 @@ export default defineConfig({
         "FoldablePanelTemplate": resolve(__dirname, "src/FoldablePanelTemplate/index.js"),
         "FoldableTextArea": resolve(__dirname, "src/FoldableTextArea/index.js"),
         "FoldableTextAreaTemplate": resolve(__dirname, "src/FoldableTextAreaTemplate/index.js"),
+        "CodeBlockForTypescript": resolve(__dirname, "src/CodeBlockForTypescript/index.js"),
+        "CodeBlockForTypescriptTemplate": resolve(__dirname, "src/CodeBlockForTypescriptTemplate/index.js"),
       },
       name: "@fullstackjosh/web-components",
       formats: ["es", "cjs"],

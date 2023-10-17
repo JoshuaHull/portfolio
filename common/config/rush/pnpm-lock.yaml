@@ -69,14 +69,18 @@ importers:
   ../../components/web-components:
     specifiers:
       handlebars: ~4.7.8
+      highlighter-html: workspace:*
       rollup-plugin-auto-package-json: 'workspace:'
       rollup-plugin-content-chunks: workspace:0.0.1
       rollup-plugin-copy: 'workspace:'
       rollup-plugin-handlebars-compile: 'workspace:'
       rollup-plugin-prepare-dist: 'workspace:'
+      typescript-lexer: workspace:*
       vite: ^4.2.0
     dependencies:
       handlebars: 4.7.8
+      highlighter-html: link:../../libs/highlighter-html
+      typescript-lexer: link:../../libs/typescript-lexer
     devDependencies:
       rollup-plugin-auto-package-json: link:../../libs/rollup-plugin-auto-package-json
       rollup-plugin-content-chunks: link:../../libs/rollup-plugin-content-chunks
