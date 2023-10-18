@@ -13,6 +13,7 @@ async function generate() {
   const generator = wrapperGenerator(
     ["FoldablePanel", "fsj-foldable-panel"],
     ["FoldableTextArea", "fsj-foldable-textarea"],
+    ["CodeBlockForTypescript", "fsj-code-block-for-typescript"],
   );
 
   for (const [fileName, content] of generator)
