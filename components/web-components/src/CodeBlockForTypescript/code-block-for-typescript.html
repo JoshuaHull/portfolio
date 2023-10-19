@@ -1,5 +1,37 @@
-<pre class="codeBlock"></pre>
+<div class="fsj-reset code-block-container">
+  <pre class="line-numbers"></pre>
+  <pre class="code-block"></pre>
+</div>
 <style>
+.fsj-reset {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fsj-reset, .fsj-reset *, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.fsj-reset, .fsj-reset * {
+  margin: 0;
+}
+
+.fsj-reset p,
+.fsj-reset h1,
+.fsj-reset h2,
+.fsj-reset h3,
+.fsj-reset h4,
+.fsj-reset h5,
+.fsj-reset h6 {
+  overflow-wrap: break-word;
+}
+
+.code-block-container {
+  display: grid;
+  grid-template-columns: min-content auto;
+  column-gap: 1rem;
+}
+
 .keyword {
   color: var(--code-block-ts-keyword, blue);
 }

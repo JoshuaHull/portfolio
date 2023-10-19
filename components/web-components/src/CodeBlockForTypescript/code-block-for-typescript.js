@@ -46,8 +46,28 @@ export const attachCodeBlockForTypescriptTo = (element) => {
       const html = highlighter.toHtml();
 
       /** @type {HTMLPreElement} */
-      const codeBlock = this.shadowRoot.querySelector(".codeBlock");
+      const codeBlock = this.shadowRoot.querySelector(".code-block");
       codeBlock.innerHTML = html;
+
+      this.#updateLineNumbers(value);
+    }
+
+    /**
+     * @param {string} content
+     */
+    #updateLineNumbers(content) {
+      /** @type {HTMLPreElement} */
+      const lineNumbers = this.shadowRoot.querySelector(".line-numbers");
+      const lines = content.split("\n");
+
+      let rtn = "";
+
+      for (let i = 0; i < lines.length; i += 1) {
+        const padding = ' '.repeat(`${lines.length}`.length - `${i + 1}`.length);
+        rtn += `${padding}${i + 1}\n`;
+      }
+
+      lineNumbers.innerText = rtn;
     }
 
     /**
