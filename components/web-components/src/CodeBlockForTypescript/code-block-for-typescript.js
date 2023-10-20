@@ -30,6 +30,26 @@ export const attachCodeBlockForTypescriptTo = (element) => {
     }
 
     /**
+     * @returns {boolean}
+     */
+    get hideLineNumbers() {
+      return this.getAttribute("hideLineNumbers") ?? "";
+    }
+
+    /**
+     * @param {boolean} value
+     */
+    set hideLineNumbers(value) {
+      /** @type {HTMLDivElement} */
+      const container = this.shadowRoot.querySelector(".code-block-container");
+
+      if (value)
+        container.classList.add("hide-line-numbers");
+      else
+        container.classList.remove("hide-line-numbers");
+    }
+
+    /**
      * @returns {string}
      */
     get content() {
