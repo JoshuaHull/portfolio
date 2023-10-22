@@ -8,4 +8,14 @@
 
   background-color: var(--color-blue-gray);
   color: var(--color-white);
+
+  /* code blocks */
+  --code-block-ts-keyword: #b48ead;
+  --code-block-ts-property: #b48ead;
+  --code-block-ts-imported-property: #8fa1b3;
+  --code-block-ts-string: #a3be8c;
+  --code-block-ts-interpolated-string: #a3be8c;
+  --code-block-ts-literal: #8fa1b3;
+  --code-block-ts-comment: #65737e;
+  --code-block-ts-number: #d0876e;
 }
