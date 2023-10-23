@@ -1,0 +1,78 @@
+<div class="fsj-reset code-block-container">
+  <pre class="line-numbers"></pre>
+  <pre class="code-block"></pre>
+</div>
+<style>
+.fsj-reset {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fsj-reset, .fsj-reset *, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.fsj-reset, .fsj-reset * {
+  margin: 0;
+}
+
+.fsj-reset p,
+.fsj-reset h1,
+.fsj-reset h2,
+.fsj-reset h3,
+.fsj-reset h4,
+.fsj-reset h5,
+.fsj-reset h6 {
+  overflow-wrap: break-word;
+}
+
+.code-block-container {
+  display: grid;
+  grid-template-columns: min-content auto;
+  column-gap: 1rem;
+}
+
+.code-block-container.hide-line-numbers {
+  column-gap: 0rem;
+}
+
+.hide-line-numbers .line-numbers {
+  display: none;
+}
+
+.keyword {
+  color: var(--code-block-vue-keyword, blue);
+}
+
+.property {
+  color: var(--code-block-vue-property, mediumvioletred);
+}
+
+.imported-property {
+  color: var(--code-block-vue-imported-property, tomato);
+}
+
+.string {
+  color: var(--code-block-vue-string, brown);
+}
+
+.interpolated-string {
+  color: var(--code-block-vue-interpolated-string, brown);
+}
+
+.literal {
+  color: var(--code-block-vue-literal, gray);
+}
+
+.type {
+  color: var(--code-block-vue-type, seagreen);
+}
+
+.number {
+  color: var(--code-block-vue-number, dodgerblue);
+}
+
+.comment {
+  color: var(--code-block-vue-comment, limegreen);
+}
+</style>

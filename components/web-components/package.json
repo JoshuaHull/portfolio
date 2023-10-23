@@ -40,7 +40,8 @@
   "dependencies": {
     "handlebars": "~4.7.8",
     "highlighter-html": "workspace:*",
-    "typescript-lexer": "workspace:*"
+    "typescript-lexer": "workspace:*",
+    "vue-lexer": "workspace:*"
   },
   "devDependencies": {
     "rollup-plugin-auto-package-json": "workspace:",
