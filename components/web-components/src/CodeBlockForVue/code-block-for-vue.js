@@ -21,12 +21,13 @@ export const attachCodeBlockForVueTo = (element) => {
   class CodeBlockForVue extends HTMLElement {
     constructor() {
       super();
-      this.attachShadow({ mode: 'open' });
+      this.attachShadow({ mode: "open" });
       this.shadowRoot.appendChild(element.content.cloneNode(true));
     }
 
     connectedCallback() {
       this.#upgradeProperty("content");
+      this.#upgradeProperty("hideLineNumbers");
     }
 
     /**
@@ -83,7 +84,7 @@ export const attachCodeBlockForVueTo = (element) => {
       let rtn = "";
 
       for (let i = 0; i < lines.length; i += 1) {
-        const padding = ' '.repeat(`${lines.length}`.length - `${i + 1}`.length);
+        const padding = " ".repeat(`${lines.length}`.length - `${i + 1}`.length);
         rtn += `${padding}${i + 1}\n`;
       }
 

@@ -18,7 +18,7 @@ export const attachFoldablePanelTo = (element) => {
   class FoldablePanel extends HTMLElement {
     constructor() {
       super();
-      this.attachShadow({ mode: 'open' });
+      this.attachShadow({ mode: "open" });
       this.shadowRoot.appendChild(element.content.cloneNode(true));
     }
 

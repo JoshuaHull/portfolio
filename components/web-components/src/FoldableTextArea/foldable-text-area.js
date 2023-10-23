@@ -18,7 +18,7 @@ export const attachFoldableTextAreaTo = (element) => {
   class FoldableTextArea extends HTMLElement {
     constructor() {
       super();
-      this.attachShadow({ mode: 'open' });
+      this.attachShadow({ mode: "open" });
       this.shadowRoot.appendChild(element.content.cloneNode(true));
     }
 
