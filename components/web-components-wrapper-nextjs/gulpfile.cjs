@@ -14,6 +14,7 @@ async function generate() {
     ["FoldablePanel", "fsj-foldable-panel"],
     ["FoldableTextArea", "fsj-foldable-textarea"],
     ["CodeBlockForTypescript", "fsj-code-block-for-typescript"],
+    ["CodeBlockForVue", "fsj-code-block-for-vue"],
   );
 
   for (const [fileName, content] of generator)
