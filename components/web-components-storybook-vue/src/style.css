@@ -18,4 +18,13 @@
   --code-block-ts-literal: #8fa1b3;
   --code-block-ts-comment: #65737e;
   --code-block-ts-number: #d0876e;
+
+  --code-block-vue-keyword: #b48ead;
+  --code-block-vue-property: #b48ead;
+  --code-block-vue-imported-property: #8fa1b3;
+  --code-block-vue-string: #a3be8c;
+  --code-block-vue-interpolated-string: #a3be8c;
+  --code-block-vue-literal: #8fa1b3;
+  --code-block-vue-comment: #65737e;
+  --code-block-vue-number: #d0876e;
 }
