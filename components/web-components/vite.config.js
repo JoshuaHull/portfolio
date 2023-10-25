@@ -20,6 +20,8 @@ export default defineConfig({
         "CodeBlockForTypescriptTemplate": resolve(__dirname, "src/CodeBlockForTypescriptTemplate/index.js"),
         "CodeBlockForVue": resolve(__dirname, "src/CodeBlockForVue/index.js"),
         "CodeBlockForVueTemplate": resolve(__dirname, "src/CodeBlockForVueTemplate/index.js"),
+        "CodeBlockForCSharp": resolve(__dirname, "src/CodeBlockForCSharp/index.js"),
+        "CodeBlockForCSharpTemplate": resolve(__dirname, "src/CodeBlockForCSharpTemplate/index.js"),
       },
       name: "@fullstackjosh/web-components",
       formats: ["es", "cjs"],
