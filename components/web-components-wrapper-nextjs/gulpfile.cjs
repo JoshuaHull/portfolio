@@ -11,10 +11,11 @@ async function prepare() {
 
 async function generate() {
   const generator = wrapperGenerator(
-    ["FoldablePanel", "fsj-foldable-panel"],
-    ["FoldableTextArea", "fsj-foldable-textarea"],
+    ["CodeBlockForCSharp", "fsj-code-block-for-csharp"],
     ["CodeBlockForTypescript", "fsj-code-block-for-typescript"],
     ["CodeBlockForVue", "fsj-code-block-for-vue"],
+    ["FoldablePanel", "fsj-foldable-panel"],
+    ["FoldableTextArea", "fsj-foldable-textarea"],
   );
 
   for (const [fileName, content] of generator)
