@@ -105,6 +105,6 @@ export const attachCodeBlockForCSharpTo = (element) => {
   }
 
   try {
-    customElements.define("fsj-code-block-for-typescript", CodeBlockForCSharp);
+    customElements.define("fsj-code-block-for-csharp", CodeBlockForCSharp);
   } catch {}
 };
