@@ -98,7 +98,7 @@ const travellingMessageAnimationDuration = 1500;
 
 let messageKey = 0;
 
-const [messages, pushMessage] = useVanishingValues(travellingMessageAnimationDuration);
+const [messages, pushMessage] = useVanishingValues<number>(travellingMessageAnimationDuration);
 
 const serverIconHeight = "3rem";
 const joinerIconHeight = "6rem";

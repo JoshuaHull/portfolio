@@ -1,23 +1,7 @@
 import { ref } from "vue";
 
 /**
- * @template [TValue = Object]
- * @callback PushFn
- * @param {TValue} nextValue
- * @returns {void}
- */
-
- /**
-  * @template [TValue = Object]
-  * @typedef Ref<TValue>
-  * @property {TValue} value
-  */
-
-/**
- * @template [TValue = Object]
- * @param {number} vanishAfterMs - how long each value should last before vanishing
- * @returns {[Ref<TValue[]>, PushFn]} a Ref of the current values and a function
- * to push new ephemeral values to the end of the queue
+ * @type {import("./use-vanishing-values").useVanishingValues}
  */
 export function useVanishingValues(vanishAfterMs) {
   const values = ref([]);
