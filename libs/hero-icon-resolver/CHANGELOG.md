@@ -1,6 +1,13 @@
 # Change Log - hero-icon-resolver
 
-This log was last generated on Wed, 19 Apr 2023 09:49:33 GMT and should not be manually modified.
+This log was last generated on Mon, 30 Oct 2023 08:11:10 GMT and should not be manually modified.
+
+## 1.2.0
+Mon, 30 Oct 2023 08:11:10 GMT
+
+### Minor changes
+
+- chore: limit files published to NPM
 
 ## 1.1.0
 Wed, 19 Apr 2023 09:49:33 GMT
