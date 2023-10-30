@@ -2,6 +2,37 @@
   "name": "@fullstackjosh/web-components",
   "entries": [
     {
+      "version": "0.1.0",
+      "tag": "@fullstackjosh/web-components_v0.1.0",
+      "date": "Mon, 30 Oct 2023 08:11:10 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "move dependency on rimraf to vite.config"
+          },
+          {
+            "comment": "docs: add installation command to readme"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "chore: limit files published to NPM"
+          },
+          {
+            "comment": "feat: FoldableTextArea"
+          },
+          {
+            "comment": "fix: use correct es vs cjs filenames in build output"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"rollup-plugin-content-chunks\" from `0.0.1` to `0.1.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.0.4",
       "tag": "@fullstackjosh/web-components_v0.0.4",
       "date": "Sat, 09 Sep 2023 11:11:20 GMT",

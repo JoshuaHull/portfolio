@@ -15,7 +15,7 @@
     "build:next": "npx gulp -f gulpfile.cjs"
   },
   "dependencies": {
-    "@fullstackjosh/web-components": "workspace:0.0.4"
+    "@fullstackjosh/web-components": "workspace:0.1.0"
   },
   "peerDependencies": {
     "next": ">=13",

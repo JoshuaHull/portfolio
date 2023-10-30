@@ -1,7 +1,7 @@
 {
   "name": "@fullstackjosh/web-components",
   "private": false,
-  "version": "0.0.4",
+  "version": "0.1.0",
   "type": "module",
   "license": "MIT",
   "homepage": "https://github.com/JoshuaHull/portfolio/tree/main/components/web-components#readme",
@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "rollup-plugin-auto-package-json": "workspace:",
-    "rollup-plugin-content-chunks": "workspace:0.0.1",
+    "rollup-plugin-content-chunks": "workspace:0.1.0",
     "rollup-plugin-copy": "workspace:",
     "rollup-plugin-handlebars-compile": "workspace:",
     "rollup-plugin-prepare-dist": "workspace:",

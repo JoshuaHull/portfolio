@@ -1,6 +1,15 @@
 # Change Log - @fullstackjosh/web-components
 
-This log was last generated on Sat, 09 Sep 2023 11:11:20 GMT and should not be manually modified.
+This log was last generated on Mon, 30 Oct 2023 08:11:10 GMT and should not be manually modified.
+
+## 0.1.0
+Mon, 30 Oct 2023 08:11:10 GMT
+
+### Minor changes
+
+- chore: limit files published to NPM
+- feat: FoldableTextArea
+- fix: use correct es vs cjs filenames in build output
 
 ## 0.0.4
 Sat, 09 Sep 2023 11:11:20 GMT
