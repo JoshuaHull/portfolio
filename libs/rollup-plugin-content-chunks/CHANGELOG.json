@@ -2,6 +2,23 @@
   "name": "rollup-plugin-content-chunks",
   "entries": [
     {
+      "version": "0.1.0",
+      "tag": "rollup-plugin-content-chunks_v0.1.0",
+      "date": "Mon, 30 Oct 2023 08:11:10 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "docs: add installation command to readme"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "chore: limit files published to NPM"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.0.1",
       "tag": "rollup-plugin-content-chunks_v0.0.1",
       "date": "Fri, 29 Sep 2023 12:08:38 GMT",
