@@ -2,33 +2,15 @@
   "name": "@fullstackjosh/web-components-wrapper-nextjs",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
-  "sideEffects": false,
-  "exports": {
-    "./*": {
-      "types": "./dist/*.d.ts",
-      "import": "./dist/*.mjs"
-    }
-  },
   "scripts": {
     "build": "",
     "build:next": "npx gulp -f gulpfile.cjs"
   },
-  "dependencies": {
-    "@fullstackjosh/web-components": "workspace:0.1.0"
-  },
-  "peerDependencies": {
-    "next": ">=13",
-    "react": ">=18"
-  },
   "devDependencies": {
-    "@types/react": "18.2.20",
     "gulp": "~4.0.2",
     "gulp-gzip": "~1.4.2",
     "gulp-tar": "~3.1.0",
     "gulp-zip": "~5.1.0",
-    "next": "13.4.19",
-    "react": "18.2.0",
     "rimraf": "~5.0.1"
   }
 }

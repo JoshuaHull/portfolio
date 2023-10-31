@@ -17,14 +17,6 @@
     },
     {
       "commandKind": "bulk",
-      "name": "build:next",
-      "summary": "NextJS is not playing well with incremental builds. So Next apps are excluded from the build command.",
-      "enableParallelism": true,
-      "ignoreMissingScript": true,
-      "incremental": true
-    },
-    {
-      "commandKind": "bulk",
       "name": "build:storybook",
       "summary": "build all Storybooks",
       "enableParallelism": true,

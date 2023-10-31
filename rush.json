@@ -122,10 +122,6 @@
     {
       "packageName": "web-components-storybook-vue",
       "projectFolder": "components/web-components-storybook-vue"
-    },
-    {
-      "packageName": "web-components-storybook-nextjs",
-      "projectFolder": "components/web-components-storybook-nextjs"
     }
   ]
 }
