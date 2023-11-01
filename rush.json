@@ -116,10 +116,6 @@
       "shouldPublish": true
     },
     {
-      "packageName": "@fullstackjosh/web-components-wrapper-nextjs",
-      "projectFolder": "components/web-components-wrapper-nextjs"
-    },
-    {
       "packageName": "web-components-storybook-vue",
       "projectFolder": "components/web-components-storybook-vue"
     }

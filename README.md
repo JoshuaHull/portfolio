@@ -22,8 +22,6 @@ This is a [Rush](https://rushjs.io/) monorepo.
 
 [web-components-storybook-vue](./components/web-components-storybook-vue) - Storybook app demonstrating use of web-components in a Vue app
 
-[web-components-wrapper-nextjs](./components/web-components-wrapper-nextjs) - a wrapper around web-components which allows those components to be rendered on the server of a NextJS app
-
 ### Eslint plugins
 
 <img src="./common/assets/npm-logo.png" height="16" alt="Available on NPM" /> [eslintpluginbuilder](./libs/eslintpluginbuilder-layered-architecture) - build up Eslint plugins which enforce layering of your code
