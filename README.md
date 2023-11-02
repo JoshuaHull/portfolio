@@ -73,3 +73,11 @@ This is a [Rush](https://rushjs.io/) monorepo.
 [use-vanishing-value](./composables/use-vanishing-value) - Vue composable which yields a `Ref<T | null>` object and a function to push new ephemeral values to that object
 
 [use-vanishing-values](./composables/use-vanishing-values) - Vue composable which yields a `Ref<T[] | null>` object and a function to push new ephemeral values onto the queue
+
+## Archived (MIT)
+
+### Components
+
+[web-components-storybook-nextjs](https://github.com/JoshuaHull/portfolio/tree/f5f7a9c6674caf83f9c5e6ac3f20b4989df4ed5a/components/web-components-storybook-nextjs) - Storybook app demonstrating use of web-components in a NextJS app
+
+[web-components-wrapper-nextjs](https://github.com/JoshuaHull/portfolio/tree/f5f7a9c6674caf83f9c5e6ac3f20b4989df4ed5a/components/web-components-wrapper-nextjs) - a wrapper around web-components which allows those components to be rendered on the server of a NextJS app
