@@ -37,18 +37,18 @@
     "build": "vite build"
   },
   "dependencies": {
-    "csharp-lexer": "workspace:*",
-    "handlebars": "~4.7.8",
-    "highlighter-html": "workspace:*",
-    "typescript-lexer": "workspace:*",
-    "vue-lexer": "workspace:*"
+    "handlebars": "~4.7.8"
   },
   "devDependencies": {
+    "csharp-lexer": "workspace:*",
+    "highlighter-html": "workspace:*",
     "rollup-plugin-auto-package-json": "workspace:",
     "rollup-plugin-content-chunks": "workspace:0.1.0",
     "rollup-plugin-copy": "workspace:",
     "rollup-plugin-handlebars-compile": "workspace:",
     "rollup-plugin-prepare-dist": "workspace:",
+    "typescript-lexer": "workspace:*",
+    "vue-lexer": "workspace:*",
     "vite": "^4.2.0"
   }
 }

@@ -80,18 +80,18 @@ importers:
       vite: ^4.2.0
       vue-lexer: workspace:*
     dependencies:
-      csharp-lexer: link:../../libs/csharp-lexer
       handlebars: 4.7.8
-      highlighter-html: link:../../libs/highlighter-html
-      typescript-lexer: link:../../libs/typescript-lexer
-      vue-lexer: link:../../libs/vue-lexer
     devDependencies:
+      csharp-lexer: link:../../libs/csharp-lexer
+      highlighter-html: link:../../libs/highlighter-html
       rollup-plugin-auto-package-json: link:../../libs/rollup-plugin-auto-package-json
       rollup-plugin-content-chunks: link:../../libs/rollup-plugin-content-chunks
       rollup-plugin-copy: link:../../libs/rollup-plugin-copy
       rollup-plugin-handlebars-compile: link:../../libs/rollup-plugin-handlebars-compile
       rollup-plugin-prepare-dist: link:../../libs/rollup-plugin-prepare-dist
+      typescript-lexer: link:../../libs/typescript-lexer
       vite: 4.2.0
+      vue-lexer: link:../../libs/vue-lexer
 
   ../../components/web-components-storybook-vue:
     specifiers:
