@@ -2,6 +2,18 @@
   "name": "@fullstackjosh/web-components",
   "entries": [
     {
+      "version": "0.1.1",
+      "tag": "@fullstackjosh/web-components_v0.1.1",
+      "date": "Sun, 05 Nov 2023 13:04:11 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "fix: workspace dependencies not resolvable by NPM"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.0",
       "tag": "@fullstackjosh/web-components_v0.1.0",
       "date": "Mon, 30 Oct 2023 08:11:10 GMT",

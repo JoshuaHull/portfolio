@@ -1,6 +1,13 @@
 # Change Log - @fullstackjosh/web-components
 
-This log was last generated on Mon, 30 Oct 2023 08:11:10 GMT and should not be manually modified.
+This log was last generated on Sun, 05 Nov 2023 13:04:11 GMT and should not be manually modified.
+
+## 0.1.1
+Sun, 05 Nov 2023 13:04:11 GMT
+
+### Patches
+
+- fix: workspace dependencies not resolvable by NPM
 
 ## 0.1.0
 Mon, 30 Oct 2023 08:11:10 GMT

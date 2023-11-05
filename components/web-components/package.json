@@ -1,7 +1,7 @@
 {
   "name": "@fullstackjosh/web-components",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "license": "MIT",
   "homepage": "https://github.com/JoshuaHull/portfolio/tree/main/components/web-components#readme",
@@ -48,7 +48,7 @@
     "rollup-plugin-handlebars-compile": "workspace:",
     "rollup-plugin-prepare-dist": "workspace:",
     "typescript-lexer": "workspace:*",
-    "vue-lexer": "workspace:*",
-    "vite": "^4.2.0"
+    "vite": "^4.2.0",
+    "vue-lexer": "workspace:*"
   }
 }
