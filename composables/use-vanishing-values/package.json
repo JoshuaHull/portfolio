@@ -11,9 +11,9 @@
     "test:nowatch": "vitest --watch false"
   },
   "dependencies": {
-    "vue": "^3.2.37"
+    "vue": "^3.4.23"
   },
   "devDependencies": {
-    "vitest": "^0.29.8"
+    "vitest": "^1.5.0"
   }
 }
