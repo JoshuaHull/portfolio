@@ -76,7 +76,7 @@ function handleRunClick() {
   display: grid;
   grid-template-areas:
     "description run"
-    "bar         run"
+    "bar         bar"
   ;
   grid-template-columns: auto minmax(10px, 4rem);
   align-items: center;
@@ -89,6 +89,10 @@ function handleRunClick() {
 @media (min-width: 640px) {
   .test-example {
     column-gap: 2rem;
+    grid-template-areas:
+      "description run"
+      "bar         run"
+    ;
   }
 }
 

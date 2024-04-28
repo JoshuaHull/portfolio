@@ -1,5 +1,5 @@
 <template #content>
-<section class="tests-section">
+<div class="tests-content">
   <TestExample variant="pass">
     <template #testName>
       When I press the "Run" button,
@@ -20,19 +20,26 @@
       Fail
     </template>
   </TestExample>
-</section>
+</div>
 </template>
 
 <style>
-.tests-section {
-  max-width: 400px;
+.tests-content {
+  max-width: 280px;
+  width: 100%;
   display: grid;
   align-items: center;
   height: 100%;
 }
 
+@media (min-width: 640px) {
+  .tests-content {
+    max-width: 400px;
+  }
+}
+
 @media (min-width: 1024px) {
-  .tests-section {
+  .tests-content {
     border-right: 2px solid black;
   }
 }
