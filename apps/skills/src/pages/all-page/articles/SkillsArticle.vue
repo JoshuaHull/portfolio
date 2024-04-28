@@ -1,9 +1,9 @@
 <template>
 <div class="skills-article">
-  <header class="article-title">
-    <h2><slot name="title"></slot></h2>
-  </header>
   <div class="article-content">
+    <header class="article-title">
+      <h2><slot name="title"></slot></h2>
+    </header>
     <slot></slot>
   </div>
 </div>
@@ -11,17 +11,18 @@
 
 <style>
 .skills-article {
-  padding-top: var(--top-navbar-height);
-  height: 100vh;
+  height: calc(100vh - var(--top-navbar-height));
   width: 100%;
   z-index: 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding-bottom: var(--top-navbar-height);
 }
 
 .article-title {
   text-align: center;
   font-size: 2em;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
 }
 
 .article-title h1 {
@@ -33,5 +34,7 @@
   display: grid;
   align-items: center;
   justify-items: center;
+  row-gap: 4rem;
+  width: 100%;
 }
 </style>
