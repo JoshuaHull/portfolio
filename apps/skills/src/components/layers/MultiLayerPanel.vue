@@ -86,7 +86,7 @@ function changeCurrentLayerBy(increment: number) {
 
 .layer-panel-container {
   grid-area: panel;
-  max-height: calc(100vh - (var(--bottom-navbar-height) + var(--top-navbar-height) + 8rem));
+  max-height: calc(100vh - (2 * var(--top-navbar-height) + 8rem));
 }
 
 .buttons-container {

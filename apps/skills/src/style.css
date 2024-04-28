@@ -137,7 +137,6 @@ img, picture, video, canvas, svg {
 
 #app {
   --top-navbar-height: 4rem;
-  --bottom-navbar-height: 6rem;
   display: grid;
   height: 100%;
   z-index: 0;

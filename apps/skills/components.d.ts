@@ -30,7 +30,6 @@ declare module 'vue' {
     DDDArticleContentMobile: typeof import('./src/pages/all-page/articles/ddd-article/DDDArticleContentMobile.vue')['default']
     DotnetArticle: typeof import('./src/pages/all-page/articles/dotnet-article/DotnetArticle.vue')['default']
     DotnetArticleContent: typeof import('./src/pages/all-page/articles/dotnet-article/DotnetArticleContent.vue')['default']
-    Drawer: typeof import('./src/components/navbars/Drawer.vue')['default']
     FileExplorer: typeof import('./src/components/file-exploring/FileExplorer.vue')['default']
     FileExplorerFile: typeof import('./src/components/file-exploring/FileExplorerFile.vue')['default']
     FileExplorerFolder: typeof import('./src/components/file-exploring/FileExplorerFolder.vue')['default']
