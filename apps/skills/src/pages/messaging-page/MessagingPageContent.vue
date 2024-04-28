@@ -41,7 +41,7 @@
     >
       <HeroServerStackSolid />
     </IconButton>
-    <Transition name="fade-out">
+    <Transition name="fade-in-out">
       <div
         v-if="shouldShowClickMe"
         class="messaging-clickme grid-area-clickme"
@@ -103,12 +103,14 @@ const [messages, pushMessage] = useVanishingValues<number>(travellingMessageAnim
 const serverIconHeight = "3rem";
 const joinerIconHeight = "6rem";
 
-const shouldShowClickMe = ref(true);
+const hasClickedClickMe = ref(false);
+const shouldShowClickMe = computed(() => messages.value.length === 0 && !hasClickedClickMe.value);
 const isMediumScreen = useMediaQuery("(min-width: 768px)");
 
 const handleServerStackClick = () => {
-  shouldShowClickMe.value = false;
+  hasClickedClickMe.value = true;
   pushMessage(messageKey += 1);
+  setTimeout(() => hasClickedClickMe.value = false, 2000);
 };
 </script>
 

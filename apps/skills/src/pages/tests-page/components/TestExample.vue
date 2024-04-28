@@ -132,4 +132,20 @@ function handleRunClick() {
 .fade-out-leave-to {
   opacity: 0;
 }
+
+.fade-in-out-enter-active {
+  transition: all 0.5s ease;
+}
+
+.fade-in-out-enter-from {
+  opacity: 0;
+}
+
+.fade-in-out-leave-active {
+  transition: all 0.3s ease;
+}
+
+.fade-in-out-leave-to {
+  opacity: 0;
+}
 </style>
