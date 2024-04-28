@@ -22,7 +22,7 @@ const homepageLink = import.meta.env.VITE_HOMEPAGE;
 .top-navbar {
   --top-navbar-padding: 1rem;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   width: 100%;
   height: var(--top-navbar-height);
   background-color: var(--color-bg);

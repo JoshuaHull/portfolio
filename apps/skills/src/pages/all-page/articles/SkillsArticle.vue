@@ -11,7 +11,7 @@
 
 <style>
 .skills-article {
-  height: calc(100vh - var(--top-navbar-height));
+  min-height: calc(100vh - var(--top-navbar-height));
   width: 100%;
   z-index: 0;
   display: grid;
@@ -22,7 +22,14 @@
 
 .article-title {
   text-align: center;
-  font-size: 2em;
+  font-size: 1.24em;
+  z-index: 1;
+}
+
+@media (min-width: 640px) {
+  .article-title {
+    font-size: 2em;
+  }
 }
 
 .article-title h1 {
