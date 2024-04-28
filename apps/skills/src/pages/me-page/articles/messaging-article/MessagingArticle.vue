@@ -1,8 +1,8 @@
 <template>
-<Page>
+<VArticle>
   <template #title>
     PubSub, Distributed Systems
   </template>
   <MessagingPageContent />
-</Page>
+</VArticle>
 </template>

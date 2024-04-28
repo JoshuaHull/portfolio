@@ -1,8 +1,8 @@
 <template>
-<Page>
+<VArticle>
   <template #title>
     Source Control, Git
   </template>
   <GitPageContent />
-</Page>
+</VArticle>
 </template>

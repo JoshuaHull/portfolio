@@ -138,7 +138,6 @@ img, picture, video, canvas, svg {
 #app {
   --top-navbar-height: 4rem;
   --bottom-navbar-height: 6rem;
-  overflow: hidden;
   display: grid;
   height: 100%;
   z-index: 0;

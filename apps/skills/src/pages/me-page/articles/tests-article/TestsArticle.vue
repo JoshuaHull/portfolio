@@ -1,5 +1,5 @@
 <template>
-<Page class="tests-page">
+<VArticle class="tests-article">
   <template #title>
     Behaviour Driven Testing
   </template>
@@ -11,7 +11,7 @@
     v-else
     class="tests-page-mobile"
   />
-</Page>
+</VArticle>
 </template>
 
 <script setup lang="ts">
@@ -21,7 +21,7 @@ const isDesktop = useMediaQuery("(min-width: 1024px)");
 </script>
 
 <style>
-.tests-page {
+.tests-article {
   --tests-page-panel-height: 30rem;
   /* https://github.com/mturlo/intellij-spacegray */
   --code-block-keyword: #b48ead;

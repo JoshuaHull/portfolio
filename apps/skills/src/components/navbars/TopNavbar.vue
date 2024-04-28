@@ -11,36 +11,18 @@
       <LogoIcon />
     </IconContainer>
   </a>
-  <IconButton
-    v-if="!isDrawerOpen"
-    height="2rem"
-    width="2rem"
-    aria-label="open drawer"
-    @click="toggleDrawer"
-  >
-    <HeroInformationCircleOutline />
-  </IconButton>
-  <Drawer
-    :isOpen="isDrawerOpen"
-    @closeDrawer="closeDrawer"
-  />
 </nav>
 </template>
 
 <script setup lang="ts">
-const isDrawerOpen = ref(false);
-
 const homepageLink = import.meta.env.VITE_HOMEPAGE;
-
-const toggleDrawer = () => isDrawerOpen.value = !isDrawerOpen.value;
-const closeDrawer = () => isDrawerOpen.value = false;
 </script>
 
 <style>
 .top-navbar {
   --top-navbar-padding: 1rem;
-  position: absolute;
-  top: 0;
+  position: fixed;
+  z-index: 1;
   width: 100%;
   height: var(--top-navbar-height);
   background-color: var(--color-bg);

@@ -81,13 +81,8 @@ const randomBlob = () => {
   const hex = randomHex();
   const rotation = `${Math.floor(Math.random() * 4) * 90}deg`;
 
-  const left = isVeryNarrowScreen.value
-    ? Math.random() * 80
-    : Math.random() * 100;
-
-  const top = isVeryNarrowScreen.value
-    ? Math.random() * 80
-    : Math.random() * 100;
+  const left = isVeryNarrowScreen.value ? (Math.random() * 60) : (Math.random() * 70 + 10);
+  const top = isVeryNarrowScreen.value ? (Math.random() * 90) : (Math.random() * 90);
 
   return {
     id: Math.random(),
@@ -171,15 +166,11 @@ for (let i = 0; i < max; i += 1) {
   display: grid;
   place-items: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
 }
 
 .blobs {
   position: absolute;
-  top: 0;
+  top: var(--top-navbar-height);
   left: 0;
   right: 0;
   bottom: 0;

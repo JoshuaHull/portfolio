@@ -1,5 +1,5 @@
 <template>
-<Page>
+<VArticle>
   <template #title>
     Domain Driven Design
   </template>
@@ -11,7 +11,7 @@
     v-else
     class="ddd-page-mobile"
   />
-</Page>
+</VArticle>
 </template>
 
 <script setup lang="ts">

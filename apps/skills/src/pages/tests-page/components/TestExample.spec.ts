@@ -1,5 +1,9 @@
-import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
-import { flushPromises, mount } from "@vue/test-utils";
+import {
+  afterAll, beforeAll, describe, expect, test, vi
+} from "vitest";
+import {
+  flushPromises, mount
+} from "@vue/test-utils";
 import TestExample from "./TestExample.vue";
 
 describe(

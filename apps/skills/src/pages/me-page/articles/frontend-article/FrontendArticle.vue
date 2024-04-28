@@ -1,8 +1,8 @@
 <template>
-<Page>
+<VArticle>
   <template #title>
     And I do frontend
   </template>
   <FrontendPageContent />
-</Page>
+</VArticle>
 </template>

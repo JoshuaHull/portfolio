@@ -1,8 +1,8 @@
 <template>
-<Page>
+<VArticle>
   <template #title>
     DotNet, C#
   </template>
   <DotnetPageContent />
-</Page>
+</VArticle>
 </template>

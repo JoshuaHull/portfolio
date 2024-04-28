@@ -1,8 +1,8 @@
 <template>
-<Page>
+<VArticle>
   <template #title>
     REST APIs
   </template>
   <RestPageContent />
-</Page>
+</VArticle>
 </template>
