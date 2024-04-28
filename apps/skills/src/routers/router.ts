@@ -4,19 +4,19 @@ import {
   RouteRecordRaw,
 } from "vue-router";
 
-import MePage from "../pages/me-page/MePage.vue";
+import AllPage from "../pages/all-page/AllPage.vue";
 
-export const MePageName = "MePage";
+export const AllPageName = "AllPage";
 
 export const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    redirect: "/me",
+    redirect: "/all",
   },
   {
-    path: "/me",
-    name: MePageName,
-    component: MePage,
+    path: "/all",
+    name: AllPageName,
+    component: AllPage,
   },
 ];
 
