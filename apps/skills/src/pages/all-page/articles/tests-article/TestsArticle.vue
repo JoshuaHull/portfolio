@@ -22,6 +22,7 @@ const isDesktop = useMediaQuery("(min-width: 1024px)");
 
 <style>
 .tests-article {
+  background-color: #42BD69;
   --tests-article-panel-height: 30rem;
   /* https://github.com/mturlo/intellij-spacegray */
   --code-block-keyword: #b48ead;
@@ -33,5 +34,11 @@ const isDesktop = useMediaQuery("(min-width: 1024px)");
   --code-block-comment: #65737e;
   --code-block-number: #d0876e;
     overflow-x: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tests-article {
+    background-color: #729E61;
+  }
 }
 </style>

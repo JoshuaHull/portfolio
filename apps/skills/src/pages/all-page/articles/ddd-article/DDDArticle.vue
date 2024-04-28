@@ -1,5 +1,5 @@
 <template>
-<SkillsArticle>
+<SkillsArticle class="ddd-article">
   <template #title>
     Domain Driven Design
   </template>
@@ -21,6 +21,16 @@ const isDesktop = useMediaQuery("(min-width: 1024px)");
 </script>
 
 <style>
+.ddd-article {
+  background-color: #42BD69;
+}
+
+@media (prefers-color-scheme: dark) {
+  .ddd-article {
+    background-color: #729E61;
+  }
+}
+
 .ddd-article-content {
   display: grid;
   place-items: center;

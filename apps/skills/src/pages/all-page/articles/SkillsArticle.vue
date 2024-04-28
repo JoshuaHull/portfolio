@@ -17,6 +17,7 @@
   display: grid;
   align-items: center;
   justify-items: center;
+  padding-top: var(--top-navbar-height);
   padding-bottom: var(--top-navbar-height);
 }
 
