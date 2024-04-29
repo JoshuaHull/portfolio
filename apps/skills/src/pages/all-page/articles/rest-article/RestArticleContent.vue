@@ -81,7 +81,7 @@ const randomBlob = () => {
   const hex = randomHex();
   const rotation = `${Math.floor(Math.random() * 4) * 90}deg`;
 
-  const left = isVeryNarrowScreen.value ? (Math.random() * 60) : (Math.random() * 70 + 10);
+  const left = isVeryNarrowScreen.value ? (Math.random() * 70) : (Math.random() * 70 + 10);
   const top = isVeryNarrowScreen.value ? (Math.random() * 90) : (Math.random() * 90);
 
   return {
