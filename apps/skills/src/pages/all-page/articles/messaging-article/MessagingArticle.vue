@@ -9,12 +9,7 @@
 
 <style>
 .messaging-article {
-  background-color: #964DB2;
-}
-
-@media (prefers-color-scheme: dark) {
-  .messaging-article {
-    background-color: #8D619E;
-  }
+  background-color: var(--color-bg-inverted);
+  color: var(--color-text-inverted);
 }
 </style>

@@ -37,6 +37,7 @@
       width="5rem"
       aria-label="distribute a message to child servers"
       :rounded="true"
+      :inverted="true"
       @click="handleServerStackClick"
     >
       <HeroServerStackSolid />

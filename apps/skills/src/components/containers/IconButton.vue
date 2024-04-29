@@ -15,16 +15,18 @@ interface IconButtonProps {
   color?: string;
   disabled?: boolean;
   rounded?: boolean;
+  inverted?: boolean;
 }
 
 const props = defineProps<IconButtonProps>();
-const { height, width, color, disabled, rounded } = toRefs(props);
+const { height, width, color, disabled, rounded, inverted } = toRefs(props);
 
 const theHeight = computed(() => !!height?.value ? `height: ${height.value};` : "");
 const theWidth = computed(() => !!width?.value ? `width: ${width.value};` : "");
 const theColor = computed(() => !!color?.value ? `color: ${color.value};` : "");
 const theBorderRadius = computed(() => !!rounded?.value ? "border-radius: 0.25rem" : "");
 const isDisabled = computed(() => !!disabled?.value);
+const colourOutline = computed(() => !!inverted?.value ? "var(--color-outline-inverted)" : "var(--color-outline)");
 </script>
 
 <style>
@@ -34,7 +36,7 @@ const isDisabled = computed(() => !!disabled?.value);
 }
 
 .icon-button:focus {
-  outline: solid var(--color-outline) 2px;
+  outline: solid v-bind(colourOutline) 2px;
 }
 
 .icon-button:hover,

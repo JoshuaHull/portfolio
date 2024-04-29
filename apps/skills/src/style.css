@@ -34,6 +34,7 @@
   --color-bg-solid: var(--color-white-solid);
   --color-bg-inverted: var(--color-blue-gray);
   --color-outline: var(--color-blue-gray);
+  --color-outline-inverted: var(--color-white);
   --color-action: var(--color-white);
   --color-action-bg: var(--color-red);
   --color-action-create: var(--color-green);
@@ -55,6 +56,7 @@
     --color-bg-solid: var(--color-blue-gray-solid);
     --color-bg-inverted: var(--color-white);
     --color-outline: var(--color-white);
+    --color-outline-inverted: var(--color-blue-gray);
     --color-border: var(--color-white);
     --color-card-text: var(--color-white);
     --color-card-bg: var(--color-space-gray);
