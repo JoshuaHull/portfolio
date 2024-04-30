@@ -8,4 +8,7 @@
 </template>
 
 <style>
+.rest-article {
+  position: relative;
+}
 </style>

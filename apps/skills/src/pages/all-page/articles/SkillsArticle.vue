@@ -33,11 +33,6 @@
   }
 }
 
-.article-title h1 {
-  font-size: 1em;
-  font-weight: 400;
-}
-
 .article-content {
   display: grid;
   align-items: center;
