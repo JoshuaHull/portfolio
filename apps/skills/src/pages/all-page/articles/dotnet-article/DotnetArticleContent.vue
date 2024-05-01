@@ -182,6 +182,7 @@ const handleQueryUpdated = (query: QueryFilter[]) => {
   display: grid;
   grid-template-rows: repeat(2, min-content);
   align-content: center;
+  justify-items: center;
   row-gap: 4rem;
   height: 100%;
 }
