@@ -23,6 +23,7 @@
 <script setup lang="ts">
 interface RestEndpointProps {
   method: string;
+  allowScroll?: boolean;
   response: {
     colour: string;
     content: string;
@@ -30,9 +31,10 @@ interface RestEndpointProps {
 }
 
 const props = defineProps<RestEndpointProps>();
-const { method, response } = toRefs(props);
+const { method, response, allowScroll } = toRefs(props);
 
 const responseColour = computed(() => response.value?.colour);
+const overflowX = computed(() => allowScroll.value ? "scroll" : "hidden");
 
 const emit = defineEmits(["action"]);
 
@@ -44,13 +46,21 @@ function handleButtonClick() {
 <style>
 .rest-endpoint {
   display: grid;
-  grid-template-columns: minmax(10px, 5rem) minmax(10px, 22em);
-  grid-template-rows: auto 2rem;
+  grid-template-columns: 5rem auto;
+  grid-template-rows: auto 2.25rem;
   grid-template-areas:
     "method     url"
     "     . message"
   ;
   column-gap: 1rem;
+  overflow-x: v-bind(overflowX);
+}
+
+@media (min-width: 400px) {
+  .rest-endpoint {
+    grid-template-rows: auto 2rem;
+    overflow-x: hidden;
+  }
 }
 
 .rest-method {
@@ -60,6 +70,7 @@ function handleButtonClick() {
 
 .rest-url {
   grid-area: url;
+  white-space: nowrap;
 }
 
 .rest-message {

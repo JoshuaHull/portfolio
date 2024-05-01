@@ -25,8 +25,8 @@
       /background/blobs
     </RestEndpoint>
     <RestEndpoint
-      v-if="!isShortScreen && !isVeryNarrowScreen"
       method="delete"
+      :allowScroll="true"
       :response="deleteMessage"
       @action="handleDelete"
     >
