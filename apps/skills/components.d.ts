@@ -79,7 +79,6 @@ declare module 'vue' {
     MonolithsArticleContent: typeof import('./src/pages/all-page/articles/monoliths-article/MonolithsArticleContent.vue')['default']
     MultiLayerPanel: typeof import('./src/components/layers/MultiLayerPanel.vue')['default']
     MultiTabbedDocument: typeof import('./src/components/tabs/MultiTabbedDocument.vue')['default']
-    NavButton: typeof import('./src/components/buttons/NavButton.vue')['default']
     Page: typeof import('./src/pages/Page.vue')['default']
     PanelFile: typeof import('./src/pages/all-page/articles/tests-article/components/PanelFile.vue')['default']
     PanelFileContent: typeof import('./src/pages/all-page/articles/tests-article/components/PanelFileContent.vue')['default']

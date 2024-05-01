@@ -46,6 +46,7 @@
   color-scheme: light dark;
   color: var(--color-text);
   background-color: var(--color-bg);
+  outline-color: var(--color-outline);
 }
 
 @media (prefers-color-scheme: dark) {

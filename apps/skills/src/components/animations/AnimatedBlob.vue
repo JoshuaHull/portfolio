@@ -110,7 +110,7 @@ path {
 .animated-blob:focus,
 .animated-blob:hover {
   cursor: pointer;
-  outline: solid var(--color-outline) 2px;
+  outline: solid 2px;
   border-radius: 1rem;
 }
 </style>

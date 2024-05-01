@@ -11,5 +11,6 @@
 .messaging-article {
   background-color: var(--color-bg-inverted);
   color: var(--color-text-inverted);
+  outline-color: var(--color-outline-inverted);
 }
 </style>
