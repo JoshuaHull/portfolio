@@ -13,6 +13,7 @@
     <IconButton
       class="query-toggle-button"
       width="1.5rem"
+      height="1.5rem"
       :aria-label="enabled.includes(n) ? 'exclude expression' : 'include expression'"
       @click="() => onToggle(n)"
     >
