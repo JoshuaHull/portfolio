@@ -2,7 +2,9 @@
 <button
   :class="`icon-button ${isDisabled ? 'disabled' : ''}`"
   :style="`${theHeight} ${theWidth} ${theColor} ${theBorderRadius}`"
-  :tabindex="isDisabled ? -1 : 0"
+  :aria-disabled="isDisabled"
+  aria-live="polite"
+  @click="handleClick"
 >
   <slot></slot>
 </button>
@@ -20,11 +22,22 @@ interface IconButtonProps {
 const props = defineProps<IconButtonProps>();
 const { height, width, color, disabled, rounded } = toRefs(props);
 
+const emit = defineEmits({
+  click: null,
+});
+
 const theHeight = computed(() => !!height?.value ? `height: ${height.value};` : "");
 const theWidth = computed(() => !!width?.value ? `width: ${width.value};` : "");
 const theColor = computed(() => !!color?.value ? `color: ${color.value};` : "");
 const theBorderRadius = computed(() => !!rounded?.value ? "border-radius: 0.25rem" : "");
 const isDisabled = computed(() => !!disabled?.value);
+
+const handleClick = () => {
+  if (isDisabled.value)
+    return;
+
+  emit("click");
+};
 </script>
 
 <style>

@@ -1,7 +1,9 @@
 <template>
 <button
   :class="`v-button ${disabled ? 'disabled' : ''}`"
-  :disabled="disabled"
+  :aria-disabled="disabled"
+  aria-live="polite"
+  @click="handleClick"
 >
   <slot></slot>
 </button>
@@ -12,7 +14,21 @@ interface VButtonProps {
   disabled?: boolean;
 }
 
-defineProps<VButtonProps>();
+const props = defineProps<VButtonProps>();
+const { disabled } = toRefs(props);
+
+const emit = defineEmits({
+  click: null,
+});
+
+const isDisabled = computed(() => !!disabled?.value);
+
+const handleClick = () => {
+  if (isDisabled.value)
+    return;
+
+  emit("click");
+};
 </script>
 
 <style>
