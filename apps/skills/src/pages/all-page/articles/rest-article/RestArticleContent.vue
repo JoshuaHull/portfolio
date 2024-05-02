@@ -166,6 +166,14 @@ for (let i = 0; i < max; i += 1) {
   display: grid;
   place-items: center;
   align-items: center;
+  width: 470px;
+  max-width: calc(100vw - 1.25rem);
+}
+
+@media (min-width: 400px) {
+  .rest-article-content {
+    width: 500px;
+  }
 }
 
 .blobs {
@@ -189,11 +197,12 @@ for (let i = 0; i < max; i += 1) {
   grid-template-rows: repeat(3, auto);
   font-family: monospace;
   padding: 2rem 2rem 0rem 2rem;
+  width: 100%;
 }
 
 @media (max-width: 640px), (max-height: 640px) {
   .rest-endpoints {
-    padding: 2rem 1rem 2rem 1rem;
+    padding: 2rem 1rem 0rem 1rem;
   }
 }
 </style>

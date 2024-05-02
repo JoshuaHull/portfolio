@@ -58,7 +58,6 @@ function handleButtonClick() {
 
 @media (min-width: 400px) {
   .rest-endpoint {
-    grid-template-rows: auto 2rem;
     overflow-x: hidden;
   }
 }
@@ -71,11 +70,13 @@ function handleButtonClick() {
 .rest-url {
   grid-area: url;
   white-space: nowrap;
+  align-self: center
 }
 
 .rest-message {
   grid-area: message;
   font-size: 0.7em;
+  color: v-bind(responseColour);
 }
 
 .response-fade-enter-active,
@@ -86,11 +87,5 @@ function handleButtonClick() {
 .response-fade-enter-from,
 .response-fade-leave-to {
   opacity: 0;
-}
-</style>
-
-<style scoped>
-.rest-message {
-  color: v-bind(responseColour);
 }
 </style>
