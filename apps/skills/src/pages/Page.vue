@@ -9,7 +9,8 @@
 <style>
 .page {
   width: 100%;
-  padding-top: var(--top-navbar-height);
+  margin-top: var(--top-navbar-height);
+  overflow-y: scroll;
 }
 
 .page-content {

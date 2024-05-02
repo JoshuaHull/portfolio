@@ -166,14 +166,8 @@ for (let i = 0; i < max; i += 1) {
   display: grid;
   place-items: center;
   align-items: center;
-  width: 470px;
-  max-width: calc(100vw - 1.25rem);
-}
-
-@media (min-width: 400px) {
-  .rest-article-content {
-    width: 500px;
-  }
+  width: 100%;
+  max-width: 540px;
 }
 
 .blobs {
