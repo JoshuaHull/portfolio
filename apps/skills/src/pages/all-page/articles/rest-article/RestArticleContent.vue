@@ -77,9 +77,13 @@ function randomHex() {
   return `#${(Math.random() * 0xFFFFFF << 0).toString(16).toUpperCase()}`;
 }
 
+function randomRotation() {
+  return `${Math.floor(Math.random() * 4) * 90}deg`;
+}
+
 const randomBlob = () => {
   const hex = randomHex();
-  const rotation = `${Math.floor(Math.random() * 4) * 90}deg`;
+  const rotation = randomRotation();
 
   const left = isVeryNarrowScreen.value ? (Math.random() * 70) : (Math.random() * 70 + 10);
   const top = isVeryNarrowScreen.value ? (Math.random() * 90) : (Math.random() * 90);
@@ -153,10 +157,106 @@ function handleBlobClick(blob: Blob) {
   selectedBlobHex.value = blob.hex;
 }
 
-const max = isVeryNarrowScreen.value ? 10 : 20;
+const leftLimit = isNarrowScreen.value ? 70 : 85;
 
-for (let i = 0; i < max; i += 1) {
-  const blob = randomBlob();
+const initialBlobs = [
+  {
+    left: 5,
+    top: 5,
+  },
+  {
+    left: 50,
+    top: 0,
+  },
+  {
+    left: leftLimit - 15,
+    top: 2,
+  },
+  {
+    left: 3,
+    top: 15,
+  },
+  {
+    left: 30,
+    top: 22,
+  },
+  {
+    left: leftLimit - 5,
+    top: 10,
+  },
+  {
+    left: leftLimit - 5,
+    top: 18,
+  },
+  {
+    left: leftLimit - 15,
+    top: 25,
+  },
+  {
+    left: 12,
+    top: 40,
+  },
+  {
+    left: 8,
+    top: 45,
+  },
+  {
+    left: 20,
+    top: 42,
+  },
+  {
+    left: 30,
+    top: 36,
+  },
+  {
+    left: 40,
+    top: 52,
+  },
+  {
+    left: 48,
+    top: 48,
+  },
+  {
+    left: leftLimit - 15,
+    top: 54,
+  },
+  {
+    left: leftLimit - 10,
+    top: 58,
+  },
+  {
+    left: 20,
+    top: 70,
+  },
+  {
+    left: 25,
+    top: 80,
+  },
+  {
+    left: 40,
+    top: 68,
+  },
+  {
+    left: 50,
+    top: 70,
+  },
+  {
+    left: leftLimit - 10,
+    top: 75,
+  },
+];
+
+for (let initialBlob of initialBlobs) {
+  const hex = randomHex();
+  const rotation = randomRotation();
+
+  const blob = {
+    id: Math.random(),
+    hex,
+    left: `${initialBlob.left}%`,
+    top: `${initialBlob.top}%`,
+    rotation,
+  };
   blobsOnTheScreen.value.push(blob);
 }
 </script>
