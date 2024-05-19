@@ -8,6 +8,10 @@
 </template>
 
 <style>
+.animated-interaction {
+  position: relative;
+}
+
 .animated-interaction-rockets {
   position: absolute;
 }
