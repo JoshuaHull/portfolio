@@ -16,73 +16,116 @@ export const registerFoldableTextArea = () => {
  */
 export const attachFoldableTextAreaTo = (element) => {
   class FoldableTextArea extends HTMLElement {
+
+    // https://web.dev/articles/more-capable-form-controls
+    static formAssociated = true;
+
+    /**
+     * @type {ElementInternals}
+     */
+    #internals;
+
+    /**
+     * @type {string}
+     */
+    #checkboxId;
+
     constructor() {
       super();
+      this.#checkboxId = `${Math.random()}`;
+      this.#internals = this.attachInternals();
       this.attachShadow({ mode: "open" });
       this.shadowRoot.appendChild(element.content.cloneNode(true));
     }
 
     connectedCallback() {
-      this.#upgradeProperty("checkboxId");
-      this.#upgradeProperty("checkboxName");
-      this.#upgradeProperty("defaultChecked");
+      this.#upgradeProperty("name");
+      this.#upgradeProperty("checked");
       this.#upgradeProperty("panelTitle");
       this.#upgradeProperty("disabled");
       this.#upgradeProperty("textAreaPlaceholder");
-      this.#upgradeProperty("textAreaName");
       this.#upgradeProperty("textAreaValue");
+
+      /** @type {HTMLInputElement} */
+      const checkbox = this.#getCheckbox();
+      checkbox.id = this.#checkboxId;
+
+      checkbox.addEventListener("input", (e) => {
+        this.checked = checkbox.checked;
+      });
+
+      /** @type {HTMLLabelElement} */
+      const label = this.#getLabel();
+      label.htmlFor = this.#checkboxId;
+
+      /** @type {HTMLTextAreaElement} */
+      const textArea = this.#getTextarea();
+
+      textArea.addEventListener("input", (e) => {
+        this.textAreaValue = textArea.value;
+      });
+    }
+
+    get value() {
+      const name = this.getAttribute("name");
+      const formData = new FormData();
+      formData.append(`${name}-checked`, this.checked);
+      formData.append(`${name}-text`, this.textAreaValue);
+      return formData;
+    }
+
+    get form() {
+      return this.#internals.form;
+    }
+
+    get type() {
+      return this.localName;
+    }
+
+    get validity() {
+      return this.#internals.validity;
+    }
+
+    get validationMessage() {
+      return this.#internals.validationMessage;
+    }
+
+    get willValidate() {
+      return this.#internals.willValidate;
+    }
+
+    checkValidity() {
+      return this.#internals.checkValidity();
+    }
+
+    reportValidity() {
+      return this.#internals.reportValidity();
     }
 
     /**
      * @returns {string}
      */
     get checkboxId() {
-      return this.getAttribute("checkboxId") ?? "";
-    }
-
-    /**
-     * @param {string} value
-     */
-    set checkboxId(value) {
-      /** @type {HTMLInputElement} */
-      const checkbox = this.shadowRoot.querySelector(".foldable__checkbox");
-      checkbox.id = value;
-
-      /** @type {HTMLLabelElement} */
-      const label = this.shadowRoot.querySelector(".foldable__label");
-      label.htmlFor = value;
-    }
-
-    /**
-     * @returns {string}
-     */
-    get checkboxName() {
-      return this.getAttribute("checkboxName") ?? "";
-    }
-
-    /**
-     * @param {string} value - name of the checkbox, useful for form submissions
-     */
-    set checkboxName(value) {
-      /** @type {HTMLInputElement} */
-      const checkbox = this.shadowRoot.querySelector(".foldable__checkbox");
-      checkbox.name = value;
+      return this.#checkboxId;
     }
 
     /**
      * @returns {boolean}
      */
-    get defaultChecked() {
-      return this.getAttribute("defaultChecked") ?? "";
+    get checked() {
+      return this.getAttribute("checked") ?? "false";
     }
 
     /**
-     * @param {string} value - whether the panel should be unfolded (true) or folded (false) by default
+     * @param {string} value - whether the panel should be unfolded (true) or folded (false)
      */
-    set defaultChecked(value) {
+    set checked(value) {
       /** @type {HTMLInputElement} */
-      const checkbox = this.shadowRoot.querySelector(".foldable__checkbox");
+      const checkbox = this.#getCheckbox();
       checkbox.checked = value;
+
+      this.setAttribute("checked", !!value);
+      this.#updateFormValue();
     }
 
     /**
@@ -97,7 +140,7 @@ export const attachFoldableTextAreaTo = (element) => {
      */
     set panelTitle(value) {
       /** @type {HTMLLabelElement} */
-      const label = this.shadowRoot.querySelector(".foldable__label");
+      const label = this.#getLabel();
       label.innerHTML = value;
     }
 
@@ -113,8 +156,12 @@ export const attachFoldableTextAreaTo = (element) => {
      */
     set disabled(value) {
       /** @type {HTMLInputElement} */
-      const checkbox = this.shadowRoot.querySelector(".foldable__checkbox");
+      const checkbox = this.#getCheckbox();
       checkbox.disabled = value;
+
+      /** @type {HTMLTextAreaElement} */
+      const textArea = this.#getTextarea();
+      textArea.disabled = value;
     }
 
     /**
@@ -129,24 +176,8 @@ export const attachFoldableTextAreaTo = (element) => {
      */
     set textAreaPlaceholder(value) {
       /** @type {HTMLTextAreaElement} */
-      const textArea = this.shadowRoot.querySelector(".foldable__textarea");
+      const textArea = this.#getTextarea();
       textArea.placeholder = value;
-    }
-
-    /**
-     * @returns {string}
-     */
-    get textAreaName() {
-      return this.getAttribute("textAreaName") ?? "";
-    }
-
-    /**
-     * @param {string} value
-     */
-    set textAreaName(value) {
-      /** @type {HTMLTextAreaElement} */
-      const textArea = this.shadowRoot.querySelector(".foldable__textarea");
-      textArea.name = value;
     }
 
     /**
@@ -161,8 +192,11 @@ export const attachFoldableTextAreaTo = (element) => {
      */
     set textAreaValue(value) {
       /** @type {HTMLTextAreaElement} */
-      const textArea = this.shadowRoot.querySelector(".foldable__textarea");
+      const textArea = this.#getTextarea();
       textArea.value = value;
+
+      this.setAttribute("textAreaValue", value);
+      this.#updateFormValue();
     }
 
     /**
@@ -177,7 +211,7 @@ export const attachFoldableTextAreaTo = (element) => {
      */
     set textAreaMaxLength(value) {
       /** @type {HTMLTextAreaElement} */
-      const textArea = this.shadowRoot.querySelector(".foldable__textarea");
+      const textArea = this.#getTextarea();
       textArea.maxLength = value;
     }
 
@@ -191,6 +225,22 @@ export const attachFoldableTextAreaTo = (element) => {
         delete this[prop];
         this[prop] = value;
       }
+    }
+
+    #updateFormValue() {
+      this.#internals.setFormValue(this.value);
+    }
+
+    #getCheckbox() {
+      return this.shadowRoot.querySelector(".foldable__checkbox");
+    }
+
+    #getTextarea() {
+      return this.shadowRoot.querySelector(".foldable__textarea");
+    }
+
+    #getLabel() {
+      return this.shadowRoot.querySelector(".foldable__label");
     }
   }
 

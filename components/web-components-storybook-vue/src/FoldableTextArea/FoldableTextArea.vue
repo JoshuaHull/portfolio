@@ -1,12 +1,11 @@
 <template>
 <fsj-foldable-textarea
-  :checkboxId="checkboxId"
-  :checkboxName="checkboxName"
-  :defaultChecked="defaultChecked"
+  :name="name"
+  :data-testid="dataTestId"
+  :checked="checked"
   :panelTitle="panelTitle"
   :disabled="disabled"
   :textAreaPlaceholder="textAreaPlaceholder"
-  :textAreaName="textAreaName"
   :textAreaMaxLength="textAreaMaxLength"
   :textAreaValue="textAreaValue"
 />
@@ -18,13 +17,12 @@ import { registerFoldableTextArea } from "@fullstackjosh/web-components/Foldable
 registerFoldableTextArea();
 
 defineProps<{
-  checkboxId: string;
-  checkboxName: string;
-  defaultChecked: boolean;
+  name: string;
+  dataTestId: string | undefined;
+  checked: boolean;
   panelTitle: string;
   disabled: boolean;
   textAreaPlaceholder: string;
-  textAreaName: string;
   textAreaMaxLength: number;
   textAreaValue: string;
 }>();

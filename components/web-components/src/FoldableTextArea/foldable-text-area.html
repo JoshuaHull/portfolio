@@ -1,25 +1,26 @@
 <div class="fsj-reset foldable">
   <input
     class="foldable__checkbox"
+    data-testid="checkbox"
     type="checkbox"
-    name="{{checkboxName}}"
     id="{{checkboxId}}"
     {{#disabled}}disabled{{/disabled}}
-    {{#defaultChecked}}checked{{/defaultChecked}}
+    {{#checked}}checked{{/checked}}
   >
-  <label class="foldable__label">
+  <label
+    class="foldable__label"
+    data-testid="label"
+  >
     {{{panelTitle}}}
   </label>
   <div class="foldable__textarea__wrapper">
     <textarea
       class="foldable__textarea"
+      data-testid="textarea"
       placeholder="{{textAreaPlaceholder}}"
-      name="{{textAreaName}}"
       maxlength="{{textAreaMaxLength}}"
       {{#disabled}}disabled{{/disabled}}
-    >
-      {{{textAreaValue}}}
-    </textarea>
+    >{{{textAreaValue}}}</textarea>
   </div>
 </div>
 <style>
@@ -67,6 +68,7 @@
   display: block;
   margin-left: 0.5rem;
   width: 1.25rem;
+  cursor: pointer;
 }
 
 .foldable__checkbox:checked ~ .foldable__textarea__wrapper textarea {
