@@ -1,6 +1,13 @@
 # Change Log - @fullstackjosh/web-components
 
-This log was last generated on Sun, 05 Nov 2023 13:04:11 GMT and should not be manually modified.
+This log was last generated on Fri, 24 May 2024 13:19:59 GMT and should not be manually modified.
+
+## 0.2.0
+Fri, 24 May 2024 13:19:59 GMT
+
+### Minor changes
+
+- form associated FoldableTextArea
 
 ## 0.1.1
 Sun, 05 Nov 2023 13:04:11 GMT

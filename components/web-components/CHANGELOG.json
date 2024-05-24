@@ -2,6 +2,18 @@
   "name": "@fullstackjosh/web-components",
   "entries": [
     {
+      "version": "0.2.0",
+      "tag": "@fullstackjosh/web-components_v0.2.0",
+      "date": "Fri, 24 May 2024 13:19:59 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "form associated FoldableTextArea"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.1",
       "tag": "@fullstackjosh/web-components_v0.1.1",
       "date": "Sun, 05 Nov 2023 13:04:11 GMT",
