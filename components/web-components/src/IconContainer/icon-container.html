@@ -1,0 +1,30 @@
+<div class="fsj-reset icon-container">
+  <slot></slot>
+</div>
+
+<style>
+.fsj-reset {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fsj-reset, .fsj-reset *, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.fsj-reset, .fsj-reset * {
+  margin: 0;
+}
+
+.icon-container {
+  width: var(--icon-container-width);
+  height: var(--icon-container-height);
+  color: var(--icon-container-color);
+}
+
+::slotted(*) {
+  width: var(--icon-container-width);
+  height: var(--icon-container-height);
+  color: var(--icon-container-color);
+}
+</style>
