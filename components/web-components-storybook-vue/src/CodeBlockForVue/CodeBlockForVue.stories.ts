@@ -9,11 +9,9 @@ export default meta;
 type Story = StoryObj<typeof CodeBlockForVue>;
 
 export const Primary: Story = {
-  render: () => ({
-    components: { CodeBlockForVue },
-    template: `
-      <CodeBlockForVue
-        content='<template>
+  args: {
+    hideLineNumbers: false,
+    content: `<template>
 <div class="story">
   Primary Story
 </div>
@@ -29,21 +27,16 @@ const visits = ref(0);
     width: 30%;
   }
 }
-</style>'
-        :hideLineNumbers="false"
-      />
-    `,
-  }),
+</style>`,
+  },
 };
 
 export const HideLineNumbers: Story = {
-  render: () => ({
-    components: { CodeBlockForVue },
-    template: `
-      <CodeBlockForVue
-        content='<template>
+  args: {
+    hideLineNumbers: true,
+    content: `<template>
 <div class="story">
-  Hide Line Numbers Story
+  Primary Story
 </div>
 </template>
 
@@ -57,9 +50,6 @@ const visits = ref(0);
     width: 30%;
   }
 }
-</style>'
-        :hideLineNumbers="true"
-      />
-    `,
-  }),
+</style>`,
+  },
 };

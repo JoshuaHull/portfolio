@@ -9,29 +9,19 @@ export default meta;
 type Story = StoryObj<typeof CodeBlockForTypescript>;
 
 export const Primary: Story = {
-  render: () => ({
-    components: { CodeBlockForTypescript },
-    template: `
-      <CodeBlockForTypescript
-        content='export function greetWorld() {
+  args: {
+    hideLineNumbers: false,
+    content: `export function greetWorld() {
   console.log("Hello, world!");
-}'
-        :hideLineNumbers="false"
-      />
-    `,
-  }),
+}`,
+  },
 };
 
 export const HideLineNumbers: Story = {
-  render: () => ({
-    components: { CodeBlockForTypescript },
-    template: `
-      <CodeBlockForTypescript
-        content='export function greetWorld() {
+  args: {
+    hideLineNumbers: true,
+    content: `export function greetWorld() {
   console.log("Hello, world!");
-}'
-        :hideLineNumbers="true"
-      />
-    `,
-  }),
+}`,
+  },
 };
