@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from "@storybook/vue3";
-import CodeBlockForCSharp from "./CodeBlockForCSharp.vue";
+import CodeBlockForCSharpTemplate from "./CodeBlockForCSharpTemplate.vue";
 
-const meta: Meta<typeof CodeBlockForCSharp> = {
-  title: "Code Blocks/Hydrated/CodeBlockForCSharp",
-  component: CodeBlockForCSharp,
+const meta: Meta<typeof CodeBlockForCSharpTemplate> = {
+  title: "Code Blocks/SSR/CodeBlockForCSharp",
+  component: CodeBlockForCSharpTemplate,
 };
 
 export default meta;
-type Story = StoryObj<typeof CodeBlockForCSharp>;
+type Story = StoryObj<typeof CodeBlockForCSharpTemplate>;
 
 export const Primary: Story = {
   args: {
@@ -20,11 +20,11 @@ export const Primary: Story = {
   },
 };
 
-export const HideLineNumbers: Story = {
+export const Expanded: Story = {
   args: {
     hideLineNumbers: true,
     content: `public class User {
-  public static string Type = "HideLineNumbers";
+  public static string Type = "Primary";
 
   public int Id { get; set; }
 }`,

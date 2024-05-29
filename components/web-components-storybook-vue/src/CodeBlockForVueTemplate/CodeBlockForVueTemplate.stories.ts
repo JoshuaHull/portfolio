@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from "@storybook/vue3";
-import CodeBlockForVue from "./CodeBlockForVue.vue";
+import CodeBlockForVueTemplate from "./CodeBlockForVueTemplate.vue";
 
-const meta: Meta<typeof CodeBlockForVue> = {
-  title: "Code Blocks/Hydrated/CodeBlockForVue",
-  component: CodeBlockForVue,
+const meta: Meta<typeof CodeBlockForVueTemplate> = {
+  title: "Code Blocks/SSR/CodeBlockForVue",
+  component: CodeBlockForVueTemplate,
 };
 
 export default meta;
-type Story = StoryObj<typeof CodeBlockForVue>;
+type Story = StoryObj<typeof CodeBlockForVueTemplate>;
 
 export const Primary: Story = {
   args: {
@@ -32,7 +32,7 @@ const visits = ref(0);
   },
 };
 
-export const HideLineNumbers: Story = {
+export const Expanded: Story = {
   args: {
     hideLineNumbers: true,
     content: `<template>

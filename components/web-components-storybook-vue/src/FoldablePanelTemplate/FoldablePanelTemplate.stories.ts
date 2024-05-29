@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from "@storybook/vue3";
-import FoldablePanel from "./FoldablePanel.vue";
+import FoldablePanelTemplate from "./FoldablePanelTemplate.vue";
 
-const meta: Meta<typeof FoldablePanel> = {
-  title: "Foldables/Hydrated/FoldablePanel",
-  component: FoldablePanel,
+const meta: Meta<typeof FoldablePanelTemplate> = {
+  title: "Foldables/SSR/FoldablePanel",
+  component: FoldablePanelTemplate,
 };
 
 export default meta;
-type Story = StoryObj<typeof FoldablePanel>;
+type Story = StoryObj<typeof FoldablePanelTemplate>;
 
 export const Primary: Story = {
   args: {

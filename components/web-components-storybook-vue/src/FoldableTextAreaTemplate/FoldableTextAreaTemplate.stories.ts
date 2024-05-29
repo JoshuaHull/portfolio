@@ -1,18 +1,17 @@
 import { Meta, StoryObj } from "@storybook/vue3";
-import FoldableTextArea from "./FoldableTextArea.vue";
+import FoldableTextAreaTemplate from "./FoldableTextAreaTemplate.vue";
 
-const meta: Meta<typeof FoldableTextArea> = {
-  title: "Foldables/Hydrated/FoldableTextArea",
-  component: FoldableTextArea,
+const meta: Meta<typeof FoldableTextAreaTemplate> = {
+  title: "Foldables/SSR/FoldableTextArea",
+  component: FoldableTextAreaTemplate,
 };
 
 export default meta;
-type Story = StoryObj<typeof FoldableTextArea>;
+type Story = StoryObj<typeof FoldableTextAreaTemplate>;
 
 export const Primary: Story = {
   args: {
     name: "primary",
-    dataTestId: "primary",
     checked: false,
     panelTitle: "Primary Foldable TextArea",
     disabled: false,
@@ -25,7 +24,6 @@ export const Primary: Story = {
 export const Expanded: Story = {
   args: {
     name: "expanded",
-    dataTestId: "expanded",
     checked: true,
     panelTitle: "Expanded Foldable TextArea",
     disabled: false,

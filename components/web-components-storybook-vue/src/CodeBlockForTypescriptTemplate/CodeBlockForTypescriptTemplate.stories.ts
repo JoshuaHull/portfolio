@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from "@storybook/vue3";
-import CodeBlockForTypescript from "./CodeBlockForTypescript.vue";
+import CodeBlockForTypescriptTemplate from "./CodeBlockForTypescriptTemplate.vue";
 
-const meta: Meta<typeof CodeBlockForTypescript> = {
-  title: "Code Blocks/Hydrated/CodeBlockForTypescript",
-  component: CodeBlockForTypescript,
+const meta: Meta<typeof CodeBlockForTypescriptTemplate> = {
+  title: "Code Blocks/SSR/CodeBlockForTypescript",
+  component: CodeBlockForTypescriptTemplate,
 };
 
 export default meta;
-type Story = StoryObj<typeof CodeBlockForTypescript>;
+type Story = StoryObj<typeof CodeBlockForTypescriptTemplate>;
 
 export const Primary: Story = {
   args: {
@@ -18,7 +18,7 @@ export const Primary: Story = {
   },
 };
 
-export const HideLineNumbers: Story = {
+export const Expanded: Story = {
   args: {
     hideLineNumbers: true,
     content: `export function greetWorld() {

@@ -1,14 +1,14 @@
 import { Meta, StoryObj } from "@storybook/vue3";
-import IconContainer from "./IconContainer.vue";
+import IconContainerTemplate from "./IconContainerTemplate.vue";
 import { StarIcon } from "@heroicons/vue/24/solid";
 
-const meta: Meta<typeof IconContainer> = {
-  title: "Icons/Hydrated/IconContainer",
-  component: IconContainer,
+const meta: Meta<typeof IconContainerTemplate> = {
+  title: "Icons/SSR/IconContainer",
+  component: IconContainerTemplate,
 };
 
 export default meta;
-type Story = StoryObj<typeof IconContainer>;
+type Story = StoryObj<typeof IconContainerTemplate>;
 
 export const HeroIcon: Story = {
   args: {
@@ -17,7 +17,7 @@ export const HeroIcon: Story = {
     color: "#FF0044",
   },
   render: (args) => ({
-    components: { IconContainer, StarIcon },
+    components: { IconContainerTemplate, StarIcon },
     setup() {
       return {
         args,

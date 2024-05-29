@@ -3,6 +3,7 @@ import { userEvent, within, fn, expect, Mock } from "@storybook/test";
 import FoldableTextAreaInteractions from "./FoldableTextAreaInteractions.vue";
 
 const meta: Meta<typeof FoldableTextAreaInteractions> = {
+  title: "Foldables/Hydrated/FoldableTextArea",
   component: FoldableTextAreaInteractions,
 };
 
