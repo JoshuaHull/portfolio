@@ -1,6 +1,6 @@
 <template>
 <fsj-foldable-panel
-  checkboxId="1231"
+  :checkboxId="checkboxId"
   :panelTitle="panelTitle"
   :panelContent="panelContent"
   :defaultChecked="defaultChecked"
