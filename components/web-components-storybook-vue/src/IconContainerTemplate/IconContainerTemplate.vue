@@ -11,14 +11,16 @@ const props = defineProps<{
   height?: string;
   width?: string;
   color?: string;
+  icon: string;
 }>();
 
-const { height, width, color } = toRefs(props);
+const { height, width, color, icon } = toRefs(props);
 
 const template = getIconContainerTemplate();
 const html = computed(() => template({
   height: height?.value,
   width: width?.value,
   color: color?.value,
+  icon: icon.value,
 }));
 </script>

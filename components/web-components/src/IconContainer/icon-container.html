@@ -1,5 +1,9 @@
-<div class="fsj-reset icon-container">
-  <slot></slot>
+<div class="fsj-reset icon-container" {{{styleIconContainer height width color}}}>
+  {{#if icon}}
+    {{{icon}}}
+  {{else}}
+    <slot></slot>
+  {{/if}}
 </div>
 
 <style>
