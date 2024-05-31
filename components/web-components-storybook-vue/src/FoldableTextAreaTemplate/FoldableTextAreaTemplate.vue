@@ -9,6 +9,7 @@ import { computed, toRefs } from "vue";
 
 const props = defineProps<{
   name: string;
+  checkboxId: string;
   checked: boolean;
   panelTitle: string;
   disabled: boolean;
@@ -19,6 +20,7 @@ const props = defineProps<{
 
 const {
   name,
+  checkboxId,
   checked,
   panelTitle,
   disabled,
@@ -30,6 +32,7 @@ const {
 const template = getFoldableTextAreaTemplate();
 const html = computed(() => template({
   name: name?.value,
+  checkboxId: checkboxId.value,
   checked: checked?.value,
   panelTitle: panelTitle?.value,
   disabled: disabled?.value,

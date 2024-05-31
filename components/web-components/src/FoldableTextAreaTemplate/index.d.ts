@@ -1,4 +1,4 @@
 import Handlebars from "handlebars";
 import { FoldableTextAreaProps } from "./../FoldableTextArea/index";
 
-export function getFoldableTextAreaTemplate(): Handlebars.TemplateDelegate<FoldableTextAreaProps>;
+export function getFoldableTextAreaTemplate(): Handlebars.TemplateDelegate<FoldableTextAreaProps & { checkboxId: string }>;

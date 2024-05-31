@@ -12,6 +12,7 @@ type Story = StoryObj<typeof FoldableTextAreaTemplate>;
 export const Primary: Story = {
   args: {
     name: "primary",
+    checkboxId: "1234",
     checked: false,
     panelTitle: "Primary Foldable TextArea",
     disabled: false,
@@ -24,6 +25,7 @@ export const Primary: Story = {
 export const Expanded: Story = {
   args: {
     name: "expanded",
+    checkboxId: "1234",
     checked: true,
     panelTitle: "Expanded Foldable TextArea",
     disabled: false,
