@@ -77,4 +77,24 @@ describe("load", () => {
       },
     });
   });
+
+  test("should be able to compile a file with customer helpers, provided they are registered", () => {
+    // Arrange
+    const resolver = rollupPluginHandlebarsCompile({
+      registerHelpers: (handlebars) => {
+        handlebars.registerHelper("withCustomHelperTimes", (count) => `with ${count} custom helper(s).`);
+      },
+    });
+
+    // Act
+    const result = resolver.load("compile:html:testAssets/custom-helper.template");
+
+    // Assert
+    expect(result).toStrictEqual({
+      code: "export default \"<p>Compiling a file with 1 custom helper(s).</p>\"",
+      map: {
+        mappings: "",
+      },
+    });
+  });
 });

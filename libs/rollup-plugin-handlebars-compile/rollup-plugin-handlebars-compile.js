@@ -30,7 +30,9 @@ export function rollupPluginHandlebarsCompile(options) {
       const readFrom = `./${fileName}.${fileType}`;
       const content = readFileSync(readFrom, "utf-8");
 
-      const compiled = Handlebars.compile(content)(options?.vars);
+      const handlebars = Handlebars.create();
+      options?.registerHelpers?.(handlebars);
+      const compiled = handlebars.compile(content)(options?.vars);
 
       return {
         code: `export default ${JSON.stringify(compiled)}`,

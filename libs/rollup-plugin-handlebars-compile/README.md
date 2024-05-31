@@ -17,6 +17,7 @@ export default defineConfig({
       // options object is optional
       vars: {
         compilerName: "Handlebars",
+        registerHelpers: (handlbars) => {},
       },
     }),
   ],
@@ -39,7 +40,6 @@ Which is used to import a template:
   This is a {{compilerName}} template.
 </div>
 ```
-
 
 From there, you can treat the variable like any other. For example, displaying the content in a React component:
 
