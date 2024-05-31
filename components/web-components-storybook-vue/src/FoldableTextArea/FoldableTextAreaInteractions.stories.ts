@@ -17,6 +17,7 @@ export const Submit: Story = {
     checked: false,
     panelTitle: "Interaction Test: Submit",
     disabled: false,
+    textAreaValue: "",
     textAreaPlaceholder: "placeholder",
     textAreaMaxLength: 100,
     onSubmit: fn(),

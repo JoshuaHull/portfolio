@@ -45,7 +45,6 @@ export const attachFoldableTextAreaTo = (element) => {
       this.#upgradeProperty("disabled");
       this.#upgradeProperty("textAreaPlaceholder");
       this.#upgradeProperty("textAreaValue");
-      this.#upgradeProperty("textAreaMaxLength");
 
       /** @type {HTMLInputElement} */
       const checkbox = this.#getCheckbox();
@@ -149,7 +148,7 @@ export const attachFoldableTextAreaTo = (element) => {
      * @returns {boolean}
      */
     get disabled() {
-      return this.getAttribute("disabled") ?? "false";
+      return this.getAttribute("disabled") ?? "";
     }
 
     /**
@@ -164,7 +163,10 @@ export const attachFoldableTextAreaTo = (element) => {
       const textArea = this.#getTextarea();
       textArea.disabled = value;
 
-      this.setAttribute("disabled", value);
+      if (value)
+        this.setAttribute("disabled", value);
+      else
+        this.removeAttribute("disabled");
     }
 
     /**
