@@ -1,2 +1,2 @@
-export * from "./highlighter-html";
-export * from "./span-html";
+export * from "./highlighter-html.js";
+export * from "./span-html.js";

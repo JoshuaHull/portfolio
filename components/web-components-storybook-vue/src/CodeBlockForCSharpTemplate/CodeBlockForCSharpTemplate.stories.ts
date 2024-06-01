@@ -20,11 +20,11 @@ export const Primary: Story = {
   },
 };
 
-export const Expanded: Story = {
+export const HideLineNumbers: Story = {
   args: {
     hideLineNumbers: true,
     content: `public class User {
-  public static string Type = "Primary";
+  public static string Type = "HideLineNumbers";
 
   public int Id { get; set; }
 }`,
