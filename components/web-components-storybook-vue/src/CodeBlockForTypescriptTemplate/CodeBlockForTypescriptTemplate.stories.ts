@@ -18,7 +18,7 @@ export const Primary: Story = {
   },
 };
 
-export const Expanded: Story = {
+export const HideLineNumbers: Story = {
   args: {
     hideLineNumbers: true,
     content: `export function greetWorld() {

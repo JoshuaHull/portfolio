@@ -1,6 +1,8 @@
 import { CSharpLexer } from "csharp-lexer";
+import { TypescriptLexer } from "typescript-lexer";
 import { HighlighterHtml } from "highlighter-html";
 import { CSharpTokenMap } from "./CodeBlockForCSharp/csharp-token-map";
+import { TypescriptTokenMap } from "./CodeBlockForTypescript/typescript-token-map";
 
 /**
  * @param {import("handlebars").Handlebars} handlebars
@@ -18,6 +20,13 @@ export const registerHandlebarsHelpers = (handlebars) => {
   handlebars.registerHelper("csharp", (content) => {
     const lexer = new CSharpLexer(content ?? "");
     const tokenMap = new CSharpTokenMap();
+    const highlighter = new HighlighterHtml(lexer, tokenMap);
+    return highlighter.toHtml();
+  });
+
+  handlebars.registerHelper("typescript", (content) => {
+    const lexer = new TypescriptLexer(content ?? "");
+    const tokenMap = new TypescriptTokenMap();
     const highlighter = new HighlighterHtml(lexer, tokenMap);
     return highlighter.toHtml();
   });
