@@ -32,12 +32,12 @@ const visits = ref(0);
   },
 };
 
-export const Expanded: Story = {
+export const HideLineNumbers: Story = {
   args: {
     hideLineNumbers: true,
     content: `<template>
 <div class="story">
-  Primary Story
+  HideLineNumbers Story
 </div>
 </template>
 

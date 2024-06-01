@@ -37,7 +37,7 @@ export const HideLineNumbers: Story = {
     hideLineNumbers: true,
     content: `<template>
 <div class="story">
-  Primary Story
+  HideLineNumbers Story
 </div>
 </template>
 

@@ -1,6 +1,6 @@
-<div class="fsj-reset code-block-container">
-  <pre class="line-numbers"></pre>
-  <pre class="code-block"></pre>
+<div class="fsj-reset code-block-container {{#if hideLineNumbers}}hide-line-numbers{{/if}}">
+  <pre class="line-numbers">{{#unless hideLineNumbers}}{{lineNumbers content}}{{/unless}}</pre>
+  <pre class="code-block">{{{vue content}}}</pre>
 </div>
 <style>
 .fsj-reset {
