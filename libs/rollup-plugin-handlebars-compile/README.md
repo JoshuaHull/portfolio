@@ -14,11 +14,12 @@ import { rollupPluginHandlebarsCompile } from "rollup-plugin-handlebars-compile"
 export default defineConfig({
   plugins: [
     rollupPluginHandlebarsCompile({
-      // options object is optional
+      // options object and all its properties are optional
       vars: {
         compilerName: "Handlebars",
-        registerHelpers: (handlbars) => {},
       },
+      registerHelpers: (handlbars) => {},
+      relativeTo: "../somewhere/else/useful/in/monorepos"
     }),
   ],
 });

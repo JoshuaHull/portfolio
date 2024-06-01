@@ -97,4 +97,25 @@ describe("load", () => {
       },
     });
   });
+
+  test("should allow providing an alternative root from which to resolve the templates", () => {
+    // Arrange
+    const resolver = rollupPluginHandlebarsCompile({
+      relativeTo: "testAssets/alternativeRoot",
+      vars: {
+        alternativeRoot: "testAssets/alternativeRoot",
+      },
+    });
+
+    // Act
+    const result = resolver.load("compile:html:some.template");
+
+    // Assert
+    expect(result).toStrictEqual({
+      code: "export default \"<p>Resolving from testAssets/alternativeRoot.</p>\"",
+      map: {
+        mappings: "",
+      },
+    });
+  });
 });

@@ -27,7 +27,8 @@ export function rollupPluginHandlebarsCompile(options) {
       const fileType = parts[1];
       const fileName = parts[2];
 
-      const readFrom = `./${fileName}.${fileType}`;
+      const relativeTo = options?.relativeTo ?? ".";
+      const readFrom = `${relativeTo}/${fileName}.${fileType}`;
       const content = readFileSync(readFrom, "utf-8");
 
       const handlebars = Handlebars.create();
