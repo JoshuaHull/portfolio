@@ -1,5 +1,6 @@
 import { PathScurry } from "path-scurry";
 import fs from "fs/promises";
+import events from "events";
 
 const name = "rollup-plugin-copy";
 
@@ -19,10 +20,18 @@ export function rollupPluginCopy({
       if (fromContainsStar !== toContainsStar)
         throw new Error("Invalid options: either 'from' and 'to' must both contain '*', or neither of them should.");
 
-      if (fromContainsStar)
-        await copyAllMatchingFiles(from, to);
-      else
-        await copySingleFile(from, to);
+      // path-scurry attaches a lot of drain listeners, so we temporarily increase the listener limit
+      const originalMaxListeners = events.defaultMaxListeners
+      events.defaultMaxListeners = 0;
+
+      try {
+        if (fromContainsStar)
+          await copyAllMatchingFiles(from, to);
+        else
+          await copySingleFile(from, to);
+      } finally {
+        events.defaultMaxListeners = originalMaxListeners;
+      }
     },
   };
 }
