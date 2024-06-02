@@ -70,7 +70,7 @@ Will yield the following:
 aChunkOfFileContent === "export function trim(input) {\nreturn input.trim();\n}"
 ```
 
-### \r\n
+#### \r\n
 
 To build a chunk, this plugin splits the file contents on "\n", pulls out the requested lines, then assembles the chunk with "\n". You can override the line separators used in case your target files use "\r\n".
 
@@ -92,3 +92,25 @@ export default defineConfig({
 ```
 
 Currently, these options apply to all files imported through this plugin.
+
+### relativeTo
+
+By default, when importing the content from some file, you must provide the path to that file relative to `vite.config.ts` (or from wherever this plugin is imported). That can be a pain if you're only ever importing from a single deeply nested folder, or in a monorepo.
+
+The `relativeTo` option allows you to specify an alternative root from which to import file content/chunks.
+
+```js
+// vite.config.js
+
+import { resolve } from "path";
+import { defineConfig } from "vite";
+import { rollupPluginContentChunks } from "rollup-plugin-content-chunks";
+
+export default defineConfig({
+  plugins: [
+    rollupPluginContentChunks({
+      relativeTo: "../somewhere/else/in/my/monorepo",
+    }),
+  ],
+});
+```

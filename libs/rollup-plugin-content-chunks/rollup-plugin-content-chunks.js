@@ -28,7 +28,7 @@ export function rollupPluginContentChunks(options) {
 
       return fileType.includes("@")
         ? readChunkOfFile(fileType, fileName, options)
-        : readEntireFile(fileType, fileName);
+        : readEntireFile(fileType, fileName, options);
     },
   };
 }
@@ -36,10 +36,12 @@ export function rollupPluginContentChunks(options) {
 /**
  * @param {string} fileType
  * @param {string} fileName
+ * @param {import("./rollup-plugin-content-chunks").ContentChunksOptions | undefined} options
  * @returns {LoadResult}
  */
-function readEntireFile(fileType, fileName) {
-  const readFrom = `./${fileName}.${fileType}`;
+function readEntireFile(fileType, fileName, options) {
+  const relativeTo = options?.relativeTo ?? ".";
+  const readFrom = `${relativeTo}/${fileName}.${fileType}`;
   const content = readFileSync(readFrom, "utf-8");
 
   return {
@@ -57,6 +59,7 @@ function readEntireFile(fileType, fileName) {
  * @returns {LoadResult}
  */
 function readChunkOfFile(fileType, fileName, options) {
+  const relativeTo = options?.relativeTo ?? ".";
   const fileLineSeparator = options?.fileLineSeparator ?? "\n";
   const outputLineSeparator = options?.outputLineSeparator ?? "\n";
   const [ft, selectedLines] = fileType.split("@");
@@ -65,7 +68,7 @@ function readChunkOfFile(fileType, fileName, options) {
   const fromIdx = Number.parseInt(from) - 1;
   const toIdx = Number.parseInt(to) - 1;
 
-  const readFrom = `./${fileName}.${ft}`;
+  const readFrom = `${relativeTo}/${fileName}.${ft}`;
   const content = readFileSync(readFrom, "utf-8");
 
   const lines = content.split(fileLineSeparator);

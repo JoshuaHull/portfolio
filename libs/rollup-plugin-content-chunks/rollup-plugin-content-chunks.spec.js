@@ -55,6 +55,24 @@ describe("load", () => {
       },
     });
   });
+
+  test("should allow loading file content from an alternative root folder", () => {
+    // Arrange
+    const resolver = rollupPluginContentChunks({
+      relativeTo: "testAssets/alternativeRoot",
+    });
+
+    // Act
+    const result = resolver.load("content:cs:SmallFileFromOtherRoot");
+
+    // Assert
+    expect(result).toStrictEqual({
+      code: "export default \"namespace AlternativeRoot; public class SmallClassFromOtherRoot {}\"",
+      map: {
+        mappings: "",
+      },
+    });
+  });
 });
 
 describe("loading part of a file", () => {
@@ -84,6 +102,24 @@ describe("loading part of a file", () => {
     // Assert
     expect(result).toStrictEqual({
       code: `export default "  private const string Prefix = \\"content:\\";"`,
+      map: {
+        mappings: "",
+      },
+    });
+  });
+
+  test("should resolve chunks from a file in an alternative root folder", () => {
+    // Arrange
+    const resolver = rollupPluginContentChunks({
+      relativeTo: "testAssets/alternativeRoot",
+    });
+
+    // Act
+    const result = resolver.load("content:cs@3,4:LargeCSharpFileFromOtherRoot");
+
+    // Assert
+    expect(result).toStrictEqual({
+      code: `export default "public class LargeCSharpFileFromOtherRoot {"`,
       map: {
         mappings: "",
       },
