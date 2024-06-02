@@ -1,8 +1,8 @@
 import { Plugin } from "rollup";
 
 export type ContentChunksOptions = {
-  fileLineSeparator: string;
-  outputLineSeparator: string;
+  fileLineSeparator?: string;
+  outputLineSeparator?: string;
   relativeTo?: string;
 };
 
