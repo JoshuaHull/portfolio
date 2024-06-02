@@ -1,5 +1,6 @@
 import { readFileSync } from "fs";
 import Handlebars from "handlebars";
+import path from "path";
 
 const name = "rollup-plugin-handlebars-compile";
 const prefix = "compile:";
@@ -34,6 +35,9 @@ export function rollupPluginHandlebarsCompile(options) {
       const handlebars = Handlebars.create();
       options?.registerHelpers?.(handlebars);
       const compiled = handlebars.compile(content)(options?.vars);
+
+      const resolved = path.resolve(readFrom);
+      this.addWatchFile(resolved);
 
       return {
         code: `export default ${JSON.stringify(compiled)}`,
