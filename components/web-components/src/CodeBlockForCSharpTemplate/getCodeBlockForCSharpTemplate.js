@@ -1,6 +1,6 @@
 import codeBlockForCSharpContent from "content:html:src/CodeBlockForCSharp/code-block-for-csharp";
 import Handlebars from "handlebars";
-import { registerHandlebarsHelpers } from "../registerHandlebarsHelpers";
+import { registerHandlebarsHelpers } from "../_handlebars-helpers/registerHandlebarsHelpers";
 
 /**
  * @type {import("./index").getCodeBlockForCSharpTemplate}
