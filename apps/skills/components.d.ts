@@ -98,7 +98,6 @@ declare module 'vue' {
     SkillsIntro: typeof import('./src/pages/all-page/components/SkillsIntro.vue')['default']
     StagedChange: typeof import('./src/components/source-controlling/StagedChange.vue')['default']
     StagingArea: typeof import('./src/components/source-controlling/StagingArea.vue')['default']
-    StarRating: typeof import('./src/components/ratings/StarRating.vue')['default']
     TabbedDocument: typeof import('./src/components/tabs/TabbedDocument.vue')['default']
     TestExample: typeof import('./src/pages/all-page/articles/tests-article/components/TestExample.vue')['default']
     TestsArticle: typeof import('./src/pages/all-page/articles/tests-article/TestsArticle.vue')['default']
