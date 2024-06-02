@@ -1,6 +1,13 @@
 # Change Log - @fullstackjosh/web-components
 
-This log was last generated on Fri, 24 May 2024 13:19:59 GMT and should not be manually modified.
+This log was last generated on Sun, 02 Jun 2024 04:56:57 GMT and should not be manually modified.
+
+## 0.3.0
+Sun, 02 Jun 2024 04:56:57 GMT
+
+### Minor changes
+
+- new IconContainer component, SSR improvements
 
 ## 0.2.0
 Fri, 24 May 2024 13:19:59 GMT
