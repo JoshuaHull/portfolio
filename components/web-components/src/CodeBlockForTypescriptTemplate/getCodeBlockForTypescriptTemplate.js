@@ -1,11 +1,12 @@
 import codeBlockForTypescriptContent from "content:html:src/CodeBlockForTypescript/code-block-for-typescript";
 import Handlebars from "handlebars";
-import { registerHandlebarsHelpers } from "../_handlebars-helpers/registerHandlebarsHelpers";
+import { registerLineNumbersHelper, registerTypescriptHelper } from "../_handlebars-helpers/index.js";
 
 /**
  * @type {import("./index").getCodeBlockForTypescriptTemplate}
  */
 export const getCodeBlockForTypescriptTemplate = () => {
-  registerHandlebarsHelpers(Handlebars);
+  registerTypescriptHelper(Handlebars);
+  registerLineNumbersHelper(Handlebars);
   return Handlebars.compile(codeBlockForTypescriptContent);
 };

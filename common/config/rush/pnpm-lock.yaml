@@ -72,7 +72,7 @@ importers:
       handlebars: ~4.7.8
       highlighter-html: workspace:*
       rollup-plugin-auto-package-json: 'workspace:'
-      rollup-plugin-content-chunks: workspace:0.1.0
+      rollup-plugin-content-chunks: workspace:0.2.0
       rollup-plugin-copy: 'workspace:'
       rollup-plugin-handlebars-compile: 'workspace:'
       rollup-plugin-prepare-dist: 'workspace:'
@@ -95,7 +95,7 @@ importers:
 
   ../../components/web-components-storybook-vue:
     specifiers:
-      '@fullstackjosh/web-components': workspace:0.2.0
+      '@fullstackjosh/web-components': workspace:0.3.0
       '@heroicons/vue': ^2.1.3
       '@storybook/addon-essentials': ^8.1.5
       '@storybook/addon-interactions': ^8.1.5
@@ -108,7 +108,7 @@ importers:
       '@vitejs/plugin-vue': ^3.0.3
       react: ^18.2.0
       react-dom: ^18.2.0
-      rollup-plugin-content-chunks: workspace:0.1.0
+      rollup-plugin-content-chunks: workspace:0.2.0
       rollup-plugin-handlebars-compile: 'workspace:'
       storybook: ^8.1.5
       typescript: ^5.4.5
