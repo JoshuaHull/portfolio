@@ -4,12 +4,19 @@ import { TypescriptTokenMap } from "./../CodeBlockForTypescript/typescript-token
 
 /**
  * @type {import("./index.d.ts").registerTypescriptHelper}
+ * @param {typeof Handlebars} handlebars
  */
 export const registerTypescriptHelper = (handlebars) => {
-  handlebars.registerHelper("typescript", (content) => {
-    const lexer = new TypescriptLexer(content ?? "");
-    const tokenMap = new TypescriptTokenMap();
-    const highlighter = new HighlighterHtml(lexer, tokenMap);
-    return highlighter.toHtml();
-  });
+  handlebars.registerHelper("typescript",
+    /**
+     * @param {string} content
+     * @returns {string}
+     */
+    (content) => {
+      const lexer = new TypescriptLexer(content ?? "");
+      const tokenMap = new TypescriptTokenMap();
+      const highlighter = new HighlighterHtml(lexer, tokenMap);
+      return highlighter.toHtml();
+    }
+  );
 };

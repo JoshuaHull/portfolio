@@ -6,6 +6,7 @@ import { registerStyleIconContainerHelper } from "./styleIconContainer.js";
 
 /**
  * @type {import("./index.d.ts").registerHandlebarsHelpers}
+ * @param {typeof Handlebars} handlebars
  */
 export const registerHandlebarsHelpers = (handlebars) => {
   registerStyleIconContainerHelper(handlebars);

@@ -7,5 +7,8 @@
   "types": "./rollup-plugin-auto-package-json.d.ts",
   "scripts": {
     "build": ""
+  },
+  "devDependencies": {
+    "rollup": "^4.13.0"
   }
 }

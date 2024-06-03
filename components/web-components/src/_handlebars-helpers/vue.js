@@ -4,12 +4,19 @@ import { VueTokenMap } from "./../CodeBlockForVue/vue-token-map.js";
 
 /**
  * @type {import("./index.d.ts").registerVueHelper}
+ * @param {typeof Handlebars} handlebars
  */
 export const registerVueHelper = (handlebars) => {
-  handlebars.registerHelper("vue", (content) => {
-    const lexer = new VueLexer(content ?? "");
-    const tokenMap = new VueTokenMap();
-    const highlighter = new HighlighterHtml(lexer, tokenMap);
-    return highlighter.toHtml();
-  });
+  handlebars.registerHelper("vue",
+    /**
+     * @param {string} content
+     * @returns {string}
+     */
+    (content) => {
+      const lexer = new VueLexer(content ?? "");
+      const tokenMap = new VueTokenMap();
+      const highlighter = new HighlighterHtml(lexer, tokenMap);
+      return highlighter.toHtml();
+    }
+  );
 };

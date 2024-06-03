@@ -4,12 +4,19 @@ import { CSharpTokenMap } from "./../CodeBlockForCSharp/csharp-token-map.js";
 
 /**
  * @type {import("./index.d.ts").registerCSharpHelper}
+ * @param {typeof Handlebars} handlebars
  */
 export const registerCSharpHelper = (handlebars) => {
-  handlebars.registerHelper("csharp", (content) => {
-    const lexer = new CSharpLexer(content ?? "");
-    const tokenMap = new CSharpTokenMap();
-    const highlighter = new HighlighterHtml(lexer, tokenMap);
-    return highlighter.toHtml();
-  });
+  handlebars.registerHelper("csharp",
+    /**
+     * @param {string} content
+     * @returns {string}
+     */
+    (content) => {
+      const lexer = new CSharpLexer(content ?? "");
+      const tokenMap = new CSharpTokenMap();
+      const highlighter = new HighlighterHtml(lexer, tokenMap);
+      return highlighter.toHtml();
+    }
+  );
 };

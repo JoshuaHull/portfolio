@@ -5,7 +5,7 @@ import { rollupPluginCopy } from "rollup-plugin-copy";
 import { rollupPluginAutoPackageJson } from "rollup-plugin-auto-package-json";
 import { rollupPluginHandlebarsCompile } from "rollup-plugin-handlebars-compile";
 import { rollupPluginPrepareDist } from "rollup-plugin-prepare-dist";
-import { registerHandlebarsHelpers } from "./src/_handlebars-helpers/registerHandlebarsHelpers";
+import { registerHandlebarsHelpers } from "./src/_handlebars-helpers/registerHandlebarsHelpers.js";
 
 // https://vitejs.dev/config/
 export default defineConfig({
