@@ -3,7 +3,6 @@ import { HighlighterHtml } from "highlighter-html";
 import { VueTokenMap } from "./../CodeBlockForVue/vue-token-map.js";
 
 /**
- * @type {import("./index.d.ts").registerVueHelper}
  * @param {typeof Handlebars} handlebars
  */
 export const registerVueHelper = (handlebars) => {

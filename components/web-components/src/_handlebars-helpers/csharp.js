@@ -3,7 +3,6 @@ import { HighlighterHtml } from "highlighter-html";
 import { CSharpTokenMap } from "./../CodeBlockForCSharp/csharp-token-map.js";
 
 /**
- * @type {import("./index.d.ts").registerCSharpHelper}
  * @param {typeof Handlebars} handlebars
  */
 export const registerCSharpHelper = (handlebars) => {

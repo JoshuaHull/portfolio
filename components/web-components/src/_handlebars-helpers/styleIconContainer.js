@@ -1,5 +1,4 @@
 /**
- * @type {import("./index.d.ts").registerStyleIconContainerHelper}
  * @param {typeof Handlebars} handlebars
  */
 export const registerStyleIconContainerHelper = (handlebars) => {

@@ -1,6 +1,7 @@
 import codeBlockForTypescriptContent from "content:html:src/CodeBlockForTypescript/code-block-for-typescript";
 import Handlebars from "handlebars";
-import { registerLineNumbersHelper, registerTypescriptHelper } from "../_handlebars-helpers/index.js";
+import { registerLineNumbersHelper } from "../_handlebars-helpers/lineNumbers.js";
+import { registerTypescriptHelper } from "../_handlebars-helpers/typescript.js";
 
 /**
  * @type {import("./index").getCodeBlockForTypescriptTemplate}

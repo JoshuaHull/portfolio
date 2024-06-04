@@ -1,6 +1,7 @@
 import codeBlockForVueContent from "content:html:src/CodeBlockForVue/code-block-for-vue";
 import Handlebars from "handlebars";
-import { registerLineNumbersHelper, registerVueHelper } from "../_handlebars-helpers/index.js";
+import { registerLineNumbersHelper } from "../_handlebars-helpers/lineNumbers.js";
+import { registerVueHelper } from "../_handlebars-helpers/vue.js";
 
 /**
  * @type {import("./index").getCodeBlockForVueTemplate}

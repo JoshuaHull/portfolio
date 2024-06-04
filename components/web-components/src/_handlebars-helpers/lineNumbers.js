@@ -1,5 +1,4 @@
 /**
- * @type {import("./index.d.ts").registerLineNumbersHelper}
  * @param {typeof Handlebars} handlebars
  */
 export const registerLineNumbersHelper = (handlebars) => {

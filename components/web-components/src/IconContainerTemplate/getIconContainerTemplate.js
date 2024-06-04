@@ -1,6 +1,6 @@
 import iconContainerContent from "content:html:src/IconContainer/icon-container";
 import Handlebars from "handlebars";
-import { registerStyleIconContainerHelper } from "../_handlebars-helpers/index.js";
+import { registerStyleIconContainerHelper } from "../_handlebars-helpers/styleIconContainer.js";
 
 /**
  * @type {import("./index").getIconContainerTemplate}

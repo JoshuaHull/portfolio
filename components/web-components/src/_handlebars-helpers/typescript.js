@@ -3,7 +3,6 @@ import { HighlighterHtml } from "highlighter-html";
 import { TypescriptTokenMap } from "./../CodeBlockForTypescript/typescript-token-map.js";
 
 /**
- * @type {import("./index.d.ts").registerTypescriptHelper}
  * @param {typeof Handlebars} handlebars
  */
 export const registerTypescriptHelper = (handlebars) => {
