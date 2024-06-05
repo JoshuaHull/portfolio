@@ -1,0 +1,79 @@
+<div class="multi-tabbed-document">
+  <div class="multi-tabbed-document-tabs">
+    {{#each tabTitles}}
+      <header class="tabbed-document-header{{#equal ../currentTab @index}} selected{{/equal}}">
+        {{{this}}}
+      </header>
+    {{/each}}
+  </div>
+  {{#each tabContents}}
+    <article
+      class="tabbed-document"
+      style="
+        z-index: {{#equal ../currentTab @index}}1{{else}}0{{/equal}};
+        opacity: {{#equal ../currentTab @index}}100%{{else}}0%{{/equal}};
+      "
+    >
+      <section class="tabbed-document-content">
+        {{{this}}}
+      </section>
+    </article>
+  {{/each}}
+</div>
+
+<style>
+.multi-tabbed-document {
+  position: relative;
+  z-index: 0;
+  display: grid;
+  grid-template-areas:
+    "tabs"
+    "document"
+  ;
+  grid-template-rows: min-content auto;
+}
+
+.tabbed-document {
+  grid-area: document;
+}
+
+.tabbed-document-header {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.25rem;
+  width: min-content;
+  white-space: nowrap;
+}
+
+.tabbed-document-content {
+  width: fit-content;
+}
+
+.multi-tabbed-document-tabs {
+  grid-area: tabs;
+  display: flex;
+  flex-direction: row;
+}
+
+.tabbed-document-header {
+  color: var(--multi-tabbed-document-colour, black);
+  border-top-right-radius: var(--multi-tabbed-document-border-radius, 0.5rem);
+  border-top-left-radius: var(--multi-tabbed-document-border-radius, 0.5rem);
+  background-color: var(--multi-tabbed-document-header-background-colour, darkkhaki);
+  cursor: {{#equal tabCount 1}}default{{else}}pointer{{/equal}};
+}
+
+.tabbed-document-header.selected {
+  background-color:  var(--multi-tabbed-document-background-colour, khaki);
+}
+
+.tabbed-document-content {
+  background-color: var(--multi-tabbed-document-background-colour, khaki);
+  color: var(--multi-tabbed-document-colour, black);
+  padding: var(--multi-tabbed-document-padding, 1rem);
+  border-top-right-radius: var(--multi-tabbed-document-border-radius, 0.5rem);
+  border-bottom-left-radius: var(--multi-tabbed-document-border-radius, 0.5rem);
+  border-bottom-right-radius: var(--multi-tabbed-document-border-radius, 0.5rem);
+  height: var(--multi-tabbed-document-height, default);
+}
+</style>

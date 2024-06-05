@@ -25,6 +25,8 @@ export default defineConfig({
         "CodeBlockForVueTemplate": resolve(__dirname, "src/CodeBlockForVueTemplate/index.js"),
         "CodeBlockForCSharp": resolve(__dirname, "src/CodeBlockForCSharp/index.js"),
         "CodeBlockForCSharpTemplate": resolve(__dirname, "src/CodeBlockForCSharpTemplate/index.js"),
+        "MultiTabbedDocument": resolve(__dirname, "src/MultiTabbedDocument/index.js"),
+        "MultiTabbedDocumentTemplate": resolve(__dirname, "src/MultiTabbedDocumentTemplate/index.js"),
       },
       name: "@fullstackjosh/web-components",
       formats: ["es", "cjs"],
