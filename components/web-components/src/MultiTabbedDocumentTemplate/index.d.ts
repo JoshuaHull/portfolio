@@ -5,5 +5,6 @@ export function getMultiTabbedDocumentTemplate(): Handlebars.TemplateDelegate<
   MultiTabbedDocumentProps & {
     tabTitles: string[];
     tabContents: string[];
+    variant?: "editor";
   }
 >;

@@ -37,3 +37,7 @@
   --code-block-cs-comment: #65737e;
   --code-block-cs-number: #d0876e;
 }
+
+pre {
+  margin: 0;
+}

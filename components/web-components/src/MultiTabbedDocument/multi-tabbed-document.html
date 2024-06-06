@@ -1,4 +1,16 @@
-<div class="multi-tabbed-document">
+<div
+  class="multi-tabbed-document"
+  {{#equal variant "editor"}}
+  style="
+    --multi-tabbed-document-colour: white;
+    --multi-tabbed-document-header-background-colour: #383C4A;
+    --multi-tabbed-document-background-colour: #232830;
+    --multi-tabbed-document-border-radius: 0;
+    --multi-tabbed-document-padding: 0;
+    --multi-tabbed-document-height: 100%;
+  "
+  {{/equal}}
+>
   <div class="multi-tabbed-document-tabs">
     {{#each tabTitles}}
       <header class="tabbed-document-header{{#equal ../currentTab @index}} selected{{/equal}}">

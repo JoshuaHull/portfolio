@@ -12,6 +12,7 @@ const props = defineProps<{
   currentTab: number;
   tabTitles: string[];
   tabContents: string[];
+  variant?: "editor";
 }>();
 
 const {
@@ -19,6 +20,7 @@ const {
   currentTab,
   tabTitles,
   tabContents,
+  variant,
 } = toRefs(props);
 
 const template = getMultiTabbedDocumentTemplate();
@@ -27,5 +29,6 @@ const html = computed(() => template({
   currentTab: currentTab.value,
   tabTitles: tabTitles.value,
   tabContents: tabContents.value,
+  variant: variant.value,
 }));
 </script>
