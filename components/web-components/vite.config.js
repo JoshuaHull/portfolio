@@ -7,27 +7,26 @@ import { rollupPluginHandlebarsCompile } from "rollup-plugin-handlebars-compile"
 import { rollupPluginPrepareDist } from "rollup-plugin-prepare-dist";
 import { registerHandlebarsHelpers } from "./src/_handlebars-helpers/registerHandlebarsHelpers.js";
 
+const components = [
+  "FoldablePanel",
+  "FoldableTextArea",
+  "IconContainer",
+  "CodeBlockForTypescript",
+  "CodeBlockForVue",
+  "CodeBlockForCSharp",
+  "MultiTabbedDocument",
+];
+
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
     emptyOutDir: false,
     lib: {
-      entry: {
-        "FoldablePanel": resolve(__dirname, "src/FoldablePanel/index.js"),
-        "FoldablePanelTemplate": resolve(__dirname, "src/FoldablePanelTemplate/index.js"),
-        "FoldableTextArea": resolve(__dirname, "src/FoldableTextArea/index.js"),
-        "FoldableTextAreaTemplate": resolve(__dirname, "src/FoldableTextAreaTemplate/index.js"),
-        "IconContainer": resolve(__dirname, "src/IconContainer/index.js"),
-        "IconContainerTemplate": resolve(__dirname, "src/IconContainerTemplate/index.js"),
-        "CodeBlockForTypescript": resolve(__dirname, "src/CodeBlockForTypescript/index.js"),
-        "CodeBlockForTypescriptTemplate": resolve(__dirname, "src/CodeBlockForTypescriptTemplate/index.js"),
-        "CodeBlockForVue": resolve(__dirname, "src/CodeBlockForVue/index.js"),
-        "CodeBlockForVueTemplate": resolve(__dirname, "src/CodeBlockForVueTemplate/index.js"),
-        "CodeBlockForCSharp": resolve(__dirname, "src/CodeBlockForCSharp/index.js"),
-        "CodeBlockForCSharpTemplate": resolve(__dirname, "src/CodeBlockForCSharpTemplate/index.js"),
-        "MultiTabbedDocument": resolve(__dirname, "src/MultiTabbedDocument/index.js"),
-        "MultiTabbedDocumentTemplate": resolve(__dirname, "src/MultiTabbedDocumentTemplate/index.js"),
-      },
+      entry: components.reduce((acc, curr) => ({
+        ...acc,
+        [curr]: resolve(__dirname, `src/${curr}/index.js`),
+        [`${curr}Template`]: resolve(__dirname, `src/${curr}Template/index.js`),
+      }), {}),
       name: "@fullstackjosh/web-components",
       formats: ["es", "cjs"],
       fileName: (format, entryName) => `${entryName}/index.${format === "es" ? "mjs" : "cjs"}`,
