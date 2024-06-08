@@ -1,4 +1,5 @@
 import { readFileSync } from "fs";
+import path from "path";
 
 const name = "rollup-plugin-content-chunks";
 const prefix = "content:";
@@ -27,8 +28,8 @@ export function rollupPluginContentChunks(options) {
       const fileName = parts[2];
 
       return fileType.includes("@")
-        ? readChunkOfFile(fileType, fileName, options)
-        : readEntireFile(fileType, fileName, options);
+        ? readChunkOfFile.bind(this)(fileType, fileName, options)
+        : readEntireFile.bind(this)(fileType, fileName, options);
     },
   };
 }
@@ -42,6 +43,10 @@ export function rollupPluginContentChunks(options) {
 function readEntireFile(fileType, fileName, options) {
   const relativeTo = options?.relativeTo ?? ".";
   const readFrom = `${relativeTo}/${fileName}.${fileType}`;
+
+  const resolved = path.resolve(readFrom);
+  this.addWatchFile(resolved);
+
   const content = readFileSync(readFrom, "utf-8");
 
   return {
@@ -69,6 +74,10 @@ function readChunkOfFile(fileType, fileName, options) {
   const toIdx = Number.parseInt(to) - 1;
 
   const readFrom = `${relativeTo}/${fileName}.${ft}`;
+
+  const resolved = path.resolve(readFrom);
+  this.addWatchFile(resolved);
+
   const content = readFileSync(readFrom, "utf-8");
 
   const lines = content.split(fileLineSeparator);
