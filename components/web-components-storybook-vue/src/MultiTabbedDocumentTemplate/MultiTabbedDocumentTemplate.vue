@@ -9,7 +9,7 @@ import { computed, toRefs } from "vue";
 
 const props = defineProps<{
   tabCount: number;
-  currentTab: number;
+  initialCurrentTab: number;
   tabTitles: string[];
   tabContents: string[];
   variant?: "editor";
@@ -17,7 +17,7 @@ const props = defineProps<{
 
 const {
   tabCount,
-  currentTab,
+  initialCurrentTab,
   tabTitles,
   tabContents,
   variant,
@@ -26,7 +26,7 @@ const {
 const template = getMultiTabbedDocumentTemplate();
 const html = computed(() => template({
   tabCount: tabCount.value,
-  currentTab: currentTab.value,
+  initialCurrentTab: initialCurrentTab.value,
   tabTitles: tabTitles.value,
   tabContents: tabContents.value,
   variant: variant.value,

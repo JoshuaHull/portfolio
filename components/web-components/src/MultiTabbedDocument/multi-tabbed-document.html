@@ -13,7 +13,7 @@
 >
   <div class="multi-tabbed-document-tabs">
     {{#each tabTitles}}
-      <header class="tabbed-document-header{{#equal ../currentTab @index}} selected{{/equal}}">
+      <header class="tabbed-document-header{{#equal ../initialCurrentTab @index}} selected{{/equal}}">
         {{{this}}}
       </header>
     {{/each}}
@@ -22,8 +22,8 @@
     <article
       class="tabbed-document"
       style="
-        z-index: {{#equal ../currentTab @index}}1{{else}}0{{/equal}};
-        opacity: {{#equal ../currentTab @index}}100%{{else}}0%{{/equal}};
+        z-index: {{#equal ../initialCurrentTab @index}}1{{else}}0{{/equal}};
+        opacity: {{#equal ../initialCurrentTab @index}}100%{{else}}0%{{/equal}};
       "
     >
       <section class="tabbed-document-content">

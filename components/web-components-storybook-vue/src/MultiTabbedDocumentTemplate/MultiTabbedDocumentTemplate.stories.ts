@@ -13,7 +13,7 @@ export const OneTab: Story = {
   args: {
     tabCount: 1,
     tabTitles: ["First"],
-    currentTab: 0,
+    initialCurrentTab: 0,
     tabContents: [
       "We need to type enough content here to stretch beyond the width of the tab title.",
     ],
@@ -24,7 +24,7 @@ export const TwoTabsFirstSelected: Story = {
   args: {
     tabCount: 2,
     tabTitles: ["First", "Second"],
-    currentTab: 0,
+    initialCurrentTab: 0,
     tabContents: [
       "We need to type enough content here to stretch beyond the width of the tab title.",
       "We should type a different amount of content here.",
@@ -36,7 +36,7 @@ export const TwoTabsSecondSelected: Story = {
   args: {
     tabCount: 2,
     tabTitles: ["First", "Second"],
-    currentTab: 1,
+    initialCurrentTab: 1,
     tabContents: [
       "We need to type enough content here to stretch beyond the width of the tab title.",
       "We should type a different amount of content here.",
@@ -48,7 +48,7 @@ export const ThreeTabsThirdSelected: Story = {
   args: {
     tabCount: 3,
     tabTitles: ["First", "Second", "<b>Third</b>"],
-    currentTab: 2,
+    initialCurrentTab: 2,
     tabContents: [
       "We need to type enough content here to stretch beyond the width of the tab title.",
       "We should type a different amount of content here.",
@@ -63,7 +63,7 @@ export const OneTabEditor: Story = {
   args: {
     tabCount: 1,
     tabTitles: ["MultiTabbedDocument.cs"],
-    currentTab: 0,
+    initialCurrentTab: 0,
     tabContents: [
       `
 <pre><code>
@@ -73,7 +73,7 @@ export const OneTabEditor: Story = {
    |
  3 |   public string[] TabTitles { get; set; }
    |
- 4 |   public int CurrentTab { get; set; }
+ 4 |   public int initialCurrentTab { get; set; }
    |
  5 |   public string[] TabContents { get; set; }   
    |
@@ -92,7 +92,7 @@ export const TwoTabsSecondSelectedEditor: Story = {
   args: {
     tabCount: 2,
     tabTitles: ["MultiTabbedDocument.cs", "Page.cs"],
-    currentTab: 1,
+    initialCurrentTab: 1,
     tabContents: [
       "",
       `
