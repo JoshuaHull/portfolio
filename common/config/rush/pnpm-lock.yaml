@@ -72,7 +72,7 @@ importers:
       handlebars: ~4.7.8
       highlighter-html: workspace:*
       rollup-plugin-auto-package-json: 'workspace:'
-      rollup-plugin-content-chunks: workspace:0.2.0
+      rollup-plugin-content-chunks: 'workspace:'
       rollup-plugin-copy: 'workspace:'
       rollup-plugin-handlebars-compile: 'workspace:'
       rollup-plugin-prepare-dist: 'workspace:'
@@ -4101,7 +4101,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.4.27_typescript@5.4.5
-      vue-component-type-helpers: 2.0.19
+      vue-component-type-helpers: 2.0.20
     transitivePeerDependencies:
       - encoding
       - prettier
@@ -10176,6 +10176,10 @@ packages:
 
   /vue-component-type-helpers/2.0.19:
     resolution: {integrity: sha512-cN3f1aTxxKo4lzNeQAkVopswuImUrb5Iurll9Gaw5cqpnbTAxtEMM1mgi6ou4X79OCyqYv1U1mzBHJkzmiK82w==}
+    dev: true
+
+  /vue-component-type-helpers/2.0.20:
+    resolution: {integrity: sha512-Weol01CnbTkPrKHT4Gi5q+llB170X/q/oJ0AYrC1zRBm+OhEun1+j4mKr2Y1kXG1hgGnjvuBPshy+bRefGczTA==}
     dev: true
 
   /vue-demi/0.14.7_vue@3.4.23:

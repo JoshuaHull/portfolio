@@ -53,7 +53,7 @@
     "csharp-lexer": "workspace:*",
     "highlighter-html": "workspace:*",
     "rollup-plugin-auto-package-json": "workspace:",
-    "rollup-plugin-content-chunks": "workspace:0.2.0",
+    "rollup-plugin-content-chunks": "workspace:",
     "rollup-plugin-copy": "workspace:",
     "rollup-plugin-handlebars-compile": "workspace:",
     "rollup-plugin-prepare-dist": "workspace:",

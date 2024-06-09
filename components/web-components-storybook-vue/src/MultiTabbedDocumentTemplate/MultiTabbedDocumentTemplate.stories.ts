@@ -94,7 +94,23 @@ export const TwoTabsSecondSelectedEditor: Story = {
     tabTitles: ["MultiTabbedDocument.cs", "Page.cs"],
     initialCurrentTab: 1,
     tabContents: [
-      "",
+      `
+<pre><code>
+ 1 | public class MultiTabbedDocument {
+   |
+ 2 |   public string Variant { get; set }
+   |
+ 3 |   public string[] TabTitles { get; set; }
+   |
+ 4 |   public int initialCurrentTab { get; set; }
+   |
+ 5 |   public string[] TabContents { get; set; }   
+   |
+ 6 |   public int TabCount { get; set; }
+   |
+ 7 | }
+       </code></pre>
+`,
       `
 <pre><code>
  1 | public class Page {

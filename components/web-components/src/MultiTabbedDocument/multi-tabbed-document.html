@@ -1,35 +1,28 @@
 <div
   class="multi-tabbed-document"
-  {{#equal variant "editor"}}
   style="
-    --multi-tabbed-document-colour: white;
-    --multi-tabbed-document-header-background-colour: #383C4A;
-    --multi-tabbed-document-background-colour: #232830;
-    --multi-tabbed-document-border-radius: 0;
-    --multi-tabbed-document-padding: 0;
-    --multi-tabbed-document-height: 100%;
+    --multi-tabbed-document-cursor: {{#equal tabCount 1}}default{{else}}pointer{{/equal}};
+    {{#equal variant "editor"}}
+      --multi-tabbed-document-colour: white;
+      --multi-tabbed-document-header-background-colour: #383C4A;
+      --multi-tabbed-document-background-colour: #232830;
+      --multi-tabbed-document-border-radius: 0;
+      --multi-tabbed-document-padding: 0;
+      --multi-tabbed-document-height: 100%;
+    {{/equal}}
   "
-  {{/equal}}
 >
   <div class="multi-tabbed-document-tabs">
     {{#each tabTitles}}
-      <header class="tabbed-document-header{{#equal ../initialCurrentTab @index}} selected{{/equal}}">
-        {{{this}}}
-      </header>
+      {{#> tabbedDocumentHeader index=@index initialCurrentTab=../initialCurrentTab}}
+        {{{../this}}}
+      {{/tabbedDocumentHeader}}
     {{/each}}
   </div>
   {{#each tabContents}}
-    <article
-      class="tabbed-document"
-      style="
-        z-index: {{#equal ../initialCurrentTab @index}}1{{else}}0{{/equal}};
-        opacity: {{#equal ../initialCurrentTab @index}}100%{{else}}0%{{/equal}};
-      "
-    >
-      <section class="tabbed-document-content">
-        {{{this}}}
-      </section>
-    </article>
+    {{#> tabbedDocument}}
+      {{{this}}}
+    {{/tabbedDocument}}
   {{/each}}
 </div>
 
@@ -43,10 +36,6 @@
     "document"
   ;
   grid-template-rows: min-content auto;
-}
-
-.tabbed-document {
-  grid-area: document;
 }
 
 .tabbed-document-header {
@@ -72,11 +61,25 @@
   border-top-right-radius: var(--multi-tabbed-document-border-radius, 0.5rem);
   border-top-left-radius: var(--multi-tabbed-document-border-radius, 0.5rem);
   background-color: var(--multi-tabbed-document-header-background-colour, darkkhaki);
-  cursor: {{#equal tabCount 1}}default{{else}}pointer{{/equal}};
+  cursor: var(--multi-tabbed-document-cursor, pointer);
 }
 
-.tabbed-document-header.selected {
-  background-color:  var(--multi-tabbed-document-background-colour, khaki);
+{{#for tabCount}}
+  {{> selectedTabbedDocumentSelector tab=this}}
+{{/for}}
+
+.tabbed-document {
+  grid-area: document;
+  z-index: 0;
+  opacity: 0%;
+}
+
+.tabbed-document-radio {
+  display: none;
+}
+
+.tabbed-document-radio:checked + .tabbed-document-header {
+  background-color: var(--multi-tabbed-document-background-colour, khaki);
 }
 
 .tabbed-document-content {

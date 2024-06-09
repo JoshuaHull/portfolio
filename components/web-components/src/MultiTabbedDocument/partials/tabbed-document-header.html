@@ -1,0 +1,14 @@
+<input
+  class="tabbed-document-radio"
+  type="radio"
+  name="tabradio"
+  id="tab{{#if @index includeZero=true}}{{@index}}{{else}}0{{/if}}radio"
+  {{#if @index includeZero=true}}{{#equal initialCurrentTab @index}}checked{{/equal}}{{/if}}
+/>
+<label
+  class="tabbed-document-header"
+  for="tab{{#if @index includeZero=true}}{{@index}}{{else}}0{{/if}}radio"
+>
+  {{#> @partial-block}}
+  {{/@partial-block}}
+</label>
