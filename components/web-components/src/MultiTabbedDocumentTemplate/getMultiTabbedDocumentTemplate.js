@@ -1,13 +1,11 @@
 import multiTabbedDocumentContent from "content:html:src/MultiTabbedDocument/multi-tabbed-document";
-import selectedTabbedDocumentSelector from "content:css:src/MultiTabbedDocument/partials/selected-tabbed-document-selector";
 import tabbedDocumentHeader from "content:html:src/MultiTabbedDocument/partials/tabbed-document-header";
 import tabbedDocument from "content:html:src/MultiTabbedDocument/partials/tabbed-document";
 import editorStyles from "content:html:src/MultiTabbedDocument/partials/editor-styles";
 import Handlebars from "handlebars";
 import { registerEqualHelper } from "../_handlebars-helpers/equal.js";
 import { registerForHelper } from "../_handlebars-helpers/for.js";
-import { registerPlusOneHelper } from "../_handlebars-helpers/plusOne.js";
-import { registerTwoNPlusOneHelper } from "../_handlebars-helpers/twoNPlusOne.js";
+import { registerMultiTabbedDocumentHandlebarsHelpers } from "./../MultiTabbedDocument/helpers/registerMultiTabbedDocumentHandlebarsHelpers.js";
 
 /**
  * @type {import("./index").getMultiTabbedDocumentTemplate}
@@ -15,9 +13,7 @@ import { registerTwoNPlusOneHelper } from "../_handlebars-helpers/twoNPlusOne.js
 export const getMultiTabbedDocumentTemplate = () => {
   registerEqualHelper(Handlebars);
   registerForHelper(Handlebars);
-  registerPlusOneHelper(Handlebars);
-  registerTwoNPlusOneHelper(Handlebars);
-  Handlebars.registerPartial("selectedTabbedDocumentSelector", selectedTabbedDocumentSelector);
+  registerMultiTabbedDocumentHandlebarsHelpers(Handlebars);
   Handlebars.registerPartial("tabbedDocumentHeader", tabbedDocumentHeader);
   Handlebars.registerPartial("tabbedDocument", tabbedDocument);
   Handlebars.registerPartial("editorStyles", editorStyles);

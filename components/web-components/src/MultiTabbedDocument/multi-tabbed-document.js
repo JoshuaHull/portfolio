@@ -1,8 +1,8 @@
 import multiTabbedDocumentCompiled from "compile:html:src/MultiTabbedDocument/multi-tabbed-document";
-import selectedTabbedDocumentSelector from "compile:css:src/MultiTabbedDocument/partials/selected-tabbed-document-selector";
 import tabbedDocumentHeader from "compile:html:src/MultiTabbedDocument/partials/tabbed-document-header";
 import tabbedDocument from "compile:html:src/MultiTabbedDocument/partials/tabbed-document";
 import editorStyles from "content:html:src/MultiTabbedDocument/partials/editor-styles";
+import { multiTabbedDocumentArticleSelector } from "./helpers/multiTabbedDocumentArticleSelector";
 
 /**
  * @type {import("./index").registerMultiTabbedDocument}
@@ -53,12 +53,11 @@ export const attachMultiTabbedDocumentTo = (element) => {
         doc.append(...parsed.body.children);
       }
 
-      for (let i = 0; i < this.tabCount; i += 1) {
-        const selectingCorrectArticle = selectedTabbedDocumentSelector.replace("plusOne", `${i + 1}`);
-        const selectingCorrectRadio = selectingCorrectArticle.replace("twoNPlusOne", 2*i + 1);
-
-        this.shadowRoot.innerHTML += `<style>${selectingCorrectRadio}</style>`;
-      }
+      this.shadowRoot.innerHTML += `<style>${
+        [...Array(parseInt(this.tabCount)).keys()]
+          .map(tab => multiTabbedDocumentArticleSelector(tab))
+          .join("")
+      }</style>`;
 
       if (this.variant === "editor")
         this.shadowRoot.styleSheets[0].insertRule(`.multi-tabbed-document { ${editorStyles} }`);
