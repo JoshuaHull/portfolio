@@ -2,6 +2,7 @@
 <fsj-multi-tabbed-document
   :tabCount="tabCount"
   :initialCurrentTab="initialCurrentTab"
+  :variant="variant"
 >
   <slot></slot>
 </fsj-multi-tabbed-document>
@@ -15,5 +16,6 @@ registerMultiTabbedDocument();
 defineProps<{
   tabCount: number;
   initialCurrentTab: number;
+  variant?: "editor";
 }>();
 </script>

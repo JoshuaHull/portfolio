@@ -2,6 +2,7 @@ import multiTabbedDocumentCompiled from "compile:html:src/MultiTabbedDocument/mu
 import selectedTabbedDocumentSelector from "compile:css:src/MultiTabbedDocument/partials/selected-tabbed-document-selector";
 import tabbedDocumentHeader from "compile:html:src/MultiTabbedDocument/partials/tabbed-document-header";
 import tabbedDocument from "compile:html:src/MultiTabbedDocument/partials/tabbed-document";
+import editorStyles from "content:html:src/MultiTabbedDocument/partials/editor-styles";
 
 /**
  * @type {import("./index").registerMultiTabbedDocument}
@@ -59,9 +60,15 @@ export const attachMultiTabbedDocumentTo = (element) => {
         this.shadowRoot.innerHTML += `<style>${selectingCorrectRadio}</style>`;
       }
 
+      if (this.variant === "editor")
+        this.shadowRoot.styleSheets[0].insertRule(`.multi-tabbed-document { ${editorStyles} }`);
+
       this.#selectTab(this.initialCurrentTab);
     }
 
+    /**
+     * @returns {string}
+     */
     get tabCount() {
       return this.getAttribute("tabCount") ?? "0";
     }
@@ -87,10 +94,30 @@ export const attachMultiTabbedDocumentTo = (element) => {
       this.setAttribute("initialCurrentTab", value);
     }
 
+    /**
+     * @returns {string}
+     */
+    get variant() {
+      return this.getAttribute("variant") ?? "default";
+    }
+
+    /**
+     * @param {string} value
+     */
+    set variant(value) {
+      return this.setAttribute("variant", value);
+    }
+
+    /**
+     * @returns {HTMLElement}
+     */
     #getTabs() {
       return this.shadowRoot.querySelector(".multi-tabbed-document-tabs");
     }
 
+    /**
+     * @returns {HTMLElement}
+     */
     #getDocument() {
       return this.shadowRoot.querySelector(".multi-tabbed-document");
     }

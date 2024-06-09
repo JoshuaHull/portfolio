@@ -64,6 +64,7 @@ export const OneTabEditor: Story = {
     tabCount: 1,
     tabTitles: ["MultiTabbedDocument.cs"],
     initialCurrentTab: 0,
+    variant: "editor",
     tabContents: [
       `
 <pre><code>
@@ -83,7 +84,6 @@ export const OneTabEditor: Story = {
        </code></pre>
 `,
     ],
-    variant: "editor",
   },
 };
 
@@ -93,6 +93,7 @@ export const TwoTabsSecondSelectedEditor: Story = {
     tabCount: 2,
     tabTitles: ["MultiTabbedDocument.cs", "Page.cs"],
     initialCurrentTab: 1,
+    variant: "editor",
     tabContents: [
       `
 <pre><code>
@@ -129,6 +130,5 @@ export const TwoTabsSecondSelectedEditor: Story = {
        </code></pre>
 `
     ],
-    variant: "editor",
   },
 };

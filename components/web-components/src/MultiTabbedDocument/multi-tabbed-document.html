@@ -3,12 +3,8 @@
   style="
     --multi-tabbed-document-cursor: {{#equal tabCount 1}}default{{else}}pointer{{/equal}};
     {{#equal variant "editor"}}
-      --multi-tabbed-document-colour: white;
-      --multi-tabbed-document-header-background-colour: #383C4A;
-      --multi-tabbed-document-background-colour: #232830;
-      --multi-tabbed-document-border-radius: 0;
-      --multi-tabbed-document-padding: 0;
-      --multi-tabbed-document-height: 100%;
+      {{#> editorStyles}}
+      {{/editorStyles}}
     {{/equal}}
   "
 >
