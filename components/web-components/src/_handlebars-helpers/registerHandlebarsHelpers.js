@@ -6,6 +6,7 @@ import { registerStyleIconContainerHelper } from "./styleIconContainer.js";
 import { registerEqualHelper } from "./equal.js";
 import { registerForHelper } from "./for.js";
 import { registerPlusOneHelper } from "./plusOne.js";
+import { registerTwoNPlusOneHelper } from "./twoNPlusOne.js";
 
 /**
  * @type {import("./index.d.ts").registerHandlebarsHelpers}
@@ -20,4 +21,5 @@ export const registerHandlebarsHelpers = (handlebars) => {
   registerEqualHelper(handlebars);
   registerForHelper(handlebars);
   registerPlusOneHelper(handlebars);
+  registerTwoNPlusOneHelper(handlebars);
 };
