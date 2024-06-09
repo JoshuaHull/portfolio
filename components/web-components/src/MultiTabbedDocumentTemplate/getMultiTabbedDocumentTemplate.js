@@ -2,6 +2,7 @@ import multiTabbedDocumentContent from "content:html:src/MultiTabbedDocument/mul
 import Handlebars from "handlebars";
 import { registerEqualHelper } from "../_handlebars-helpers/equal.js";
 import { registerForHelper } from "../_handlebars-helpers/for.js";
+import { registerPlusOneHelper } from "../_handlebars-helpers/plusOne.js";
 
 /**
  * @type {import("./index").getMultiTabbedDocumentTemplate}
@@ -9,5 +10,6 @@ import { registerForHelper } from "../_handlebars-helpers/for.js";
 export const getMultiTabbedDocumentTemplate = () => {
   registerEqualHelper(Handlebars);
   registerForHelper(Handlebars);
+  registerPlusOneHelper(Handlebars);
   return Handlebars.compile(multiTabbedDocumentContent);
 };
