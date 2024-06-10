@@ -60,9 +60,7 @@
   cursor: var(--multi-tabbed-document-cursor, pointer);
 }
 
-{{#for tabCount}}
-  {{{multiTabbedDocumentArticleSelector this}}}
-{{/for}}
+{{{multiTabbedDocumentArticleSelectors tabCount}}}
 
 .tabbed-document {
   grid-area: document;

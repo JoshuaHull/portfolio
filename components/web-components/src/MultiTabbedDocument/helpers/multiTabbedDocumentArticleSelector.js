@@ -1,7 +1,7 @@
 /**
  * @param {number} tab
  */
-export function multiTabbedDocumentArticleSelector(tab) {
+function multiTabbedDocumentArticleSelector(tab) {
   return `
     .multi-tabbed-document:has(
       .multi-tabbed-document-tabs > .tabbed-document-radio:nth-child(
@@ -17,17 +17,26 @@ export function multiTabbedDocumentArticleSelector(tab) {
 }
 
 /**
+ * @param {number} tabCount
+ */
+export function multiTabbedDocumentArticleSelectors(tabCount) {
+  return [...Array(tabCount).keys()]
+    .map(tab => multiTabbedDocumentArticleSelector(tab))
+    .join("");
+}
+
+/**
  * @param {typeof Handlebars} handlebars
  */
-export const registerMultiTabbedDocumentArticleSelectorHelper = (handlebars) => {
-  handlebars.registerHelper("multiTabbedDocumentArticleSelector",
+export const registerMultiTabbedDocumentArticleSelectorsHelper = (handlebars) => {
+  handlebars.registerHelper("multiTabbedDocumentArticleSelectors",
     /**
-    * @param {number | string | undefined} tab
+    * @param {number | string | undefined} tabCount
     */
-    tab => {
-      const notNull = tab || 0;
+    tabCount => {
+      const notNull = tabCount || 0;
       const parsed = typeof notNull === "string" ? parseInt(notNull) : notNull;
-      return multiTabbedDocumentArticleSelector(parsed);
+      return multiTabbedDocumentArticleSelectors(parsed);
     }
   );
 };

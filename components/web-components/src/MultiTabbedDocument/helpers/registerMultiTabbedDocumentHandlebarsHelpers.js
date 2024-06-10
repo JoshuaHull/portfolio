@@ -1,8 +1,8 @@
-import { registerMultiTabbedDocumentArticleSelectorHelper } from "./multiTabbedDocumentArticleSelector.js";
+import { registerMultiTabbedDocumentArticleSelectorsHelper } from "./multiTabbedDocumentArticleSelector.js";
 
 /**
  * @param {typeof Handlebars} handlebars
  */
 export const registerMultiTabbedDocumentHandlebarsHelpers = (handlebars) => {
-  registerMultiTabbedDocumentArticleSelectorHelper(handlebars);
+  registerMultiTabbedDocumentArticleSelectorsHelper(handlebars);
 };

@@ -2,7 +2,7 @@ import multiTabbedDocumentCompiled from "compile:html:src/MultiTabbedDocument/mu
 import tabbedDocumentHeader from "compile:html:src/MultiTabbedDocument/partials/tabbed-document-header";
 import tabbedDocument from "compile:html:src/MultiTabbedDocument/partials/tabbed-document";
 import editorStyles from "content:html:src/MultiTabbedDocument/partials/editor-styles";
-import { multiTabbedDocumentArticleSelector } from "./helpers/multiTabbedDocumentArticleSelector";
+import { multiTabbedDocumentArticleSelectors } from "./helpers/multiTabbedDocumentArticleSelector";
 
 /**
  * @type {import("./index").registerMultiTabbedDocument}
@@ -54,9 +54,7 @@ export const attachMultiTabbedDocumentTo = (element) => {
       }
 
       this.shadowRoot.innerHTML += `<style>${
-        [...Array(parseInt(this.tabCount)).keys()]
-          .map(tab => multiTabbedDocumentArticleSelector(tab))
-          .join("")
+        multiTabbedDocumentArticleSelectors(parseInt(this.tabCount))
       }</style>`;
 
       if (this.variant === "editor")
