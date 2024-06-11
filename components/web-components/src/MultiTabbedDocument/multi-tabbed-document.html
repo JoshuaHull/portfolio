@@ -10,9 +10,7 @@
 >
   <div class="multi-tabbed-document-tabs">
     {{#each tabTitles}}
-      {{#> tabbedDocumentHeader index=@index initialCurrentTab=../initialCurrentTab}}
-        {{{../this}}}
-      {{/tabbedDocumentHeader}}
+      {{{mtd_invoke "headerPartial" @index ../initialCurrentTab this}}}
     {{/each}}
   </div>
   {{#each tabContents}}

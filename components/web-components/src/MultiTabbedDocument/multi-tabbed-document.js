@@ -1,8 +1,8 @@
 import multiTabbedDocumentCompiled from "compile:html:src/MultiTabbedDocument/multi-tabbed-document";
-import tabbedDocumentHeader from "compile:html:src/MultiTabbedDocument/partials/tabbed-document-header";
 import tabbedDocument from "compile:html:src/MultiTabbedDocument/partials/tabbed-document";
 import editorStyles from "content:html:src/MultiTabbedDocument/partials/editor-styles";
 import { multiTabbedDocumentArticleSelectors } from "./helpers/multiTabbedDocumentArticleSelector";
+import { headerPartial } from "./helpers/mtd_invoke";
 
 /**
  * @type {import("./index").registerMultiTabbedDocument}
@@ -35,12 +35,9 @@ export const attachMultiTabbedDocumentTo = (element) => {
       const tabs = this.#getTabs();
 
       for (let i = 0; i < this.tabCount; i += 1) {
-        const indexedHeader = tabbedDocumentHeader.replaceAll("tab0radio", `tab${i}radio`);
-        const parsed = parser.parseFromString(indexedHeader, "text/html");
-        const header = parsed.body.querySelector(".tabbed-document-header");
+        const header = headerPartial(i, parseInt(this.initialCurrentTab), `<slot name=tab${i}title></slot>`);
 
-        this.#addSlotTo(header, `tab${i}title`);
-        tabs.append(...parsed.body.children);
+        tabs.insertAdjacentHTML("beforeend", header);
       }
 
       const doc = this.#getDocument();
