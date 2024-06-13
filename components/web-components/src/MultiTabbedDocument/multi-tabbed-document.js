@@ -1,8 +1,8 @@
 import multiTabbedDocumentCompiled from "compile:html:src/MultiTabbedDocument/multi-tabbed-document";
-import tabbedDocument from "compile:html:src/MultiTabbedDocument/partials/tabbed-document";
 import editorStyles from "content:html:src/MultiTabbedDocument/partials/editor-styles";
 import { multiTabbedDocumentArticleSelectors } from "./helpers/multiTabbedDocumentArticleSelector";
-import { headerPartial } from "./helpers/mtd_invoke";
+import { headerPartial } from "./helpers/headerPartial";
+import { contentPartial } from "./helpers/contentPartial";
 
 /**
  * @type {import("./index").registerMultiTabbedDocument}
@@ -30,24 +30,17 @@ export const attachMultiTabbedDocumentTo = (element) => {
       this.#upgradeProperty("tabCount");
       this.#upgradeProperty("initialCurrentTab");
 
-      const parser = new DOMParser();
-
+      const doc = this.#getDocument();
       const tabs = this.#getTabs();
 
       for (let i = 0; i < this.tabCount; i += 1) {
-        const header = headerPartial(i, parseInt(this.initialCurrentTab), `<slot name=tab${i}title></slot>`);
+        const header = headerPartial(i, parseInt(this.initialCurrentTab), `<slot name="tab${i}title"></slot>`);
 
         tabs.insertAdjacentHTML("beforeend", header);
-      }
 
-      const doc = this.#getDocument();
+        const content = contentPartial(`<slot name="tab${i}content"></slot>`);
 
-      for (let i = 0; i < this.tabCount; i += 1) {
-        const parsed = parser.parseFromString(tabbedDocument, "text/html");
-        const content = parsed.body.querySelector(".tabbed-document-content");
-
-        this.#addSlotTo(content, `tab${i}content`);
-        doc.append(...parsed.body.children);
+        doc.insertAdjacentHTML("beforeend", content);
       }
 
       this.shadowRoot.innerHTML += `<style>${

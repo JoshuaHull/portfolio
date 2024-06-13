@@ -14,9 +14,7 @@
     {{/each}}
   </div>
   {{#each tabContents}}
-    {{#> tabbedDocument}}
-      {{{this}}}
-    {{/tabbedDocument}}
+    {{{mtd_invoke "contentPartial" this}}}
   {{/each}}
 </div>
 
