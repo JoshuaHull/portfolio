@@ -1,8 +1,7 @@
 import multiTabbedDocumentCompiled from "compile:html:src/MultiTabbedDocument/multi-tabbed-document";
-import editorStyles from "content:html:src/MultiTabbedDocument/partials/editor-styles";
-import { multiTabbedDocumentArticleSelectors } from "./helpers/multiTabbedDocumentArticleSelector";
-import { headerPartial } from "./helpers/headerPartial";
-import { contentPartial } from "./helpers/contentPartial";
+import { headerPartial } from "./mtd_invoke/headerPartial";
+import { contentPartial } from "./mtd_invoke/contentPartial";
+import { cssRules } from "./mtd_invoke/cssRules";
 
 /**
  * @type {import("./index").registerMultiTabbedDocument}
@@ -43,14 +42,8 @@ export const attachMultiTabbedDocumentTo = (element) => {
         doc.insertAdjacentHTML("beforeend", content);
       }
 
-      this.shadowRoot.innerHTML += `<style>${
-        multiTabbedDocumentArticleSelectors(parseInt(this.tabCount))
-      }</style>`;
-
-      if (this.variant === "editor")
-        this.shadowRoot.styleSheets[0].insertRule(`.multi-tabbed-document { ${editorStyles} }`);
-
-      this.#selectTab(this.initialCurrentTab);
+      const rules = cssRules(parseInt(this.tabCount), this.variant);
+      this.shadowRoot.innerHTML += `<style>${rules}</style>`;
     }
 
     /**
@@ -107,29 +100,6 @@ export const attachMultiTabbedDocumentTo = (element) => {
      */
     #getDocument() {
       return this.shadowRoot.querySelector(".multi-tabbed-document");
-    }
-
-    /**
-     * @param {string | number} index
-     */
-    #selectTab(index) {
-      const radios = this.shadowRoot.querySelectorAll(".tabbed-document-radio");
-
-      radios.forEach((radio, i) =>
-        i == index
-          ? radio.setAttribute("checked", true)
-          : radio.removeAttribute("checked")
-      );
-    }
-
-    /**
-     * @param {HTMLElement} element 
-     * @param {string} name 
-     */
-    #addSlotTo(element, name) {
-      const slot = document.createElement("slot");
-      slot.setAttribute("name", name);
-      element.appendChild(slot);
     }
 
     /**

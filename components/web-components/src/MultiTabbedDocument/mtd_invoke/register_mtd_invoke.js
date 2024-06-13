@@ -1,5 +1,6 @@
 import { headerPartial } from "./headerPartial.js";
 import { contentPartial } from "./contentPartial.js";
+import { cssRules } from "./cssRules.js";
 
 /**
  * @typedef {import("handlebars").HelperOptions} HelperOptions
@@ -27,6 +28,12 @@ export const register_mtd_invoke = (handlebars) => {
           assertLength(args, 2);
           const slot = assertString(args[0]);
           return contentPartial(slot);
+        }
+        case "cssRules": {
+          assertLength(args, 3);
+          const tabCount = assertNumber(args[0] ?? 0);
+          const variant = assertString(args[1] ?? "default");
+          return cssRules(tabCount, variant);
         }
       }
     }

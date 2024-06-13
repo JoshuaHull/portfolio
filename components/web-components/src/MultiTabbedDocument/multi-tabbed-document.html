@@ -1,13 +1,4 @@
-<div
-  class="multi-tabbed-document"
-  style="
-    --multi-tabbed-document-cursor: {{#equal tabCount 1}}default{{else}}pointer{{/equal}};
-    {{#equal variant "editor"}}
-      {{#> editorStyles}}
-      {{/editorStyles}}
-    {{/equal}}
-  "
->
+<div class="multi-tabbed-document">
   <div class="multi-tabbed-document-tabs">
     {{#each tabTitles}}
       {{{mtd_invoke "headerPartial" @index ../initialCurrentTab this}}}
@@ -19,6 +10,8 @@
 </div>
 
 <style>
+{{{mtd_invoke "cssRules" tabCount variant}}}
+
 .multi-tabbed-document {
   position: relative;
   z-index: 0;
@@ -55,8 +48,6 @@
   background-color: var(--multi-tabbed-document-header-background-colour, darkkhaki);
   cursor: var(--multi-tabbed-document-cursor, pointer);
 }
-
-{{{multiTabbedDocumentArticleSelectors tabCount}}}
 
 .tabbed-document {
   grid-area: document;

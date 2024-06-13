@@ -5,7 +5,7 @@ import { registerLineNumbersHelper } from "./lineNumbers.js";
 import { registerStyleIconContainerHelper } from "./styleIconContainer.js";
 import { registerEqualHelper } from "./equal.js";
 import { registerForHelper } from "./for.js";
-import { registerMultiTabbedDocumentHandlebarsHelpers } from "./../MultiTabbedDocument/helpers/registerMultiTabbedDocumentHandlebarsHelpers.js";
+import { register_mtd_invoke } from "./../MultiTabbedDocument/mtd_invoke/register_mtd_invoke.js";
 
 /**
  * @type {import("./index.d.ts").registerHandlebarsHelpers}
@@ -19,5 +19,5 @@ export const registerHandlebarsHelpers = (handlebars) => {
   registerLineNumbersHelper(handlebars);
   registerEqualHelper(handlebars);
   registerForHelper(handlebars);
-  registerMultiTabbedDocumentHandlebarsHelpers(handlebars);
+  register_mtd_invoke(handlebars);
 };
