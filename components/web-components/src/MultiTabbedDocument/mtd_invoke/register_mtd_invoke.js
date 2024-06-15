@@ -1,6 +1,7 @@
 import { headerPartial } from "./headerPartial.js";
 import { contentPartial } from "./contentPartial.js";
 import { cssRules } from "./cssRules.js";
+import { assertLength, assertNumber, assertString } from "./../../_utils/assertions.js";
 
 /**
  * @typedef {import("handlebars").HelperOptions} HelperOptions
@@ -38,34 +39,4 @@ export const register_mtd_invoke = (handlebars) => {
       }
     }
   );
-};
-
-/**
- * @param {any} value
- * @returns {number}
- */
-const assertNumber = (value) => {
-  if (typeof value === "string") return parseInt(value);
-  if (typeof value === "number") return value;
-  throw new Error(`Argument must be a number, received ${value}`);
-};
-
-/**
- * @param {any} value
- * @returns {string}
- */
-const assertString = (value) => {
-  if (typeof value === "string") return value;
-  throw new Error(`Argument must be a string, received ${value}`);
-};
-
-/**
- * @param {any} value
- * @param {number} length
- * @returns {number}
- */
-const assertLength = (value, length) => {
-  if (value?.length !== length)
-    throw new Error(`Argument must have length ${length}, received length ${value?.length}`);
-  return value.length;
 };

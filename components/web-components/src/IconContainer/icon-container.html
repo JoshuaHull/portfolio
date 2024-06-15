@@ -1,4 +1,4 @@
-<div class="fsj-reset icon-container" {{{styleIconContainer height width color}}}>
+<div class="fsj-reset icon-container">
   {{#if icon}}
     {{{icon}}}
   {{else}}
@@ -25,6 +25,8 @@
   height: var(--icon-container-height);
   color: var(--icon-container-color);
 }
+
+{{{ic_invoke "cssRules" width height color}}}
 
 ::slotted(*) {
   width: var(--icon-container-width);
