@@ -1,6 +1,13 @@
 # Change Log - @fullstackjosh/web-components
 
-This log was last generated on Sun, 02 Jun 2024 04:56:57 GMT and should not be manually modified.
+This log was last generated on Sun, 16 Jun 2024 02:04:39 GMT and should not be manually modified.
+
+## 0.4.0
+Sun, 16 Jun 2024 02:04:39 GMT
+
+### Minor changes
+
+- add MultiTabbedDocument component
 
 ## 0.3.0
 Sun, 02 Jun 2024 04:56:57 GMT

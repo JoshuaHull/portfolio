@@ -2,6 +2,18 @@
   "name": "@fullstackjosh/web-components",
   "entries": [
     {
+      "version": "0.4.0",
+      "tag": "@fullstackjosh/web-components_v0.4.0",
+      "date": "Sun, 16 Jun 2024 02:04:39 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "add MultiTabbedDocument component"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.3.0",
       "tag": "@fullstackjosh/web-components_v0.3.0",
       "date": "Sun, 02 Jun 2024 04:56:57 GMT",

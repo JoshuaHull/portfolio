@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "rollup-plugin-content-chunks",
+      "comment": "",
+      "type": "none"
+    }
+  ],
+  "packageName": "rollup-plugin-content-chunks"
+}
