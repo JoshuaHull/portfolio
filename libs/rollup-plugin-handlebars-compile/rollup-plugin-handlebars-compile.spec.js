@@ -1,10 +1,16 @@
 import { describe, expect, test } from "vitest";
 import { rollupPluginHandlebarsCompile } from "./rollup-plugin-handlebars-compile";
 
+const makeResolver = (args) => {
+  const resolver = rollupPluginHandlebarsCompile(args);
+  resolver.addWatchFile = () => {};
+  return resolver;
+};
+
 describe("resolveId", () => {
   test("should resolve null for import not beginning with `compile:`", () => {
     // Arrange
-    const resolver = rollupPluginHandlebarsCompile();
+    const resolver = makeResolver();
 
     // Act
     const result = resolver.resolveId("@someOrg/somePackage");
@@ -15,7 +21,7 @@ describe("resolveId", () => {
 
   test("should resolve for an import beginning with `compile:`", () => {
     // Arrange
-    const resolver = rollupPluginHandlebarsCompile();
+    const resolver = makeResolver();
 
     // Act
     const result = resolver.resolveId("compile:someFile.ts");
@@ -31,7 +37,7 @@ describe("resolveId", () => {
 describe("load", () => {
   test("should resolve null for import not beginning with `compile:`", () => {
     // Arrange
-    const resolver = rollupPluginHandlebarsCompile();
+    const resolver = makeResolver();
 
     // Act
     const result = resolver.load("@someOrg/somePackage");
@@ -42,7 +48,7 @@ describe("load", () => {
 
   test("should provide the compiled content of a given file as an exported variable", () => {
     // Arrange
-    const resolver = rollupPluginHandlebarsCompile();
+    const resolver = makeResolver();
 
     // Act
     const result = resolver.load("compile:html:testAssets/empty-vars.template");
@@ -58,7 +64,7 @@ describe("load", () => {
 
   test("should compile a file and fill in the given variables", () => {
     // Arrange
-    const resolver = rollupPluginHandlebarsCompile({
+    const resolver = makeResolver({
       vars: {
         first: "a",
         second: "with",
@@ -80,7 +86,7 @@ describe("load", () => {
 
   test("should be able to compile a file with customer helpers, provided they are registered", () => {
     // Arrange
-    const resolver = rollupPluginHandlebarsCompile({
+    const resolver = makeResolver({
       registerHelpers: (handlebars) => {
         handlebars.registerHelper("withCustomHelperTimes", (count) => `with ${count} custom helper(s).`);
       },
@@ -100,7 +106,7 @@ describe("load", () => {
 
   test("should allow providing an alternative root from which to resolve the templates", () => {
     // Arrange
-    const resolver = rollupPluginHandlebarsCompile({
+    const resolver = makeResolver({
       relativeTo: "testAssets/alternativeRoot",
       vars: {
         alternativeRoot: "testAssets/alternativeRoot",
