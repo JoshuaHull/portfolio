@@ -1,10 +1,16 @@
 import { describe, expect, test } from "vitest";
 import { rollupPluginContentChunks } from "./rollup-plugin-content-chunks";
 
+const makeResolver = (args) => {
+  const resolver = rollupPluginContentChunks(args);
+  resolver.addWatchFile = () => {};
+  return resolver;
+};
+
 describe("resolveId", () => {
   test("should resolve null for import not beginning with `content:`", () => {
     // Arrange
-    const resolver = rollupPluginContentChunks();
+    const resolver = makeResolver();
 
     // Act
     const result = resolver.resolveId("@someOrg/somePackage");
@@ -15,7 +21,7 @@ describe("resolveId", () => {
 
   test("should resolve for an import beginning with `content:`", () => {
     // Arrange
-    const resolver = rollupPluginContentChunks();
+    const resolver = makeResolver();
 
     // Act
     const result = resolver.resolveId("content:someFile.ts");
@@ -31,7 +37,7 @@ describe("resolveId", () => {
 describe("load", () => {
   test("should resolve null for import not beginning with `content:`", () => {
     // Arrange
-    const resolver = rollupPluginContentChunks();
+    const resolver = makeResolver();
 
     // Act
     const result = resolver.load("@someOrg/somePackage");
@@ -42,7 +48,7 @@ describe("load", () => {
 
   test("should provide the content of a given file as an exported variable", () => {
     // Arrange
-    const resolver = rollupPluginContentChunks();
+    const resolver = makeResolver();
 
     // Act
     const result = resolver.load("content:cs:testAssets/SmallCSharpFile");
@@ -58,7 +64,7 @@ describe("load", () => {
 
   test("should allow loading file content from an alternative root folder", () => {
     // Arrange
-    const resolver = rollupPluginContentChunks({
+    const resolver = makeResolver({
       relativeTo: "testAssets/alternativeRoot",
     });
 
@@ -78,7 +84,7 @@ describe("load", () => {
 describe("loading part of a file", () => {
   test("should resolve a large chunk of a file", () => {
     // Arrange
-    const resolver = rollupPluginContentChunks();
+    const resolver = makeResolver();
 
     // Act
     const result = resolver.load("content:cs@3,16:testAssets/LargeCSharpFile");
@@ -94,7 +100,7 @@ describe("loading part of a file", () => {
 
   test("should resolve a small chunk of a file", () => {
     // Arrange
-    const resolver = rollupPluginContentChunks();
+    const resolver = makeResolver();
 
     // Act
     const result = resolver.load("content:cs@4,5:testAssets/LargeCSharpFile");
@@ -110,7 +116,7 @@ describe("loading part of a file", () => {
 
   test("should resolve chunks from a file in an alternative root folder", () => {
     // Arrange
-    const resolver = rollupPluginContentChunks({
+    const resolver = makeResolver({
       relativeTo: "testAssets/alternativeRoot",
     });
 
@@ -128,7 +134,7 @@ describe("loading part of a file", () => {
 
   test("should resolve a single line of a file", () => {
     // Arrange
-    const resolver = rollupPluginContentChunks();
+    const resolver = makeResolver();
 
     // Act
     const result = resolver.load("content:cs@6,9:testAssets/LargeCSharpFile");
@@ -144,7 +150,7 @@ describe("loading part of a file", () => {
 
   test("should load a file with non-unix line separators", () => {
     // Arrange
-    const resolver = rollupPluginContentChunks({
+    const resolver = makeResolver({
       fileLineSeparator: ",",
     });
 
@@ -162,7 +168,7 @@ describe("loading part of a file", () => {
 
   test("should output content with non-unix line separators", () => {
     // Arrange
-    const resolver = rollupPluginContentChunks({
+    const resolver = makeResolver({
       outputLineSeparator: "$",
     });
 
