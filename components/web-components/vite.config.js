@@ -8,12 +8,13 @@ import { rollupPluginPrepareDist } from "rollup-plugin-prepare-dist";
 import { registerHandlebarsHelpers } from "./src/_handlebars-helpers/registerHandlebarsHelpers.js";
 
 const components = [
+  "ActionButton",
+  "CodeBlockForCSharp",
+  "CodeBlockForTypescript",
+  "CodeBlockForVue",
   "FoldablePanel",
   "FoldableTextArea",
   "IconContainer",
-  "CodeBlockForTypescript",
-  "CodeBlockForVue",
-  "CodeBlockForCSharp",
   "MultiTabbedDocument",
 ];
 

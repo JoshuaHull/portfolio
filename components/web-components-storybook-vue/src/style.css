@@ -1,9 +1,19 @@
 :root {
   --color-white: #E9EAECDD;
+  --color-red: #800028;
+  --color-red-light: #E32227;
+  --color-gray: #808080;
   --color-blue-gray: #333652DD;
   --color-space-gray-dark: #1B1E24DD;
 
+  --color-text: var(--color-blue-gray);
+  --color-text-inverted: var(--color-white);
+  --color-text-disabled: var(--color-gray);
   --color-fg: var(--color-space-gray-dark);
+  --color-action: var(--color-white);
+  --color-action-bg: var(--color-red);
+  --color-action-create: var(--color-green);
+  --color-action-delete: var(--color-red-light);
   --color-border: var(--color-white);
 
   background-color: var(--color-blue-gray);

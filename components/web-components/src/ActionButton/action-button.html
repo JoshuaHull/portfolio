@@ -1,0 +1,27 @@
+<button
+  class="action-button{{#disabled}} disabled{{/disabled}}"
+  {{#disabled}}aria-disabled="disabled"{{/disabled}}
+  aria-live="polite"
+>
+  {{#if content}}
+    {{content}}
+  {{else}}
+    <slot></slot>
+  {{/if}}
+</button>
+
+<style>
+.action-button {
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: var(--color-action-bg);
+  color: var(--color-action);
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  height: min-content;
+}
+
+.action-button.disabled {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+</style>
