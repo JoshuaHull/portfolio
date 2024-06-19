@@ -1,6 +1,13 @@
 # Change Log - @fullstackjosh/web-components
 
-This log was last generated on Sun, 16 Jun 2024 02:04:39 GMT and should not be manually modified.
+This log was last generated on Wed, 19 Jun 2024 12:39:37 GMT and should not be manually modified.
+
+## 0.5.0
+Wed, 19 Jun 2024 12:39:37 GMT
+
+### Minor changes
+
+- add ActionButton component
 
 ## 0.4.0
 Sun, 16 Jun 2024 02:04:39 GMT
