@@ -85,5 +85,7 @@ const handleClose = () => {
 
 .close-commit-viewer-button {
   height: min-content;
+  margin-top: 0.25rem;
+  margin-right: 0.25rem;
 }
 </style>
