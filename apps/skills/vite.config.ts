@@ -6,6 +6,9 @@ import path from "path";
 import { rollupPluginCount } from "rollup-plugin-count";
 import { rollupPluginContentChunks } from "rollup-plugin-content-chunks";
 import { heroIconResolver } from "hero-icon-resolver";
+import { rollupPluginHandlebarsCompile } from "rollup-plugin-handlebars-compile";
+// @ts-ignore - builds fine, just vs code complaining
+import { registerHandlebarsHelpers } from "@fullstackjosh/web-components/_handlebars-helpers";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,7 +25,13 @@ export default defineConfig({
     },
   },
   plugins: [
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: tag => tag.startsWith("fsj-"),
+        },
+      },
+    }),
     AutoImport({
       dts: true,
       imports: [
@@ -41,5 +50,9 @@ export default defineConfig({
     }),
     rollupPluginContentChunks(),
     rollupPluginCount(),
+    rollupPluginHandlebarsCompile({
+      registerHelpers: (handlebars) => registerHandlebarsHelpers(handlebars),
+      relativeTo: "./../../components/web-components",
+    }),
   ],
 });

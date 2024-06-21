@@ -10,6 +10,7 @@
     "test:nowatch": "vitest --watch false"
   },
   "dependencies": {
+    "@fullstackjosh/web-components": "workspace:*",
     "@heroicons/vue": "^2.1.3",
     "@vueuse/core": "^10.9.0",
     "csharp-lexer": "workspace:*",
@@ -26,6 +27,7 @@
     "@types/node": "^20.12.7",
     "@vitejs/plugin-vue": "^5.0.4",
     "hero-icon-resolver": "workspace:*",
+    "rollup-plugin-handlebars-compile": "workspace:*",
     "rollup-plugin-content-chunks": "workspace:*",
     "rollup-plugin-count": "workspace:*",
     "typescript": "^5.4.5",
