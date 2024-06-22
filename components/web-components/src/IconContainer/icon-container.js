@@ -26,6 +26,8 @@ export const attachIconContainerTo = (element) => {
       this.#upgradeProperty("height");
       this.#upgradeProperty("width");
       this.#upgradeProperty("color");
+
+      this.style.display = "block";
     }
 
     get height() {
@@ -37,6 +39,7 @@ export const attachIconContainerTo = (element) => {
 
       const iconContainer = this.#getIconContainer();
       iconContainer.style.setProperty("--icon-container-height", value);
+      this.style.height = !this.height ? "auto " : "min-content";
     }
 
     get width() {
@@ -48,6 +51,7 @@ export const attachIconContainerTo = (element) => {
 
       const iconContainer = this.#getIconContainer();
       iconContainer.style.setProperty("--icon-container-width", value);
+      this.style.width = !this.width ? "auto " : "min-content";
     }
 
     get color() {
