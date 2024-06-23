@@ -57,7 +57,6 @@ declare module 'vue' {
     HeroUserCircleSolid: typeof import('@heroicons/vue/24/solid')['UserCircleIcon']
     HeroXMarkSolid: typeof import('@heroicons/vue/24/solid')['XMarkIcon']
     IconButton: typeof import('./src/components/containers/IconButton.vue')['default']
-    IconContainer: typeof import('./src/components/containers/IconContainer.vue')['default']
     LayerPanel: typeof import('./src/components/layers/LayerPanel.vue')['default']
     LinkedAccountContent: typeof import('./src/pages/all-page/articles/ddd-article/components/3-data-access-layer/linked-account/LinkedAccountContent.vue')['default']
     LinkedAccountTitle: typeof import('./src/pages/all-page/articles/ddd-article/components/3-data-access-layer/linked-account/LinkedAccountTitle.vue')['default']

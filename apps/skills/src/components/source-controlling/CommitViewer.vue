@@ -3,20 +3,20 @@
   <template
     v-for="change of commit.changes"
   >
-    <IconContainer
+    <fsj-icon-container
       v-if="change.modification === 'Create'"
       class="change-indicator-created"
       width="1rem"
     >
       <HeroPlusSolid />
-    </IconContainer>
-    <IconContainer
+    </fsj-icon-container>
+    <fsj-icon-container
       v-if="change.modification === 'Delete'"
       class="change-indicator-deleted"
       width="1rem"
     >
       <HeroMinusSolid />
-    </IconContainer>
+    </fsj-icon-container>
     <span class="commit-viewer-file-path">{{ change.filePath }}</span>
   </template>
 </article>

@@ -1,12 +1,12 @@
 <template>
 <TransitionGroup name="travelling-message">
   <template v-for="m of messages" :key="m">
-    <IconContainer
+    <fsj-icon-container
       :class="`animated-travelling-message ${messageClasses}`"
       height="1.5rem"
     >
       <HeroEnvelopeSolid />
-    </IconContainer>
+    </fsj-icon-container>
   </template>
 </TransitionGroup>
 </template>
@@ -44,7 +44,7 @@ const exitEndX = computed(() => movingRight.value ? "60%" : "-60%");
 </script>
 
 <style scoped>
-div { /* carefully not overriding the specificity of the exit animation */
+fsj-icon-container { /* carefully not overriding the specificity of the exit animation */
   animation: travellingMessage forwards v-bind(animationDurationInMs);
 }
 

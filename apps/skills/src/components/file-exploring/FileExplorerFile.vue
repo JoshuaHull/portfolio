@@ -3,9 +3,9 @@
   class="file-explorer-file file-explorer-item"
   tabindex="0"
 >
-  <IconContainer width="1em">
+  <fsj-icon-container width="1em">
     <HeroDocumentSolid class="file-explorer-file-icon" />
-  </IconContainer>
+  </fsj-icon-container>
   <slot></slot>
   <IconButton
     width="1em"

@@ -6,9 +6,9 @@
   @keypress.space="handleClick"
   @keypress.enter="handleClick"
 >
-  <IconContainer width="1em">
+  <fsj-icon-container width="1em">
     <HeroFolderSolid class="file-explorer-folder-icon" />
-  </IconContainer>
+  </fsj-icon-container>
   <slot></slot>
   <IconButton
     width="1em"

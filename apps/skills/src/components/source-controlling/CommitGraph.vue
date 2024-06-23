@@ -8,13 +8,13 @@
     @keypress.enter="() => handleCommitSelected(commit)"
     @keypress.space="() => handleCommitSelected(commit)"
   >
-    <IconContainer
+    <fsj-icon-container
       class="commit-avatar"
       height="2rem"
       width="6rem"
     >
-      <HeroUserCircleSolid />
-    </IconContainer>
+      <HeroUserCircleSolid class="commit-avatar-icon" />
+    </fsj-icon-container>
     <div class="commit-message">
       {{ commit.message }}
     </div>
@@ -83,8 +83,11 @@ const commits = computed(() => {
   background-color: indianred;
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
-  padding-right: 4rem;
   justify-self: flex-end;
+}
+
+.commit-avatar-icon {
+  padding-right: 4rem;
 }
 
 .commit-avatar::after {

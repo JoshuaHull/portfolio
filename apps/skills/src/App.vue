@@ -3,6 +3,12 @@
 <router-view></router-view>
 </template>
 
+<script setup lang="ts">
+import { registerIconContainer } from "@fullstackjosh/web-components/IconContainer";
+
+registerIconContainer();
+</script>
+
 <style>
 .keyword {
   color: var(--code-block-keyword, blue);

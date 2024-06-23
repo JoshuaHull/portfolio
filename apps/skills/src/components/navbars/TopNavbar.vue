@@ -4,12 +4,12 @@
     aria-label="home"
     :href="homepageLink"
   >
-    <IconContainer
+    <fsj-icon-container
       height="2rem"
       width="2rem"
     >
       <LogoIcon />
-    </IconContainer>
+    </fsj-icon-container>
   </a>
 </nav>
 </template>

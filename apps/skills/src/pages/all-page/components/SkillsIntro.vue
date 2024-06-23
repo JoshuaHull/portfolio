@@ -11,9 +11,9 @@
       The code for this site is available on <a href="https://github.com/JoshuaHull/portfolio/tree/main/apps/skills" target="_blank">GitHub</a>
     </p>
   </section>
-  <IconContainer height="4rem">
+  <fsj-icon-container height="4rem">
     <HeroChevronDoubleDownSolid />
-  </IconContainer>
+  </fsj-icon-container>
 </article>
 </template>
 

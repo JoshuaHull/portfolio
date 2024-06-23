@@ -14,39 +14,39 @@
   </Transition>
   <template v-if="variant === 'pass'">
     <Transition name="fade-in">
-      <IconContainer
+      <fsj-icon-container
         v-if="runState === 'after'"
         class="test-example-icon-container"
         width="5rem"
         color="green"
       >
         <AnimatedCheckIcon />
-      </IconContainer>
+      </fsj-icon-container>
     </Transition>
-    <IconContainer height="2rem" class="bar">
+    <fsj-icon-container height="2rem" class="bar">
       <AnimatedLoadingBar
         data-testid="loading-bar-success"
         :animationDuration="animationDuration"
       />
-    </IconContainer>
+    </fsj-icon-container>
   </template>
   <template v-if="variant === 'fail'">
     <Transition name="fade-in">
-      <IconContainer
+      <fsj-icon-container
         v-if="runState === 'after'"
         class="test-example-icon-container fail"
         width="3.75rem"
         color="red"
       >
         <AnimatedCrossIcon />
-      </IconContainer>
+      </fsj-icon-container>
     </Transition>
-    <IconContainer height="2rem" class="bar">
+    <fsj-icon-container height="2rem" class="bar">
       <AnimatedLoadingBarFailing
         data-testid="loading-bar-fail"
         :animationDuration="animationDuration"
       />
-    </IconContainer>
+    </fsj-icon-container>
   </template>
 </section>
 </template>

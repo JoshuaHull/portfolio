@@ -1,36 +1,36 @@
 <template>
 <article class="messaging-article-content">
   <div class="messaging-servers">
-    <IconContainer
+    <fsj-icon-container
       class="messaging-server grid-area-server1"
       :height="serverIconHeight"
     >
       <HeroServerSolid />
-    </IconContainer>
+    </fsj-icon-container>
     <AnimatedTravellingMessages
       :animationDuration="travellingMessageAnimationDuration"
       :messages="messages"
       messageClasses="grid-area-joiner1"
       variant="NW"
     />
-    <IconContainer
+    <fsj-icon-container
       class="server-joiner grid-area-joiner1"
       :height="joinerIconHeight"
     >
       <ServerJoiningIcon />
-    </IconContainer>
+    </fsj-icon-container>
     <AnimatedTravellingMessages
       :animationDuration="travellingMessageAnimationDuration"
       :messages="messages"
       messageClasses="grid-area-joiner1"
       variant="NE"
     />
-    <IconContainer
+    <fsj-icon-container
       class="messaging-server grid-area-server2"
       :height="serverIconHeight"
     >
       <HeroServerSolid />
-    </IconContainer>
+    </fsj-icon-container>
     <IconButton
       class="grid-area-stack"
       height="5rem"
@@ -48,44 +48,44 @@
       >
         <span v-if="isMediumScreen">click me</span>
         <span v-else>tap me</span>
-        <IconContainer
+        <fsj-icon-container
           class="messaging-clickme-arrow"
           height="1rem"
         >
           <HeroArrowLongLeftSolid />
-        </IconContainer>
+        </fsj-icon-container>
       </div>
     </Transition>
-    <IconContainer
+    <fsj-icon-container
       class="messaging-server grid-area-server3"
       :height="serverIconHeight"
     >
       <HeroServerSolid />
-    </IconContainer>
+    </fsj-icon-container>
     <AnimatedTravellingMessages
       :animationDuration="travellingMessageAnimationDuration"
       :messages="messages"
       messageClasses="grid-area-joiner2"
       variant="SW"
     />
-    <IconContainer
+    <fsj-icon-container
       class="server-joiner rotate-180 grid-area-joiner2"
       :height="joinerIconHeight"
     >
       <ServerJoiningIcon />
-    </IconContainer>
+    </fsj-icon-container>
     <AnimatedTravellingMessages
       :animationDuration="travellingMessageAnimationDuration"
       :messages="messages"
       messageClasses="grid-area-joiner2"
       variant="SE"
     />
-    <IconContainer
+    <fsj-icon-container
       class="messaging-server grid-area-server4"
       :height="serverIconHeight"
     >
       <HeroServerSolid />
-    </IconContainer>
+    </fsj-icon-container>
   </div>
 </article>
 </template>

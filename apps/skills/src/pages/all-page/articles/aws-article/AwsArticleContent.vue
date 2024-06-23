@@ -1,18 +1,18 @@
 <template>
 <article class="aws-article-content">
   <section class="icons">
-    <IconContainer height="10rem">
+    <fsj-icon-container height="10rem">
       <HeroComputerDesktopSolid />
-    </IconContainer>
-    <IconContainer height="10rem">
+    </fsj-icon-container>
+    <fsj-icon-container height="10rem">
       <AwsLambdaIcon />
-    </IconContainer>
-    <IconContainer height="10rem">
+    </fsj-icon-container>
+    <fsj-icon-container height="10rem">
       <AwsApiGatewayIcon />
-    </IconContainer>
-    <IconContainer height="10rem">
+    </fsj-icon-container>
+    <fsj-icon-container height="10rem">
       <AwsDynamoDbIcon />
-    </IconContainer>
+    </fsj-icon-container>
   </section>
 </article>
 </template>
