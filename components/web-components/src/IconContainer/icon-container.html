@@ -1,10 +1,10 @@
-<div class="fsj-reset icon-container">
-  {{#if icon}}
+{{#if icon}}
+  <div class="fsj-reset icon-container">
     {{{icon}}}
-  {{else}}
-    <slot></slot>
-  {{/if}}
-</div>
+  </div>
+{{else}}
+  <slot></slot>
+{{/if}}
 
 <style>
 .fsj-reset {
@@ -21,16 +21,8 @@
 }
 
 .icon-container {
-  width: var(--icon-container-width);
-  height: var(--icon-container-height);
-  color: var(--icon-container-color);
-}
-
-{{{ic_invoke "cssRules" width height color}}}
-
-::slotted(*) {
-  width: var(--icon-container-width);
-  height: var(--icon-container-height);
-  color: var(--icon-container-color);
+  width: {{width}};
+  height: {{height}};
+  color: {{color}};
 }
 </style>

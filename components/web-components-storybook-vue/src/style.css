@@ -48,6 +48,13 @@
   --code-block-cs-number: #d0876e;
 }
 
-pre {
+* {
   margin: 0;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }

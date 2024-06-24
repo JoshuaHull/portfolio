@@ -37,9 +37,8 @@ export const attachIconContainerTo = (element) => {
     set height(value) {
       this.setAttribute("height", value);
 
-      const iconContainer = this.#getIconContainer();
-      iconContainer.style.setProperty("--icon-container-height", value);
-      this.style.height = !this.height ? "auto " : "min-content";
+      this.style.setProperty("--icon-container-height", value);
+      this.style.height = !value ? "auto " : value;
     }
 
     get width() {
@@ -49,9 +48,8 @@ export const attachIconContainerTo = (element) => {
     set width(value) {
       this.setAttribute("width", value);
 
-      const iconContainer = this.#getIconContainer();
-      iconContainer.style.setProperty("--icon-container-width", value);
-      this.style.width = !this.width ? "auto " : "min-content";
+      this.style.setProperty("--icon-container-width", value);
+      this.style.width = !value ? "auto " : value;
     }
 
     get color() {
@@ -61,15 +59,8 @@ export const attachIconContainerTo = (element) => {
     set color(value) {
       this.setAttribute("color", value);
 
-      const iconContainer = this.#getIconContainer();
-      iconContainer.style.setProperty("--icon-container-color", value);
-    }
-
-    /**
-      * @return {HTMLElement}
-      */
-    #getIconContainer() {
-      return this.shadowRoot.querySelector(".icon-container");
+      this.style.setProperty("--icon-container-color", value);
+      this.style.color = !value ? "auto " : value;
     }
 
     /**

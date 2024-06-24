@@ -13,7 +13,7 @@
       height="2rem"
       width="6rem"
     >
-      <HeroUserCircleSolid class="commit-avatar-icon" />
+      <HeroUserCircleSolid />
     </fsj-icon-container>
     <div class="commit-message">
       {{ commit.message }}
@@ -84,9 +84,6 @@ const commits = computed(() => {
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
   justify-self: flex-end;
-}
-
-.commit-avatar-icon {
   padding-right: 4rem;
 }
 
