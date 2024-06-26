@@ -11,6 +11,11 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [
+    (_, { parameters }) => ({
+      template: `<div data-theme="${parameters.theme ?? "light"}"><story /></div>`,
+    }),
+  ],
 };
 
 export default preview;

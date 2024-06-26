@@ -1,23 +1,45 @@
 :root {
+  --color-blue-gray: #333652DD;
+  --color-blue-gray-solid: #333652;
+  --color-blue-gray-dark: #292B44;
   --color-white: #E9EAECDD;
+  --color-white-solid: #E9EAEC;
+  --color-white-dark: #D5D7DBDD;
+  --color-white-dark-solid: #D5D7DB;
   --color-red: #800028;
   --color-red-light: #E32227;
   --color-gray: #808080;
-  --color-blue-gray: #333652DD;
+  --color-space-gray: #232830DD;
+  --color-space-gray-solid: #232830;
   --color-space-gray-dark: #1B1E24DD;
+  --color-green: #338600;
+  --color-mustard: #99AA00AA;
+  --color-teal: #00AA99AA;
+  --color-black: #000000DD;
+  --color-yellow: #FAD02C;
+  --color-cyan: #6AF2F0;
+  --color-turquoise: #01B9CC;
 
   --color-text: var(--color-blue-gray);
   --color-text-inverted: var(--color-white);
   --color-text-disabled: var(--color-gray);
-  --color-fg: var(--color-space-gray-dark);
+  --color-bg: var(--color-white-dark);
+  --color-bg-solid: var(--color-white-dark-solid);
+  --color-bg-inverted: var(--color-blue-gray);
+  --color-fg: var(--color-white);
+  --color-outline: var(--color-blue-gray);
   --color-action: var(--color-white);
   --color-action-bg: var(--color-red);
   --color-action-create: var(--color-green);
   --color-action-delete: var(--color-red-light);
-  --color-border: var(--color-white);
+  --color-link: var(--color-turquoise);
+  --color-border: var(--color-blue-gray);
+  --color-card-text: var(--color-blue-gray);
+  --color-card-bg: var(--color-white);
 
-  background-color: var(--color-blue-gray);
-  color: var(--color-white);
+  color-scheme: light dark;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 
   /* code blocks */
   --code-block-ts-keyword: #b48ead;
@@ -46,6 +68,20 @@
   --code-block-cs-literal: #8fa1b3;
   --code-block-cs-comment: #65737e;
   --code-block-cs-number: #d0876e;
+}
+
+:root:has([data-theme="dark"]) {
+  --color-text: var(--color-white);
+  --color-text-inverted: var(--color-blue-gray);
+  --color-bg: var(--color-space-gray);
+  --color-bg-solid: var(--color-space-blue-solid);
+  --color-bg-inverted: var(--color-white);
+  --color-fg: var(--color-space-gray-dark);
+  --color-outline: var(--color-white);
+  --color-border: var(--color-white);
+  --color-card-text: var(--color-white);
+  --color-card-bg: var(--color-space-gray);
+  --color-link: var(--color-cyan);
 }
 
 /*
