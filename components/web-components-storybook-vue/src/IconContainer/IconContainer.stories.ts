@@ -30,3 +30,11 @@ export const HeroIcon: Story = {
     `,
   }),
 };
+
+export const HeroIconDarkTheme: Story = {
+  ...HeroIcon,
+  name: "Hero Icon (Dark Theme)",
+  parameters: {
+    theme: "dark",
+  },
+};
