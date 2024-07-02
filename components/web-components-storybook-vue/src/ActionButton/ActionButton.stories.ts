@@ -27,6 +27,14 @@ export const Primary: Story = {
   }),
 };
 
+export const PrimaryDarkTheme: Story = {
+  ...Primary,
+  name: "Primary (Dark Theme)",
+  parameters: {
+    theme: "dark",
+  },
+};
+
 export const Disabled: Story = {
   args: {
     disabled: true,
@@ -44,4 +52,12 @@ export const Disabled: Story = {
       </ActionButton>
     `,
   }),
+};
+
+export const DisabledDarkTheme: Story = {
+  ...Disabled,
+  name: "Disabled (Dark Theme)",
+  parameters: {
+    theme: "dark",
+  },
 };

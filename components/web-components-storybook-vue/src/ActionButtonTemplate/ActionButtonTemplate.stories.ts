@@ -15,9 +15,25 @@ export const Primary: Story = {
   },
 };
 
+export const PrimaryDarkTheme: Story = {
+  ...Primary,
+  name: "Primary (Dark Theme)",
+  parameters: {
+    theme: "dark",
+  },
+};
+
 export const Disabled: Story = {
   args: {
     content: "click me",
     disabled: true,
+  },
+};
+
+export const DisabledDarkTheme: Story = {
+  ...Disabled,
+  name: "Disabled (Dark Theme)",
+  parameters: {
+    theme: "dark",
   },
 };
