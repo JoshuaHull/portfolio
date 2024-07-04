@@ -34,6 +34,14 @@ export const OneTab: Story = {
   }),
 };
 
+export const OneTabDarkTheme: Story = {
+  ...OneTab,
+  name: "One Tab (Dark Theme)",
+  parameters: {
+    theme: "dark",
+  },
+};
+
 export const TwoTabsFirstSelected: Story = {
   args: {
     tabCount: 2,
@@ -65,6 +73,14 @@ export const TwoTabsFirstSelected: Story = {
   }),
 };
 
+export const TwoTabsFirstSelectedDarkTheme: Story = {
+  ...TwoTabsFirstSelected,
+  name: "Two Tabs First Selected (Dark Theme)",
+  parameters: {
+    theme: "dark",
+  },
+};
+
 export const TwoTabsSecondSelected: Story = {
   args: {
     tabCount: 2,
@@ -94,6 +110,14 @@ export const TwoTabsSecondSelected: Story = {
       </MultiTabbedDocument>
     `,
   }),
+};
+
+export const TwoTabsSecondSelectedDarkTheme: Story = {
+  ...TwoTabsSecondSelected,
+  name: "Two Tabs Second Selected (Dark Theme)",
+  parameters: {
+    theme: "dark",
+  },
 };
 
 export const ThreeTabsThirdSelected: Story = {
@@ -134,6 +158,14 @@ export const ThreeTabsThirdSelected: Story = {
   }),
 };
 
+export const ThreeTabsThirdSelectedDarkTheme: Story = {
+  ...ThreeTabsThirdSelected,
+  name: "Three Tabs Third Selected (Dark Theme)",
+  parameters: {
+    theme: "dark",
+  },
+};
+
 export const OneTabEditor: Story = {
   name: "One Tab (Editor)",
   args: {
@@ -171,6 +203,14 @@ export const OneTabEditor: Story = {
       </MultiTabbedDocument>
 `,
   }),
+};
+
+export const OneTabEditorDarkTheme: Story = {
+  ...OneTabEditor,
+  name: "One Tab (Editor) (Dark Theme)",
+  parameters: {
+    theme: "dark",
+  },
 };
 
 export const TwoTabsSecondSelectedEditor: Story = {
@@ -228,4 +268,12 @@ export const TwoTabsSecondSelectedEditor: Story = {
       </MultiTabbedDocument>
 `,
   }),
+};
+
+export const TwoTabsSecondSelectedEditorDarkTheme: Story = {
+  ...TwoTabsSecondSelectedEditor,
+  name: "Two Tabs Second Selected (Editor) (Dark Theme)",
+  parameters: {
+    theme: "dark",
+  },
 };

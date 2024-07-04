@@ -20,6 +20,14 @@ export const OneTab: Story = {
   },
 };
 
+export const OneTabDarkTheme: Story = {
+  ...OneTab,
+  name: "One Tab (Dark Theme)",
+  parameters: {
+    theme: "dark",
+  },
+};
+
 export const TwoTabsFirstSelected: Story = {
   args: {
     tabCount: 2,
@@ -29,6 +37,14 @@ export const TwoTabsFirstSelected: Story = {
       "We need to type enough content here to stretch beyond the width of the tab title.",
       "We should type a different amount of content here.",
     ],
+  },
+};
+
+export const TwoTabsFirstSelectedDarkTheme: Story = {
+  ...TwoTabsFirstSelected,
+  name: "Two Tabs First Selected (Dark Theme)",
+  parameters: {
+    theme: "dark",
   },
 };
 
@@ -44,6 +60,14 @@ export const TwoTabsSecondSelected: Story = {
   },
 };
 
+export const TwoTabsSecondSelectedDarkTheme: Story = {
+  ...TwoTabsSecondSelected,
+  name: "Two Tabs Second Selected (Dark Theme)",
+  parameters: {
+    theme: "dark",
+  },
+};
+
 export const ThreeTabsThirdSelected: Story = {
   args: {
     tabCount: 3,
@@ -55,6 +79,14 @@ export const ThreeTabsThirdSelected: Story = {
       `Then finally, we introduce a third tab. We'll also use this tab to make sure HTML <br />
       renders properly in the document content. <em>And it does</em>.`,
     ],
+  },
+};
+
+export const ThreeTabsThirdSelectedDarkTheme: Story = {
+  ...ThreeTabsThirdSelected,
+  name: "Three Tabs Third Selected (Dark Theme)",
+  parameters: {
+    theme: "dark",
   },
 };
 
@@ -84,6 +116,14 @@ export const OneTabEditor: Story = {
        </code></pre>
 `,
     ],
+  },
+};
+
+export const OneTabEditorDarkTheme: Story = {
+  ...OneTabEditor,
+  name: "One Tab (Editor) (Dark Theme)",
+  parameters: {
+    theme: "dark",
   },
 };
 
@@ -130,5 +170,13 @@ export const TwoTabsSecondSelectedEditor: Story = {
        </code></pre>
 `
     ],
+  },
+};
+
+export const TwoTabsSecondSelectedEditorDarkTheme: Story = {
+  ...TwoTabsSecondSelectedEditor,
+  name: "Two Tabs Second Selected (Editor) (Dark Theme)",
+  parameters: {
+    theme: "dark",
   },
 };
