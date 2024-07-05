@@ -18,11 +18,27 @@ export const Primary: Story = {
   },
 };
 
+export const PrimaryDarkTheme: Story = {
+  ...Primary,
+  name: "Primary (Dark Theme)",
+  parameters: {
+    theme: "dark",
+  },
+};
+
 export const HideLineNumbers: Story = {
   args: {
     hideLineNumbers: true,
     content: `export function greetWorld() {
   console.log("Hello, world!");
 }`,
+  },
+};
+
+export const HideLineNumbersDarkTheme: Story = {
+  ...HideLineNumbers,
+  name: "Hide Line Numbers (Dark Theme)",
+  parameters: {
+    theme: "dark",
   },
 };
