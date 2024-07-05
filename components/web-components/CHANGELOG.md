@@ -1,6 +1,13 @@
 # Change Log - @fullstackjosh/web-components
 
-This log was last generated on Wed, 19 Jun 2024 12:39:37 GMT and should not be manually modified.
+This log was last generated on Fri, 05 Jul 2024 14:50:51 GMT and should not be manually modified.
+
+## 0.5.1
+Fri, 05 Jul 2024 14:50:51 GMT
+
+### Patches
+
+- IconContainer sizing fixes
 
 ## 0.5.0
 Wed, 19 Jun 2024 12:39:37 GMT
