@@ -32,6 +32,14 @@ const visits = ref(0);
   },
 };
 
+export const PrimaryDarkTheme: Story = {
+  ...Primary,
+  name: "Primary (Dark Theme)",
+  parameters: {
+    theme: "dark",
+  },
+};
+
 export const HideLineNumbers: Story = {
   args: {
     hideLineNumbers: true,
@@ -52,5 +60,13 @@ const visits = ref(0);
   }
 }
 </style>`,
+  },
+};
+
+export const HideLineNumbersDarkTheme: Story = {
+  ...HideLineNumbers,
+  name: "Hide Line Numbers (Dark Theme)",
+  parameters: {
+    theme: "dark",
   },
 };
